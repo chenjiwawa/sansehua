@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_actionbar_background"
+    android:orientation="horizontal">
+
+    <!--android bug 占位-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/layout_title_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/actionbar_left"
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            android:background="?android:actionBarItemBackground"
+            android:duplicateParentState="true"
+            android:padding="@dimen/dp_12"
+            android:scaleType="centerInside"
+            android:src="@mipmap/icon_back" />
+
+        <View
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/dp_50"
+        android:layout_marginRight="@dimen/dp_50"
+        android:maxLines="1"
+        android:text="@string/app_name"
+        android:textColor="@color/color_actionbar_title"
+        android:textSize="@dimen/font_number_title" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="?android:actionBarItemBackground"
+        android:gravity="center"
+        android:padding="@dimen/dp_12"
+        android:textColor="@color/color_accent"
+        android:textSize="@dimen/font_number_six"
+        android:visibility="gone" />
+
+</RelativeLayout>

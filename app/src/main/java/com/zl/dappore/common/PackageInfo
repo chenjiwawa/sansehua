@@ -1,0 +1,9 @@
+本包主要是存放公共的代码，如下：
+公共对话框  dialog
+各模块的事件类  event
+fragment基类  fragment
+各模块的网络请求  http
+工具类  utils
+公共view   widget
+公共参数、公共常量等 model
+第三方的东西  thirdparty

@@ -1,0 +1,53 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_28"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_white"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/dp_5"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_5"
+            android:textColor="@color/color_accent" />
+
+        <com.qsmaxmin.qsbase.common.widget.ptr.PtrFrameLayout
+            android:id="@+id/swipe_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qsmaxmin.qsbase.common.widget.recyclerview.HeaderFooterRecyclerView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:scrollbars="vertical"/>
+
+        </com.qsmaxmin.qsbase.common.widget.ptr.PtrFrameLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/top_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@mipmap/ic_launcher"
+        android:gravity="center"
+        android:visibility="gone"/>
+
+</RelativeLayout>

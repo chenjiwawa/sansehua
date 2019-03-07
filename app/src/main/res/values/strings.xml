@@ -1,0 +1,265 @@
+<resources>
+    <string name="app_name">Dappore</string>
+    <string name="http_error_msg">网络异常</string>
+    <string name="network_error_msg">网络异常</string>
+    <string name="unexpected_error_msg">未知错误</string>
+
+
+    <!--login-->
+    <string name="login_third_label">社交账号登录</string>
+    <string name="login_qq">登录</string>
+    <string name="login_wx">登录</string>
+    <string name="login_bottomtip">登录即同意</string>
+    <string name="login_bottomtip_agreement">《注册用户服务条款》</string>
+    <string name="login_no">暂不登录</string>
+    <string name="login_agreement">登录即同意遵守</string>
+    <string name="login_agreement_name">《字体商城用户协议》</string>
+    <string name="setting_title">设置</string>
+    <string name="login_title">登录</string>
+    <string name="setting_aboutus_title">关于我们</string>
+    <string name="setting_agreemment_title">手迹字体许可协议</string>
+    <string name="setting_feedback_title">用户反馈</string>
+    <string name="font_show_outer">字体预览</string>
+    <string name="login_cancel">取消登录</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_channel">登录方式</string>
+    <string name="third_login_channel">第三方登录</string>
+    <string name="qq">QQ</string>
+    <string name="wechat">微信</string>
+    <string name="phone">手机</string>
+
+    <string name="refreshing">刷新中…</string>
+    <string name="loading">加载中…</string>
+    <string name="tip_title">温馨提示</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="download_tips">将使用移动数据网络下载文件？</string>
+    <string name="download">下载</string>
+    <string name="network_disable_tips">网络不可用</string>
+    <string name="click_open">点击打开%1$s</string>
+    <string name="download_success">下载成功</string>
+    <string name="download_fail">下载失败</string>
+    <string name="make_dir_fail">创建文件夹失败</string>
+    <string name="downloading">下载中</string>
+    <string name="parameter_lose">缺少参数</string>
+    <string name="go_on">继续</string>
+    <string name="complete">完成</string>
+    <string name="waiting">等待</string>
+    <string name="connecting">连接中</string>
+    <string name="data_error">数据错误</string>
+    <string name="start_download">开始下载</string>
+    <string name="already_download_in">已开始下载</string>
+    <string name="push_to_refresh">上拉加载</string>
+    <string name="fragment_empty">空布局</string>
+
+
+    <!--首页-->
+    <string name="homepage_title">首页</string>
+    <string name="find_title">发现</string>
+    <string name="media_title">视频</string>
+    <string name="mine_title">我的</string>
+
+    <string name="recommend_title">推荐</string>
+    <string name="rank_title">排名</string>
+    <string name="category_title">分类</string>
+
+    <string name="hot_title">热门榜</string>
+    <string name="new_title">新品榜</string>
+    <string name="dapp_title">dapp榜</string>
+
+    <!--登录注册-->
+    <string name="user_2_login">去登录</string>
+    <string name="user_2_register">新用户注册</string>
+
+    <string name="sort_type_new">最新推荐</string>
+    <string name="sort_type_hot">最热推荐</string>
+    <string name="sort_type_score">评分最高</string>
+
+    <!--搜索-->
+    <string name="search_find_title">帖子</string>
+    <string name="search_media_title">视频</string>
+    <string name="search_app_title">应用</string>
+
+    <!--个人信息-->
+    <string name="personal_media_title">视频</string>
+    <string name="personal_topic_title">帖子</string>
+
+    <!--splash-->
+    <string name="splash_tips">%s版本</string>
+    <string name="click_in">立即进入</string>
+    <string name="see">查看</string>
+
+    <!--common-->
+    <string name="error_page_msg1">网络不给力！</string>
+    <string name="error_page_msg2">点击刷新试试！</string>
+    <string name="no_more">好厉害，已经到底了</string>
+    <string name="str_commit">提交</string>
+    <string name="select_all">全选</string>
+    <string name="tip_sdcard_permission_not_allow">禁止SD卡写入将无法缓存图片和下载字体</string>
+    <string name="data_error_please_try_again">数据传递错误，请重试！</string>
+    <string name="fragment_loading_text">加载中…</string>
+    <string name="tips_title">温馨提示</string>
+    <string name="error_appfontchange_notexits">字体文件不存在！</string>
+    <string name="errot_appfontchange__ttferror">字体文件无法读取！</string>
+    <string name="setting_cachecleared">缓存已清空</string>
+    <string name="unknow_link">未知跳转</string>
+    <string name="loading_error">加载失败，</string>
+    <string name="please_try_again">请重新加载！</string>
+
+
+    <!--SD卡文件目录-->
+    <string name="path_parent">FounderMyFonts/</string>
+    <string name="path_image_cache">img_cache/</string>
+    <string name="ttf_temp">ttf_temp/</string>
+    <string name="path_img">img/</string>
+    <string name="path_download">MyDownload/</string>
+    <string name="path_hiboom">boomstyle/</string>
+
+    <!--ActivityPotionsCompact跳转Flags-->
+    <string name="activity_options_compat_photo_view">activity_options_compat_photo_view</string>
+    <string name="activity_options_compat_photo_cut">activity_options_compat_photo_cut</string>
+    <string name="activity_options_compat_splash">activity_options_compat_splash</string>
+    <string name="activity_options_compat_search">activity_options_compat_search</string>
+
+    <!--注册，登录，找回密码-->
+    <string name="set_password">设置密码</string>
+    <string name="please_input_phone_number">请输入手机号码</string>
+    <string name="please_input_verify_code">请输入验证码</string>
+    <string name="please_input_new_password">请输入新密码</string>
+    <string name="please_set_login_password">请设置登录密码</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="send_verify_code">获取验证码</string>
+    <string name="send_verify_code_success">发送成功</string>
+    <string name="activity_dlg_alarm">温馨提示</string>
+    <string name="oauth_phone_null">手机号码不能为空！</string>
+    <string name="oauth_phone_error">手机号错误</string>
+    <string name="getback_password">找回密码</string>
+    <string name="password_tips">密码为6–20位英文或数字</string>
+    <string name="you_hasnot_register">您还没注册，请先注册。</string>
+    <string name="bind_password_tips">密码为6–20位英文或数字，绑定成功可直接用手机号登录，还可以找回密码</string>
+    <string name="forget_password">忘记密码？</string>
+    <string name="send_verify_again">重新获取</string>
+    <string name="password_length_not_match">密码位数错误</string>
+    <string name="phone_and_password_cannot_empty">手机号和密码不能为空</string>
+    <string name="login_message">账号可在手迹字体云平台、手迹造字、手迹字体秀、手迹表情秀登录使用</string>
+    <string name="register">手机注册</string>
+    <string name="phone_register">手机注册</string>
+    <string name="register_complete">完成注册</string>
+    <string name="login">登录</string>
+    <string name="count_down">倒计时%ss</string>
+    <string name="match_number_character">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="go_to_login">去登录</string>
+    <string name="go_to_register">去注册</string>
+    <string name="get_back_password_success">新密码设置成功</string>
+    <string name="this_phone_has_logined">该手机号已在手迹字体平台注册过</string>
+    <string name="two_full_space">  %s</string>
+    <string name="str_htc_fontsettip">字体已安装，请到“设置-个性化设置”里设置字体样式</string>
+    <string name="fontcomments_title">评论</string>
+    <string name="null_fontcommentslist">还没有任何评分</string>
+    <string name="detail_score_repeat">您已评过本字体</string>
+
+    <!--个人中心-->
+    <string name="photo_dir_list_title">相册</string>
+    <string name="photo_list_title">最近照片</string>
+    <string name="dir">相册</string>
+    <string name="camera_photo">拍摄照片</string>
+    <string name="nick_not_null">昵称不能为空！</string>
+    <string name="str_change_bind">更改绑定</string>
+    <string name="str_click_bind">未绑定</string>
+    <string name="move_zoom">移动与缩放</string>
+    <string name="str_series_font">系列字体</string>
+
+    <!--自媒体选择图片-->
+    <string name="minnum">最少选择一张图片</string>
+    <string name="maxnum">最多选择%1$d张图片</string>
+    <string name="all_images">所有图片</string>
+    <string name="sd_disable">SD卡不可用</string>
+    <string name="image">图片</string>
+    <string name="takephoto">拍照</string>
+    <string name="confirm_format">%1$s(%2$d/%3$d)</string>
+    <string name="confirm">确定</string>
+    <string name="open_camera_failure">打开相机失败</string>
+    <string name="permission_storage_denied">请打开存储空间权限</string>
+    <string name="permission_camera_denied">请打开相机权限</string>
+    <string name="content_miss">是否保存当前编辑内容！</string>
+    <string name="content_share">发布成功，是否分享字媒体内容？</string>
+    <string name="to_write_article">去写字媒体</string>
+    <string name="str_empty"></string>
+    <string name="no_media">您还没有发表过，赶快去写吧！</string>
+    <string name="media_share_content">我写了一段文字\n只允许你偷偷看一眼！</string>
+<!--    <string name="ok$d">确定(%1$d/10)</string>-->
+    <string name="ok_d">确定(%1$d/10)</string>
+
+    <!--系列字体列表-->
+    <string name="all">全部</string>
+    <string name="fontCode">编码</string>
+    <string name="fontMode">方式</string>
+    <string name="formater">格式</string>
+    <string name="level">等级</string>
+    <string name="thickness">粗细</string>
+    <string name="new_product_single">单品</string>
+    <string name="new_product_seires">系列</string>
+    <string name="creator_product_hot">最热</string>
+    <string name="creator_product_new">最新</string>
+    <string name="head_is_null">头像为空！</string>
+    <string name="head_uploading">上传中…</string>
+    <string name="account_manage">个人中心</string>
+    <string name="make_sure_exit">您确定要退出吗？</string>
+    <string name="login_message_title">完成注册即同意《注册用户服务条款》</string>
+    <string name="str_complete">完成</string>
+    <string name="save">保存</string>
+    <string name="no_save">不保存</string>
+    <string name="save_photo_success">已保存到相册</string>
+    <string name="save_ing">保存中…</string>
+    <string name="send">发 送</string>
+    <string name="choose_app">选择要使用的应用</string>
+    <string name="tip_change_nick">好名字才能凸显自己的个性</string>
+    <string name="send_file">发送文件</string>
+    <string name="str_ensure_clear">您确定要清除所有缓存吗？</string>
+    <string name="str_clear">清除</string>
+    <string name="str_no_need_restore">无需恢复，已是默认字体</string>
+    <string name="str_app_restart">恢复默认字体，应用会重新启动。</string>
+    <string name="str_restore_now">立即恢复</string>
+    <string name="str_font_no_sample">当前字体暂无样张！</string>
+    <string name="recommend_fonts">推荐字体</string>
+    <string name="my_download">下载的字体</string>
+    <string name="delete_fonts">删除字体</string>
+    <string name="str_more_app">更多应用</string>
+
+
+    <!--自升级-->
+    <string name="str_service_start_download">开始下载</string>
+    <string name="str_service_download_finish">下载完成,点击安装。</string>
+    <string name="str_service_download_error">下载失败</string>
+    <string name="str_service_downloading">正在下载</string>
+    <string name="index_new_version_dlg">检测到新版本</string>
+    <string name="index_new_version_dlg_tip">您必须升级至最新版本才能使用，是否立即下载更新？</string>
+    <string name="index_new_version_dlg_cancel">暂不更新</string>
+    <string name="index_new_version_dlg_ok">立即更新</string>
+    <string name="str_settingsOthersActivity_tip">提示</string>
+    <string name="str_settingsOthersActivity_ok">好的</string>
+    <string name="str_settingsOthersActivity_new_version">新版本</string>
+    <string name="str_settingsOthersActivity_download_now">是否立即下载更新？</string>
+    <string name="str_settingsOthersActivity_no_reverse">暂不更新</string>
+    <string name="str_settingsOthersActivity_reverse_now">立即更新</string>
+    <string name="str_settingsOthersActivity_is_newest">当前为最新版本</string>
+    <string name="str_settingsOthersActivity_connect_fail">连接服务器失败</string>
+    <string name="login_tip_title">提示</string>
+    <string name="login_tip_wxnull">请在手机上安装微信客户端。</string>
+    <string name="login_tip_qqnull">请在手机上安装QQ客户端。</string>
+    <string name="dlgbtn_str_ok">好的</string>
+    <string name="login_failed">登录失败，请重试</string>r/n/r/r
+    <string name="login_failed_pwderror">密码错误</string>
+    <string name="update_checking">正在检测更新…</string>
+    <string name="alert_maxlength">不超过1000字</string>
+
+    <string name="setting_cacheclearing">清理中，请稍候…</string>
+    <string name="str_about_01">"\u3000\u3000方正手迹，专注于 满足移动互联网时代字体需求，为用户提供个性化字体资源及服务。\n\u3000\u3000手迹造字APP：免费的个人字体生成服务\n\u3000\u3000手迹秀APP：丰富的字体使用场景和字体显示效果，海量字体可供选择。\n\u3000\u3000手迹字体云系列产品，为移动互联网企业及用户提供一站式字体服务。\n\u3000\u3000传承中国汉字文化精髓，将传统文化与现代科技相结合，重新找回汉字背后的温度。方正手迹以让每一位爱好中国字的人都拥有自己独立个性的手写、手绘及创意字库为目标，重新唤起人们对汉字文化的关注和支持，将传统汉字文化发扬光大。"</string>
+
+    <string name="str_import_show">"\u3000\u3000传承中国汉字文化精髓，将传统文化与现代科技相结合，重新找回汉字背后的温度。方正手迹以让每一位爱好中国字的人都拥有自己独立个性的手写、手绘及创意字库为目标，重新唤起人们对汉字文化的关注和支持，将传统汉字文化发扬光大。"</string>
+    <string name="str_about_qq">欢迎联系我们：</string>
+    <string name="str_about_qq_number">QQ群 586338718</string><!--   ¢£¤¥§©®€™-->
+
+    <string name="read_more">show more</string>
+    <string name="read_less">show less</string>
+</resources>

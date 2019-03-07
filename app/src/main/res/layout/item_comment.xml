@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white"
+    android:paddingLeft="19dp"
+    android:paddingRight="19dp"
+    android:paddingBottom="19dp">
+
+    <ImageView
+        android:id="@+id/iv_img_comment"
+        android:layout_width="29dp"
+        android:layout_height="29dp"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_title_comment"
+        style="@style/text_content_six_lightblack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_img_comment"
+        android:layout_toRightOf="@+id/iv_img_comment"
+        android:text="name"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_img_comment"
+        android:layout_toRightOf="@+id/iv_img_comment"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.zl.dappore.common.widget.BeautyRatingBar
+            android:id="@+id/rb_score_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="11dp"
+            android:gravity="center_horizontal"
+            app:rb_emptyStar="@mipmap/ic_star_unselect"
+            app:rb_fillStar="@mipmap/ic_star_select"
+            app:rb_isIndicator="true"
+            app:rb_numStars="5"
+            app:rb_rating="5"
+            app:rb_starMargin="4dp"
+            app:rb_stepSize="0.5" />
+
+        <TextView
+            android:id="@+id/tv_score_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9.5"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/font_size_two"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_time_comment"
+        style="@style/text_content_six_lightgray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="6dp"
+        android:text="9.5" />
+
+    <TextView
+        android:id="@+id/tv_des_comment"
+        style="@style/text_content_four_lightblack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_img_comment"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@id/iv_img_comment"
+        android:lineSpacingMultiplier="1.1"
+        android:text="des" />
+
+    <RelativeLayout
+        android:id="@+id/rl_like_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_des_comment"
+        android:layout_toRightOf="@id/iv_img_comment">
+
+        <TextView
+            android:id="@+id/tv_like_comment"
+            style="@style/text_content_five_lightgray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:drawableLeft="@drawable/selector_bg_like"
+            android:drawablePadding="8dp"
+            android:text="des" />
+
+    </RelativeLayout>
+
+    <TextView
+        style="@style/text_content_five_lightgray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_des_comment"
+        android:layout_alignTop="@id/rl_like_comment"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="9dp"
+        android:text="•••"
+        android:visibility="gone" />
+
+</RelativeLayout>

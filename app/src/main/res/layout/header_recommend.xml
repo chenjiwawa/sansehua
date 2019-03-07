@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_head_recommend"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_bg"
+    android:gravity="center_horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rl_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:clipChildren="false">
+
+        <ImageView
+            android:id="@+id/iv_banner_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/bg_default" />
+
+        <com.qsmaxmin.qsbase.common.widget.viewpager.autoscroll.AutoScrollViewPager
+            android:id="@+id/asvp_banner"
+            android:layout_width="match_parent"
+            android:layout_height="134dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:clipChildren="false"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:transitionName="transitionName"
+            tools:targetApi="lollipop" />
+
+        <com.qsmaxmin.qsbase.common.widget.viewpager.autoscroll.CirclePageIndicator
+            android:id="@+id/icpi_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/asvp_banner"
+            android:layout_marginTop="10dp"
+            app:cpi_Centered="true"
+            app:cpi_OutsideColor="@color/transparent"
+            app:cpi_Radius="3dp"
+            app:cpi_SelectedColor="#33000000"
+            app:cpi_Transform_mode="scale"
+            app:cpi_UnSelectedColor="#1A000000" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_banner"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginRight="14dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/iv_banner_recommend_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/bg_remmend_app"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/tv_recommend_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_banner_recommend_app"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="90dp"
+            android:gravity="center_vertical|left"
+            android:text="最新推荐：最值得推荐的好玩应用"
+            android:textColor="#636579"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_recommend_app"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_banner"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="153dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_recommend"
+        android:layout_marginTop="29dp"
+        android:gravity="center"
+        android:text="dapp专区"
+        android:textColor="#636579"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

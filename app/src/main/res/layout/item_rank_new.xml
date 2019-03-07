@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F8F8F8">
+
+    <RelativeLayout
+        android:id="@+id/rl_item_rank_new"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/color_white"
+        android:gravity="center"
+        android:paddingRight="14dp">
+
+        <LinearLayout
+            android:id="@+id/ll_pos_rank_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_pos_rank_new"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textColor="#636579"
+                android:textSize="@dimen/font_size_two" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="74dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#33AAAAAA" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_img_rank_new"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/ll_pos_rank_new"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@+id/iv_img_rank_new"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/tv_title_rank_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textStyle="bold"
+                android:textColor="#636579"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_des_rank_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textColor="#8D8FA9"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal">
+
+                <com.zl.dappore.common.widget.BeautyRatingBar
+                    android:id="@+id/rb_score_rank_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:rb_emptyStar="@mipmap/ic_star_unselect"
+                    app:rb_fillStar="@mipmap/ic_star_select"
+                    app:rb_isIndicator="true"
+                    app:rb_numStars="5"
+                    app:rb_rating="5"
+                    app:rb_starMargin="4dp"
+                    app:rb_stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_score_rank_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:gravity="center|left"
+                    android:text="@string/fragment_empty"
+                    android:textColor="@color/color_blue_light"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="31dp"
+            android:paddingBottom="15dp">
+
+            <Button
+                android:id="@+id/iv_download_rank_new"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/ic_app_download" />
+
+            <TextView
+                android:id="@+id/tv_award_rank_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="10金币"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingTop="2dp"
+                android:textColor="#7785F1"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>

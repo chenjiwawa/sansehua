@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zl.dappore.common.widget.CutImageView
+        android:id="@+id/civ_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="@string/activity_options_compat_photo_cut"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_54"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/cut_cancel"
+            style="@style/ButtonText_Login"
+            android:layout_width="@dimen/dp_140"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/selector_bg_gray_half"
+            android:text="@string/cancel"
+            />
+
+        <Button
+            android:id="@+id/cut_ok"
+            style="@style/ButtonText_Login"
+            android:layout_width="@dimen/dp_140"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/ok"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

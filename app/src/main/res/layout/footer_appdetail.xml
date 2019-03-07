@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_bg">
+
+    <RelativeLayout
+        android:id="@+id/rl_input_appdetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white">
+
+        <TextView
+            style="@style/text_content_six_lightgray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="23dp"
+            android:background="@drawable/shape_rect_white_black_stroke"
+            android:drawableLeft="@mipmap/ic_pen_input"
+            android:drawablePadding="8dp"
+            android:focusable="false"
+            android:hint="请输入评论…"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/prl_similar"
+        style="@style/layout_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_input_appdetail"
+        android:layout_marginTop="10dp"
+        android:background="@color/color_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_similar"
+            style="@style/text_content_four_lightblack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/ic_appdetail_more"
+            android:gravity="center_vertical|left"
+            android:text="同类推荐"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_similar_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/color_white" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/text_content_six_lightgray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prl_similar"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:text="— 我也是有底线的 —" />
+
+</RelativeLayout>

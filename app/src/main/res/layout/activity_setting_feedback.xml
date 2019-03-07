@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_feedback_content"
+            style="@style/layout_margin_nobuttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="left|top"
+            android:hint="请提出您的意见，我们将尽快改进…"
+            android:maxLength="1000"
+            android:minLines="8"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_16"
+            android:textColor="@color/color_black_title"
+            android:textColorHint="@color/color_stroke_gray"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:id="@+id/iv_feedback_image"
+            android:layout_width="105dp"
+            android:layout_height="66dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <Button
+            android:id="@+id/btn_feedback_commit"
+            style="@style/ButtonText_Login"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:enabled="false"
+            android:text="提交" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,326 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/TypefaceWindowAnimationStyle</item>
+    </style>
+
+    <!--透明背景，无边距-->
+    <style name="TypefaceTheme.Transparent.NotPadding" parent="TypefaceTheme.Transparent">
+        <item name="android:paddingBottom">0px</item>
+        <item name="android:paddingTop">0px</item>
+        <item name="android:paddingLeft">0px</item>
+        <item name="android:paddingRight">0px</item>
+    </style>
+
+
+    <!-- 系统主题样式 AppTheme-->
+    <style name="TypefaceTheme" parent="AppTheme">
+        <!--actionbar底色-->
+        <item name="colorPrimary">@color/color_bg</item>
+        <item name="colorPrimaryDark">@color/color_black</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!--不使用系统的toolbar-->
+        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="TranslucentTypefaceTheme" parent="TypefaceTheme">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <!-- 背景透明主题样式 -->
+    <style name="TypefaceTheme.Transparent" parent="TypefaceTheme">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!--activity 切换动画-->
+    <style name="TypefaceWindowAnimationStyle" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_out</item>
+
+        <item name="android:activityCloseEnterAnimation">@anim/activity_close_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_out</item>
+    </style>
+
+
+    <!--公共自定义对话框样式-->
+    <style name="Qs_Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation_Dialog</item>
+        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+
+    <!--分享，评分对话框样式-->
+    <style name="evaluate_dialog_style" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation_EvaluateDialog</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <!--公共对话框(SimpleDialog)Style-->
+    <style name="Qs_Dialog_Simple" parent="android:Theme">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/Animation_Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowActionBar" tools:ignore="NewApi">false</item>
+        <item name="android:windowActionModeOverlay" tools:ignore="NewApi">true</item>
+        <item name="android:windowCloseOnTouchOutside" tools:ignore="NewApi">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+
+    <!--线下环境，切换网络的对话框样式-->
+    <style name="exchange_network_dialog_style" parent="evaluate_dialog_style">
+        <item name="android:windowAnimationStyle">@style/Animation_OfflineExchangeNetwork</item>
+    </style>
+
+    <!--动画闪屏页面样式-->
+    <style name="splash_dialog_style" parent="evaluate_dialog_style">
+        <item name="android:windowAnimationStyle">@style/Animation_Splash</item>
+    </style>
+
+    <!--广告闪屏页面样式-->
+    <style name="splash_adverts_dialog_style" parent="evaluate_dialog_style">
+        <item name="android:windowAnimationStyle">@style/Adverts_Animation_Splash</item>
+    </style>
+
+    <!--公共ProgressBar Style-->
+    <style name="Qs_Dialog_ProgressBar" parent="Qs_Dialog_Simple">
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+    <!--Simple对话框动画样式-->
+    <style name="Animation_Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out</item>
+    </style>
+
+    <!--评价对话框动画样式-->
+    <style name="Animation_EvaluateDialog">
+        <item name="android:windowEnterAnimation">@anim/evaluate_dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/evaluate_dialog_out</item>
+    </style>
+    <!--线下环境，切换网络对话框的动画-->
+    <style name="Animation_OfflineExchangeNetwork">
+        <item name="android:windowEnterAnimation">@anim/offline_exchange_network_in</item>
+        <item name="android:windowExitAnimation">@anim/offline_exchange_network_out</item>
+    </style>
+
+    <!--splash dialog切换动画-->
+    <style name="Animation_Splash">
+        <item name="android:windowExitAnimation">@anim/dialog_alpha_out</item>
+    </style>
+    <!--adverts splash dialog切换动画-->
+    <style name="Adverts_Animation_Splash">
+        <item name="android:windowExitAnimation">@anim/adverts_dialog_alpha_out</item>
+    </style>
+
+    <!-- Viewpager -->
+    <style name="QsLayoutViewpager">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--登录页，输入手机号及密码等输入框-->
+    <style name="EditText_Login">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_54</item>
+        <item name="android:paddingLeft">@dimen/dp_12</item>
+        <item name="android:paddingRight">@dimen/dp_12</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:background">@color/color_white</item>
+        <item name="android:textColor">@color/selector_color_accent_gray</item>
+        <item name="android:textColorHint">@color/color_gray</item>
+        <item name="android:textSize">@dimen/font_number_three</item>
+    </style>
+
+    <!--标准按钮（屎黄色）-->
+    <style name="ButtonText_Login">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:layout_marginLeft">@dimen/dp_12</item>
+        <item name="android:layout_marginRight">@dimen/dp_12</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_main</item>
+        <item name="android:text">@string/ok</item>
+        <item name="android:textSize">@dimen/font_number_six</item>
+        <item name="android:background">@drawable/selector_bg_yellow_halfyellow</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="SelTheme" parent="TypefaceTheme"></style>
+
+    <style name="TransBottomSheetDialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+
+    <style name="text_content_12sp_lightblack">
+        <item name="android:textColor">#636579</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="text_content_three_lightblack">
+        <item name="android:textColor">#636579</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_content_four_lightblack">
+        <item name="android:textColor">#636579</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_content_five_lightblack">
+        <item name="android:textColor">#636579</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_content_six_lightblack">
+        <item name="android:textColor">#636579</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <style name="text_content_four_lightred">
+        <item name="android:textColor">@color/color_light_red</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_content_five_lightred">
+        <item name="android:textColor">@color/color_light_red</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_content_six_lightred">
+        <item name="android:textColor">@color/color_light_red</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="text_content_four_lightgray">
+        <item name="android:textColor">#8D8FA9</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_content_five_lightgray">
+        <item name="android:textColor">#8D8FA9</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_content_six_lightgray">
+        <item name="android:textColor">#8D8FA9</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="text_title_one_lightblack">
+        <item name="android:textColor">#636579</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="text_title_three_white">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="text_content_three_white">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="text_content_four_white">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="text_content_five_white">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="text_content_six_white">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="layout_padding">
+        <item name="android:padding">19dp</item>
+    </style>
+
+    <style name="layout_padding_left_right">
+        <item name="android:paddingLeft">19dp</item>
+        <item name="android:paddingRight">19dp</item>
+    </style>
+
+    <style name="layout_padding_notop">
+        <item name="android:paddingLeft">19dp</item>
+        <item name="android:paddingRight">19dp</item>
+        <item name="android:paddingBottom">19dp</item>
+    </style>
+
+    <style name="layout_padding_nobuttom">
+        <item name="android:paddingLeft">19dp</item>
+        <item name="android:paddingRight">19dp</item>
+        <item name="android:paddingTop">19dp</item>
+    </style>
+
+    <style name="layout_margin">
+        <item name="android:layout_margin">19dp</item>
+    </style>
+
+    <style name="layout_margin_left_right">
+        <item name="android:layout_marginLeft">19dp</item>
+        <item name="android:layout_marginRight">19dp</item>
+    </style>
+
+    <style name="layout_margin_notop">
+        <item name="android:layout_marginLeft">19dp</item>
+        <item name="android:layout_marginRight">19dp</item>
+        <item name="android:layout_marginBottom">19dp</item>
+    </style>
+
+    <style name="layout_margin_nobuttom">
+        <item name="android:layout_marginLeft">19dp</item>
+        <item name="android:layout_marginRight">19dp</item>
+        <item name="android:layout_marginTop">19dp</item>
+    </style>
+
+    <style name="TransparentBottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/SheetStyle</item>
+    </style>
+
+    <style name="SheetStyle" parent="android:Widget">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="behavior_peekHeight">auto</item>
+        <item name="behavior_hideable">true</item>
+        <item name="behavior_skipCollapsed">false</item>
+    </style>
+
+</resources>
+

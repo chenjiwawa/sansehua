@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zl.dappore">
+
+    <!-- SD卡创建和删除文件 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- SD卡读写 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:name="com.zl.dappore.DapporeApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.zl.dappore.home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.zl.dappore.account.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.appdetail.AppDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.setting.SettingAboutUsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.search.SearcherActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.web.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.userinfo2.UserInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.userinfo.UserInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.recommendlist.RecommendListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.comment.CommentListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.photo.PhotoCutActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.photo.PhotoViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.photo.PhotoViewLocalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.videodetail.VideoDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+
+        <activity
+            android:name="com.zl.dappore.favorite.FavoriteListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!--友盟-->
+
+        <!--微信-->
+        <activity
+            android:name="com.umeng.soexample.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--新浪微博-->
+        <activity
+            android:name="com.umeng.soexample.weibo.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--qq精简版-->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--这里的scheme是qq分享要用的，100424468为自己申请的appid，真实项目中需要替换-->
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--分享编辑页-->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.UMDefault" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="561cae6ae0f55abd990035bf"></meta-data>
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_toast_money"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_rect_darkgray_24radius"
+    android:gravity="center_vertical"
+    android:paddingLeft="21dp"
+    android:paddingTop="10dp"
+    android:paddingRight="21dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/tv_msg_toast_money"
+        style="@style/text_content_four_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="视频留言" />
+
+    <ImageView
+        android:id="@+id/iv_note_toast_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:src="@mipmap/ic_money"
+        android:layout_toRightOf="@id/tv_msg_toast_money" />
+
+    <TextView
+        android:id="@+id/tv_note_toast_money"
+        style="@style/text_content_four_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/iv_note_toast_money"
+        android:text="+5"
+        android:textColor="#FFCF00"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

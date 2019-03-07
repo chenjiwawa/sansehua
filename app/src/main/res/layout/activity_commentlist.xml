@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_bg">
+
+    <RelativeLayout
+        android:id="@android:id/custom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/rl_comment_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_white">
+
+        <LinearLayout
+            android:id="@+id/ll_score_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <com.zl.dappore.common.widget.BeautyRatingBar
+                android:id="@+id/rb_score_input"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:gravity="center_vertical"
+                app:rb_emptyStar="@mipmap/ic_comment_star_unselect"
+                app:rb_fillStar="@mipmap/ic_comment_star_select"
+                app:rb_isIndicator="false"
+                app:rb_numStars="5"
+                app:rb_rating="5"
+                app:rb_starMargin="15dp"
+                app:rb_stepSize="0.5" />
+
+            <TextView
+                android:id="@+id/tv_score_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19dp"
+                android:text="10分"
+                android:textColor="#7785F1"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_content_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_score_input"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="67dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/shape_rect_white_black_stroke"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/iv_icon_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_pen_input" />
+
+            <EditText
+                android:id="@+id/et_content_input"
+                style="@style/text_content_six_lightgray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/iv_icon_input"
+                android:background="@null"
+                android:focusable="true"
+                android:hint="请输入评论…" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_coment_input"
+            style="@style/text_content_four_lightblack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rl_content_input"
+            android:layout_alignBottom="@+id/rl_content_input"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="19dp"
+            android:gravity="center"
+            android:text="发布"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+</RelativeLayout>
+
+

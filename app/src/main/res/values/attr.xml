@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--FlowLayout-->
+    <declare-styleable name="FlowLayout">
+        <attr name="android:orientation" />
+        <attr name="layoutDirection" format="enum">
+            <enum name="ltr" value="0" />
+            <enum name="rtl" value="1" />
+        </attr>
+        <attr name="debugDraw" format="boolean" />
+        <attr name="weightDefault" format="float" />
+        <attr name="android:gravity" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_LayoutParams">
+        <attr name="layout_newLine" format="boolean" />
+        <attr name="layout_weight" format="float" />
+        <attr name="android:layout_gravity" />
+    </declare-styleable>
+
+    <!--BeautyRatingBar属性-->
+    <declare-styleable name="BeautyRatingBar" tools:ignore="ResourceName">
+        <attr name="rb_numStars" format="integer" />
+        <attr name="rb_rating" format="float" />
+        <attr name="rb_stepSize" format="float" />
+        <attr name="rb_isIndicator" format="boolean" />
+        <attr name="rb_fillStar" format="reference" />
+        <attr name="rb_emptyStar" format="reference" />
+        <attr name="rb_starMargin" format="dimension" />
+    </declare-styleable>
+
+    <!--    ReadMoreTextView     -->
+    <declare-styleable name="ExpandTxtTextView">
+        <attr name="trimExpandedText" format="string" />
+        <attr name="trimCollapsedText" format="string" />
+        <attr name="trimLength" format="integer" />
+        <attr name="showTrimExpandedText" format="boolean" />
+        <attr name="colorClickableText" format="color" />
+        <attr name="trimLines" format="integer" />
+        <attr name="trimMode">
+            <enum name="trimModeLine" value="0" />
+            <enum name="trimModeLength" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!--    ExpandIconTextView     -->
+    <declare-styleable name="ExpandIconTextView">
+        <attr name="eitv_trimExpandedDrawable" format="string" />
+        <attr name="eitv_trimCollapsedDrawable" format="string" />
+        <attr name="eitv_trimLength" format="integer" />
+        <attr name="eitv_showTrimExpandedText" format="boolean" />
+        <attr name="eitv_trimLines" format="integer" />
+        <attr name="eitv_trimMode">
+            <enum name="eitv_trimModeLine" value="0" />
+            <enum name="eitv_trimModeLength" value="1" />
+        </attr>
+    </declare-styleable>
+
+</resources>

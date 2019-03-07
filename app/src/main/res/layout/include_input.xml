@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_content_input"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="19dp"
+    android:paddingTop="9dp"
+    android:paddingRight="19dp"
+    android:paddingBottom="9dp">
+
+    <ImageView
+        android:id="@+id/iv_icon_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_delete" />
+
+    <EditText
+        android:id="@+id/et_content_input"
+        style="@style/text_content_five_lightgray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_icon_input"
+        android:focusable="false"
+        android:hint="请输入评论…" />
+
+</RelativeLayout>
+

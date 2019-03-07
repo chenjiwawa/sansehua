@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#171717">
+
+    <RelativeLayout
+        android:id="@+id/rl_play_video_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:visibility="visible">
+
+        <fragment
+            android:id="@+id/f_play_video_detail"
+            android:name="com.zl.dappore.videodetail.fragment.VideoPlayerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_info_video_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0dp">
+
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:singleLine="true"
+            android:text="-0"
+            android:textColor="@color/color_red"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <com.zl.dappore.common.widget.LoveRelativeLayout
+            android:id="@+id/ll_love_video_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="99dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_logo_video_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ll_logo_video_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/shape_circle_white"
+                    android:gravity="center"
+                    android:padding="2dp">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/iv_logo_video_detail"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@mipmap/ic_logo_default"
+                        android:scaleType="centerCrop" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_watch_video_detail"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_alignBottom="@+id/ll_logo_video_detail"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="-10dp"
+                    android:background="@mipmap/ic_unwatch" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_praise_video_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <com.like.LikeButton
+                    android:id="@+id/btn_like_video_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon_size="30dp"
+                    app:icon_type="heart"
+                    app:like_drawable="@mipmap/ic_praise_select"
+                    app:unlike_drawable="@mipmap/ic_praise_unselect" />
+
+                <TextView
+                    android:id="@+id/tv_praise_video_detail"
+                    style="@style/text_content_six_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/btn_like_video_detail"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="12dp"
+                    android:singleLine="true"
+                    android:text="-1.2w" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_commentinfo_video_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_commentinfo_video_detail"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_margin="7dp"
+                    android:background="@mipmap/ic_coment_video" />
+
+                <TextView
+                    android:id="@+id/tv_commentinfo_video_detail"
+                    style="@style/text_content_six_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_commentinfo_video_detail"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="-1.2w" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_comment_award_video_detail"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignTop="@+id/iv_commentinfo_video_detail"
+                    android:layout_alignRight="@+id/iv_commentinfo_video_detail"
+                    android:layout_marginTop="-7dp"
+                    android:layout_marginRight="-7dp"
+                    android:background="@mipmap/ic_award" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_share_video_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_share_video_detail"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_margin="7dp"
+                    android:background="@mipmap/ic_share_video" />
+
+                <TextView
+                    android:id="@+id/tv_share_video_detail"
+                    style="@style/text_content_six_white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_share_video_detail"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="1.2w" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_share_award_video_detail"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignTop="@+id/iv_share_video_detail"
+                    android:layout_alignRight="@+id/iv_share_video_detail"
+                    android:layout_marginTop="-7dp"
+                    android:layout_marginRight="-7dp"
+                    android:background="@mipmap/ic_award" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_gift_video_detail"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_above="@+id/ll_author_video_detail"
+            android:layout_marginLeft="19dp"
+            android:layout_marginBottom="12dp"
+            android:background="@mipmap/bg_gift">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/bg_progress_gift" />
+
+            <com.dinuscxj.progressbar.CircleProgressBar
+                android:id="@+id/pb_gift_video_detail"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_centerInParent="true"
+                app:progress_background_color="#FFECE5"
+                app:progress_end_color="#C30E23"
+                app:progress_start_color="#E8B34D"
+                app:progress_stroke_width="4dp"
+                app:progress_text_color="@color/transparent"
+                app:style="solid_line" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_gift_video_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/ic_gift" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_author_video_detail"
+            style="@style/layout_padding_notop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title_video_detail"
+                style="@style/text_content_four_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:singleLine="true"
+                android:text="-1.2w"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_des_video_detail"
+                style="@style/text_content_six_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:ellipsize="end"
+                android:gravity="left|center_vertical"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="3"
+                android:text="塔西目前是意大利U17队的领军人物，布雷西亚主席科里奥尼把他比作巴乔二世他曾如此赞赏(Appreciation)：““在罗伯特-巴乔退役之后，我希望1995年出生的洛伦佐-塔西能够迅速布雷西亚的新巴乔，期望他能早日在一线队有所表现。" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/test2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:singleLine="true"
+            android:text="-0"
+            android:textColor="@color/color_red"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_show_comment_video_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</FrameLayout>

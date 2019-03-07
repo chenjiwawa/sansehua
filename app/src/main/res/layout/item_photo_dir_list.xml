@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_bg_transparent_halftransparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_9"
+        android:paddingLeft="@dimen/dp_12"
+        android:paddingRight="@dimen/dp_12"
+        android:paddingTop="@dimen/dp_9">
+
+
+        <ImageView
+            android:id="@+id/iv_header"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_55"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_weight="1"
+            android:text="@string/activity_dlg_alarm"
+            android:textColor="@color/color_accent"
+            android:textSize="@dimen/sp_16"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp_5"
+            android:layout_height="@dimen/dp_13"
+            android:background="@mipmap/ic_mine_item_arrow" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/color_gray"/>
+</LinearLayout>

@@ -1,0 +1,3 @@
+该模块用途：
+    1，ImageLoadTask:异步获取sd卡下的jpeg和png文件，并返回ImageGroup集合
+    2，LocalImageLoader：异步的本地图片加载工具，可以缩放到指定大小，减少内存开支

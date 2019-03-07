@@ -1,0 +1,4 @@
+图片处理模块：
+    1，图片裁切功能，传入参数是本地图片的path(PhotoCutActivity)
+    2，本地图片列表浏览功能，展示的是所有的本地图片，并按照时间的先后顺序排列（PhotoViewLocalActivity）
+    3，网络图片Viewpager浏览功能，支持缩放、左右滑动浏览等功能（PhotoViewActivity）

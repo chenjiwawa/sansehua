@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_item_recommend"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="14dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginRight="14dp"
+    android:layout_marginBottom="7dp"
+    android:background="#F8F8F8"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_item_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#6373EB"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="11dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:paddingRight="13dp"
+        android:paddingBottom="11dp">
+
+        <TextView
+            android:id="@+id/tv_title_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fragment_empty"
+            android:textColor="@color/color_white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_main_more" />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_item1_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@color/color_white"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:paddingRight="14dp">
+
+        <LinearLayout
+            android:id="@+id/ll_pos_item1_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_pos_item1_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:padding="8dp"
+                android:textColor="#636579"
+                android:textSize="@dimen/font_size_two" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="84dp"
+                android:background="#33AAAAAA" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_img_item1_recommend"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/ll_pos_item1_recommend"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@+id/iv_img_item1_recommend"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/tv_title_item1_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textStyle="bold"
+                android:textColor="#636579"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_des_item1_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textColor="#8D8FA9"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal">
+
+                <com.zl.dappore.common.widget.BeautyRatingBar
+                    android:id="@+id/rb_score_item1_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:rb_emptyStar="@mipmap/ic_star_unselect"
+                    app:rb_fillStar="@mipmap/ic_star_select"
+                    app:rb_isIndicator="true"
+                    app:rb_numStars="5"
+                    app:rb_rating="5"
+                    app:rb_starMargin="4dp"
+                    app:rb_stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_score_item1_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:gravity="center|left"
+                    android:text="@string/fragment_empty"
+                    android:textColor="@color/color_blue_light"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="31dp"
+            android:paddingBottom="15dp">
+
+            <Button
+                android:id="@+id/iv_download_item1_recommend"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/ic_app_download" />
+
+            <TextView
+                android:id="@+id/tv_award_item1_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="10金币"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingTop="2dp"
+                android:textColor="#7785F1"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_item2_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/color_white"
+        android:gravity="center"
+        android:paddingRight="14dp">
+
+        <LinearLayout
+            android:id="@+id/ll_pos_item2_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_pos_item2_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:padding="8dp"
+                android:textColor="#636579"
+                android:textSize="@dimen/font_size_two" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="84dp"
+                android:background="#33AAAAAA" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_img_item2_recommend"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/ll_pos_item2_recommend"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@+id/iv_img_item2_recommend"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/tv_title_item2_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textStyle="bold"
+                android:textColor="#636579"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_des_item2_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textColor="#8D8FA9"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal">
+
+                <com.zl.dappore.common.widget.BeautyRatingBar
+                    android:id="@+id/rb_score_item2_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:rb_emptyStar="@mipmap/ic_star_unselect"
+                    app:rb_fillStar="@mipmap/ic_star_select"
+                    app:rb_isIndicator="true"
+                    app:rb_numStars="5"
+                    app:rb_rating="5"
+                    app:rb_starMargin="4dp"
+                    app:rb_stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_score_item2_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:gravity="center|left"
+                    android:text="@string/fragment_empty"
+                    android:textColor="@color/color_blue_light"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="31dp"
+            android:paddingBottom="15dp">
+
+            <Button
+                android:id="@+id/iv_download_item2_recommend"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/ic_app_download" />
+
+            <TextView
+                android:id="@+id/tv_award_item2_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="10金币"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingTop="2dp"
+                android:textColor="#7785F1"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_item3_recommend"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:paddingRight="14dp">
+
+        <LinearLayout
+            android:id="@+id/ll_pos_item3_recommend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_pos_item3_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:padding="8dp"
+                android:textColor="#636579"
+                android:textSize="@dimen/font_size_two" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="84dp"
+                android:background="#33AAAAAA" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_img_item3_recommend"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/ll_pos_item3_recommend"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="50dp"
+            android:layout_toRightOf="@+id/iv_img_item3_recommend"
+            android:gravity="center_vertical|left"
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/tv_title_item3_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textStyle="bold"
+                android:textColor="#636579"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_des_item3_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/fragment_empty"
+                android:textColor="#8D8FA9"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal">
+
+                <com.zl.dappore.common.widget.BeautyRatingBar
+                    android:id="@+id/rb_score_item3_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:rb_emptyStar="@mipmap/ic_star_unselect"
+                    app:rb_fillStar="@mipmap/ic_star_select"
+                    app:rb_isIndicator="true"
+                    app:rb_numStars="5"
+                    app:rb_rating="5"
+                    app:rb_starMargin="4dp"
+                    app:rb_stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_score_item3_recommend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:gravity="center|left"
+                    android:text="@string/fragment_empty"
+                    android:textColor="@color/color_blue_light"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="31dp"
+            android:paddingBottom="15dp">
+
+            <Button
+                android:id="@+id/iv_download_item3_recommend"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@mipmap/ic_app_download" />
+
+            <TextView
+                android:id="@+id/tv_award_item3_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="10金币"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingTop="2dp"
+                android:textColor="#7785F1"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

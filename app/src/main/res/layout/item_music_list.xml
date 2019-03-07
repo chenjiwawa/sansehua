@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout_padding_left_right"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F8F8F8"
+    android:orientation="vertical"
+    android:paddingTop="7.5dp"
+    android:paddingBottom="7.5dp">
+
+    <RelativeLayout
+        android:id="@+id/rl_item_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_img_music_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_img_music_list"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:id="@+id/iv_play_music_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_play_audio_list" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_name_music_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="80dp"
+            android:layout_toRightOf="@id/rl_img_music_list"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#636579"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_author_music_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name_music_list"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="80dp"
+            android:layout_toRightOf="@id/rl_img_music_list"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#8D8FA9"
+            android:textSize="12sp" />
+
+
+        <Button
+            android:id="@+id/btn_select_music_list"
+            android:layout_width="54dp"
+            android:layout_height="23dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shape_rect_green_12"
+            android:text="使用"
+            android:textColor="@color/color_white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0FFFFFF" />
+</LinearLayout>

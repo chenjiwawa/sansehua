@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="2dp">
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+        android:id="@+id/rl_item_video1_grid"
+        android:layout_width="0dp"
+        android:layout_height="192dp"
+        android:background="@color/color_white"
+        app:layout_widthPercent="33.3%w">
+
+        <ImageView
+            android:id="@+id/iv_img_video1_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bg_login" />
+
+        <Button
+            android:id="@+id/btn_delete_video1_grid"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="9dp"
+            android:background="@mipmap/ic_clean"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_award_video1_grid"
+            android:layout_width="21dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="11dp"
+            android:background="@mipmap/ic_reward"
+            android:text=""
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/font_size_two" />
+
+        <Button
+            android:id="@+id/btn_watch_video1_grid"
+            style="@style/text_content_six_white"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="11dp"
+            android:background="@null"
+            android:drawableLeft="@mipmap/ic_eye"
+            android:drawablePadding="3dp"
+            android:gravity="center_vertical|left"
+            android:text="她"
+            android:textSize="11sp" />
+
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+        android:id="@+id/rl_item_video2_grid"
+        android:layout_width="0dp"
+        android:layout_height="192dp"
+        android:layout_marginLeft="2dp"
+        android:background="@color/color_white"
+        app:layout_widthPercent="33.3%w">
+
+        <ImageView
+            android:id="@+id/iv_img_video2_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bg_login" />
+
+        <Button
+            android:id="@+id/btn_delete_video2_grid"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="9dp"
+            android:background="@mipmap/ic_clean"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_award_video2_grid"
+            android:layout_width="21dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="11dp"
+            android:background="@mipmap/ic_reward"
+            android:text=""
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/font_size_two" />
+
+        <Button
+            android:id="@+id/btn_watch_video2_grid"
+            style="@style/text_content_six_white"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="11dp"
+            android:background="@null"
+            android:drawableLeft="@mipmap/ic_eye"
+            android:drawablePadding="3dp"
+            android:gravity="center_vertical|left"
+            android:text="她"
+            android:textSize="11sp" />
+
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+        android:id="@+id/rl_item_video3_grid"
+        android:layout_width="0dp"
+        android:layout_height="192dp"
+        android:layout_marginLeft="2dp"
+        android:background="@color/color_white"
+        app:layout_widthPercent="33.3%w">
+
+        <ImageView
+            android:id="@+id/iv_img_video3_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bg_login" />
+
+        <Button
+            android:id="@+id/btn_delete_video3_grid"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="9dp"
+            android:background="@mipmap/ic_clean"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_award_video3_grid"
+            android:layout_width="21dp"
+            android:layout_height="18dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="11dp"
+            android:background="@mipmap/ic_reward"
+            android:text=""
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/font_size_two" />
+
+        <Button
+            android:id="@+id/btn_watch_video3_grid"
+            style="@style/text_content_six_white"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginBottom="11dp"
+            android:background="@null"
+            android:drawableLeft="@mipmap/ic_eye"
+            android:drawablePadding="3dp"
+            android:gravity="center_vertical|left"
+            android:text="她"
+            android:textSize="11sp" />
+
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+</com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>

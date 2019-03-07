@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/ll_item_recommend_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/color_white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/iv_img_recommend_list"
+            android:layout_width="match_parent"
+            android:layout_height="134dp" />
+
+        <TextView
+            android:id="@+id/tv_type_recommend_list"
+            style="@style/text_content_six_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_img_recommend_list"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="12dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_img_recommend_list"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal">
+
+            <com.zl.dappore.common.widget.BeautyRatingBar
+                android:id="@+id/rb_score_recommend_list"
+                android:layout_width="76dp"
+                android:layout_height="12dp"
+                android:gravity="center_horizontal"
+                app:rb_emptyStar="@mipmap/ic_star_unselect"
+                app:rb_fillStar="@mipmap/ic_star_select"
+                app:rb_isIndicator="true"
+                app:rb_numStars="5"
+                app:rb_rating="5"
+                app:rb_starMargin="4dp"
+                app:rb_stepSize="0.5" />
+
+            <TextView
+                android:id="@+id/tv_score_recommend_list"
+                style="@style/text_content_three_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:gravity="center|left" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_name_recommend_list"
+            style="@style/text_content_three_lightblack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_img_recommend_list"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="15dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_des_recommend_list"
+            style="@style/text_content_six_lightblack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name_recommend_list"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="15dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_rank_recommend_list"
+            style="@style/text_content_six_lightgray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_des_recommend_list"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="17dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_data_recommend_list"
+            style="@style/text_content_six_lightgray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_des_recommend_list"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="17dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</FrameLayout>

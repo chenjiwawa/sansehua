@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_item_video_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="19dp"
+        android:paddingTop="8dp"
+        android:paddingRight="19dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/iv_img_video_comment"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginRight="8dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_title_video_comment"
+            style="@style/text_content_six_lightblack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_img_video_comment"
+            android:layout_toRightOf="@+id/iv_img_video_comment"
+            android:text="name"
+            android:textColor="@color/color_content_gray"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_des_video_comment"
+            style="@style/text_content_five_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title_video_comment"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="60dp"
+            android:layout_toRightOf="@+id/iv_img_video_comment"
+            android:lineSpacingExtra="2dp"
+            android:text="塔西目前是意大利U17队的领军人物，布雷西亚主席科里奥尼把他比作巴乔二世他曾如此赞赏(Appreciation)：““在罗伯特-巴乔退役之后，我希望1995年出生的洛伦佐-塔西能够迅速布雷西亚的新巴乔，期望他能早日在一线队有所表现。" />
+
+
+        <TextView
+            android:id="@+id/tv_time_video_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_like_video_comment"
+            android:layout_alignParentRight="true"
+            android:text="9.5"
+            android:textColor="@color/color_content_gray"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tv_like_video_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="9dp"
+            android:drawableTop="@drawable/selector_bg_like"
+            android:drawablePadding="1dp"
+            android:text="des"
+            android:gravity="center"
+            android:textColor="@color/color_white"
+            android:textSize="11sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

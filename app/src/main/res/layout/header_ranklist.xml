@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_bg"
+    android:paddingLeft="13dp"
+    android:paddingTop="0dp"
+    android:paddingRight="13dp">
+
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+        android:id="@+id/layout_header_ranklist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+            android:id="@+id/rl_rank_item2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="12dp"
+            android:background="@color/color_white"
+            android:clipChildren="false"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_widthPercent="34.5%">
+
+            <RelativeLayout
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="12.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_name_rank_item2"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/bg_default" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@mipmap/ic_rank_2" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_name_rank_item2"
+                style="@style/text_content_12sp_lightblack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="1dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="name" />
+
+
+            <TextView
+                android:id="@+id/tv_des_rank_item2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="14dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="des"
+                android:textColor="#8D8FA9"
+                android:textSize="11sp" />
+
+
+            <TextView
+                android:id="@+id/tv_download_rank_item2"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#336373EB"
+                android:gravity="center"
+                android:text="使用"
+                android:textColor="#6373EB"
+                android:textSize="12sp" />
+
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+            android:id="@+id/rl_rank_item3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:background="@color/color_white"
+            android:clipChildren="false"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_widthPercent="34.5%">
+
+            <RelativeLayout
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="12.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_name_rank_item3"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/bg_default" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@mipmap/ic_rank_3" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_name_rank_item3"
+                style="@style/text_content_12sp_lightblack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="1dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="name" />
+
+
+            <TextView
+                android:id="@+id/tv_des_rank_item3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="14dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="des"
+                android:textColor="#8D8FA9"
+                android:textSize="11sp" />
+
+
+            <TextView
+                android:id="@+id/tv_download_rank_item3"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#336373EB"
+                android:gravity="center"
+                android:text="使用"
+                android:textColor="#6373EB"
+                android:textSize="12sp" />
+
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+            android:id="@+id/rl_rank_item1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@color/color_white"
+            android:clipChildren="false"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_widthPercent="36%">
+
+            <RelativeLayout
+                android:layout_width="91dp"
+                android:layout_height="91dp"
+                android:layout_marginTop="7.5dp">
+
+                <ImageView
+                    android:id="@+id/iv_name_rank_item1"
+                    android:layout_width="67dp"
+                    android:layout_height="67dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/bg_default" />
+
+                <ImageView
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:src="@mipmap/ic_rank_1" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_name_rank_item1"
+                style="@style/text_content_12sp_lightblack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="1dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="name"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/tv_des_rank_item1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="12dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="des"
+                android:textColor="#8D8FA9"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/tv_download_rank_item1"
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:background="#336373EB"
+                android:gravity="center"
+                android:text="使用"
+                android:textColor="#6373EB"
+                android:textSize="12sp" />
+
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/layout_header_ranklist"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/divider_shadow" />
+
+</com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>

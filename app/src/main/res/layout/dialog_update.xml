@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_frame_update"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B3ffffff"
+    android:paddingLeft="36dp"
+    android:paddingRight="36dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/shape_rect_white_10radius">
+
+        <LinearLayout
+            android:id="@+id/ll_content_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginRight="19dp"
+            android:background="@drawable/shape_rect_white_10radius"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title_update"
+                style="@style/text_content_four_lightblack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                android:text="发现新版本"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_verson_name_update"
+                style="@style/text_content_five_lightgray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                android:text="发现新版本" />
+
+            <TextView
+                android:id="@+id/tv_verson_des_update"
+                style="@style/text_content_five_lightgray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:gravity="center"
+                android:text="发现新版本" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/v_divider_update"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/ll_content_update"
+            android:layout_marginTop="33dp"
+            android:background="@color/color_divider_gray" />
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/v_divider_update"
+            android:background="@color/color_white"
+            android:orientation="horizontal">
+
+            <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+                android:id="@+id/ll_confirm_update"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="立即更新"
+                    android:textColor="#257AE9"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="54dp"
+                android:background="@color/color_divider_gray" />
+
+            <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+                android:id="@+id/ll_cancel_update"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
+                <TextView
+                    style="@style/text_content_three_lightblack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="稍后再说"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

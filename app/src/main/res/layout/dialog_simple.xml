@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_frame_simple"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B3ffffff"
+    android:paddingLeft="36dp"
+    android:paddingRight="36dp">
+
+    <RelativeLayout
+        android:layout_width="259dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/shape_rect_white_10radius">
+
+        <TextView
+            android:id="@+id/tv_title_simple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:layout_marginBottom="17dp"
+            android:gravity="center"
+            android:text="发现新版本"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/v_divider_simple"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_title_simple"
+            android:background="@color/color_divider_gray" />
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/v_divider_simple"
+            android:background="@color/color_white"
+            android:orientation="horizontal">
+
+            <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+                android:id="@+id/ll_confirm_simple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="确定"
+                    android:textColor="#257AE9"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="54dp"
+                android:background="@color/color_divider_gray" />
+
+            <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+                android:id="@+id/ll_cancel_simple"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_widthPercent="50%">
+
+                <TextView
+                    style="@style/text_content_three_lightblack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="取消"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_title_video_comment"
+        style="@style/text_content_five_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rect_darkblack"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="评论"
+        android:textStyle="bold" />
+
+
+    <com.qsmaxmin.qsbase.common.widget.ptr.PtrFrameLayout
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_title_video_comment"
+        android:background="@color/color_darkgray">
+
+        <com.qsmaxmin.qsbase.common.widget.recyclerview.HeaderFooterRecyclerView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:overScrollMode="never" />
+
+    </com.qsmaxmin.qsbase.common.widget.ptr.PtrFrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_show_video_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#000000"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/et_show_video_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/iv_show_video_comment"
+            android:background="@null"
+            android:gravity="left|center_vertical"
+            android:hint="有爱评论，说点儿好听的～"
+            android:paddingLeft="19dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/color_white"
+            android:textColorHint="@color/color_white"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_show_video_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:paddingRight="19dp"
+            android:src="@mipmap/ic_post_comment" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_hint_video_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#000000"
+        android:gravity="left|center_vertical"
+        android:hint="有爱评论，说点儿好听的～"
+        android:paddingLeft="19dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:textColor="@color/color_white"
+        android:textColorHint="@color/color_white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+</RelativeLayout>

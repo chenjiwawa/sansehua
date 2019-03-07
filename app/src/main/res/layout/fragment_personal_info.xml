@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:background="@color/color_blue_green"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:background="@mipmap/bg_person_info"
+            android:scaleType="fitXY" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginBottom="13dp"
+            android:background="@mipmap/icon_back" />
+
+        <Button
+            android:id="@+id/btn_watch_personal_info"
+            android:layout_width="54dp"
+            android:layout_height="23dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="29dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/shape_rect_white_12radius"
+            android:gravity="center"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:text="+关注"
+            android:textColor="#6373EB"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/ll_logo_personal_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="63dp"
+            android:background="@drawable/shape_circle_white"
+            android:gravity="center"
+            android:padding="2dp">
+
+            <ImageView
+                android:id="@+id/iv_logo_personal_info"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:scaleType="centerCrop"
+                android:background="@mipmap/ic_logo_default" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_name_personal_info"
+            style="@style/text_content_four_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_logo_personal_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
+            android:text="名"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/rl_fans_personal_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name_personal_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="13dp">
+
+            <TextView
+                android:id="@+id/tv_like_personal_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="喜欢"
+                android:textColor="#47ffffff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_fans_personal_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_toRightOf="@+id/tv_like_personal_info"
+                android:text="粉丝"
+                android:textColor="#47ffffff"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <com.qsmaxmin.qsbase.common.widget.viewpager.PagerSlidingTabStrip
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_fans_personal_info"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible"
+            app:psts_SelectedTextColor="@color/color_black_title"
+            app:psts_TabBackground="@color/color_white"
+            app:psts_TextSize="15sp"
+            app:psts_UnSelectedTextColor="@color/color_stroke_gray" />
+
+    </RelativeLayout>
+
+    <com.qsmaxmin.qsbase.common.widget.viewpager.QsViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
+
