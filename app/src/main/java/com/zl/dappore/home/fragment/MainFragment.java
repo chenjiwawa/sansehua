@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zl.dappore.R;
+import com.zl.dappore.appdetail.AppDetailActivity;
+import com.zl.dappore.appdetail.model.AppDetailConstants;
 import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.home.CategoryTypeI;
 import com.zl.dappore.home.model.HomeConstants;
@@ -20,6 +22,8 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsViewPagerFragment;
 import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
+import com.zl.dappore.voiceroom.VoiceRoomActivity;
+import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 /**
  * 字工场原创字体
@@ -176,7 +180,12 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
                 break;
             case R.id.btn_search:
                 //TODO
-                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
+//                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
+                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
                 break;
         }
     }
