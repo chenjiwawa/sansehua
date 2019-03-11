@@ -131,7 +131,6 @@
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
-
         <activity
             android:name="com.zl.dappore.favorite.FavoriteListActivity"
             android:screenOrientation="portrait"
@@ -140,6 +139,18 @@
 
         <activity
             android:name="com.zl.dappore.voiceroom.VoiceRoomActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.voiceroom.ProductCategoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.userlist.UserListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />

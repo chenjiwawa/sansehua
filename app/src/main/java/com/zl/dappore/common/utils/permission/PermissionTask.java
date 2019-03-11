@@ -9,7 +9,6 @@ import android.text.TextUtils;
 
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
-import com.qsmaxmin.qsbase.mvp.model.QsConstants;
 import com.zl.dappore.R;
 
 import java.util.ArrayList;
@@ -131,7 +130,7 @@ public class PermissionTask {
             return;
         }
         L.i(TAG,"************勾选了不在提醒并弹出对话框 " + showDialogPermission.toString());
-//        SimpleDialogFragment.createBuilder()//
+//        RoomOperationDialogFragment.createBuilder()//
 //                .setTitle(QsHelper.getInstance().getString(R.string.notice))//
 //                .setMessage(getPermissionDialogMessage(showDialogPermission))//
 //                .setNegativeButtonText(QsHelper.getInstance().getString(R.string.cancel))//

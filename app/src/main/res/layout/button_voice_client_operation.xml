@@ -1,0 +1,8 @@
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/btn_voice_client_operation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:text="下麦"
+    android:src="@drawable/selector_remote_voice_operation" />

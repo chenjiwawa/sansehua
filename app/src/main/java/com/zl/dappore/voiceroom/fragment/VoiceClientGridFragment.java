@@ -10,18 +10,18 @@ import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.qsmaxmin.qsbase.mvp.fragment.QsRecyclerFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.common.widget.itemdecoration.DividerGridItemDecoration;
-import com.zl.dappore.voiceroom.adapter.VoiceClientRecyclerAdapterItem;
+import com.zl.dappore.voiceroom.adapter.VoiceClientGridRecyclerAdapterItem;
 import com.zl.dappore.voiceroom.model.VoiceClient;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
-import com.zl.dappore.voiceroom.presenter.VoiceClientPresenter;
+import com.zl.dappore.voiceroom.presenter.VoiceClientGridPresenter;
 
 
-public class VoiceClientFragment extends QsRecyclerFragment<VoiceClientPresenter, VoiceClient> {
+public class VoiceClientGridFragment extends QsRecyclerFragment<VoiceClientGridPresenter, VoiceClient> {
     String channelId = "";
     int voiceRole = 0;
 
-    public static VoiceClientFragment getInstance(Bundle extras) {
-        VoiceClientFragment fragment = new VoiceClientFragment();
+    public static VoiceClientGridFragment getInstance(Bundle extras) {
+        VoiceClientGridFragment fragment = new VoiceClientGridFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -49,6 +49,6 @@ public class VoiceClientFragment extends QsRecyclerFragment<VoiceClientPresenter
 
     @Override
     public QsRecycleAdapterItem getRecycleAdapterItem(LayoutInflater mInflater, ViewGroup parent, int type) {
-        return new VoiceClientRecyclerAdapterItem(mInflater, parent);
+        return new VoiceClientGridRecyclerAdapterItem(mInflater, parent);
     }
 }

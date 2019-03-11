@@ -1,4 +1,4 @@
-package com.zl.dappore.home.fragment;
+package com.zl.dappore.voiceroom.fragment;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
@@ -14,11 +13,10 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsViewPagerFragment;
 import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.zl.dappore.R;
 import com.zl.dappore.common.utils.CommonUtils;
-import com.zl.dappore.home.CategoryTypeI;
 import com.zl.dappore.home.model.HomeConstants;
-import com.zl.dappore.home.presenter.MainFragmentPresenter;
-import com.zl.dappore.recommendlist.model.RecommendListConstants;
-import com.zl.dappore.userlist.UserListActivity;
+import com.zl.dappore.voiceroom.VoiceRoomActivity;
+import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+import com.zl.dappore.voiceroom.presenter.ProductCategoryPresenter;
 
 /**
  * 字工场原创字体
@@ -27,7 +25,7 @@ import com.zl.dappore.userlist.UserListActivity;
  * @Date 16/8/2
  * @Description
  */
-public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> implements CategoryTypeI {
+public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategoryPresenter>{
 
     @Bind(R.id.rl_tab_recommend)
     RelativeLayout rl_tab_recommend;
@@ -38,11 +36,11 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
 
     @Override
     public int layoutId() {
-        return R.layout.fragment_main;
+        return R.layout.fragment_product_category;
     }
 
-    public static MainFragment getInstance() {
-        return new MainFragment();
+    public static ProductCategoryFragment getInstance() {
+        return new ProductCategoryFragment();
     }
 
     @Override
@@ -56,15 +54,13 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
 
     public QsModelPager[] getModelPagers() {
         QsModelPager modelRecommend = createModelPager(HomeConstants.INDEX_RECOMMEND);
-        RecommendFragment recommendFragment = (RecommendFragment) RecommendFragment.getInstance();
-        recommendFragment.setCategoryTypeI(this);
-        modelRecommend.fragment = recommendFragment;
+        modelRecommend.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance();
 
         QsModelPager modelRank = createModelPager(HomeConstants.INDEX_RANK);
-        modelRank.fragment = RankFragment.getInstance();
+        modelRank.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance();
 
         QsModelPager modelCategory = createModelPager(HomeConstants.INDEX_CATEGORY);
-        modelCategory.fragment = CategoryFragment.getInstance();
+        modelCategory.fragment =(ProductPagerFragment) ProductPagerFragment.getInstance();
 
         return new QsModelPager[]{modelRecommend, modelRank, modelCategory};
     }
@@ -154,7 +150,7 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
 
     @Override
     public int getTabItemLayout() {
-        return R.layout.item_main_tab;
+        return R.layout.item_product_category_tab;
     }
 
     /**
@@ -177,36 +173,13 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
                 //TODO
 //                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
 
-//                Bundle bundle = new Bundle();
-//                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
-//                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
-//                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
-
-//                Bundle bundle = new Bundle();
-//                QsHelper.getInstance().intent2Activity(ProductCategoryActivity.class, bundle);
-
                 Bundle bundle = new Bundle();
-                bundle.putString(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_NAME, "同类推荐");
-                bundle.putInt(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, RecommendListConstants.TYPE_SIMILAR);
-                QsHelper.getInstance().intent2Activity(UserListActivity.class, bundle);
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
+                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
                 break;
         }
     }
 
 
-    @Override
-    public void onCategoryTypeSelect(String type) {
-        L.i(initTag(), "CategoryTypeI " + type);
-
-        if (TextUtils.isEmpty(type))
-            return;
-
-        if (getViewPagerAdapter().getCount() > 2) {
-            pager.setCurrentItem(2);
-            if (getViewPagerAdapter().getData(2).fragment != null && getViewPagerAdapter().getData(2).fragment instanceof CategoryFragment) {
-                CategoryFragment categoryFragment = (CategoryFragment) getViewPagerAdapter().getData(2).fragment;
-                categoryFragment.setCategoryTypeSelect(type);
-            }
-        }
-    }
 }

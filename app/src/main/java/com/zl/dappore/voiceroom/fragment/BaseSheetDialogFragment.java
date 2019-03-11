@@ -1,4 +1,4 @@
-package com.zl.dappore.videodetail.fragment;
+package com.zl.dappore.voiceroom.fragment;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -23,17 +23,18 @@ import android.widget.RelativeLayout;
 import com.qsmaxmin.qsbase.common.viewbind.ViewBindHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
+import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.common.utils.KeyboardHelper;
 
-public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
-    public final static String TAG = VideoCommentSheetFragment.class.getSimpleName();
+public class BaseSheetDialogFragment extends BottomSheetDialogFragment implements DialogInterface.OnShowListener {
+    public final static String TAG = BaseSheetDialogFragment.class.getSimpleName();
 
-    @Bind(R.id.rl_comment_sheet_video_detail)
-    RelativeLayout rlCommentSheetVideoDetail;
+    @Bind(R.id.rl_base_sheet_dialog)
+    RelativeLayout rl_base_sheet_dialog;
 
-    VideoCommentListFragment fragment;
+    QsFragment addFragment;
 
     /**
      * 顶部向下偏移量
@@ -43,7 +44,7 @@ public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
     private View dialogView;
 
     public static Fragment getInstance(Bundle extras) {
-        VideoCommentSheetFragment fragment = new VideoCommentSheetFragment();
+        BaseSheetDialogFragment fragment = new BaseSheetDialogFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -60,7 +61,7 @@ public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        dialogView = inflater.inflate(R.layout.fragment_video_comment_sheet, container, false);
+        dialogView = inflater.inflate(R.layout.fragment_base_sheet_dialog, container, false);
         ViewBindHelper.bindView(this, dialogView);
         return dialogView;
     }
@@ -88,9 +89,24 @@ public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
             behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }
 
-        fragment = (VideoCommentListFragment) VideoCommentListFragment.getInstance(getArguments());
-        if (fragment != null && !fragment.isAdded()) {
-            getChildFragmentManager().beginTransaction().replace(R.id.rl_comment_sheet_video_detail, VideoCommentListFragment.getInstance(getArguments())).commitAllowingStateLoss();
+        getDialog().setOnShowListener(this);
+
+    }
+
+    public void setAddFragment(QsFragment addFragment) {
+        this.addFragment = addFragment;
+    }
+
+    DialogInterface.OnShowListener showListener;
+
+    public void setShowListener(DialogInterface.OnShowListener showListener) {
+        this.showListener = showListener;
+    }
+
+    @Override
+    public void onShow(DialogInterface dialog) {
+        if (addFragment != null && !addFragment.isAdded()) {
+            getChildFragmentManager().beginTransaction().replace(R.id.rl_base_sheet_dialog, addFragment).commitAllowingStateLoss();
         }
 
     }
@@ -127,10 +143,10 @@ public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
     }
 
 
-    @OnClick({R.id.rl_comment_sheet_video_detail})
+    @OnClick({R.id.rl_base_sheet_dialog})
     public void onViewClick(View view) {
         switch (view.getId()) {
-            case R.id.rl_comment_sheet_video_detail:
+            case R.id.rl_base_sheet_dialog:
                 break;
         }
     }

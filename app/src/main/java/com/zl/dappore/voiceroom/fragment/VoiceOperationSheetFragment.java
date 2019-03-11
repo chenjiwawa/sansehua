@@ -1,4 +1,4 @@
-package com.zl.dappore.videodetail.fragment;
+package com.zl.dappore.voiceroom.fragment;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -26,8 +26,10 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.zl.dappore.R;
 import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.common.utils.KeyboardHelper;
+import com.zl.dappore.videodetail.fragment.VideoCommentListFragment;
+import com.zl.dappore.videodetail.fragment.VideoCommentSheetFragment;
 
-public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
+public class VoiceOperationSheetFragment extends BottomSheetDialogFragment {
     public final static String TAG = VideoCommentSheetFragment.class.getSimpleName();
 
     @Bind(R.id.rl_comment_sheet_video_detail)
@@ -60,7 +62,7 @@ public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        dialogView = inflater.inflate(R.layout.fragment_video_comment_sheet, container, false);
+        dialogView = inflater.inflate(R.layout.fragment_voice_operation_sheet, container, false);
         ViewBindHelper.bindView(this, dialogView);
         return dialogView;
     }
@@ -92,7 +94,6 @@ public class VideoCommentSheetFragment extends BottomSheetDialogFragment {
         if (fragment != null && !fragment.isAdded()) {
             getChildFragmentManager().beginTransaction().replace(R.id.rl_comment_sheet_video_detail, VideoCommentListFragment.getInstance(getArguments())).commitAllowingStateLoss();
         }
-
     }
 
     /**

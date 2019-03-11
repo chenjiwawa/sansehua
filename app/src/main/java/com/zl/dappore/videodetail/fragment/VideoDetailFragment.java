@@ -1,11 +1,9 @@
 package com.zl.dappore.videodetail.fragment;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageView;
-import android.view.GestureDetector;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -24,15 +22,11 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
-import com.zl.dappore.comment.model.Comment;
 import com.zl.dappore.common.dialog.share.ShareDialog;
-import com.zl.dappore.common.dialog.share.ShareI;
 import com.zl.dappore.common.dialog.share.ShareResultI;
 import com.zl.dappore.common.event.LoginEvent;
 import com.zl.dappore.common.event.UserInfoEvent;
 import com.zl.dappore.common.event.VideoDetailEvent;
-import com.zl.dappore.common.http.RewardHttp;
-import com.zl.dappore.common.model.BaseRequstBody;
 import com.zl.dappore.common.widget.LoveRelativeLayout;
 import com.zl.dappore.common.widget.toast.StyleableToast;
 import com.zl.dappore.home.model.HomeConstants;
@@ -44,8 +38,6 @@ import com.zl.dappore.videodetail.presenter.VideoDetailFragmentPresenter;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import java.util.ArrayList;
 
 
 public class VideoDetailFragment extends QsFragment<VideoDetailFragmentPresenter> implements OnLikeListener, LoveRelativeLayout.GestureI {

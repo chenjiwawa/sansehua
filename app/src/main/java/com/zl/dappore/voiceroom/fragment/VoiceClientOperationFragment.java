@@ -6,16 +6,16 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
-import com.zl.dappore.voiceroom.presenter.VoiceRoomPresenter;
+import com.zl.dappore.voiceroom.presenter.VoiceOperationPresenter;
 
 
-public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> {
+public class VoiceClientOperationFragment extends QsFragment<VoiceOperationPresenter> {
 
     String channelId = "";
     int voiceRole = 0;
 
-    public static VoiceRoomFragment getInstance(Bundle extras) {
-        VoiceRoomFragment fragment = new VoiceRoomFragment();
+    public static VoiceClientOperationFragment getInstance(Bundle extras) {
+        VoiceClientOperationFragment fragment = new VoiceClientOperationFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -23,12 +23,15 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> {
 
     @Override
     public int layoutId() {
-        return R.layout.fragment_voice_room;
+        return R.layout.fragment_voice_client_operation;
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
+
+        //TODO
+        arguments = new Bundle();
         if (arguments == null) return;
 
         channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);

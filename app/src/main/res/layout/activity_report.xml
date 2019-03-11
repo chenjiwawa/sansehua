@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_name_report"
+                style="@style/layout_margin_nobuttom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/color_white"
+                android:gravity="left|top"
+                android:text="内容描述"
+                android:textColor="@color/color_black_title"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:id="@+id/tv_name_content_report"
+                style="@style/layout_margin_nobuttom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/color_white"
+                android:gravity="left|top"
+                android:text="内容描述"
+                android:textColor="@color/color_black_title"
+                android:textSize="@dimen/sp_14" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_type_report"
+            style="@style/layout_margin_nobuttom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="left|top"
+            android:text="举报类型"
+            android:textColor="@color/color_black_title"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv_content_report"
+            style="@style/layout_margin_nobuttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="left|top"
+            android:text="内容描述"
+            android:textColor="@color/color_black_title"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/et_content_report"
+            style="@style/layout_margin_nobuttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="left|top"
+            android:hint="请提出您的意见，我们将尽快改进…"
+            android:maxLength="1000"
+            android:minLines="8"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_16"
+            android:textColor="@color/color_black_title"
+            android:textColorHint="@color/color_stroke_gray"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/tv_image_report"
+            style="@style/layout_margin_nobuttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="left|top"
+            android:text="图片（选填）"
+            android:textColor="@color/color_black_title"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:id="@+id/iv_image_report"
+            android:layout_width="105dp"
+            android:layout_height="66dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/tv_phone_report"
+            style="@style/layout_margin_nobuttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="left|top"
+            android:text="手机号（选填）"
+            android:textColor="@color/color_black_title"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/et_phone_report"
+            style="@style/layout_margin_nobuttom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:gravity="left|top"
+            android:hint="请提出您的意见，我们将尽快改进…"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingRight="@dimen/dp_15"
+            android:paddingBottom="@dimen/dp_16"
+            android:singleLine="true"
+            android:textColor="@color/color_black_title"
+            android:textColorHint="@color/color_stroke_gray"
+            android:textSize="@dimen/sp_14" />
+
+
+        <Button
+            android:id="@+id/btn_feedback_commit"
+            style="@style/ButtonText_Login"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:enabled="false"
+            android:text="提交" />
+
+    </LinearLayout>
+</ScrollView>
