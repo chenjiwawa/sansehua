@@ -19,4 +19,16 @@ public class VoiceRoomConstants {
     public static final int INDEX_APP = 0;
     public static final int INDEX_MEDIA = 1;
 
+
+    public static final String CHANNEL_PREFIX = "";
+    public static final String UID_PREFIX = "";
+
+    public static String getChannelName(String id) {
+        return CHANNEL_PREFIX + id;
+    }
+
+    public static String getUid(String id) {
+        return UID_PREFIX + id;
+    }
+
 }
