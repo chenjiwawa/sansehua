@@ -17,6 +17,7 @@ public class VoiceAuditorOperationDialogFragment extends QsDialogFragment {
     RelativeLayout content;
     VoiceRoleOperationFragment fragment;
 
+
     public static VoiceAuditorOperationDialogFragment getInstance(Bundle extras) {
         VoiceAuditorOperationDialogFragment fragment = new VoiceAuditorOperationDialogFragment();
         fragment.setArguments(extras);
