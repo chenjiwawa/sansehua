@@ -1,5 +1,6 @@
 package com.zl.dappore.voiceroom.fragment.roomsetting;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,13 @@ import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.model.VoiceRole;
+import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 import butterknife.OnClick;
 
-public class RoomTypeFragment extends QsDialogFragment {
+public class RoomTypeDialogFragment extends QsDialogFragment {
 
     @Bind(R.id.title)
     TextView title;
@@ -36,8 +40,18 @@ public class RoomTypeFragment extends QsDialogFragment {
     private String mCancel = QsHelper.getInstance().getString(R.string.cancel);
     private int mIconId = R.mipmap.icon_my_font;
 
-    public static RoomTypeFragment getInstance() {
-        return new RoomTypeFragment();
+    VoiceRoom room;
+    VoiceRole user;
+    Bundle bundle;
+
+    public static RoomTypeDialogFragment getInstance(Bundle extras) {
+        RoomTypeDialogFragment fragment = new RoomTypeDialogFragment();
+        fragment.setArguments(extras);
+        return fragment;
+    }
+    
+    public static RoomTypeDialogFragment getInstance() {
+        return new RoomTypeDialogFragment();
     }
 
     @Override
@@ -54,6 +68,14 @@ public class RoomTypeFragment extends QsDialogFragment {
     @Override
     protected void initData() {
         super.initData();
+
+        Bundle bundle = getArguments();
+        if (bundle == null) return;
+        room = (VoiceRoom) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        user = (VoiceRole) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+
+        L.i(initTag(), " room " + room + " user " + user);
+        
         title.setText(mTitle);
         confirm.setText(mConfirm);
         cancel.setText(mCancel);

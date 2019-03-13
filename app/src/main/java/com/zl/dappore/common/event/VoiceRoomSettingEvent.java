@@ -1,0 +1,20 @@
+package com.zl.dappore.common.event;
+
+import com.zl.dappore.voiceroom.model.VoiceRoom;
+
+/**
+ * @CreateBy qsmaxmin
+ * @Date 2016/10/27 17:43
+ * @Description
+ */
+
+public class VoiceRoomSettingEvent {
+
+    public static class OnVoiceRoomEditEvent {
+        public VoiceRoom data;
+
+        public OnVoiceRoomEditEvent(VoiceRoom data) {
+            this.data = data;
+        }
+    }
+}

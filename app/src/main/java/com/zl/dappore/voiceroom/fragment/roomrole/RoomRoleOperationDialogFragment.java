@@ -1,6 +1,5 @@
-package com.zl.dappore.voiceroom.fragment.voiceorole;
+package com.zl.dappore.voiceroom.fragment.roomrole;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,25 +7,17 @@ import android.widget.RelativeLayout;
 
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
-import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
 
-public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
+import butterknife.OnClick;
+
+public class RoomRoleOperationDialogFragment extends QsDialogFragment {
     @Bind(R.id.content)
-    protected RelativeLayout content;
-    @Bind(R.id.voiceinfolayout)
-    protected RelativeLayout voiceinfolayout;
-    @Bind(R.id.fragmentlayout)
-    protected RelativeLayout fragmentlayout;
+    RelativeLayout content;
 
-    protected VoiceRoleOperationFragment fragment;
-    protected VoiceRoleInfoFragment voiceinfo;
-
-    public static VoiceRoleOperationDialogFragment getInstance(Bundle extras) {
-        VoiceRoleOperationDialogFragment fragment = new VoiceRoleOperationDialogFragment();
-        fragment.setArguments(extras);
-        return fragment;
+    public static RoomRoleOperationDialogFragment getInstance() {
+        return new RoomRoleOperationDialogFragment();
     }
 
     @Override
@@ -36,17 +27,13 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
 
     @Override
     protected View getDialogView(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-        View view = layoutInflater.inflate(R.layout.dialog_voice_role_operation, viewGroup);
+        View view = layoutInflater.inflate(R.layout.dialog_room_role_operation, viewGroup);
         return view;
     }
 
     @Override
     protected void initData() {
         super.initData();
-        fragment = (VoiceRoleOperationFragment) getChildFragmentManager().findFragmentById(R.id.fragment);
-        fragment.setArguments(getArguments());
-        voiceinfo = (VoiceRoleInfoFragment) getChildFragmentManager().findFragmentById(R.id.voiceinfo);
-        voiceinfo.setArguments(getArguments());
     }
 
 
@@ -62,6 +49,12 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
+    public void showLogoAnimView() {
+    }
+
+    public void showAddView() {
+    }
+
     @OnClick({R.id.content})
     public void onViewClick(View view) {
         super.onViewClick(view);
@@ -71,4 +64,6 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
         }
         dismissAllowingStateLoss();
     }
+
+
 }

@@ -1,13 +1,10 @@
 package com.zl.dappore.voiceroom.fragment.roomsetting;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,21 +12,19 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
-import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.zl.dappore.R;
-import com.zl.dappore.common.event.VoiceRoomSettingEvent;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 import butterknife.OnClick;
 
-public class RoomNameDialogFragment extends QsDialogFragment implements TextWatcher {
+public class RoomLogoDialogFragment extends QsDialogFragment{
 
     @Bind(R.id.title)
     TextView title;
-    @Bind(R.id.edit)
-    EditText edit;
+    @Bind(R.id.logo)
+    ImageView logo;
     @Bind(R.id.option)
     TextView option;
     @Bind(R.id.cancel)
@@ -40,7 +35,7 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
     ImageView image;
 
     private OnDialogListener mListener;
-    private String mTitle = "房间名称修改";
+    private String mTitle = "房间头像修改";
     private String mMessage = "";
     private String mConfirm = "确认修改";
     private String mCancel = QsHelper.getInstance().getString(R.string.cancel);
@@ -50,14 +45,14 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
     VoiceRole user;
     Bundle bundle;
 
-    public static RoomNameDialogFragment getInstance(Bundle extras) {
-        RoomNameDialogFragment fragment = new RoomNameDialogFragment();
+    public static RoomLogoDialogFragment getInstance(Bundle extras) {
+        RoomLogoDialogFragment fragment = new RoomLogoDialogFragment();
         fragment.setArguments(extras);
         return fragment;
     }
-
-    public static RoomNameDialogFragment getInstance() {
-        return new RoomNameDialogFragment();
+    
+    public static RoomLogoDialogFragment getInstance() {
+        return new RoomLogoDialogFragment();
     }
 
     @Override
@@ -67,7 +62,7 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
 
     @Override
     protected View getDialogView(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-        View view = layoutInflater.inflate(R.layout.dialog_room_name, viewGroup);
+        View view = layoutInflater.inflate(R.layout.dialog_room_logo, viewGroup);
         return view;
     }
 
@@ -86,27 +81,9 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
         confirm.setText(mConfirm);
         cancel.setText(mCancel);
         image.setImageResource(mIconId);
-        edit.addTextChangedListener(this);
-        edit.setText(room.name);
-
-    }
-
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable s) {
-        if (s == null)
-            return;
-
-        option.setText((s.toString().length() / 1) + "/" + 10);
+        if (!TextUtils.isEmpty(room.logo)) {
+            QsHelper.getInstance().getImageHelper().createRequest().load(room.logo).circleCrop().into(logo);
+        }
     }
 
     public void setIconId(int iconId) {
@@ -151,14 +128,6 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
                 }
                 break;
             case R.id.confirm:
-                if (TextUtils.isEmpty(edit.getText().toString())) {
-                    QsToast.show("请输入名称！");
-                    return;
-                }
-
-                room.name = edit.getText().toString();
-                QsHelper.getInstance().eventPost(new VoiceRoomSettingEvent.OnVoiceRoomEditEvent(room));
-
                 if (mListener != null) {
                     mListener.onConfirm();
                 }

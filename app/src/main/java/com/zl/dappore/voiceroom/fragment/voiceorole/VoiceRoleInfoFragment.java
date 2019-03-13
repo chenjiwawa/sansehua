@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -12,12 +13,14 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment;
+import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 
 public class VoiceRoleInfoFragment extends QsFragment {
 
+    @Bind(R.id.frame)
+    LinearLayout frame;
     @Bind(R.id.iv_img_user)
     ImageView ivImgUser;
     @Bind(R.id.tv_title_user)
@@ -45,8 +48,8 @@ public class VoiceRoleInfoFragment extends QsFragment {
     @Bind(R.id.btn_user_following)
     Button btnUserFollowing;
 
-    String channelId = "";
-    int voiceRole = 0;
+    protected VoiceRole user;//当前用户
+    protected VoiceRole data;
 
     public static VoiceRoleInfoFragment getInstance(Bundle extras) {
         VoiceRoleInfoFragment fragment = new VoiceRoleInfoFragment();
@@ -63,19 +66,15 @@ public class VoiceRoleInfoFragment extends QsFragment {
     @Override
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
-
-        //TODO
-        arguments = new Bundle();
         if (arguments == null) return;
 
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
+        user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+        data = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR);
+        L.i(initTag(), " user " + user + " data " + data);
 
-        VoiceClientGridFragment voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
-        voiceClientGridFragment.setArguments(arguments);
-
-        L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
-        loadingClose();
+        if (data != null && data.isVoiceAuditor()) {
+            frame.setVisibility(View.GONE);
+        }
         showContentView();
     }
 

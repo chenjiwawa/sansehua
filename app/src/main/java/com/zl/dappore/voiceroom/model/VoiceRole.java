@@ -13,14 +13,16 @@ public class VoiceRole extends BaseVoiceRole {
         return "VoiceRole{" +
                 "position=" + position +
                 ", id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", logo='" + logo + '\'' +
                 ", channelName='" + channelName + '\'' +
                 ", uid='" + uid + '\'' +
                 ", chatRoomId='" + chatRoomId + '\'' +
                 ", type=" + type +
-                ", name='" + name + '\'' +
-                ", logo='" + logo + '\'' +
-                ", isMute=" + isMute +
-                ", enable=" + enable +
+                ", voiceRole=" + voiceRole +
+                ", musicEnable=" + musicEnable +
+                ", voiceMute=" + voiceMute +
+                ", voiceEnable=" + voiceEnable +
                 '}';
     }
 }

@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/color_red"
+    android:orientation="vertical"
     android:padding="5dp">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_red"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+   <!--     <fragment
+            android:id="@+id/bar"
+            android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />-->
+    </RelativeLayout>
+
     <fragment
-        android:id="@+id/f_voice_peration"
-        android:name="com.zl.dappore.voiceroom.fragment.voiceorole.VoiceOperationFragment"
+        android:id="@+id/operation"
+        android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</RelativeLayout>
+</LinearLayout>
 

@@ -28,9 +28,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/color_gray"
         android:orientation="vertical"
+        android:padding="5dp"
         android:visibility="visible">
 
-        <include layout="@layout/header_room_role_operation" />
+        <fragment
+            android:id="@+id/bar"
+            android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </RelativeLayout>

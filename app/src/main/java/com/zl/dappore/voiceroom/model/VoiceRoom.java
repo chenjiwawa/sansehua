@@ -2,9 +2,10 @@ package com.zl.dappore.voiceroom.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class VoiceRoom{
+public class VoiceRoom implements Serializable {
 
     @SerializedName("id")
     public String id;

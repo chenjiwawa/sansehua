@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/dialog_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_rect_lightgray_2dp_stroke"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击当前头像选择图片"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="110dp"
+            android:layout_height="55dp"
+            android:layout_below="@id/option"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@android:drawable/ic_delete"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+    <include layout="@layout/dialog_footer" />
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="110dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/ic_delete"
+        android:visibility="gone" />
+
+</LinearLayout>
+

@@ -14,6 +14,7 @@ public class VoiceRoomConstants {
     public static final String BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE = "bundle_key_favorite_request_voice_role";
     public static final String BUNDLE_KEY_FAVORITE_REQUEST_ID = "bundle_key_favorite_request_id";
 
+    public static final String BUNDLE_KEY_REQUEST_VOICE_ROOM = "bundle_key_request_voice_room";
     public static final String BUNDLE_KEY_REQUEST_VOICE_ROLE = "bundle_key_request_voice_role";
     public static final String BUNDLE_KEY_REQUEST_VOICE_ROLE_USER = "bundle_key_request_voice_role_user";
     public static final String BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR = "bundle_key_request_voice_client_or_auditor";

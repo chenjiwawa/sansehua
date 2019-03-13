@@ -38,4 +38,21 @@ public class BaseVoiceRole implements Serializable {
     @SerializedName("voiceEnable")
     public boolean voiceEnable;
 
+
+    public boolean isVoiceClient() {
+        return (voiceRole == VOICE_CLIENT || voiceRole == VOICE_ADMIN_CLIENT ? true : false);
+    }
+
+    public boolean isVoiceAuditor() {
+        return (voiceRole == VOICE_AUDITOR || voiceRole == VOICE_ADMIN_AUDITOR ? true : false);
+    }
+
+    public boolean isVoiceAdmin() {
+        return (voiceRole == VOICE_ADMIN_AUDITOR || voiceRole == VOICE_ADMIN_CLIENT || voiceRole == VOICE_HOLDER ? true : false);
+    }
+
+    public boolean isVoiceHolder() {
+        return (voiceRole == VOICE_HOLDER ? true : false);
+    }
+
 }

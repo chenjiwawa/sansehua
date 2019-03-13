@@ -7,8 +7,8 @@
     android:background="@color/color_red"
     android:padding="5dp">
 
-
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/voiceinfolayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,12 +20,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragmentlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/voiceinfolayout"
+        android:orientation="vertical"
+        android:visibility="visible">
+
         <fragment
             android:id="@+id/fragment"
             android:name="com.zl.dappore.voiceroom.fragment.voiceorole.VoiceHolderOperationFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
 

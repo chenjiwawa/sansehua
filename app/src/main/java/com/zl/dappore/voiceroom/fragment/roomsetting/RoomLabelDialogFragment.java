@@ -1,5 +1,6 @@
 package com.zl.dappore.voiceroom.fragment.roomsetting;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,13 @@ import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.model.VoiceRole;
+import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 import butterknife.OnClick;
 
-public class RoomLabelFragment extends QsDialogFragment {
+public class RoomLabelDialogFragment extends QsDialogFragment {
 
     @Bind(R.id.title)
     TextView title;
@@ -47,8 +51,18 @@ public class RoomLabelFragment extends QsDialogFragment {
     private String editLabel = "自定义标签";
     private int mIconId = R.mipmap.icon_my_font;
 
-    public static RoomLabelFragment getInstance() {
-        return new RoomLabelFragment();
+    VoiceRoom room;
+    VoiceRole user;
+    Bundle bundle;
+
+    public static RoomLabelDialogFragment getInstance(Bundle extras) {
+        RoomLabelDialogFragment fragment = new RoomLabelDialogFragment();
+        fragment.setArguments(extras);
+        return fragment;
+    }
+    
+    public static RoomLabelDialogFragment getInstance() {
+        return new RoomLabelDialogFragment();
     }
 
     @Override
@@ -65,6 +79,14 @@ public class RoomLabelFragment extends QsDialogFragment {
     @Override
     protected void initData() {
         super.initData();
+
+        Bundle bundle = getArguments();
+        if (bundle == null) return;
+        room = (VoiceRoom) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        user = (VoiceRole) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+
+        L.i(initTag(), " room " + room + " user " + user);
+        
         title.setText(mTitle);
         confirm.setText(mConfirm);
         cancel.setText(mCancel);

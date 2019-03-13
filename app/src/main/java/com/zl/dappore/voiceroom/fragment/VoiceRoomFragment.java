@@ -17,8 +17,10 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.common.event.VoiceRoomEvent;
-import com.zl.dappore.voiceroom.VoiceRoomSettingActivity;
+import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceAuditorOperationDialogFragment;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceClientOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceHolderOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceRoleOperationDialogFragment;
 import com.zl.dappore.voiceroom.listener.OnVoiceClientListener;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
@@ -28,7 +30,6 @@ import com.zl.dappore.voiceroom.presenter.VoiceRoomPresenter;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
-
 
 public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements OnVoiceClientListener {
 
@@ -54,21 +55,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     TextView tvHolderNameVoiceRoom;
     @Bind(R.id.tv_greeting_voice_room)
     TextView tv_greeting_voice_room;
-    @Bind(R.id.ib_local_room_role_operation)
-    ImageButton ibLocalRoomRoleOperation;
-    @Bind(R.id.ib_remote_room_role_operation)
-    ImageButton ibRemoteRoomRoleOperation;
-    @Bind(R.id.ib_add_room_role_operation)
-    ImageButton ibAddRoomRoleOperation;
-    @Bind(R.id.ib_message_room_role_operation)
-    ImageButton ibMessageRoomRoleOperation;
-    @Bind(R.id.ib_logo_anim_room_role_operation)
-    ImageButton ibLogoAnimRoomRoleOperation;
-    @Bind(R.id.ib_product_room_role_operation)
-    ImageButton ibProductRoomRoleOperation;
-    @Bind(R.id.rl_frame_room_role_operation)
-    RelativeLayout rlFrameRoomRoleOperation;
 
+    VoiceRoom room;
     VoiceRole user;
     String id = "";
     String channelId = "";
@@ -80,7 +68,6 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         fragment.setArguments(extras);
         return fragment;
     }
-
 
     @Override
     public int layoutId() {
@@ -131,15 +118,19 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         if (data == null)
             return;
 
+        this.room = data;
+
         tvNameVoiceRoom.setText(data.name);
         tvIdVoiceRoom.setText("ID:" + data.id);
         tvUsersVoiceRoom.setText("0人在线");
         tv_greeting_voice_room.setText(data.greeting);
     }
 
-    @OnClick({R.id.ll_back, R.id.tv_name_voice_room, R.id.tv_id_voice_room, R.id.tv_users_voice_room, R.id.btn_more_voice_room, R.id.iv_decorate_voice_room, R.id.iv_logo_voice_room, R.id.iv_animation_voice_room, R.id.rl_holder_voice_room, R.id.tv_holder_name_voice_room, R.id.ib_local_room_role_operation, R.id.ib_remote_room_role_operation, R.id.ib_add_room_role_operation, R.id.ib_message_room_role_operation, R.id.ib_logo_anim_room_role_operation, R.id.ib_product_room_role_operation, R.id.rl_frame_room_role_operation})
+    @OnClick({R.id.ll_back, R.id.tv_name_voice_room, R.id.tv_id_voice_room, R.id.tv_users_voice_room, R.id.btn_more_voice_room, R.id.iv_decorate_voice_room, R.id.iv_logo_voice_room, R.id.iv_animation_voice_room, R.id.rl_holder_voice_room, R.id.tv_holder_name_voice_room})
     public void onViewClick(View view) {
         super.onViewClick(view);
+
+        Bundle bundle;
         switch (view.getId()) {
             case R.id.ll_back:
                 activityFinish();
@@ -151,10 +142,10 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             case R.id.tv_users_voice_room:
                 break;
             case R.id.btn_more_voice_room:
-                Bundle bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
-                QsHelper.getInstance().intent2Activity(VoiceRoomSettingActivity.class, bundle);
+                bundle = new Bundle();
+                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
+                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM, room);
+                RoomOperationDialogFragment.getInstance(bundle).show();
                 break;
             case R.id.iv_decorate_voice_room:
                 break;
@@ -165,22 +156,6 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             case R.id.rl_holder_voice_room:
                 break;
             case R.id.tv_holder_name_voice_room:
-                break;
-            case R.id.ib_local_room_role_operation:
-                break;
-            case R.id.ib_remote_room_role_operation:
-                break;
-            case R.id.ib_add_room_role_operation:
-                break;
-            case R.id.ib_message_room_role_operation:
-                break;
-            case R.id.ib_logo_anim_room_role_operation:
-                break;
-            case R.id.ib_product_room_role_operation:
-                break;
-            case R.id.rl_frame_room_role_operation:
-                RoomOperationDialogFragment dialogFragment = RoomOperationDialogFragment.getInstance();
-                dialogFragment.show();
                 break;
         }
     }
@@ -211,19 +186,24 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     @Override
     public void onItemSelect(VoiceRole data, int position, int totalCount) {
         L.i(initTag(), " onItemSelect " + data);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR, data);
+        VoiceRoleOperationDialogFragment fragment;
         switch (user.voiceRole) {
             case VoiceRole.VOICE_HOLDER:
+                fragment = VoiceHolderOperationDialogFragment.getInstance(bundle);
+                fragment.show();
                 break;
             case VoiceRole.VOICE_CLIENT:
             case VoiceRole.VOICE_ADMIN_CLIENT:
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
-                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR, data);
-                VoiceClientOperationDialogFragment fragment = VoiceClientOperationDialogFragment.getInstance(bundle);
+                fragment = VoiceClientOperationDialogFragment.getInstance(bundle);
                 fragment.show();
                 break;
             case VoiceRole.VOICE_AUDITOR:
             case VoiceRole.VOICE_ADMIN_AUDITOR:
+                fragment = VoiceAuditorOperationDialogFragment.getInstance(bundle);
+                fragment.show();
                 break;
         }
     }

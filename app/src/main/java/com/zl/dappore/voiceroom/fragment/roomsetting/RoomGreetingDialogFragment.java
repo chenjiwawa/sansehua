@@ -1,5 +1,6 @@
-package com.zl.dappore.voiceroom.dialog;
+package com.zl.dappore.voiceroom.fragment.roomsetting;
 
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -14,6 +15,9 @@ import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.model.VoiceRole;
+import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 import butterknife.OnClick;
 
@@ -39,6 +43,16 @@ public class RoomGreetingDialogFragment extends QsDialogFragment implements Text
     private String mCancel = QsHelper.getInstance().getString(R.string.cancel);
     private int mIconId = R.mipmap.icon_my_font;
 
+    VoiceRoom room;
+    VoiceRole user;
+    Bundle bundle;
+
+    public static RoomGreetingDialogFragment getInstance(Bundle extras) {
+        RoomGreetingDialogFragment fragment = new RoomGreetingDialogFragment();
+        fragment.setArguments(extras);
+        return fragment;
+    }
+
     public static RoomGreetingDialogFragment getInstance() {
         return new RoomGreetingDialogFragment();
     }
@@ -57,6 +71,14 @@ public class RoomGreetingDialogFragment extends QsDialogFragment implements Text
     @Override
     protected void initData() {
         super.initData();
+
+        Bundle bundle = getArguments();
+        if (bundle == null) return;
+        room = (VoiceRoom) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        user = (VoiceRole) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+
+        L.i(initTag(), " room " + room + " user " + user);
+
         title.setText(mTitle);
         confirm.setText(mConfirm);
         cancel.setText(mCancel);

@@ -20,7 +20,6 @@ public class RoomRoleOperationFragment extends QsFragment<VoiceOperationPresente
         return fragment;
     }
 
-
     @Override
     public int layoutId() {
         return R.layout.fragment_room_role_operation;
