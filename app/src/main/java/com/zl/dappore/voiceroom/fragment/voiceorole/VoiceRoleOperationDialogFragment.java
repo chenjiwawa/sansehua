@@ -1,5 +1,6 @@
 package com.zl.dappore.voiceroom.fragment.voiceorole;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +12,15 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
 
-public class VoiceInfoDialogFragment extends QsDialogFragment {
+public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
     @Bind(R.id.content)
     RelativeLayout content;
+    VoiceRoleOperationFragment fragment;
 
-
-    public static VoiceInfoDialogFragment getInstance() {
-        return new VoiceInfoDialogFragment();
+    public static VoiceRoleOperationDialogFragment getInstance(Bundle extras) {
+        VoiceRoleOperationDialogFragment fragment = new VoiceRoleOperationDialogFragment();
+        fragment.setArguments(extras);
+        return fragment;
     }
 
     @Override
@@ -27,13 +30,15 @@ public class VoiceInfoDialogFragment extends QsDialogFragment {
 
     @Override
     protected View getDialogView(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-        View view = layoutInflater.inflate(R.layout.dialog_voice_info, viewGroup);
+        View view = layoutInflater.inflate(R.layout.dialog_voice_role_operation, viewGroup);
         return view;
     }
 
     @Override
     protected void initData() {
         super.initData();
+        fragment = (VoiceRoleOperationFragment) getChildFragmentManager().findFragmentById(R.id.fragment);
+        fragment.setArguments(getArguments());
     }
 
 

@@ -13,19 +13,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible">
-
         <fragment
-            android:id="@+id/voiceinfo"
+            android:id="@+id/fragment"
             android:name="com.zl.dappore.voiceroom.fragment.voiceorole.VoiceRoleInfoFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-        <fragment
-            android:id="@+id/fragment"
-            android:name="com.zl.dappore.voiceroom.fragment.voiceorole.VoiceHolderOperationFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
     </LinearLayout>
 </RelativeLayout>
 

@@ -16,7 +16,7 @@ import com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 
-public class VoiceInfoFragment extends QsFragment {
+public class VoiceRoleInfoFragment extends QsFragment {
 
     @Bind(R.id.iv_img_user)
     ImageView ivImgUser;
@@ -48,8 +48,8 @@ public class VoiceInfoFragment extends QsFragment {
     String channelId = "";
     int voiceRole = 0;
 
-    public static VoiceInfoFragment getInstance(Bundle extras) {
-        VoiceInfoFragment fragment = new VoiceInfoFragment();
+    public static VoiceRoleInfoFragment getInstance(Bundle extras) {
+        VoiceRoleInfoFragment fragment = new VoiceRoleInfoFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -57,7 +57,7 @@ public class VoiceInfoFragment extends QsFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.fragment_voice_info;
+        return R.layout.fragment_voice_role_info;
     }
 
     @Override
