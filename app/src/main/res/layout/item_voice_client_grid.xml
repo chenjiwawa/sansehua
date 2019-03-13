@@ -5,8 +5,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="#F8F8F8"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:padding="5dp">
 
     <RelativeLayout
@@ -21,7 +21,7 @@
             android:layout_width="58dp"
             android:layout_height="58dp"
             android:layout_centerInParent="true"
-            android:background="@color/color_red"/>
+            android:background="@color/color_red" />
 
         <ImageView
             android:id="@+id/iv_logo_voice_client"
@@ -35,7 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:src="@mipmap/ic_play_audio_list" />
+            android:src="@mipmap/ic_play_audio_list"
+            android:visibility="gone" />
 
     </RelativeLayout>
 

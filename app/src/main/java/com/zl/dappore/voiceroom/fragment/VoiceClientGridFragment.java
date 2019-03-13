@@ -13,6 +13,7 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsRecyclerFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.common.widget.itemdecoration.DividerGridItemDecoration;
 import com.zl.dappore.voiceroom.adapter.VoiceClientGridRecyclerAdapterItem;
+import com.zl.dappore.voiceroom.listener.OnVoiceClientListener;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.VoiceClientGridPresenter;
@@ -63,6 +64,10 @@ public class VoiceClientGridFragment extends QsRecyclerFragment<VoiceClientGridP
 
     @Override
     public QsRecycleAdapterItem getRecycleAdapterItem(LayoutInflater mInflater, ViewGroup parent, int type) {
-        return new VoiceClientGridRecyclerAdapterItem(mInflater, parent);
+        OnVoiceClientListener onVoiceClientListener = null;
+        if (getParentFragment() != null && getParentFragment() instanceof OnVoiceClientListener) {
+            onVoiceClientListener = (OnVoiceClientListener) getParentFragment();
+        }
+        return new VoiceClientGridRecyclerAdapterItem(mInflater, parent, onVoiceClientListener);
     }
 }

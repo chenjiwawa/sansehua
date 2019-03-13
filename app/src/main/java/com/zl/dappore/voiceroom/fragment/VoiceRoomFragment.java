@@ -16,15 +16,22 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.common.event.VoiceRoomEvent;
+import com.zl.dappore.voiceroom.VoiceRoomSettingActivity;
+import com.zl.dappore.voiceroom.listener.OnVoiceClientListener;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.VoiceRoomPresenter;
 
+import org.greenrobot.eventbus.Subscribe;
+
 import java.util.List;
 
+import static com.zl.dappore.voiceroom.model.BaseVoiceRole.VOICE_HOLDER;
 
-public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> {
+
+public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements OnVoiceClientListener {
 
     @Bind(R.id.ll_back)
     LinearLayout llBack;
@@ -130,7 +137,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> {
         tv_greeting_voice_room.setText(data.greeting);
     }
 
-    @OnClick({R.id.ll_back, R.id.tv_name_voice_room, R.id.tv_id_voice_room, R.id.tv_users_voice_room, R.id.btn_more_voice_room, R.id.iv_decorate_voice_room, R.id.iv_logo_voice_room, R.id.iv_animation_voice_room, R.id.rl_holder_voice_room, R.id.tv_holder_name_voice_room,R.id.ib_local_room_role_operation, R.id.ib_remote_room_role_operation, R.id.ib_add_room_role_operation, R.id.ib_message_room_role_operation, R.id.ib_logo_anim_room_role_operation, R.id.ib_product_room_role_operation, R.id.rl_frame_room_role_operation})
+    @OnClick({R.id.ll_back, R.id.tv_name_voice_room, R.id.tv_id_voice_room, R.id.tv_users_voice_room, R.id.btn_more_voice_room, R.id.iv_decorate_voice_room, R.id.iv_logo_voice_room, R.id.iv_animation_voice_room, R.id.rl_holder_voice_room, R.id.tv_holder_name_voice_room, R.id.ib_local_room_role_operation, R.id.ib_remote_room_role_operation, R.id.ib_add_room_role_operation, R.id.ib_message_room_role_operation, R.id.ib_logo_anim_room_role_operation, R.id.ib_product_room_role_operation, R.id.rl_frame_room_role_operation})
     public void onViewClick(View view) {
         super.onViewClick(view);
         switch (view.getId()) {
@@ -144,6 +151,10 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> {
             case R.id.tv_users_voice_room:
                 break;
             case R.id.btn_more_voice_room:
+                Bundle bundle = new Bundle();
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
+                QsHelper.getInstance().intent2Activity(VoiceRoomSettingActivity.class, bundle);
                 break;
             case R.id.iv_decorate_voice_room:
                 break;
@@ -174,4 +185,43 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> {
         }
     }
 
+    @Subscribe
+    public void onEvent(VoiceRoomEvent event) {
+        if (event == null)
+            return;
+
+//        switch (event.state) {
+//            case COMMENT:
+//                requestVideoDetail();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        setCommentReward(event.reward);
+//                    }
+//                }, 20);
+//                break;
+//        }
+    }
+
+    @Override
+    public boolean isOpenEventBus() {
+        return true;
+    }
+
+    @Override
+    public void onItemSelect(VoiceRole data, int position, int totalCount) {
+        L.i(initTag(), " onItemSelect " + data);
+        switch (data.voiceRole){
+            case VoiceRole.VOICE_HOLDER:
+                break;
+            case VoiceRole.VOICE_CLIENT:
+                break;
+            case VoiceRole.VOICE_ADMIN_CLIENT:
+                break;
+            case VoiceRole.VOICE_AUDITOR:
+                break;
+            case VoiceRole.VOICE_ADMIN_AUDITOR:
+                break;
+        }
+    }
 }

@@ -15,6 +15,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.listener.OnVoiceClientListener;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 
 
@@ -34,9 +35,11 @@ public class VoiceClientGridRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
     @Bind(R.id.tv_name_voice_client)
     TextView tvNameVoiceClient;
     private VoiceRole data;
+    OnVoiceClientListener onVoiceClientListener;
 
-    public VoiceClientGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent) {
+    public VoiceClientGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, OnVoiceClientListener onVoiceClientListener) {
         super(inflater, parent);
+        this.onVoiceClientListener = onVoiceClientListener;
     }
 
     @Override
@@ -49,11 +52,19 @@ public class VoiceClientGridRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
         this.data = data;
         L.i(initTag(), " onBindItemData " + data);
 
-        if(!TextUtils.isEmpty(data.logo)){
+        if (!TextUtils.isEmpty(data.logo)) {
             QsHelper.getInstance().getImageHelper().createRequest().load(data.logo).circleCrop().into(ivLogoVoiceClient);
         }
         tvNameVoiceClient.setText(data.name + "");
 
+        rlItemVoiceClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onVoiceClientListener != null) {
+                    onVoiceClientListener.onItemSelect(data, position, totalCount);
+                }
+            }
+        });
     }
 
 
