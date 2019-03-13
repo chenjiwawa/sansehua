@@ -8,9 +8,23 @@ public class BaseVoiceRole {
     public static final int VOICECLIENT = 2;
     public static final int VOICEAUDITOR = 3;
 
-    public int voiceRole;
-    public String channelId;
-    public boolean isJoinChannel;
+    @SerializedName("id")
+    public String id;
+    @SerializedName("channelName")
+    public String channelName;
+    @SerializedName("uid")
+    public String uid;
+    @SerializedName("chatRoomId")
+    public String chatRoomId;
+    @SerializedName("type")
+    public int type;
+    @SerializedName("name")
+    public String name;
+    @SerializedName("logo")
+    public String logo;
+    @SerializedName("isMute")
     public boolean isMute;
+    @SerializedName("isJoinChannel")
+    public boolean isJoinChannel;
 
 }

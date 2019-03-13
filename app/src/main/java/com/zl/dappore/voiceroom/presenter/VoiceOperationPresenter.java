@@ -4,8 +4,7 @@ package com.zl.dappore.voiceroom.presenter;
 import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.zl.dappore.common.presenter.DapporePresenter;
-import com.zl.dappore.voiceroom.fragment.VoiceOperationFragment;
-import com.zl.dappore.voiceroom.fragment.VoiceRoomFragment;
+import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceOperationFragment;
 
 /**
  * @CreateBy qsmaxmin

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/dialog_header" />
+
+    <RelativeLayout
+        android:id="@+id/selectlabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_rect_lightgray_2dp_stroke">
+
+        <fragment
+            android:id="@+id/labels"
+            android:name="com.zl.dappore.voiceroom.fragment.roomsetting.StringGridFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/editlabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_rect_lightgray_2dp_stroke">
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入房间密码！"
+            android:maxLength="20"
+            android:paddingRight="20dp"
+            android:text=""
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="0/8"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/swichover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:drawableRight="@mipmap/ic_big_star_select"
+        android:gravity="center_vertical|right"
+        android:text="标签"
+        android:textSize="16sp" />
+
+    <include layout="@layout/dialog_footer" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="110dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:src="@android:drawable/ic_delete"
+        android:visibility="gone" />
+
+</LinearLayout>
+

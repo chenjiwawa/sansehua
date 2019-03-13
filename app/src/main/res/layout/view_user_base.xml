@@ -18,32 +18,6 @@
         android:gravity="center"
         android:paddingRight="14dp">
 
-        <LinearLayout
-            android:id="@+id/ll_pos_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/tv_pos_user"
-                android:layout_width="23dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#636579"
-                android:textSize="@dimen/font_size_two" />
-
-            <TextView
-                android:layout_width="1dp"
-                android:layout_height="74dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="#33AAAAAA" />
-
-        </LinearLayout>
-
         <ImageView
             android:id="@+id/iv_img_user"
             android:layout_width="54dp"

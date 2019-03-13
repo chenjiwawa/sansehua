@@ -1,10 +1,12 @@
-package com.zl.dappore.voiceroom.dialog;
+package com.zl.dappore.voiceroom.fragment.roomsetting;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.qsmaxmin.qsbase.common.log.L;
@@ -15,28 +17,30 @@ import com.zl.dappore.R;
 
 import butterknife.OnClick;
 
-public class RoomOperationDialogFragment extends QsDialogFragment {
+public class RoomLockDialogFragment extends QsDialogFragment implements TextWatcher {
+
     @Bind(R.id.title)
     TextView title;
-    @Bind(R.id.message)
-    TextView message;
+    @Bind(R.id.edit)
+    EditText edit;
+    @Bind(R.id.option)
+    TextView option;
     @Bind(R.id.cancel)
     TextView cancel;
     @Bind(R.id.confirm)
     TextView confirm;
-    @Bind(R.id.ll_content)
-    LinearLayout llContent;
-    @Bind(R.id.image_header)
-    ImageView imageHeader;
+    @Bind(R.id.image)
+    ImageView image;
+
     private OnDialogListener mListener;
-    private String mTitle = "提示";
+    private String mTitle = "房间上锁";
     private String mMessage = "";
-    private String mConfirm = QsHelper.getInstance().getString(R.string.ok);
+    private String mConfirm = "确认修改";
     private String mCancel = QsHelper.getInstance().getString(R.string.cancel);
     private int mIconId = R.mipmap.icon_my_font;
 
-    public static RoomOperationDialogFragment getInstance() {
-        return new RoomOperationDialogFragment();
+    public static RoomLockDialogFragment getInstance() {
+        return new RoomLockDialogFragment();
     }
 
     @Override
@@ -46,7 +50,7 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
 
     @Override
     protected View getDialogView(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-        View view = layoutInflater.inflate(R.layout.dialog_fragment_simple, viewGroup);
+        View view = layoutInflater.inflate(R.layout.dialog_room_lock, viewGroup);
         return view;
     }
 
@@ -54,10 +58,29 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
     protected void initData() {
         super.initData();
         title.setText(mTitle);
-        message.setText(mMessage);
         confirm.setText(mConfirm);
         cancel.setText(mCancel);
-        imageHeader.setImageResource(mIconId);
+        image.setImageResource(mIconId);
+        edit.addTextChangedListener(this);
+
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        if (s == null)
+            return;
+
+        option.setText((s.toString().length() / 1) + "/" + 8);
     }
 
     public void setIconId(int iconId) {

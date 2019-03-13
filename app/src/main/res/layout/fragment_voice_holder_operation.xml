@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:padding="5dp"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <Button
+            style="@style/voiceclientoperation"
+            android:text="上麦\下麦" />
+
+        <Button
+            style="@style/voiceclientoperation"
+            android:text="解除封麦\封麦" />
+
+        <Button
+            style="@style/voiceclientoperation"
+            android:text="抱TA下麦" />
+
+
+        <Button
+            android:id="@+id/btn_voice_client_mute"
+            style="@style/voiceclientoperation"
+            android:text="关闭麦克风\打开麦克风" />
+
+        <Button
+            android:id="@+id/btn_voice_client_cancel"
+            style="@style/voiceclientoperation"
+            android:text="取消" />
+
+    </LinearLayout>
+</RelativeLayout>

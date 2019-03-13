@@ -1,4 +1,4 @@
-package com.zl.dappore.voiceroom.fragment;
+package com.zl.dappore.voiceroom.fragment.roomrole;
 
 import android.os.Bundle;
 
@@ -9,13 +9,13 @@ import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.VoiceOperationPresenter;
 
 
-public class VoiceClientOperationFragment extends QsFragment<VoiceOperationPresenter> {
+public class RoomRoleOperationFragment extends QsFragment<VoiceOperationPresenter> {
 
     String channelId = "";
     int voiceRole = 0;
 
-    public static VoiceClientOperationFragment getInstance(Bundle extras) {
-        VoiceClientOperationFragment fragment = new VoiceClientOperationFragment();
+    public static RoomRoleOperationFragment getInstance(Bundle extras) {
+        RoomRoleOperationFragment fragment = new RoomRoleOperationFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -23,22 +23,18 @@ public class VoiceClientOperationFragment extends QsFragment<VoiceOperationPrese
 
     @Override
     public int layoutId() {
-        return R.layout.fragment_voice_client_operation;
+        return R.layout.fragment_room_role_operation;
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
-
         //TODO
         arguments = new Bundle();
         if (arguments == null) return;
 
         channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
         voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
-
-        VoiceClientGridFragment voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
-        voiceClientGridFragment.setArguments(arguments);
 
         L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
         loadingClose();

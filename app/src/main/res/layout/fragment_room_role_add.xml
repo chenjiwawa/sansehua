@@ -1,0 +1,77 @@
+<com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_red"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:visibility="visible">
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_red"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="visible">
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+            android:id="@+id/rl_music_voice_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ic_big_star_select"
+                android:text="音乐" />
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+            android:id="@+id/rl_admin_voice_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ic_big_star_select"
+                android:text="管理员" />
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+            android:id="@+id/rl_forbidden_voice_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ic_big_star_select"
+                android:text="黑名单" />
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+        <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout
+            android:id="@+id/rl_theme_voice_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:visibility="invisible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ic_big_star_select"
+                android:text="主题" />
+        </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
+
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+</com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>

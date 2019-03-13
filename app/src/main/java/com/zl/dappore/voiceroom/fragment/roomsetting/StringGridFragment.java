@@ -1,4 +1,4 @@
-package com.zl.dappore.voiceroom.fragment;
+package com.zl.dappore.voiceroom.fragment.roomsetting;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,17 +11,17 @@ import com.zl.dappore.R;
 import com.zl.dappore.appdetail.model.App;
 import com.zl.dappore.common.widget.itemdecoration.DividerGridItemDecoration;
 import com.zl.dappore.home.model.HomeConstants;
-import com.zl.dappore.voiceroom.adapter.ProductGridRecyclerAdapterItem;
-import com.zl.dappore.voiceroom.presenter.ProductGridPresenter;
+import com.zl.dappore.voiceroom.adapter.LabelGridRecyclerAdapterItem;
+import com.zl.dappore.voiceroom.presenter.StringGridPresenter;
 
 
-public class ProductGridFragment extends QsRecyclerFragment<ProductGridPresenter, App> {
+public class StringGridFragment extends QsRecyclerFragment<StringGridPresenter, App> implements LabelGridRecyclerAdapterItem.ItemListener<App> {
 
     private String categoryType = HomeConstants.CATEGORY_TYPE_DEFAULT;
     private String sortType = "";
 
-    public static ProductGridFragment getInstance(Bundle bundle) {
-        ProductGridFragment fragment = new ProductGridFragment();
+    public static StringGridFragment getInstance(Bundle bundle) {
+        StringGridFragment fragment = new StringGridFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -54,7 +54,7 @@ public class ProductGridFragment extends QsRecyclerFragment<ProductGridPresenter
 
     @Override
     public QsRecycleAdapterItem getRecycleAdapterItem(LayoutInflater mInflater, ViewGroup parent, int type) {
-        return new ProductGridRecyclerAdapterItem(mInflater, parent, false);
+        return new LabelGridRecyclerAdapterItem(mInflater, parent);
     }
 
     @Override
@@ -62,4 +62,20 @@ public class ProductGridFragment extends QsRecyclerFragment<ProductGridPresenter
         super.setViewState(showState);
     }
 
+    @Override
+    public void onItemClick(App data, int position, int preposition, int totalCount) {
+        notifyItemChanged(preposition);
+        notifyItemChanged(position);
+    }
+
+    public void notifyItemChanged(int pos) {
+        if (getRecyclerView() != null && getData() != null && getData().size() > pos) {
+            getData().get(pos).liked = true;
+            getRecyclerView().getAdapter().notifyItemChanged(pos);
+        }
+    }
+
+    public interface ItemListener<T> {
+        void onItemSelect(T data);
+    }
 }

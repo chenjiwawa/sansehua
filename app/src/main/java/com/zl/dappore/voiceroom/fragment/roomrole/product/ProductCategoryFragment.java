@@ -1,4 +1,4 @@
-package com.zl.dappore.voiceroom.fragment;
+package com.zl.dappore.voiceroom.fragment.roomrole.product;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsViewPagerFragment;
@@ -14,8 +13,6 @@ import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.zl.dappore.R;
 import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.home.model.HomeConstants;
-import com.zl.dappore.voiceroom.VoiceRoomActivity;
-import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.ProductCategoryPresenter;
 
 /**
@@ -156,7 +153,7 @@ public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategory
     /**
      * 点击事件
      */
-    @OnClick({R.id.rl_tab_recommend, R.id.rl_tab_rank, R.id.rl_tab_category, R.id.btn_search})
+    @OnClick({R.id.rl_tab_recommend, R.id.rl_tab_rank, R.id.rl_tab_category})
     public void onViewClick(View view) {
         super.onViewClick(view);
         switch (view.getId()) {
@@ -168,15 +165,6 @@ public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategory
                 break;
             case R.id.rl_tab_category:
                 pager.setCurrentItem(2);
-                break;
-            case R.id.btn_search:
-                //TODO
-//                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
-
-                Bundle bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
-                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
                 break;
         }
     }

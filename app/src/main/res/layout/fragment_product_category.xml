@@ -28,13 +28,6 @@
             app:psts_TextSize="13sp"
             app:psts_UnSelectedTextColor="@color/color_white" />
 
-        <Button
-            android:id="@+id/btn_search"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@mipmap/ic_seacher" />
     </RelativeLayout>
 
     <RelativeLayout

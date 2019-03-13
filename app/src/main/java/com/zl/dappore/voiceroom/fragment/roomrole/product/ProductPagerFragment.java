@@ -1,4 +1,4 @@
-package com.zl.dappore.voiceroom.fragment;
+package com.zl.dappore.voiceroom.fragment.roomrole.product;
 
 import android.graphics.Color;
 import android.os.Bundle;

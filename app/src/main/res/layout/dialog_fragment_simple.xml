@@ -8,7 +8,7 @@
         android:id="@+id/ll_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_white"
+        android:background="@color/color_red"
         android:orientation="vertical"
         android:padding="20dp">
         <!--标题-->
@@ -16,7 +16,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="取消"
+            android:text="标题"
             android:textSize="16sp" />
 
         <!--自定义区域-->
@@ -37,7 +37,9 @@
         <!--以下是按钮-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@color/color_blue_green">
 
             <TextView
                 android:id="@+id/cancel"
@@ -55,7 +57,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!--丑陋的头像-->
     <ImageView
         android:id="@+id/image_header"
         android:layout_width="110dp"

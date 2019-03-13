@@ -13,13 +13,13 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.model.VoiceClient;
+import com.zl.dappore.voiceroom.model.VoiceRole;
 
 
 /**
  * Created by zhang on 2017/3/17.
  */
-public class VoiceClientListRecyclerAdapterItem extends QsRecycleAdapterItem<VoiceClient> {
+public class VoiceClientListRecyclerAdapterItem extends QsRecycleAdapterItem<VoiceRole> {
 
 
     @Bind(R.id.iv_decorate_voice_client_list)
@@ -32,7 +32,7 @@ public class VoiceClientListRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
     RelativeLayout rlItemVoiceClient;
     @Bind(R.id.tv_name_voice_client_list)
     TextView tvNameVoiceClient;
-    private VoiceClient data;
+    private VoiceRole data;
 
     public VoiceClientListRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent) {
         super(inflater, parent);
@@ -44,7 +44,7 @@ public class VoiceClientListRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
     }
 
     @Override
-    protected void onBindItemData(VoiceClient data, int position, int totalCount) {
+    protected void onBindItemData(VoiceRole data, int position, int totalCount) {
         this.data = data;
         QsHelper.getInstance().getImageHelper().createRequest().load(R.mipmap.ic_launcher).circleCrop().into(ivLogoVoiceClient);
         tvNameVoiceClient.setText(position + "分");

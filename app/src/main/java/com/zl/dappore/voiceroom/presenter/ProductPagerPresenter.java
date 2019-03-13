@@ -6,7 +6,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.zl.dappore.common.http.CategoryHttp;
 import com.zl.dappore.common.presenter.DapporePresenter;
 import com.zl.dappore.home.model.AppTaxonsList;
-import com.zl.dappore.voiceroom.fragment.ProductPagerFragment;
+import com.zl.dappore.voiceroom.fragment.roomrole.product.ProductPagerFragment;
 
 /**
  * @CreateBy qsmaxmin

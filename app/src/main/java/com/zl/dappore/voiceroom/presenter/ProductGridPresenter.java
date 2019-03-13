@@ -6,7 +6,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.zl.dappore.common.http.AppListHttp;
 import com.zl.dappore.common.presenter.DapporePresenter;
 import com.zl.dappore.home.model.AppList;
-import com.zl.dappore.voiceroom.fragment.ProductGridFragment;
+import com.zl.dappore.voiceroom.fragment.roomrole.product.ProductGridFragment;
 
 
 public class ProductGridPresenter extends DapporePresenter<ProductGridFragment> {

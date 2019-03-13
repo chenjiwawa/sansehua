@@ -9,12 +9,12 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.qsmaxmin.qsbase.mvp.fragment.QsRecyclerFragment;
 import com.zl.dappore.voiceroom.adapter.VoiceClientListRecyclerAdapterItem;
-import com.zl.dappore.voiceroom.model.VoiceClient;
+import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.VoiceClientGridPresenter;
 
 
-public class VoiceClientListFragment extends QsRecyclerFragment<VoiceClientGridPresenter, VoiceClient> {
+public class VoiceClientListFragment extends QsRecyclerFragment<VoiceClientGridPresenter, VoiceRole> {
     String channelId = "";
     int voiceRole = 0;
 

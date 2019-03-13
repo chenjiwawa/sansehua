@@ -17,8 +17,8 @@ import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.home.CategoryTypeI;
 import com.zl.dappore.home.model.HomeConstants;
 import com.zl.dappore.home.presenter.MainFragmentPresenter;
-import com.zl.dappore.recommendlist.model.RecommendListConstants;
-import com.zl.dappore.userlist.UserListActivity;
+import com.zl.dappore.voiceroom.VoiceRoomActivity;
+import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 /**
  * 字工场原创字体
@@ -177,18 +177,19 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
                 //TODO
 //                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
 
-//                Bundle bundle = new Bundle();
-//                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
-//                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
-//                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
+                Bundle bundle = new Bundle();
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
+                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
 
 //                Bundle bundle = new Bundle();
 //                QsHelper.getInstance().intent2Activity(ProductCategoryActivity.class, bundle);
 
-                Bundle bundle = new Bundle();
-                bundle.putString(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_NAME, "同类推荐");
-                bundle.putInt(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, RecommendListConstants.TYPE_SIMILAR);
-                QsHelper.getInstance().intent2Activity(UserListActivity.class, bundle);
+//                Bundle bundle = new Bundle();
+//                bundle.putString(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_NAME, "同类推荐");
+//                bundle.putInt(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, RecommendListConstants.TYPE_SIMILAR);
+//                QsHelper.getInstance().intent2Activity(UserListActivity.class, bundle);
+
                 break;
         }
     }

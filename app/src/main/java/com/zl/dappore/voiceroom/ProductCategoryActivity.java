@@ -8,7 +8,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.fragment.ProductCategoryFragment;
+import com.zl.dappore.voiceroom.fragment.roomrole.product.ProductCategoryFragment;
 
 public class ProductCategoryActivity extends QsABActivity {
     @Bind(R.id.tv_title)

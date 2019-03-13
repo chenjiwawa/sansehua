@@ -1,21 +1,21 @@
-package com.zl.dappore.voiceroom.fragment;
+package com.zl.dappore.voiceroom.fragment.voiceorole;
 
 import android.os.Bundle;
 
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
-import com.zl.dappore.voiceroom.presenter.VoiceOperationPresenter;
 
 
-public class VoiceOperationFragment extends QsFragment<VoiceOperationPresenter> {
+public class VoiceClientOperationFragment extends QsFragment {
 
     String channelId = "";
     int voiceRole = 0;
 
-    public static VoiceOperationFragment getInstance(Bundle extras) {
-        VoiceOperationFragment fragment = new VoiceOperationFragment();
+    public static VoiceClientOperationFragment getInstance(Bundle extras) {
+        VoiceClientOperationFragment fragment = new VoiceClientOperationFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -23,7 +23,7 @@ public class VoiceOperationFragment extends QsFragment<VoiceOperationPresenter> 
 
     @Override
     public int layoutId() {
-        return R.layout.fragment_voice_operation;
+        return R.layout.fragment_voice_client_operation;
     }
 
     @Override

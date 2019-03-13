@@ -1,4 +1,4 @@
-package com.zl.dappore.voiceroom.fragment;
+package com.zl.dappore.voiceroom.fragment.voiceorole;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -23,18 +23,17 @@ import android.widget.RelativeLayout;
 import com.qsmaxmin.qsbase.common.viewbind.ViewBindHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
-import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.common.utils.KeyboardHelper;
 
-public class BaseSheetDialogFragment extends BottomSheetDialogFragment implements DialogInterface.OnShowListener {
-    public final static String TAG = BaseSheetDialogFragment.class.getSimpleName();
+public class VoiceOperationSheetFragment extends BottomSheetDialogFragment {
+    public final static String TAG = VoiceOperationSheetFragment.class.getSimpleName();
 
-    @Bind(R.id.rl_base_sheet_dialog)
-    RelativeLayout rl_base_sheet_dialog;
+    @Bind(R.id.rl_voice_operation_sheet)
+    RelativeLayout rl_voice_operation_sheet;
 
-    QsFragment addFragment;
+    VoiceOperationFragment fragment;
 
     /**
      * 顶部向下偏移量
@@ -44,7 +43,7 @@ public class BaseSheetDialogFragment extends BottomSheetDialogFragment implement
     private View dialogView;
 
     public static Fragment getInstance(Bundle extras) {
-        BaseSheetDialogFragment fragment = new BaseSheetDialogFragment();
+        VoiceOperationSheetFragment fragment = new VoiceOperationSheetFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -61,7 +60,7 @@ public class BaseSheetDialogFragment extends BottomSheetDialogFragment implement
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        dialogView = inflater.inflate(R.layout.fragment_base_sheet_dialog, container, false);
+        dialogView = inflater.inflate(R.layout.fragment_voice_operation_sheet, container, false);
         ViewBindHelper.bindView(this, dialogView);
         return dialogView;
     }
@@ -84,31 +83,16 @@ public class BaseSheetDialogFragment extends BottomSheetDialogFragment implement
         if (bottomSheet != null) {
             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomSheet.getLayoutParams();
             layoutParams.height = getHeight();
+            layoutParams.height = CoordinatorLayout.LayoutParams.WRAP_CONTENT;
             behavior = BottomSheetBehavior.from(bottomSheet);
             // 初始为展开状态
             behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }
 
-        getDialog().setOnShowListener(this);
-
-    }
-
-    public void setAddFragment(QsFragment addFragment) {
-        this.addFragment = addFragment;
-    }
-
-    DialogInterface.OnShowListener showListener;
-
-    public void setShowListener(DialogInterface.OnShowListener showListener) {
-        this.showListener = showListener;
-    }
-
-    @Override
-    public void onShow(DialogInterface dialog) {
-        if (addFragment != null && !addFragment.isAdded()) {
-            getChildFragmentManager().beginTransaction().replace(R.id.rl_base_sheet_dialog, addFragment).commitAllowingStateLoss();
+        fragment = (VoiceOperationFragment) VoiceOperationFragment.getInstance(getArguments());
+        if (fragment != null && !fragment.isAdded()) {
+            getChildFragmentManager().beginTransaction().replace(R.id.rl_voice_operation_sheet, fragment).commitAllowingStateLoss();
         }
-
     }
 
     /**
@@ -143,10 +127,10 @@ public class BaseSheetDialogFragment extends BottomSheetDialogFragment implement
     }
 
 
-    @OnClick({R.id.rl_base_sheet_dialog})
+    @OnClick({R.id.rl_voice_operation_sheet})
     public void onViewClick(View view) {
         switch (view.getId()) {
-            case R.id.rl_base_sheet_dialog:
+            case R.id.rl_voice_operation_sheet:
                 break;
         }
     }

@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_red"
+    android:padding="5dp"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:text="送给"
+                android:textColor="@color/color_stroke_gray"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <include layout="@layout/item_voice_client_list" />
+
+            <fragment
+                android:id="@+id/f_voice_client_list"
+                android:name="com.zl.dappore.voiceroom.fragment.VoiceClientListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <fragment
+                android:id="@+id/f_product_category"
+                android:name="com.zl.dappore.voiceroom.fragment.roomrole.product.ProductCategoryFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_be_vip_send_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/f_product_category"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/shape_rect_lightgray_2dp_stroke"
+                android:drawableLeft="@mipmap/ic_big_star_select"
+                android:text="成为会员" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_diamond_send_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:drawableLeft="@mipmap/ic_big_star_select"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/color_stroke_gray"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_to_charge_send_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_toRightOf="@id/tv_diamond_send_product"
+                android:drawableRight="@mipmap/ic_big_star_select"
+                android:gravity="center"
+                android:text="去充值"
+                android:textColor="@color/color_stroke_gray"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_sum_send_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:drawableRight="@mipmap/ic_big_star_select"
+                android:gravity="center"
+                android:text="1"
+                android:layout_toLeftOf="@+id/btn_send_product"
+                android:textColor="@color/color_stroke_gray"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_send_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/shape_rect_lightgray_2dp_stroke"
+                android:text="赠送" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

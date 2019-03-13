@@ -5,7 +5,7 @@ import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.zl.dappore.common.presenter.DapporePresenter;
 import com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment;
-import com.zl.dappore.voiceroom.model.VoiceClient;
+import com.zl.dappore.voiceroom.model.VoiceRole;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,11 @@ public class VoiceClientGridPresenter extends DapporePresenter<VoiceClientGridFr
 
     @ThreadPoint(ThreadType.HTTP)
     public void requstData(int voiceRole) {
-        List<VoiceClient> voiceClientList = new ArrayList<>();
+        List<VoiceRole> voiceRoleList = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
-            voiceClientList.add(new VoiceClient());
+            voiceRoleList.add(new VoiceRole());
         }
-        getView().addData(voiceClientList);
+        getView().setData(voiceRoleList);
     }
 
 }

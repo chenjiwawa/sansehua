@@ -3,39 +3,9 @@ package com.zl.dappore.voiceroom.model;
 import com.google.gson.annotations.SerializedName;
 
 public class VoiceClient extends BaseVoiceRole {
-    /**
-     * id : 63
-     * title : null
-     * content : 解决
-     * state : null
-     * score : null
-     * star_count : 3
-     * created_at : 2018-12-20T15:58:17.886+08:00
-     * commenter : {"id":13,"name":null,"avatar_url":"http://pizj829no.bkt.clouddn.com/XZpGDWZz9VdZEMC13LhCLMQ6"}
-     * liked : false
-     * liked_count : 0
-     */
 
-    @SerializedName("id")
-    public String id;
-    @SerializedName("title")
-    public String title;
-    @SerializedName("content")
-    public String content;
-    @SerializedName("state")
-    public String state;
-    @SerializedName("score")
-    public String score;
-    @SerializedName("star_count")
-    public float starCount;
-    @SerializedName("created_at")
-    public String createdAt;
-    @SerializedName("commenter")
-    public Commenter commenter;
-    @SerializedName("liked")
-    public boolean liked;
-    @SerializedName("liked_count")
-    public int likedCount;
+    @SerializedName("position")
+    public int position;
 
     public static class Commenter {
         /**
