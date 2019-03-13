@@ -18,6 +18,7 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.common.event.VoiceRoomEvent;
 import com.zl.dappore.voiceroom.VoiceRoomSettingActivity;
+import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceClientOperationDialogFragment;
 import com.zl.dappore.voiceroom.listener.OnVoiceClientListener;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
@@ -27,8 +28,6 @@ import com.zl.dappore.voiceroom.presenter.VoiceRoomPresenter;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
-
-import static com.zl.dappore.voiceroom.model.BaseVoiceRole.VOICE_HOLDER;
 
 
 public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements OnVoiceClientListener {
@@ -70,6 +69,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     @Bind(R.id.rl_frame_room_role_operation)
     RelativeLayout rlFrameRoomRoleOperation;
 
+    VoiceRole user;
     String id = "";
     String channelId = "";
     int voiceRole = 0;
@@ -211,15 +211,18 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     @Override
     public void onItemSelect(VoiceRole data, int position, int totalCount) {
         L.i(initTag(), " onItemSelect " + data);
-        switch (data.voiceRole){
+        switch (user.voiceRole) {
             case VoiceRole.VOICE_HOLDER:
                 break;
             case VoiceRole.VOICE_CLIENT:
-                break;
             case VoiceRole.VOICE_ADMIN_CLIENT:
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
+                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR, data);
+                VoiceClientOperationDialogFragment fragment = VoiceClientOperationDialogFragment.getInstance(bundle);
+                fragment.show();
                 break;
             case VoiceRole.VOICE_AUDITOR:
-                break;
             case VoiceRole.VOICE_ADMIN_AUDITOR:
                 break;
         }

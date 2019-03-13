@@ -9,26 +9,27 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment;
+import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 
 public class VoiceRoleOperationFragment extends QsFragment {
 
-    String channelId = "";
-    int voiceRole = 0;
     @Bind(R.id.role)
     Button role;
     @Bind(R.id.music)
     Button music;
-    @Bind(R.id.onoff)
-    Button onoff;
+    @Bind(R.id.enable)
+    Button enable;
     @Bind(R.id.invite)
     Button invite;
     @Bind(R.id.mute)
     Button mute;
     @Bind(R.id.cancel)
     Button cancel;
+
+    protected VoiceRole user;//当前用户
+    protected VoiceRole data;
 
     public static VoiceRoleOperationFragment getInstance(Bundle extras) {
         VoiceRoleOperationFragment fragment = new VoiceRoleOperationFragment();
@@ -45,19 +46,13 @@ public class VoiceRoleOperationFragment extends QsFragment {
     @Override
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
-
-        //TODO
-        arguments = new Bundle();
         if (arguments == null) return;
+        user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+        data = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR);
 
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
+        L.i(initTag(), " user " + user + " data " + data);
 
-        VoiceClientGridFragment voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
-        voiceClientGridFragment.setArguments(arguments);
-
-        L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
-        loadingClose();
+        setVoiceRoleView();
         showContentView();
     }
 
@@ -65,7 +60,14 @@ public class VoiceRoleOperationFragment extends QsFragment {
     }
 
     protected void setVoiceRoleView() {
+        if (data == null || user == null)
+            return;
 
+        role.setText(((data.voiceRole == VoiceRole.VOICE_ADMIN_CLIENT || data.voiceRole == VoiceRole.VOICE_CLIENT) ? "下麦" : "上麦"));
+        music.setText((data.musicEnable ? "打开音乐权限" : "关闭音乐权限"));
+        enable.setText((data.voiceEnable ? "解除封麦" : "封麦"));
+        mute.setText((data.voiceMute ? "关闭麦克风" : "打开麦克风"));
+        invite.setText(((data.voiceRole == VoiceRole.VOICE_ADMIN_CLIENT || data.voiceRole == VoiceRole.VOICE_CLIENT) ? "关闭麦克风" : "打开麦克风"));
     }
 
     public void roleClick(View view) {
@@ -76,7 +78,7 @@ public class VoiceRoleOperationFragment extends QsFragment {
 
     }
 
-    public void onoffClick(View view) {
+    public void enableClick(View view) {
 
     }
 
@@ -88,7 +90,7 @@ public class VoiceRoleOperationFragment extends QsFragment {
 
     }
 
-    @OnClick({R.id.role, R.id.music, R.id.onoff, R.id.invite, R.id.mute, R.id.cancel})
+    @OnClick({R.id.role, R.id.music, R.id.enable, R.id.invite, R.id.mute, R.id.cancel})
     public void onViewClick(View view) {
         super.onViewClick(view);
         switch (view.getId()) {
@@ -98,8 +100,8 @@ public class VoiceRoleOperationFragment extends QsFragment {
             case R.id.music:
                 musicClick(view);
                 break;
-            case R.id.onoff:
-                onoffClick(view);
+            case R.id.enable:
+                enableClick(view);
                 break;
             case R.id.invite:
                 inviteClick(view);

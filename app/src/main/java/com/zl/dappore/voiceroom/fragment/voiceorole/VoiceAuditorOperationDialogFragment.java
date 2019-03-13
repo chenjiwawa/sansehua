@@ -1,5 +1,6 @@
 package com.zl.dappore.voiceroom.fragment.voiceorole;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,12 @@ import com.zl.dappore.R;
 public class VoiceAuditorOperationDialogFragment extends QsDialogFragment {
     @Bind(R.id.content)
     RelativeLayout content;
+    VoiceRoleOperationFragment fragment;
 
-    public static VoiceAuditorOperationDialogFragment getInstance() {
-        return new VoiceAuditorOperationDialogFragment();
+    public static VoiceAuditorOperationDialogFragment getInstance(Bundle extras) {
+        VoiceAuditorOperationDialogFragment fragment = new VoiceAuditorOperationDialogFragment();
+        fragment.setArguments(extras);
+        return fragment;
     }
 
     @Override
@@ -33,6 +37,8 @@ public class VoiceAuditorOperationDialogFragment extends QsDialogFragment {
     @Override
     protected void initData() {
         super.initData();
+        fragment = (VoiceRoleOperationFragment) getChildFragmentManager().findFragmentById(R.id.fragment);
+        fragment.setArguments(getArguments());
     }
 
 

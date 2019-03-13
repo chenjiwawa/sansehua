@@ -20,7 +20,7 @@ public class VoiceRole extends BaseVoiceRole {
                 ", name='" + name + '\'' +
                 ", logo='" + logo + '\'' +
                 ", isMute=" + isMute +
-                ", isJoinChannel=" + isJoinChannel +
+                ", enable=" + enable +
                 '}';
     }
 }

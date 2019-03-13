@@ -1,18 +1,10 @@
 package com.zl.dappore.voiceroom.fragment.voiceorole;
 
 import android.os.Bundle;
-
-import com.qsmaxmin.qsbase.common.log.L;
-import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
-import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment;
-import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+import android.view.View;
 
 
-public class VoiceHolderOperationFragment extends QsFragment {
-
-    String channelId = "";
-    int voiceRole = 0;
+public class VoiceHolderOperationFragment extends VoiceRoleOperationFragment {
 
     public static VoiceHolderOperationFragment getInstance(Bundle extras) {
         VoiceHolderOperationFragment fragment = new VoiceHolderOperationFragment();
@@ -20,33 +12,26 @@ public class VoiceHolderOperationFragment extends QsFragment {
         return fragment;
     }
 
-
-    @Override
-    public int layoutId() {
-        return R.layout.fragment_voice_holder_operation;
-    }
-
     @Override
     public void initData(Bundle savedInstanceState) {
-        Bundle arguments = getArguments();
+        super.initData(savedInstanceState);
 
-        //TODO
-        arguments = new Bundle();
-        if (arguments == null) return;
-
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
-
-        VoiceClientGridFragment voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
-        voiceClientGridFragment.setArguments(arguments);
-
-        L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
-        loadingClose();
-        showContentView();
     }
 
+    @Override
+    protected void setVoiceRoleView() {
+        if (data == null || user == null)
+            return;
 
-    public void requstData(int voiceRole) {
+        super.setVoiceRoleView();
+        if (user.id.equals(data.id)) {
+            //
+        } else {
+            role.setVisibility(View.VISIBLE);
+            music.setVisibility(View.VISIBLE);
+            enable.setVisibility(View.VISIBLE);
+            invite.setVisibility(View.VISIBLE);
+            mute.setVisibility(View.VISIBLE);
+        }
     }
-
 }

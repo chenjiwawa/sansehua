@@ -23,7 +23,7 @@
             android:text="打开音乐权限\关闭音乐权限" />
 
         <Button
-            android:id="@+id/onoff"
+            android:id="@+id/enable"
             style="@style/voiceclientoperation"
             android:text="解除封麦\封麦" />
 
