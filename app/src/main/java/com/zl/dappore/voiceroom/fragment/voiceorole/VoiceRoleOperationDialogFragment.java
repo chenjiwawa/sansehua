@@ -1,6 +1,7 @@
 package com.zl.dappore.voiceroom.fragment.voiceorole;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
     protected RelativeLayout voiceinfolayout;
     @Bind(R.id.fragmentlayout)
     protected RelativeLayout fragmentlayout;
+
 
     protected VoiceRoleOperationFragment fragment;
     protected VoiceRoleInfoFragment voiceinfo;
@@ -43,12 +45,13 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
     @Override
     protected void initData() {
         super.initData();
-        fragment = (VoiceRoleOperationFragment) getChildFragmentManager().findFragmentById(R.id.fragment);
-        fragment.setArguments(getArguments());
-        voiceinfo = (VoiceRoleInfoFragment) getChildFragmentManager().findFragmentById(R.id.voiceinfo);
-        voiceinfo.setArguments(getArguments());
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setContentFragment();
+    }
 
     @Override
     public void onStart() {
@@ -60,6 +63,14 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
         }
         getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    protected void setContentFragment(){
     }
 
     @OnClick({R.id.content})

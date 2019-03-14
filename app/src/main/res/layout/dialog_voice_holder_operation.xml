@@ -14,11 +14,6 @@
         android:orientation="vertical"
         android:visibility="visible">
 
-        <fragment
-            android:id="@+id/voiceinfo"
-            android:name="com.zl.dappore.voiceroom.fragment.voiceorole.VoiceRoleInfoFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 
@@ -29,12 +24,6 @@
         android:layout_below="@id/voiceinfolayout"
         android:orientation="vertical"
         android:visibility="visible">
-
-        <fragment
-            android:id="@+id/fragment"
-            android:name="com.zl.dappore.voiceroom.fragment.voiceorole.VoiceHolderOperationFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 </RelativeLayout>

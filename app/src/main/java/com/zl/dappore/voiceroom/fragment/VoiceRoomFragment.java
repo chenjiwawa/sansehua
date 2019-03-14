@@ -83,6 +83,13 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
         voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
 
+
+        user = new VoiceRole();
+        user.id = "1";
+        user.name = "user1";
+        user.logo="http://staging.dappore.com/xNdqnHirMbzFYW9BXkmKPZ3n";
+        user.voiceRole = 5;
+
         voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
         voiceClientGridFragment.setArguments(arguments);
 
@@ -192,6 +199,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         VoiceRoleOperationDialogFragment fragment;
         switch (user.voiceRole) {
             case VoiceRole.VOICE_HOLDER:
+//                fragment = VoiceRoleOperationDialogFragment.getInstance(bundle);
+//                fragment.show();
                 fragment = VoiceHolderOperationDialogFragment.getInstance(bundle);
                 fragment.show();
                 break;
