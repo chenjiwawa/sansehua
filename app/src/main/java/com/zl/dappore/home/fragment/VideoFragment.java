@@ -1,7 +1,6 @@
 package com.zl.dappore.home.fragment;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -28,7 +27,6 @@ import com.zl.dappore.common.widget.shadow.ShadowDrawable;
 import com.zl.dappore.home.model.HomeConstants;
 import com.zl.dappore.home.presenter.VideoPresenter;
 import com.zl.dappore.search.SearcherActivity;
-import com.zl.dappore.userinfo.UserInfoActivity;
 import com.zl.dappore.videodetail.model.Video;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -118,7 +116,7 @@ public class VideoFragment extends QsViewPagerFragment<VideoPresenter> {
 //        if (ab_title_video == null)
 //            return;
 //
-//        L.i(initTag(), " onTitleShow " + isVisible);
+//        AgoraLog.i(initTag(), " onTitleShow " + isVisible);
 //        if (isVisible && ab_title_video.getVisibility() != View.VISIBLE) {
 //            ab_title_video.setVisibility(View.VISIBLE);
 //        } else {

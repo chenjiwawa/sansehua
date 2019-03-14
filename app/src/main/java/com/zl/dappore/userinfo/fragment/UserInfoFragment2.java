@@ -14,7 +14,7 @@
 //import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 //import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 //import com.qsmaxmin.qsbase.common.config.PropertyCallback;
-//import com.qsmaxmin.qsbase.common.log.L;
+//import com.qsmaxmin.qsbase.common.log.AgoraLog;
 //import com.qsmaxmin.qsbase.common.utils.QsHelper;
 //import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 //import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
@@ -207,7 +207,7 @@
 //
 //    public void openCamera(Intent intent, File imageFile, Uri mCameraUri) {
 //        this.imageFilePath = imageFile.getAbsolutePath();
-//        L.e(initTag(), "mCameraUri  ******** imageFilePath:" + imageFilePath);
+//        AgoraLog.e(initTag(), "mCameraUri  ******** imageFilePath:" + imageFilePath);
 //        startActivityForResult(intent, PhotoConstants.REQUESTCODE_OPEN_CAMERA);
 //    }
 //
@@ -218,16 +218,16 @@
 //                if (resultCode == Activity.RESULT_OK && !TextUtils.isEmpty(imageFilePath)) {
 //                    Intent intent = new Intent(getActivity(), PhotoCutActivity.class);
 //                    intent.putExtra(PhotoConstants.BUNDLE_KEY_PHOTO_PATH, imageFilePath);
-//                    L.i(initTag(), "onActivityResult************相机 path=" + imageFilePath);
+//                    AgoraLog.i(initTag(), "onActivityResult************相机 path=" + imageFilePath);
 //                    startActivityForResult(intent, PhotoConstants.REQUESTCODE_OPEN_PHOTO_CUT);
 //                }
 //                break;
 //            case PhotoConstants.REQUESTCODE_OPEN_PHOTO://相册关闭回调
-//                L.i(initTag(), "onActivityResult************相册");
+//                AgoraLog.i(initTag(), "onActivityResult************相册");
 //                break;
 //
 //            case PhotoConstants.REQUESTCODE_OPEN_PHOTO_CUT://裁剪页关闭回调
-//                L.i(initTag(), "onActivityResult************裁剪");
+//                AgoraLog.i(initTag(), "onActivityResult************裁剪");
 //                break;
 //        }
 //    }
@@ -242,7 +242,7 @@
 //     */
 //    @Subscribe
 //    public void onEvent(UserInfoEvent.OnAlbumCameraClick event) {
-//        L.i(initTag(), "onEvent  OnAlbumCameraClick");
+//        AgoraLog.i(initTag(), "onEvent  OnAlbumCameraClick");
 //        requestOpenCamera();
 //    }
 //
@@ -251,7 +251,7 @@
 //     */
 //    @Subscribe
 //    public void onEvent(UserInfoEvent.OnUserInfoDataChanged event) {
-//        L.i(initTag(), "onEvent  OnUserInfoDataChanged");
+//        AgoraLog.i(initTag(), "onEvent  OnUserInfoDataChanged");
 //        updateView(false);
 //    }
 //

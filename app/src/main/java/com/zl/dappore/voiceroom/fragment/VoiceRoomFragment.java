@@ -16,6 +16,8 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.common.agora.AgoraHelper;
+import com.zl.dappore.common.agora.IRtcEngineEventListener;
 import com.zl.dappore.common.event.VoiceRoomEvent;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceAuditorOperationDialogFragment;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceClientOperationDialogFragment;
@@ -31,7 +33,9 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
-public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements OnVoiceClientListener {
+import io.agora.rtc.IRtcEngineEventHandler;
+
+public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements OnVoiceClientListener, IRtcEngineEventListener {
 
     @Bind(R.id.ll_back)
     LinearLayout llBack;
@@ -89,6 +93,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         user.name = "user1";
         user.logo="http://staging.dappore.com/xNdqnHirMbzFYW9BXkmKPZ3n";
         user.voiceRole = 5;
+
+        AgoraHelper.getInstance().joinChannel("room1",11);
 
         voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
         voiceClientGridFragment.setArguments(arguments);
@@ -215,5 +221,40 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
                 fragment.show();
                 break;
         }
+    }
+
+    @Override
+    public void onJoinChannelSuccess(String channel, int uid, int elapsed) {
+
+    }
+
+    @Override
+    public void onRejoinChannelSuccess(String channel, int uid, int elapsed) {
+
+    }
+
+    @Override
+    public void onLeaveChannel(IRtcEngineEventHandler.RtcStats stats) {
+
+    }
+
+    @Override
+    public void onClientRoleChanged(int oldRole, int newRole) {
+
+    }
+
+    @Override
+    public void onUserJoined(int uid, int elapsed) {
+
+    }
+
+    @Override
+    public void onUserOffline(int uid, int reason) {
+
+    }
+
+    @Override
+    public void onUserMuteAudio(int uid, boolean muted) {
+
     }
 }

@@ -40,3 +40,6 @@
 ############################ PLDroidPlayer（七牛播放 ）######################################
 #-keep class com.pili.pldroid.player.** { *; }
 #-keep class com.qiniu.qplayer.mediaEngine.MediaPlayer{*;}
+
+############################ 声网互动语音直播 ######################################
+-keep class io.agora.**{*;}

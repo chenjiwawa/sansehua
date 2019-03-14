@@ -15,7 +15,6 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +36,6 @@ import com.qsmaxmin.qsbase.common.widget.viewpager.QsViewPager;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.qsmaxmin.qsbase.mvp.fragment.QsPullRecyclerFragment;
 import com.zl.dappore.R;
-import com.zl.dappore.account.LoginActivity;
-import com.zl.dappore.account.model.LoginConstant;
 import com.zl.dappore.appdetail.AppDetailActivity;
 import com.zl.dappore.appdetail.AppdetailI;
 import com.zl.dappore.appdetail.adapter.AppImagePageAdapter;
@@ -54,7 +51,6 @@ import com.zl.dappore.comment.model.CommentConstants;
 import com.zl.dappore.comment.model.CommentRequstBody;
 import com.zl.dappore.common.event.AppDetailEvent;
 import com.zl.dappore.common.event.LoginEvent;
-import com.zl.dappore.common.model.UserConfig;
 import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.common.utils.share.ShareContent;
 import com.zl.dappore.common.widget.BeautyRatingBar;
@@ -291,13 +287,13 @@ public class AppDetailFragment extends QsPullRecyclerFragment<AppDetailPresenter
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-//                L.i(initTag(), " onScrollStateChanged " + " recyclerView " + recyclerView + " newState " + newState);
+//                AgoraLog.i(initTag(), " onScrollStateChanged " + " recyclerView " + recyclerView + " newState " + newState);
             }
 
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-//                L.i(initTag(), " onScrolled " + " dx " + dx + " dy " + dy);
+//                AgoraLog.i(initTag(), " onScrolled " + " dx " + dx + " dy " + dy);
 
                 Activity activity = getActivity();
                 if (activity instanceof AppDetailActivity) {
@@ -530,7 +526,7 @@ public class AppDetailFragment extends QsPullRecyclerFragment<AppDetailPresenter
 //        spannableStringBuilder.setSpan(new ClickableSpan() {
 //            @Override
 //            public void onClick(View widget) {
-//                L.i(initTag(), " tvDesAppDetail ClickableSpan " + widget);
+//                AgoraLog.i(initTag(), " tvDesAppDetail ClickableSpan " + widget);
 //                tvDespartAppDetail.setVisibility(View.VISIBLE);
 //                tvDesAppDetail.setVisibility(View.GONE);
 //            }
@@ -575,7 +571,7 @@ public class AppDetailFragment extends QsPullRecyclerFragment<AppDetailPresenter
 
 //    @Subscribe
 //    public void onEvent(LoginEvent.onLogin event) {
-//        L.i(initTag()," onEvent LoginEvent.onLogin "+event);
+//        AgoraLog.i(initTag()," onEvent LoginEvent.onLogin "+event);
 //        if (event == null)
 //            return;
 //

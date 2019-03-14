@@ -13,6 +13,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.common.agora.AgoraHelper;
 import com.zl.dappore.voiceroom.VoiceRoomSettingActivity;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
@@ -96,6 +97,7 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
         super.onViewClick(view);
         switch (view.getId()) {
             case R.id.leave:
+                AgoraHelper.getInstance().leaveChannel();
                 break;
             case R.id.report:
                 break;

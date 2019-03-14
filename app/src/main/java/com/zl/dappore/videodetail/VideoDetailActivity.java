@@ -44,7 +44,7 @@ public class VideoDetailActivity extends QsActivity implements CommentI{
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-//        L.i(initTag(), " dispatchTouchEvent event " + event.toString());
+//        AgoraLog.i(initTag(), " dispatchTouchEvent event " + event.toString());
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:

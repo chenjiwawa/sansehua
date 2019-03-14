@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Dappore</string>
+    <string name="agora_app_id">273bf2ad068b4152921d78761f917ec4</string>
     <string name="http_error_msg">网络异常</string>
     <string name="network_error_msg">网络异常</string>
     <string name="unexpected_error_msg">未知错误</string>
@@ -187,7 +188,7 @@
     <string name="str_empty"></string>
     <string name="no_media">您还没有发表过，赶快去写吧！</string>
     <string name="media_share_content">我写了一段文字\n只允许你偷偷看一眼！</string>
-<!--    <string name="ok$d">确定(%1$d/10)</string>-->
+    <!--    <string name="ok$d">确定(%1$d/10)</string>-->
     <string name="ok_d">确定(%1$d/10)</string>
 
     <!--系列字体列表-->

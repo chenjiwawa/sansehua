@@ -251,7 +251,7 @@ public class VideoDetailListFragment extends QsFragment<VideoDetailListPresenter
 
 //    @Override
 //    public boolean dispatchTouchEvent(MotionEvent event) {
-////        L.i(initTag(), " dispatchTouchEvent event " + event.toString());
+////        AgoraLog.i(initTag(), " dispatchTouchEvent event " + event.toString());
 //        switch (event.getAction()) {
 //            case MotionEvent.ACTION_DOWN:
 //                isTouch = true;
@@ -345,7 +345,7 @@ public class VideoDetailListFragment extends QsFragment<VideoDetailListPresenter
         vvpVideoDetails.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-//                L.i(initTag(), " onPageScrolled i " + i + " v " + v + " i1 " + i1 + " curPage " + curPage);
+//                AgoraLog.i(initTag(), " onPageScrolled i " + i + " v " + v + " i1 " + i1 + " curPage " + curPage);
                 if (curPage == 0 && i1 == 0) {
                     L.i(initTag(), " onPageScrolled 上 ");
                     setRefreshView();

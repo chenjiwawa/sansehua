@@ -31,9 +31,9 @@ public abstract class DapporePresenter<V extends QsIView> extends QsPresenter<V>
 //                        .build();
 //            }
 //
-//            L.i(initTag(), " requestInterceptor " + request.url().toString());
-//            L.i(initTag(), " requestInterceptor " + request.toString());
-//            L.i(initTag(), " requestInterceptor " + request.headers().toString());
+//            AgoraLog.i(initTag(), " requestInterceptor " + request.url().toString());
+//            AgoraLog.i(initTag(), " requestInterceptor " + request.toString());
+//            AgoraLog.i(initTag(), " requestInterceptor " + request.headers().toString());
 //            Response response = chain.proceed(request);
 //            return response;
 //        }

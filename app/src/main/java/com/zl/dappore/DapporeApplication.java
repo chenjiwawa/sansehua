@@ -20,7 +20,7 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
-import com.zl.dappore.R;
+import com.zl.dappore.common.agora.AgoraHelper;
 import com.zl.dappore.common.dialog.CommonLoadingDialog;
 import com.zl.dappore.common.model.UserConfig;
 import com.zl.dappore.common.utils.UrlUtils;
@@ -54,7 +54,7 @@ public class DapporeApplication extends QsApplication {
         //微信
         PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
         //新浪微博(第三个参数为回调地址)
-        PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad","http://sns.whalecloud.com/sina2/callback");
+        PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com/sina2/callback");
         //QQ
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
     }
@@ -70,6 +70,7 @@ public class DapporeApplication extends QsApplication {
     public void onCreate() {
         super.onCreate();
 
+        AgoraHelper.getInstance().init(this);
         UMShareAPI.get(this);
         initDownloader();
     }
@@ -98,7 +99,7 @@ public class DapporeApplication extends QsApplication {
     public void onCommonHttpResponse(Response response) {
         if (response == null)
             return;
-//        L.i(TAG, " onCommonHttpResponse response " + response + " " + response.headers());
+//        AgoraLog.i(TAG, " onCommonHttpResponse response " + response + " " + response.headers());
         L.i(TAG, " onCommonHttpResponse UserConfig +1" + UserConfig.getInstance().isLogin() + " " + UserConfig.getInstance().getAuthToken());
         L.i(TAG, " onCommonHttpResponse UserConfig +2" + UserConfig.getInstance().isLogin() + " " + response.headers().get("Auth-Token"));
 
@@ -146,4 +147,6 @@ public class DapporeApplication extends QsApplication {
         configuration.setThreadNum(3);
         DownloadManager.getInstance().init(getApplicationContext(), configuration);
     }
+
+
 }

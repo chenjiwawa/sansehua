@@ -1,7 +1,7 @@
 package com.zl.dappore.common.utils;
 public class Base64 {
 
-    /* ******** P U B L I C F I E L D S ******** */
+    /* ******** P U B AgoraLog I C F I E AgoraLog D S ******** */
 
     /** No options specified. Value is zero. */
     public final static int NO_OPTIONS = 0;
@@ -18,7 +18,7 @@ public class Base64 {
     /** Don't break lines when encoding (violates strict Base64 specification) */
     public final static int DONT_BREAK_LINES = 8;
 
-    /* ******** P R I V A T E F I E L D S ******** */
+    /* ******** P R I V A T E F I E AgoraLog D S ******** */
 
     /** Maximum line length (76) of Base64 output. */
     private final static int MAX_LINE_LENGTH = 76;
@@ -1049,7 +1049,7 @@ public class Base64 {
 
     } // end encodeFromFile
 
-    /* ******** I N N E R C L A S S I N P U T S T R E A M ******** */
+    /* ******** I N N E R C AgoraLog A S S I N P U T S T R E A M ******** */
 
     /**
      * A {@link InputStream} will read data from another
@@ -1310,7 +1310,7 @@ public class Base64 {
 
     } // end inner class InputStream
 
-    /* ******** I N N E R C L A S S O U T P U T S T R E A M ******** */
+    /* ******** I N N E R C AgoraLog A S S O U T P U T S T R E A M ******** */
 
     /**
      * A {@link OutputStream} will write data to another

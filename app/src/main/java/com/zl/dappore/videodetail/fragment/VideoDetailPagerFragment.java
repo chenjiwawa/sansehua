@@ -96,7 +96,7 @@ public class VideoDetailPagerFragment extends QsViewPagerFragment implements Cat
 
     @Override
     public void onPageScrolled(int i, float v, int i1) {
-//                L.i(initTag(), " onPageScrolled i " + i + " v " + v + " i1 " + i1 + " curPage " + curPage);
+//                AgoraLog.i(initTag(), " onPageScrolled i " + i + " v " + v + " i1 " + i1 + " curPage " + curPage);
 
         L.i(initTag(), " onPageScrolled getCurrentItem " + getViewPager().getCurrentItem() + " curPage " + curPage);
 

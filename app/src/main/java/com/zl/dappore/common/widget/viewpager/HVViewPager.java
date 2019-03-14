@@ -21,14 +21,14 @@ public class HVViewPager extends QsViewPager {
 //        switch (ev.getAction()) {
 //            case MotionEvent.ACTION_DOWN:
 //
-//                L.i("MyViewPager", " onInterceptTouchEvent ACTION_DOWN MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " onInterceptTouchEvent ACTION_DOWN MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            case MotionEvent.ACTION_MOVE:
-//                L.i("MyViewPager", " onInterceptTouchEvent ACTION_MOVE MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " onInterceptTouchEvent ACTION_MOVE MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            case MotionEvent.ACTION_UP:
 //
-//                L.i("MyViewPager", " onInterceptTouchEvent ACTION_UP MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " onInterceptTouchEvent ACTION_UP MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            default:
 //                break;
@@ -40,7 +40,7 @@ public class HVViewPager extends QsViewPager {
                 xLast = ev.getX();
                 yLast = ev.getY();
 
-//                L.i("MyViewPager", " onInterceptTouchEvent ACTION_DOWN MotionEvent  " + " xLast " + xLast + " yLast " + yLast + " xDistance " + xDistance + " yDistance " + yDistance);
+//                AgoraLog.i("MyViewPager", " onInterceptTouchEvent ACTION_DOWN MotionEvent  " + " xLast " + xLast + " yLast " + yLast + " xDistance " + xDistance + " yDistance " + yDistance);
                 break;
             case MotionEvent.ACTION_MOVE:
                 final float curX = ev.getX();
@@ -49,13 +49,13 @@ public class HVViewPager extends QsViewPager {
                 xDistance += Math.abs(curX - xLast);
                 yDistance += Math.abs(curY - yLast);
 
-//                L.i("MyViewPager", " onInterceptTouchEvent ACTION_MOVE MotionEvent  " + " xLast " + xLast + " yLast " + yLast + " xDistance " + xDistance + " yDistance " + yDistance);
+//                AgoraLog.i("MyViewPager", " onInterceptTouchEvent ACTION_MOVE MotionEvent  " + " xLast " + xLast + " yLast " + yLast + " xDistance " + xDistance + " yDistance " + yDistance);
                 if (xDistance > yDistance)
                     return true;
 
                 break;
             case MotionEvent.ACTION_UP:
-//                L.i("MyViewPager", " onInterceptTouchEvent ACTION_UP MotionEvent  " + " xLast " + xLast + " yLast " + yLast + " xDistance " + xDistance + " yDistance " + yDistance);
+//                AgoraLog.i("MyViewPager", " onInterceptTouchEvent ACTION_UP MotionEvent  " + " xLast " + xLast + " yLast " + yLast + " xDistance " + xDistance + " yDistance " + yDistance);
 
                 break;
             default:
@@ -74,14 +74,14 @@ public class HVViewPager extends QsViewPager {
 //        switch (ev.getAction()) {
 //            case MotionEvent.ACTION_DOWN:
 //
-//                L.i("MyViewPager", " dispatchTouchEvent ACTION_DOWN MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " dispatchTouchEvent ACTION_DOWN MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            case MotionEvent.ACTION_MOVE:
-//                L.i("MyViewPager", " dispatchTouchEvent ACTION_MOVE MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " dispatchTouchEvent ACTION_MOVE MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            case MotionEvent.ACTION_UP:
 //
-//                L.i("MyViewPager", " dispatchTouchEvent ACTION_UP MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " dispatchTouchEvent ACTION_UP MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            default:
 //                break;
@@ -95,14 +95,14 @@ public class HVViewPager extends QsViewPager {
 //        switch (ev.getAction()) {
 //            case MotionEvent.ACTION_DOWN:
 //
-//                L.i("MyViewPager", " onTouchEvent ACTION_DOWN MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " onTouchEvent ACTION_DOWN MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            case MotionEvent.ACTION_MOVE:
-//                L.i("MyViewPager", " onTouchEvent ACTION_MOVE MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " onTouchEvent ACTION_MOVE MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            case MotionEvent.ACTION_UP:
 //
-//                L.i("MyViewPager", " onTouchEvent ACTION_UP MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
+//                AgoraLog.i("MyViewPager", " onTouchEvent ACTION_UP MotionEvent  " + " " + ev.getRawX() + " " + ev.getRawY());
 //                break;
 //            default:
 //                break;

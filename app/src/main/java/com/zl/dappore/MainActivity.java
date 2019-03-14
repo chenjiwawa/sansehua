@@ -6,7 +6,7 @@
 //import android.widget.Button;
 //import android.widget.Toast;
 //
-//import com.qsmaxmin.qsbase.common.log.L;
+//import com.qsmaxmin.qsbase.common.log.AgoraLog;
 //import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 //import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 //import com.qsmaxmin.qsbase.mvp.QsActivity;
@@ -74,12 +74,12 @@
 //        UMShareAPI.get(this).getPlatformInfo(this, share_media, new UMAuthListener() {
 //            @Override
 //            public void onStart(SHARE_MEDIA share_media) {
-//                L.d(TAG, "onStart " + "授权开始");
+//                AgoraLog.d(TAG, "onStart " + "授权开始");
 //            }
 //
 //            @Override
 //            public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
-//                L.d(TAG, "onComplete " + "授权完成");
+//                AgoraLog.d(TAG, "onComplete " + "授权完成");
 //
 //                //sdk是6.4.4的,但是获取值的时候用的是6.2以前的(access_token)才能获取到值,未知原因
 //                String uid = map.get("uid");
@@ -99,12 +99,12 @@
 //
 //            @Override
 //            public void onError(SHARE_MEDIA share_media, int i, Throwable throwable) {
-//                L.d(TAG, "onError " + "授权失败");
+//                AgoraLog.d(TAG, "onError " + "授权失败");
 //            }
 //
 //            @Override
 //            public void onCancel(SHARE_MEDIA share_media, int i) {
-//                L.d(TAG, "onCancel " + "授权取消");
+//                AgoraLog.d(TAG, "onCancel " + "授权取消");
 //            }
 //        });
 //    }
@@ -121,11 +121,11 @@
 //        super.onViewClick(view);
 //        switch (view.getId()) {
 //            case R.id.btnweiXin:
-//                L.i(initTag(), "btnweiXin");
+//                AgoraLog.i(initTag(), "btnweiXin");
 //                weiXin(null);
 //                break;
 //            case R.id.btnweixinCircle:
-//                L.i(initTag(), "btnweixinCircle");
+//                AgoraLog.i(initTag(), "btnweixinCircle");
 //                weixinCircle(null);
 //                break;
 //        }

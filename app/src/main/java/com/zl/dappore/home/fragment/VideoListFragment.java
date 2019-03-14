@@ -51,14 +51,14 @@ public class VideoListFragment extends QsPullRecyclerFragment<VideoListPresenter
 //                    if (linearLayoutManager.findFirstVisibleItemPosition() == 0) {
 ////                        openPullRefreshing();
 //                    }
-//                    L.i(initTag(), " onScrollStateChanged " + linearLayoutManager.findFirstVisibleItemPosition());
+//                    AgoraLog.i(initTag(), " onScrollStateChanged " + linearLayoutManager.findFirstVisibleItemPosition());
 //
 //                    if (getParentFragment() != null && getParentFragment() instanceof VideoFragment) {
 //                        VideoFragment videoFragment = (VideoFragment) getParentFragment();
 //                        if (linearLayoutManager.findFirstVisibleItemPosition() == 0 && videoFragment.isToolbarVisible() && !canPullRefreshing()) {
 //                            openPullRefreshing();
 //                        }
-//                        L.i(initTag(), " onScrollStateChanged " + linearLayoutManager.findFirstVisibleItemPosition() + " " + videoFragment.isToolbarVisible());
+//                        AgoraLog.i(initTag(), " onScrollStateChanged " + linearLayoutManager.findFirstVisibleItemPosition() + " " + videoFragment.isToolbarVisible());
 //                    }
 //                }
 
