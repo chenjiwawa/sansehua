@@ -147,4 +147,8 @@ dependencies {
     api project(':MultiThreadDownload')
 
     //音乐播放器
+
+    //融云IM
+    api project(':IMKit')
+    api project(':RCSticker')
 }

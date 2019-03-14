@@ -1,2 +1,3 @@
 include ':app', ':base', ':VerticalViewPager', ':MultiThreadDownload'
 include ':ViewPagerIndicator'
+include ':IMKit', ':IMLib', ':RCSticker'
