@@ -1,3 +1,3 @@
-include ':app', ':base', ':VerticalViewPager', ':MultiThreadDownload'
+include ':app', ':VerticalViewPager', ':MultiThreadDownload'
 include ':ViewPagerIndicator'
-include ':IMKit', ':IMLib', ':RCSticker'
+include ':IMKit', ':IMLib'

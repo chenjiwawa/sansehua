@@ -11,6 +11,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.fragment.chatroom.InputMessageDialogFragment;
 import com.zl.dappore.voiceroom.fragment.roomrole.product.SendProductDialogFragment;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.VoiceOperationPresenter;
@@ -91,7 +92,8 @@ public class RoomRoleOperationBarFragment extends QsFragment<VoiceOperationPrese
                 roomRoleOperationDialogFragment.show();
                 break;
             case R.id.ib_message_room_role_operation:
-                setDialogDismiss();
+//                setDialogDismiss();
+                InputMessageDialogFragment.getInstance().show();
                 break;
             case R.id.ib_logo_anim_room_role_operation:
                 roomRoleOperationDialogFragment = RoomRoleOperationDialogFragment.getInstance();

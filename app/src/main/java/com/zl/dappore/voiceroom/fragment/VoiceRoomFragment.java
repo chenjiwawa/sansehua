@@ -19,6 +19,7 @@ import com.zl.dappore.R;
 import com.zl.dappore.common.agora.AgoraHelper;
 import com.zl.dappore.common.agora.IRtcEngineEventListener;
 import com.zl.dappore.common.event.VoiceRoomEvent;
+import com.zl.dappore.voiceroom.fragment.chatroom.ChatRoomFragment;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceAuditorOperationDialogFragment;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceClientOperationDialogFragment;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceHolderOperationDialogFragment;
@@ -59,6 +60,10 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     TextView tvHolderNameVoiceRoom;
     @Bind(R.id.tv_greeting_voice_room)
     TextView tv_greeting_voice_room;
+    @Bind(R.id.chatroomframe)
+    RelativeLayout chatroomframe;
+    @Bind(R.id.chatroomlayout)
+    LinearLayout chatroomlayout;
 
     VoiceRoom room;
     VoiceRole user;
@@ -89,23 +94,29 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 
 
         user = new VoiceRole();
-        user.id = "1";
-        user.name = "user1";
-        user.logo="http://staging.dappore.com/xNdqnHirMbzFYW9BXkmKPZ3n";
-        user.voiceRole = 5;
+        user.id = id;
+        user.name = "user" + id;
+        user.logo = "http://staging.dappore.com/xNdqnHirMbzFYW9BXkmKPZ3n";
+        user.voiceRole = voiceRole;
 
-        AgoraHelper.getInstance().joinChannel("room1",11);
+        AgoraHelper.getInstance().joinChannel("room1", 11);
 
         voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
         voiceClientGridFragment.setArguments(arguments);
 
-        L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
+        L.i(initTag(), " id " + id + " channelId " + channelId + " voiceRole " + voiceRole);
         getPresenter().requstData(id);
+//        initChatRoom();
+
         loadingClose();
         showContentView();
 
     }
 
+    @ThreadPoint(ThreadType.MAIN)
+    public void initChatRoom() {
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.chatroomlayout, ChatRoomFragment.getInstance(), ChatRoomFragment.class.getSimpleName());
+    }
 
     public void requstData(int voiceRole) {
     }

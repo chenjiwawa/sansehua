@@ -18,6 +18,7 @@ import com.zl.dappore.home.CategoryTypeI;
 import com.zl.dappore.home.model.HomeConstants;
 import com.zl.dappore.home.presenter.MainFragmentPresenter;
 import com.zl.dappore.voiceroom.VoiceRoomActivity;
+import com.zl.dappore.voiceroom.model.BaseVoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 /**
@@ -35,6 +36,7 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
     RelativeLayout rl_tab_rank;
     @Bind(R.id.rl_tab_category)
     RelativeLayout rl_tab_category;
+
 
     @Override
     public int layoutId() {
@@ -160,7 +162,7 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
     /**
      * 点击事件
      */
-    @OnClick({R.id.rl_tab_recommend, R.id.rl_tab_rank, R.id.rl_tab_category, R.id.btn_search})
+    @OnClick({R.id.rl_tab_recommend, R.id.rl_tab_rank, R.id.rl_tab_category, R.id.btn_search0, R.id.btn_search})
     public void onViewClick(View view) {
         super.onViewClick(view);
         switch (view.getId()) {
@@ -173,13 +175,31 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
             case R.id.rl_tab_category:
                 pager.setCurrentItem(2);
                 break;
-            case R.id.btn_search:
+            case R.id.btn_search0:
                 //TODO
 //                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID, "111");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, 0);
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_ID, "1");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
+
+//                Bundle bundle = new Bundle();
+//                QsHelper.getInstance().intent2Activity(ProductCategoryActivity.class, bundle);
+
+//                Bundle bundle = new Bundle();
+//                bundle.putString(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_NAME, "同类推荐");
+//                bundle.putInt(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, RecommendListConstants.TYPE_SIMILAR);
+//                QsHelper.getInstance().intent2Activity(UserListActivity.class, bundle);
+
+                break;
+            case R.id.btn_search:
+                //TODO
+//                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
+
+                bundle = new Bundle();
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_ID, "11");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_CLIENT);
                 QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
 
 //                Bundle bundle = new Bundle();

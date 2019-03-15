@@ -25,6 +25,7 @@ import com.zl.dappore.common.dialog.CommonLoadingDialog;
 import com.zl.dappore.common.model.UserConfig;
 import com.zl.dappore.common.utils.UrlUtils;
 
+import io.rong.imkit.RongIM;
 import okhttp3.Response;
 
 public class DapporeApplication extends QsApplication {
@@ -70,6 +71,7 @@ public class DapporeApplication extends QsApplication {
     public void onCreate() {
         super.onCreate();
 
+        RongIM.init(this);
         AgoraHelper.getInstance().init(this);
         UMShareAPI.get(this);
         initDownloader();

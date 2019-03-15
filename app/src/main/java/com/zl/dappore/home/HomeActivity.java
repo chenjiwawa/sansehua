@@ -12,7 +12,7 @@ import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.zl.dappore.R;
 import com.zl.dappore.common.event.HomeEvent;
 import com.zl.dappore.common.utils.KeyboardHelper;
-import com.zl.dappore.home.fragment.FindFragment;
+import com.zl.dappore.home.fragment.MessageFragment;
 import com.zl.dappore.home.fragment.MainFragment;
 import com.zl.dappore.home.fragment.VideoFragment;
 import com.zl.dappore.home.fragment.MineFragment;
@@ -34,7 +34,7 @@ public class HomeActivity extends QsViewPagerActivity<HomePresenter> implements 
         mainPager.fragment = MainFragment.getInstance();
 
         QsModelPager findPager = createViewPagerModel(HomeConstants.INDEX_FIND);
-        findPager.fragment = FindFragment.getInstance();
+        findPager.fragment = MessageFragment.getInstance();
 
         QsModelPager mediaPager = createViewPagerModel(HomeConstants.INDEX_MEDIA);
         mediaPager.fragment = VideoFragment.getInstance();

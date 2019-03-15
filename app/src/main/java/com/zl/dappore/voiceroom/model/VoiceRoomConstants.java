@@ -38,4 +38,10 @@ public class VoiceRoomConstants {
         return UID_PREFIX + id;
     }
 
+
+    public static final String chatroonId = 1+"";
+
+    public static final String voiceHolderId = 1+"";
+
+    public static final String voiceClientId = 11+"";
 }
