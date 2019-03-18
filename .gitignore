@@ -27,3 +27,5 @@
 /app/debug/
 /app/release/
 /ViewPagerIndicator/build/
+/IMLib/build/
+/IMKit/build/

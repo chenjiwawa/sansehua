@@ -13,7 +13,7 @@ public class VoiceRoomActivity extends QsActivity {
         return R.layout.activity_voice_room;
     }
 
-    
+
     @Override
     public void initData(Bundle bundle) {
 
