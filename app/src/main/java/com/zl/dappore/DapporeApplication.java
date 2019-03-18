@@ -64,6 +64,7 @@ public class DapporeApplication extends QsApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+        
     }
 
 
@@ -71,7 +72,7 @@ public class DapporeApplication extends QsApplication {
     public void onCreate() {
         super.onCreate();
 
-        RongIM.init(this);
+        initRongIM();
         AgoraHelper.getInstance().init(this);
         UMShareAPI.get(this);
         initDownloader();
@@ -148,6 +149,10 @@ public class DapporeApplication extends QsApplication {
         configuration.setMaxThreadNum(5);
         configuration.setThreadNum(3);
         DownloadManager.getInstance().init(getApplicationContext(), configuration);
+    }
+
+    private void initRongIM() {
+        RongIM.init(this);
     }
 
 

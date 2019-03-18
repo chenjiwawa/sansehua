@@ -111,6 +111,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         loadingClose();
         showContentView();
 
+
+
     }
 
     @ThreadPoint(ThreadType.MAIN)

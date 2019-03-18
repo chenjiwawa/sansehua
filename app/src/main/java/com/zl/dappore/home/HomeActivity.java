@@ -6,27 +6,64 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.mvp.QsViewPagerActivity;
 import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.zl.dappore.R;
 import com.zl.dappore.common.event.HomeEvent;
 import com.zl.dappore.common.utils.KeyboardHelper;
-import com.zl.dappore.home.fragment.MessageFragment;
 import com.zl.dappore.home.fragment.MainFragment;
-import com.zl.dappore.home.fragment.VideoFragment;
+import com.zl.dappore.home.fragment.MessageFragment;
 import com.zl.dappore.home.fragment.MineFragment;
+import com.zl.dappore.home.fragment.VideoFragment;
 import com.zl.dappore.home.model.HomeConstants;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 
 public class HomeActivity extends QsViewPagerActivity<HomePresenter> implements CategoryTypeI{
 
 
     @Override public void initData(Bundle bundle) {
+        initRongIM();
         getViewPager().setCanScroll(false);
+    }
+
+    private void initRongIM() {
+
+        String id="1";
+        String token = "";
+        String token1 = "IlESoZoBS7SKwNJdSsprvalf58DRmwpDSJE23SJ68mSyzXhsxHg9iONIXo4YoIbPsKvzm2Gt1UR0Mz6mqNFYRQ==";
+        String token11 = "5Pn1Rp1T0lQGMN5gxXWwlalf58DRmwpDSJE23SJ68mSyzXhsxHg9iFKvLZZ3/rm25hgd//9DZUZ0Mz6mqNFYRQ==";
+        if (id.equals("1")) {
+            token = token1;
+        }
+        if (id.equals("11")) {
+            token = token11;
+        }
+
+        L.e(initTag(), " RongIM connect token " + token);
+        RongIM.connect(token, new RongIMClient.ConnectCallback() {
+            @Override
+            public void onTokenIncorrect() {
+                L.e(initTag(), " RongIM onTokenIncorrect");
+            }
+
+            @Override
+            public void onSuccess(String s) {
+                L.e(initTag(), " RongIM onSuccess userid:" + s);
+            }
+
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+                L.e(initTag(), " RongIM onError errorcode:" + errorCode.getValue());
+            }
+        });
     }
 
     @Override public QsModelPager[] getModelPagers() {
