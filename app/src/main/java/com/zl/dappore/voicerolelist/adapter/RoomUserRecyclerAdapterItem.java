@@ -1,4 +1,4 @@
-package com.zl.dappore.userlist.adapter;
+package com.zl.dappore.voicerolelist.adapter;
 
 
 import android.graphics.Color;
@@ -30,7 +30,7 @@ import com.zl.dappore.web.model.WebConstants;
 /**
  * Created by zhang on 2017/3/17.
  */
-public class OnlineUserRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
+public class RoomUserRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
 
     @Bind(R.id.tv_pos_user)
     protected TextView tvPosUser;
@@ -54,7 +54,7 @@ public class OnlineUserRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
     protected  App appDetail;
     protected  boolean isItemPos = false;
 
-    public OnlineUserRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, boolean isItemPos) {
+    public RoomUserRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, boolean isItemPos) {
         super(inflater, parent);
         this.isItemPos = isItemPos;
     }

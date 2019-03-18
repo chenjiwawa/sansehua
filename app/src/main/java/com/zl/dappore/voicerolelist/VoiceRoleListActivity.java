@@ -1,4 +1,4 @@
-package com.zl.dappore.userlist;
+package com.zl.dappore.voicerolelist;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +8,9 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.zl.dappore.R;
-import com.zl.dappore.userlist.fragment.UserListFragment;
+import com.zl.dappore.voicerolelist.fragment.VoiceRoleListFragment;
 
-public class UserListActivity extends QsABActivity {
+public class VoiceRoleListActivity extends QsABActivity {
     @Bind(R.id.tv_title)
     TextView tv_title;
 
@@ -21,7 +21,7 @@ public class UserListActivity extends QsABActivity {
 
     @Override
     public int layoutId() {
-        return R.layout.activity_recommendlist;
+        return R.layout.activity_voice_role_list;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class UserListActivity extends QsABActivity {
         Bundle extras = getIntent().getExtras();
         tv_title.setText("用户列表");
 
-        commitFragment(UserListFragment.getInstance(extras == null ? new Bundle() : extras));
+        commitFragment(VoiceRoleListFragment.getInstance(extras == null ? new Bundle() : extras));
     }
 
     @OnClick({R.id.ll_back})

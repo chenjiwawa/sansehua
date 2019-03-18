@@ -1,4 +1,4 @@
-package com.zl.dappore.userlist.model;
+package com.zl.dappore.voicerolelist.model;
 
 
 /**
@@ -7,7 +7,7 @@ package com.zl.dappore.userlist.model;
  * @Description
  */
 
-public class UserListConstants {
+public class VoiceRoleListConstants {
 
     public static final String BUNDLE_KEY_RECOMMENDLIST_REQUEST_APP_TAXON_ID = "bundle_key_recommendlist_request_app_taxon_id";
     public static final String BUNDLE_KEY_RECOMMENDLIST_REQUEST_NAME = "bundle_key_recommendlist_request_name";

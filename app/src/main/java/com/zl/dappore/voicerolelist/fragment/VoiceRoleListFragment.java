@@ -1,4 +1,4 @@
-package com.zl.dappore.userlist.fragment;
+package com.zl.dappore.voicerolelist.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,18 +11,19 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.qsmaxmin.qsbase.mvp.fragment.QsPullRecyclerFragment;
 import com.zl.dappore.appdetail.model.App;
-import com.zl.dappore.userlist.adapter.OnlineUserRecyclerAdapterItem;
-import com.zl.dappore.userlist.model.UserListConstants;
-import com.zl.dappore.userlist.presenter.UserListPresenter;
+import com.zl.dappore.voicerolelist.adapter.OnlineUserRecyclerAdapterItem;
+import com.zl.dappore.voicerolelist.model.VoiceRoleList;
+import com.zl.dappore.voicerolelist.model.VoiceRoleListConstants;
+import com.zl.dappore.voicerolelist.presenter.VoiceRoleListPresenter;
 
 
-public class UserListFragment extends QsPullRecyclerFragment<UserListPresenter, App> {
+public class VoiceRoleListFragment extends QsPullRecyclerFragment<VoiceRoleListPresenter, VoiceRoleList.VoiceRole> {
 
     String app_taxon_id;
     int type = 0;
 
     public static Fragment getInstance(Bundle extras) {
-        UserListFragment fragment = new UserListFragment();
+        VoiceRoleListFragment fragment = new VoiceRoleListFragment();
         fragment.setArguments(extras);
         return fragment;
     }
@@ -36,12 +37,11 @@ public class UserListFragment extends QsPullRecyclerFragment<UserListPresenter, 
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
         if (arguments == null) return;
-        type = arguments.getInt(UserListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, 0);
-        app_taxon_id = arguments.getString(UserListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_APP_TAXON_ID);
+        type = arguments.getInt(VoiceRoleListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, 0);
+        app_taxon_id = arguments.getString(VoiceRoleListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_APP_TAXON_ID);
         L.i(initTag(), " type " + type);
 
-        requstAppList(false);
-
+        requestVoiceRoleList(false);
         getRecyclerView().setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -57,12 +57,12 @@ public class UserListFragment extends QsPullRecyclerFragment<UserListPresenter, 
 
     @Override
     public void onRefresh() {
-        requstAppList(false);
+        requestVoiceRoleList(false);
     }
 
     @Override
     public void onLoad() {
-        requstAppList(true);
+        requestVoiceRoleList(true);
     }
 
     @Override
@@ -70,17 +70,8 @@ public class UserListFragment extends QsPullRecyclerFragment<UserListPresenter, 
         return new OnlineUserRecyclerAdapterItem(mInflater, parent, false);
     }
 
-    private void requstAppList(boolean isLoadingMore) {
-        switch (type) {
-            case UserListConstants.TYPE_NEW:
-                getPresenter().requestAppListByNew(isLoadingMore, "1");
-                break;
-            case UserListConstants.TYPE_SIMILAR:
-                getPresenter().requestAppListBySimilar(isLoadingMore, app_taxon_id, "1");
-                break;
-            case UserListConstants.TYPE_HOT:
-                getPresenter().requestAppListByHot(isLoadingMore, "", "1");
-                break;
-        }
+    private void requestVoiceRoleList(boolean isLoadingMore){
+        getPresenter().requestVoiceRoleList(isLoadingMore,"","");
     }
+
 }

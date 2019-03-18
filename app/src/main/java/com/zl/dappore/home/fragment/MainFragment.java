@@ -190,7 +190,7 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
 //                Bundle bundle = new Bundle();
 //                bundle.putString(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_NAME, "同类推荐");
 //                bundle.putInt(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, RecommendListConstants.TYPE_SIMILAR);
-//                QsHelper.getInstance().intent2Activity(UserListActivity.class, bundle);
+//                QsHelper.getInstance().intent2Activity(VoiceRoleListActivity.class, bundle);
 
                 break;
             case R.id.btn_search:
@@ -208,7 +208,7 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
 //                Bundle bundle = new Bundle();
 //                bundle.putString(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_NAME, "同类推荐");
 //                bundle.putInt(RecommendListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, RecommendListConstants.TYPE_SIMILAR);
-//                QsHelper.getInstance().intent2Activity(UserListActivity.class, bundle);
+//                QsHelper.getInstance().intent2Activity(VoiceRoleListActivity.class, bundle);
 
                 break;
         }

@@ -156,7 +156,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.userlist.UserListActivity"
+            android:name="com.zl.dappore.voicerolelist.VoiceRoleListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
