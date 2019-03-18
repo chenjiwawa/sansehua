@@ -144,6 +144,12 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
+            android:name="com.zl.dappore.voiceroom.VoiceRoomSettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
             android:name="com.zl.dappore.voiceroom.ProductCategoryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"

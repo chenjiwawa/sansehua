@@ -4,23 +4,24 @@
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/color_red"
-    android:orientation="vertical"
-    android:padding="5dp">
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="#38000000"
+    android:orientation="vertical">
 
-    <RelativeLayout
+
+    <fragment
+        android:id="@+id/bar"
+        android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_red"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_height="wrap_content" />
 
-   <!--     <fragment
-            android:id="@+id/bar"
-            android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />-->
-    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#B5FFFFFF" />
 
     <fragment
         android:id="@+id/operation"

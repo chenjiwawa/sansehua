@@ -15,7 +15,6 @@ public class VoiceRoleInfoDialogFragment extends QsDialogFragment {
     @Bind(R.id.content)
     RelativeLayout content;
 
-
     public static VoiceRoleInfoDialogFragment getInstance() {
         return new VoiceRoleInfoDialogFragment();
     }

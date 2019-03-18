@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/color_red"
     android:orientation="vertical"
     android:padding="5dp"
+    android:background="#C7000000"
     android:visibility="visible">
 
     <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_red"
         android:orientation="horizontal"
         android:padding="5dp"
         android:visibility="visible">
@@ -24,9 +23,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/ic_big_star_select"
+                style="@style/itemoperation"
+                android:drawableTop="@mipmap/bg_logo_voice_client"
                 android:text="音乐" />
         </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
 
@@ -38,9 +36,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/ic_big_star_select"
+                style="@style/itemoperation"
+                android:drawableTop="@mipmap/bg_logo_voice_client"
                 android:text="管理员" />
         </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
 
@@ -52,9 +49,8 @@
             android:gravity="center">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/ic_big_star_select"
+                style="@style/itemoperation"
+                android:drawableTop="@mipmap/bg_logo_voice_client"
                 android:text="黑名单" />
         </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
 
@@ -67,9 +63,8 @@
             android:visibility="invisible">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/ic_big_star_select"
+                style="@style/itemoperation"
+                android:drawableTop="@mipmap/bg_logo_voice_client"
                 android:text="主题" />
         </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout>
 

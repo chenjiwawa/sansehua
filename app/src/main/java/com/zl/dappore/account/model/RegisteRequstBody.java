@@ -8,13 +8,15 @@ import com.qsmaxmin.qsbase.common.model.QsModel;
  * @Description 请求体基类, 请求体必须继承该类
  */
 public class RegisteRequstBody extends QsModel {
-    public String account;
-    public String token;
+    public String phone;
     public String password;
+    public String sms;
+    public String reg_ip;
 
-    public RegisteRequstBody(String account, String token, String password) {
-        this.account = account;
-        this.token = token;
+    public RegisteRequstBody(String phone, String password, String sms, String reg_ip) {
+        this.phone = phone;
         this.password = password;
+        this.sms = sms;
+        this.reg_ip = reg_ip;
     }
 }

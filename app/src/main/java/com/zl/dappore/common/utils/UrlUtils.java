@@ -9,7 +9,7 @@ public class UrlUtils {
     /**
      * 线上主机
      */
-    public static final String URL_ONLINE = "http://dappore.store";
+    public static final String URL_ONLINE = "http://4bp7b.cn/index.php";
 
     /**
      * 测试

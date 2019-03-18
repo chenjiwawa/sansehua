@@ -1,38 +1,60 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color_white"
-    android:padding="5dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
     android:visibility="visible">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:visibility="visible">
+        app:layout_widthPercent="25%">
 
         <Button
             android:id="@+id/btn_user_homepage"
             style="@style/useroperation"
             android:text="主页" />
 
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_widthPercent="25%">
+
         <Button
             android:id="@+id/btn_user_message"
             style="@style/useroperation"
             android:text="发消息" />
 
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_widthPercent="25%">
+
         <Button
             android:id="@+id/btn_user_gift"
             style="@style/useroperation"
             android:text="送礼物" />
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
 
+
+    <com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_widthPercent="25%">
 
         <Button
             android:id="@+id/btn_user_following"
             style="@style/useroperation"
             android:text="关注" />
 
-    </LinearLayout>
-</RelativeLayout>
+    </com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>
+</com.qsmaxmin.qsbase.common.widget.percentlayout.PercentLinearLayout>

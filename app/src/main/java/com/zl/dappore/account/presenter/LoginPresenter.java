@@ -3,6 +3,7 @@ package com.zl.dappore.account.presenter;
 import android.os.Bundle;
 
 import com.zl.dappore.account.LoginActivity;
+import com.zl.dappore.account.model.CheckCodeRequstBody;
 import com.zl.dappore.account.model.LoginConstant;
 import com.zl.dappore.account.model.LoginRequstBody;
 import com.zl.dappore.account.model.RegisteRequstBody;
@@ -59,7 +60,7 @@ public class LoginPresenter extends DapporePresenter<LoginActivity> {
     public void requestRegiste(String id, String code, String psd, Bundle arguments) {
         final int requestCode = arguments.getInt(LoginConstant.LoginActivity_RequestCode);
         UserInfoHttp userInfoHttp = createHttpRequest(UserInfoHttp.class);
-        UserResponse userResponse = userInfoHttp.requestRegiste(new RegisteRequstBody(id, code, psd));
+        UserResponse userResponse = userInfoHttp.requestRegiste(new RegisteRequstBody(id, psd, code, null));
 
         L.i(initTag(), "requestRegiste userResponse " + userResponse);
 
@@ -93,7 +94,7 @@ public class LoginPresenter extends DapporePresenter<LoginActivity> {
     public void requestCheckCode(String id) {
 
         UserInfoHttp userInfoHttp = createHttpRequest(UserInfoHttp.class);
-        BaseModel baseModel = userInfoHttp.requestCheckCode(id);
+        BaseModel baseModel = userInfoHttp.requestCheckCode(new CheckCodeRequstBody(id));
 
         L.i(initTag(), "requestCheckCode baseModel " + baseModel);
 
@@ -108,7 +109,7 @@ public class LoginPresenter extends DapporePresenter<LoginActivity> {
     }
 
     private void postLoginEvent(LoginEvent.LoginState state, int requestCode) {
-        L.i(initTag(), "postLoginEvent state "+state+" requestCode "+requestCode);
+        L.i(initTag(), "postLoginEvent state " + state + " requestCode " + requestCode);
         QsHelper.getInstance().eventPost(new LoginEvent.onLogin(state, requestCode));
     }
 

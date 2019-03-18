@@ -19,8 +19,10 @@ import com.zl.dappore.voiceroom.fragment.roomsetting.RoomTypeDialogFragment;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+import com.zl.dappore.voiceroom.presenter.VoiceRoomSettingPresenter;
 
-public class VoiceRoomSettingActivity extends QsABActivity {
+public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPresenter> {
+
     @Bind(R.id.tv_title)
     TextView tv_title;
     @Bind(R.id.rl_name_voiceroom_setting)

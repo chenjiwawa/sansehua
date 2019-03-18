@@ -2,8 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_blue_green"
-    android:padding="5dp"
+    android:background="@drawable/selector_bg_voice_room"
     android:visibility="visible">
 
     <LinearLayout
@@ -18,7 +17,9 @@
             android:id="@+id/f_voice_room"
             android:name="com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp" />
 
         <include layout="@layout/footer_voice_room" />
 
@@ -26,18 +27,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/color_gray"
         android:orientation="vertical"
-        android:padding="5dp"
+        android:paddingLeft="17dp"
+        android:paddingTop="13dp"
+        android:paddingRight="17dp"
+        android:paddingBottom="13dp"
         android:visibility="visible">
 
         <fragment
             android:id="@+id/bar"
             android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="32dp" />
 
     </LinearLayout>
 

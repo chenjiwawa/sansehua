@@ -12,6 +12,7 @@ import com.zl.dappore.appdetail.model.App;
 import com.zl.dappore.common.widget.itemdecoration.DividerGridItemDecoration;
 import com.zl.dappore.home.model.HomeConstants;
 import com.zl.dappore.voiceroom.adapter.LabelGridRecyclerAdapterItem;
+import com.zl.dappore.voiceroom.adapter.StringGridRecyclerAdapterItem;
 import com.zl.dappore.voiceroom.presenter.StringGridPresenter;
 
 
@@ -54,7 +55,7 @@ public class StringGridFragment extends QsRecyclerFragment<StringGridPresenter, 
 
     @Override
     public QsRecycleAdapterItem getRecycleAdapterItem(LayoutInflater mInflater, ViewGroup parent, int type) {
-        return new LabelGridRecyclerAdapterItem(mInflater, parent);
+        return new StringGridRecyclerAdapterItem(mInflater, parent);
     }
 
     @Override

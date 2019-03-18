@@ -16,18 +16,19 @@ import com.zl.dappore.R;
 import com.zl.dappore.appdetail.AppDetailActivity;
 import com.zl.dappore.appdetail.model.App;
 import com.zl.dappore.appdetail.model.AppDetailConstants;
+import com.zl.dappore.voiceroom.model.LabelList;
 
 /**
  * Created by zhang on 2017/3/17.
  */
-public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
+public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<LabelList.Label> {
 
     @Bind(R.id.rl_item_label_grid)
     RelativeLayout rl_item_label_grid;
     @Bind(R.id.tv_title_label_grid)
     TextView tvTitleLabelGrid;
 
-    private App appDetail;
+    private LabelList.Label data;
     private ItemListener itemListener;
     private int preposition = 0;
 
@@ -41,10 +42,10 @@ public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
     }
 
     @Override
-    protected void onBindItemData(App data, int position, int totalCount) {
-        this.appDetail = data;
+    protected void onBindItemData(LabelList.Label data, int position, int totalCount) {
+        this.data = data;
 
-        tvTitleLabelGrid.setText(data.name);
+        tvTitleLabelGrid.setText(data.tag_name);
 
         rl_item_label_grid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +63,6 @@ public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
         super.onViewClick(view);
         switch (view.getId()) {
             case R.id.tv_title_label_grid:
-                Bundle bundle = new Bundle();
-                bundle.putString(AppDetailConstants.BUNDLE_KEY_APPDETAIL_REQUEST_ID, appDetail.id);
-                QsHelper.getInstance().intent2Activity(AppDetailActivity.class, bundle);
                 break;
         }
     }

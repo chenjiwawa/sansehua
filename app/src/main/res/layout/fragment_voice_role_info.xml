@@ -4,12 +4,22 @@
     android:id="@+id/frame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:background="@drawable/selector_bg_user_base"
     android:orientation="vertical">
 
     <include layout="@layout/view_user_base" />
 
-    <include layout="@layout/view_user_operation" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_user_operation" />
+
+    </LinearLayout>
 </LinearLayout>
-
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
+import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.zl.dappore.account.LoginActivity;
 import com.zl.dappore.account.model.LoginConstant;
 import com.zl.dappore.common.model.BaseModel;
@@ -56,7 +57,7 @@ public abstract class DapporePresenter<V extends QsIView> extends QsPresenter<V>
      */
     protected void showFailMsg(BaseModel baseModel) {
         if (baseModel != null && !(BaseModel.CODE_SUCESS == baseModel.code) && !TextUtils.isEmpty(baseModel.message)) {
-//            QsToast.show(baseModel.message);
+            QsToast.show(baseModel.message);
         }
     }
 

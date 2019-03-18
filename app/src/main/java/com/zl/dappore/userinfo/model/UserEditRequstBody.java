@@ -8,11 +8,17 @@ import com.qsmaxmin.qsbase.common.model.QsModel;
  * @Description 请求体基类, 请求体必须继承该类
  */
 public class UserEditRequstBody extends QsModel {
-    public String name;
-    public String avatar_url;
+    public String token;
+    public String pic;
+    public String nickname;
+    public String birthday;
+    public String sex;
 
-    public UserEditRequstBody(String name, String avatar_url) {
-        this.name = name;
-        this.avatar_url = avatar_url;
+    public UserEditRequstBody(String token, String pic, String nickname, String birthday, String sex) {
+        this.token = token;
+        this.pic = pic;
+        this.nickname = nickname;
+        this.birthday = birthday;
+        this.sex = sex;
     }
 }

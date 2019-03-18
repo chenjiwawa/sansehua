@@ -32,6 +32,11 @@ public class VoiceClientGridFragment extends QsRecyclerFragment<VoiceClientGridP
     }
 
     @Override
+    public int layoutId() {
+        return R.layout.fragment_voice_client_grid;
+    }
+
+    @Override
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
         if (arguments == null) return;
@@ -42,7 +47,6 @@ public class VoiceClientGridFragment extends QsRecyclerFragment<VoiceClientGridP
 
 //        requstData(0);
         getRecyclerView().setLayoutManager(new GridLayoutManager(getContext(), 4));
-        getRecyclerView().addItemDecoration(new DividerGridItemDecoration(getContext(), R.drawable.divider_grid_5));
 
         showContentView();
     }

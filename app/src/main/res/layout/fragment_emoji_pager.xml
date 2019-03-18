@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    android:orientation="vertical">
+
+    <com.qsmaxmin.qsbase.common.widget.viewpager.QsViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_blue_green"
+        android:padding="@dimen/dp_5"
+        android:paddingBottom="50dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/color_gray"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_tabs_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_red"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <com.qsmaxmin.qsbase.common.widget.viewpager.PagerSlidingTabStrip
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            app:psts_SelectedTextColor="#636579"
+            app:psts_TabPaddingLeftRight="0dp"
+            app:psts_TextAllCaps="false"
+            app:psts_TextSize="13sp"
+            app:psts_UnSelectedTextColor="#8D8FA9" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+

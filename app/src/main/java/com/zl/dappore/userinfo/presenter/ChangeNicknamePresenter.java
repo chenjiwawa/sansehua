@@ -26,7 +26,7 @@ public class ChangeNicknamePresenter extends DapporePresenter<ChangeNickFragment
         }
         getView().loading(true);
         UserInfoHttp http = createHttpRequest(UserInfoHttp.class);
-        UserEditRequstBody body = new UserEditRequstBody(nick, "");
+        UserEditRequstBody body = new UserEditRequstBody(nick, null, null, null, null);
         BaseModel result = http.requestUserEdit(account, body);
         getView().loadingClose();
         if (isSuccess(result)) {
