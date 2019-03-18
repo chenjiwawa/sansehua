@@ -10,6 +10,16 @@ import com.zl.dappore.voiceroom.model.VoiceRoom;
 
 public class VoiceRoomSettingEvent {
 
+    public State state;
+
+    public VoiceRoomSettingEvent(State state) {
+        this.state = state;
+    }
+
+    public enum State {
+        STATE_FRESH_AFTER_SETTING
+    }
+
     public static class OnVoiceRoomEditEvent {
         public VoiceRoom data;
 
@@ -17,4 +27,6 @@ public class VoiceRoomSettingEvent {
             this.data = data;
         }
     }
+
+
 }

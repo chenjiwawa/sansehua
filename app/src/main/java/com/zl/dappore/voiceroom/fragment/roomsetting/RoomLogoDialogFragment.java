@@ -12,6 +12,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
+import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.zl.dappore.R;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
@@ -19,7 +20,7 @@ import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 import butterknife.OnClick;
 
-public class RoomLogoDialogFragment extends QsDialogFragment{
+public class RoomLogoDialogFragment extends QsDialogFragment {
 
     @Bind(R.id.title)
     TextView title;
@@ -50,7 +51,7 @@ public class RoomLogoDialogFragment extends QsDialogFragment{
         fragment.setArguments(extras);
         return fragment;
     }
-    
+
     public static RoomLogoDialogFragment getInstance() {
         return new RoomLogoDialogFragment();
     }
@@ -123,13 +124,10 @@ public class RoomLogoDialogFragment extends QsDialogFragment{
         super.onViewClick(view);
         switch (view.getId()) {
             case R.id.cancel:
-                if (mListener != null) {
-                    mListener.onCancel();
-                }
                 break;
             case R.id.confirm:
                 if (mListener != null) {
-                    mListener.onConfirm();
+                    mListener.onLogoSetting("");
                 }
                 break;
         }
@@ -137,9 +135,7 @@ public class RoomLogoDialogFragment extends QsDialogFragment{
     }
 
     public interface OnDialogListener {
-        void onConfirm();
-
-        void onCancel();
+        void onLogoSetting(String data);
     }
 
     public void setOnDialogListener(OnDialogListener listener) {

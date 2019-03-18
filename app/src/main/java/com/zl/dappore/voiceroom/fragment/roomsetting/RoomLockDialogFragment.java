@@ -2,6 +2,7 @@ package com.zl.dappore.voiceroom.fragment.roomsetting;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
+import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.zl.dappore.R;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
@@ -142,13 +144,15 @@ public class RoomLockDialogFragment extends QsDialogFragment implements TextWatc
         super.onViewClick(view);
         switch (view.getId()) {
             case R.id.cancel:
-                if (mListener != null) {
-                    mListener.onCancel();
-                }
                 break;
             case R.id.confirm:
+                if (TextUtils.isEmpty(edit.getText().toString())) {
+                    QsToast.show("请输入密码！");
+                    return;
+                }
+
                 if (mListener != null) {
-                    mListener.onConfirm();
+                    mListener.onLockSetting(edit.getText().toString());
                 }
                 break;
         }
@@ -156,9 +160,7 @@ public class RoomLockDialogFragment extends QsDialogFragment implements TextWatc
     }
 
     public interface OnDialogListener {
-        void onConfirm();
-
-        void onCancel();
+        void onLockSetting(String data);
     }
 
     public void setOnDialogListener(OnDialogListener listener) {

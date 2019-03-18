@@ -2,12 +2,12 @@ package com.zl.dappore.voiceroom.model;
 
 import com.qsmaxmin.qsbase.common.model.QsModel;
 
-public class BaseVoiceRoomRequestBody extends QsModel {
+public class JoinVoiceRoomRequestBody extends QsModel {
 
     public String token;
     public String room_id;
 
-    public BaseVoiceRoomRequestBody(String token, String room_id) {
+    public JoinVoiceRoomRequestBody(String token, String room_id) {
         this.token = token;
         this.room_id = room_id;
     }

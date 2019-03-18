@@ -19,6 +19,7 @@ import com.zl.dappore.R;
 import com.zl.dappore.common.agora.AgoraHelper;
 import com.zl.dappore.common.agora.IRtcEngineEventListener;
 import com.zl.dappore.common.event.VoiceRoomEvent;
+import com.zl.dappore.common.event.VoiceRoomSettingEvent;
 import com.zl.dappore.voiceroom.fragment.chatroom.ChatRoomFragment;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceAuditorOperationDialogFragment;
 import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceClientOperationDialogFragment;
@@ -202,6 +203,17 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 //        }
     }
 
+    @Subscribe
+    public void onEvent(VoiceRoomSettingEvent event) {
+        if (event == null)
+            return;
+
+        switch (event.state) {
+            case STATE_FRESH_AFTER_SETTING:
+                break;
+        }
+    }
+
     @Override
     public boolean isOpenEventBus() {
         return true;
@@ -268,4 +280,5 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     public void onUserMuteAudio(int uid, boolean muted) {
 
     }
+
 }

@@ -2,21 +2,21 @@ package com.zl.dappore.voiceroom.model;
 
 import com.qsmaxmin.qsbase.common.model.QsModel;
 
-public class BaseVoiceRoomRequestBody extends QsModel {
+public class CreateVoiceRoomRequestBody extends QsModel {
 
     public String token;
-    public String room_id;
+    public String room_type;
 
-    public BaseVoiceRoomRequestBody(String token, String room_id) {
+    public CreateVoiceRoomRequestBody(String token, String room_type) {
         this.token = token;
-        this.room_id = room_id;
+        this.room_type = room_type;
     }
 
     @Override
     public String toString() {
         return "CreateVoiceRoomRequestBody{" +
                 "token='" + token + '\'' +
-                ", room_id='" + room_id + '\'' +
+                ", room_type='" + room_type + '\'' +
                 '}';
     }
 }

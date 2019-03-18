@@ -5,11 +5,15 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
+import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.qsmaxmin.qsbase.common.log.L;
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.zl.dappore.R;
+import com.zl.dappore.common.event.VoiceRoomSettingEvent;
 import com.zl.dappore.voiceroom.fragment.roomsetting.RoomGreetingDialogFragment;
 import com.zl.dappore.voiceroom.fragment.roomsetting.RoomLabelDialogFragment;
 import com.zl.dappore.voiceroom.fragment.roomsetting.RoomLockDialogFragment;
@@ -21,7 +25,7 @@ import com.zl.dappore.voiceroom.model.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.VoiceRoomSettingPresenter;
 
-public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPresenter> {
+public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPresenter> implements RoomNameDialogFragment.OnDialogListener, RoomLogoDialogFragment.OnDialogListener, RoomGreetingDialogFragment.OnDialogListener, RoomLockDialogFragment.OnDialogListener, RoomLabelDialogFragment.OnDialogListener, RoomTypeDialogFragment.OnDialogListener {
 
     @Bind(R.id.tv_title)
     TextView tv_title;
@@ -43,6 +47,8 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
     VoiceRoom room;
     VoiceRole user;
     Bundle bundle;
+    String token = "";
+    String roomId = "";
 
     @Override
     public int actionbarLayoutId() {
@@ -84,25 +90,73 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
                 activityFinish();
                 break;
             case R.id.rl_name_voiceroom_setting:
-                RoomNameDialogFragment.getInstance(bundle).show();
+                RoomNameDialogFragment roomNameDialogFragment = RoomNameDialogFragment.getInstance(bundle);
+                roomNameDialogFragment.setOnDialogListener(this);
+                roomNameDialogFragment.show();
                 break;
             case R.id.rl_type_voiceroom_setting:
-                RoomTypeDialogFragment.getInstance(bundle).show();
+                RoomTypeDialogFragment roomTypeDialogFragment = RoomTypeDialogFragment.getInstance(bundle);
+                roomTypeDialogFragment.setOnDialogListener(this);
+                roomTypeDialogFragment.show();
                 break;
             case R.id.rl_lock_voiceroom_setting:
-                RoomLockDialogFragment.getInstance(bundle).show();
+                RoomLockDialogFragment roomLockDialogFragment = RoomLockDialogFragment.getInstance(bundle);
+                roomLockDialogFragment.setOnDialogListener(this);
+                roomLockDialogFragment.show();
                 break;
             case R.id.rl_message_voiceroom_setting:
                 break;
             case R.id.rl_label_voiceroom_setting:
-                RoomLabelDialogFragment.getInstance(bundle).show();
+                RoomLabelDialogFragment roomLabelDialogFragment = RoomLabelDialogFragment.getInstance(bundle);
+                roomLabelDialogFragment.setOnDialogListener(this);
+                roomLabelDialogFragment.show();
                 break;
             case R.id.rl_logo_voiceroom_setting:
-                RoomLogoDialogFragment.getInstance(bundle).show();
+                RoomLogoDialogFragment roomLogoDialogFragment = RoomLogoDialogFragment.getInstance(bundle);
+                roomLogoDialogFragment.setOnDialogListener(this);
+                roomLogoDialogFragment.show();
                 break;
             case R.id.rl_intro_voiceroom_setting:
-                RoomGreetingDialogFragment.getInstance(bundle).show();
+                RoomGreetingDialogFragment roomGreetingDialogFragment = RoomGreetingDialogFragment.getInstance(bundle);
+                roomGreetingDialogFragment.setOnDialogListener(this);
+                roomGreetingDialogFragment.show();
                 break;
         }
+    }
+
+    @Override
+    public void onGreetingSetting(String data) {
+        getPresenter().setVoiceRoomGreeting(token, roomId, data);
+    }
+
+    @Override
+    public void onLabelSetting(String data) {
+        getPresenter().setVoiceRoomLabel(token, roomId, data);
+    }
+
+    @Override
+    public void onLockSetting(String data) {
+        getPresenter().setVoiceRoomPwd(token, roomId, data);
+    }
+
+    @Override
+    public void onLogoSetting(String data) {
+        getPresenter().setVoiceRoomLogo(token, roomId, data);
+    }
+
+    @Override
+    public void onNameSetting(String data) {
+        getPresenter().setVoiceRoomName(token, roomId, data);
+    }
+
+    @Override
+    public void onTypeSetting(String data) {
+        getPresenter().setVoiceRoomType(token, roomId, data);
+    }
+
+    @ThreadPoint(ThreadType.MAIN)
+    public void setSuccesView() {
+
+        QsHelper.getInstance().eventPost(new VoiceRoomSettingEvent(VoiceRoomSettingEvent.State.STATE_FRESH_AFTER_SETTING));
     }
 }

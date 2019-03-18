@@ -1,6 +1,7 @@
 package com.zl.dappore.voiceroom.fragment.roomsetting;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +14,17 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
+import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.model.LabelList;
+import com.zl.dappore.voiceroom.model.TypeList;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 import butterknife.OnClick;
 
-public class RoomLabelDialogFragment extends QsDialogFragment {
+public class RoomLabelDialogFragment extends QsDialogFragment implements LabelGridFragment.ItemListener<LabelList.Label> {
 
     @Bind(R.id.title)
     TextView title;
@@ -41,7 +45,7 @@ public class RoomLabelDialogFragment extends QsDialogFragment {
     @Bind(R.id.image)
     ImageView image;
 
-    StringGridFragment fragment;
+    LabelGridFragment fragment;
     private OnDialogListener mListener;
     private String mTitle = "房间类型";
     private String mMessage = "";
@@ -54,13 +58,14 @@ public class RoomLabelDialogFragment extends QsDialogFragment {
     VoiceRoom room;
     VoiceRole user;
     Bundle bundle;
+    String data = "";
 
     public static RoomLabelDialogFragment getInstance(Bundle extras) {
         RoomLabelDialogFragment fragment = new RoomLabelDialogFragment();
         fragment.setArguments(extras);
         return fragment;
     }
-    
+
     public static RoomLabelDialogFragment getInstance() {
         return new RoomLabelDialogFragment();
     }
@@ -86,14 +91,14 @@ public class RoomLabelDialogFragment extends QsDialogFragment {
         user = (VoiceRole) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
 
         L.i(initTag(), " room " + room + " user " + user);
-        
+
         title.setText(mTitle);
         confirm.setText(mConfirm);
         cancel.setText(mCancel);
         image.setImageResource(mIconId);
         swichover.setText(selectLabel);
 
-        fragment = (StringGridFragment) getChildFragmentManager().findFragmentById(R.id.labels);
+        fragment = (LabelGridFragment) getChildFragmentManager().findFragmentById(R.id.labels);
     }
 
 
@@ -134,13 +139,15 @@ public class RoomLabelDialogFragment extends QsDialogFragment {
         super.onViewClick(view);
         switch (view.getId()) {
             case R.id.cancel:
-                if (mListener != null) {
-                    mListener.onCancel();
-                }
                 break;
             case R.id.confirm:
+                if (TextUtils.isEmpty(data)) {
+                    QsToast.show("请选择标签！");
+                    return;
+                }
+
                 if (mListener != null) {
-                    mListener.onConfirm();
+                    mListener.onLabelSetting(data);
                 }
                 break;
             case R.id.swichover:
@@ -156,10 +163,16 @@ public class RoomLabelDialogFragment extends QsDialogFragment {
         dismissAllowingStateLoss();
     }
 
-    public interface OnDialogListener {
-        void onConfirm();
+    @Override
+    public void onItemSelect(LabelList.Label data) {
+        if (data == null)
+            return;
 
-        void onCancel();
+        this.data = data.id;
+    }
+
+    public interface OnDialogListener {
+        void onLabelSetting(String data);
     }
 
     public void setOnDialogListener(OnDialogListener listener) {

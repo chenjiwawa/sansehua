@@ -2,49 +2,42 @@ package com.zl.dappore.common.http;
 
 import com.qsmaxmin.qsbase.common.aspect.Body;
 import com.qsmaxmin.qsbase.common.aspect.POST;
-import com.qsmaxmin.qsbase.common.aspect.Query;
-import com.zl.dappore.account.model.CheckCodeRequstBody;
-import com.zl.dappore.account.model.LoginRequstBody;
-import com.zl.dappore.account.model.RegisteRequstBody;
-import com.zl.dappore.account.model.UserResponse;
 import com.zl.dappore.common.model.BaseModel;
-import com.zl.dappore.userinfo.model.UserEditRequstBody;
-import com.zl.dappore.voiceroom.model.BaseVoiceRoomRequestBody;
+import com.zl.dappore.voiceroom.model.BaseVoiceRoomSettingRequestBody;
 import com.zl.dappore.voiceroom.model.LabelList;
 import com.zl.dappore.voiceroom.model.TypeList;
-import com.zl.dappore.voiceroom.model.VoiceRoomGreetingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomLabelRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomLogoRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomNameRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomPwdRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomTypeRequestBody;
+import com.zl.dappore.voiceroom.model.VoiceRoomGreetingSettingRequestBody;
+import com.zl.dappore.voiceroom.model.VoiceRoomLabelSettingRequestBody;
+import com.zl.dappore.voiceroom.model.VoiceRoomLogoSettingRequestBody;
+import com.zl.dappore.voiceroom.model.VoiceRoomNameSettingRequestBody;
+import com.zl.dappore.voiceroom.model.VoiceRoomPwdSettingRequestBody;
+import com.zl.dappore.voiceroom.model.VoiceRoomTypeSettingRequestBody;
 
 
 public interface VoiceRoomSettingHttp {
 
     @POST("/api/room/set_chatroom_name")
-    BaseModel setVoiceRoomName(@Body VoiceRoomNameRequestBody body);
+    BaseModel setVoiceRoomName(@Body VoiceRoomNameSettingRequestBody body);
 
     @POST("/api/room/set_chatroom_pic")
-    BaseModel setVoiceRoomLogo(@Body VoiceRoomLogoRequestBody body);
+    BaseModel setVoiceRoomLogo(@Body VoiceRoomLogoSettingRequestBody body);
 
     @POST("/api/room/set_chatroom_type")
-    BaseModel setVoiceRoomType(@Body VoiceRoomTypeRequestBody body);
+    BaseModel setVoiceRoomType(@Body VoiceRoomTypeSettingRequestBody body);
 
     @POST("/api/room/set_chatroom_password")
-    BaseModel setVoiceRoomPwd(@Body VoiceRoomPwdRequestBody body);
+    BaseModel setVoiceRoomPwd(@Body VoiceRoomPwdSettingRequestBody body);
 
     @POST("/api/room/setchatroom_notice")
-    BaseModel setVoiceRoomGreeting(@Body VoiceRoomGreetingRequestBody body);
+    BaseModel setVoiceRoomGreeting(@Body VoiceRoomGreetingSettingRequestBody body);
 
     @POST("/api/room/set_chatroom_tag")
-    BaseModel setVoiceRoomLabel(@Body VoiceRoomLabelRequestBody body);
+    BaseModel setVoiceRoomLabel(@Body VoiceRoomLabelSettingRequestBody body);
 
     @POST("/api/room/get_room_type")
-    TypeList getVoiceRoomTypeList(@Body BaseVoiceRoomRequestBody body);
+    TypeList getVoiceRoomTypeList(@Body BaseVoiceRoomSettingRequestBody body);
 
     @POST("/api/room/get_tag_list")
-    LabelList getVoiceRoomLabelList(@Body BaseVoiceRoomRequestBody body);
+    LabelList getVoiceRoomLabelList(@Body BaseVoiceRoomSettingRequestBody body);
 
 }

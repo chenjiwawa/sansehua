@@ -146,9 +146,6 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
         super.onViewClick(view);
         switch (view.getId()) {
             case R.id.cancel:
-                if (mListener != null) {
-                    mListener.onCancel();
-                }
                 break;
             case R.id.confirm:
                 if (TextUtils.isEmpty(edit.getText().toString())) {
@@ -156,11 +153,8 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
                     return;
                 }
 
-                room.name = edit.getText().toString();
-                QsHelper.getInstance().eventPost(new VoiceRoomSettingEvent.OnVoiceRoomEditEvent(room));
-
                 if (mListener != null) {
-                    mListener.onConfirm();
+                    mListener.onNameSetting(edit.getText().toString());
                 }
                 break;
         }
@@ -168,9 +162,7 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
     }
 
     public interface OnDialogListener {
-        void onConfirm();
-
-        void onCancel();
+        void onNameSetting(String data);
     }
 
     public void setOnDialogListener(OnDialogListener listener) {

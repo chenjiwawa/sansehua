@@ -19,6 +19,7 @@ public class LabelGridFragment extends QsRecyclerFragment<LabelGridPresenter, La
 
     private String categoryType = HomeConstants.CATEGORY_TYPE_DEFAULT;
     private String sortType = "";
+    private TypeGridFragment.ItemListener itemListener;
 
     public static LabelGridFragment getInstance(Bundle bundle) {
         LabelGridFragment fragment = new LabelGridFragment();
@@ -54,6 +55,9 @@ public class LabelGridFragment extends QsRecyclerFragment<LabelGridPresenter, La
     public void onItemClick(LabelList.Label data, int position, int preposition, int totalCount) {
         notifyItemChanged(preposition);
         notifyItemChanged(position);
+        if (itemListener != null) {
+            itemListener.onItemSelect(data);
+        }
     }
 
     public void notifyItemChanged(int pos) {
@@ -61,6 +65,10 @@ public class LabelGridFragment extends QsRecyclerFragment<LabelGridPresenter, La
             getData().get(pos).isSelect = true;
             getRecyclerView().getAdapter().notifyItemChanged(pos);
         }
+    }
+
+    public void setItemListener(TypeGridFragment.ItemListener itemListener) {
+        this.itemListener = itemListener;
     }
 
     public interface ItemListener<T> {

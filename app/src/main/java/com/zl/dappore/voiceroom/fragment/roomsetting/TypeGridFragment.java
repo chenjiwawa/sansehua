@@ -20,6 +20,7 @@ public class TypeGridFragment extends QsRecyclerFragment<TypeGridPresenter, Type
 
     private String categoryType = HomeConstants.CATEGORY_TYPE_DEFAULT;
     private String sortType = "";
+    private ItemListener itemListener;
 
     public static TypeGridFragment getInstance(Bundle bundle) {
         TypeGridFragment fragment = new TypeGridFragment();
@@ -55,6 +56,9 @@ public class TypeGridFragment extends QsRecyclerFragment<TypeGridPresenter, Type
     public void onItemClick(TypeList.Type data, int position, int preposition, int totalCount) {
         notifyItemChanged(preposition);
         notifyItemChanged(position);
+        if (itemListener != null) {
+            itemListener.onItemSelect(data);
+        }
     }
 
     public void notifyItemChanged(int pos) {
@@ -62,6 +66,10 @@ public class TypeGridFragment extends QsRecyclerFragment<TypeGridPresenter, Type
             getData().get(pos).isSelect = true;
             getRecyclerView().getAdapter().notifyItemChanged(pos);
         }
+    }
+
+    public void setItemListener(ItemListener itemListener) {
+        this.itemListener = itemListener;
     }
 
     public interface ItemListener<T> {
