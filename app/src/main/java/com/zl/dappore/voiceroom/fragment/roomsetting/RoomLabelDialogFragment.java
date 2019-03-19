@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
+import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.zl.dappore.R;
@@ -21,8 +22,6 @@ import com.zl.dappore.voiceroom.model.TypeList;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
-
-import butterknife.OnClick;
 
 public class RoomLabelDialogFragment extends QsDialogFragment implements LabelGridFragment.ItemListener<LabelList.Label> {
 

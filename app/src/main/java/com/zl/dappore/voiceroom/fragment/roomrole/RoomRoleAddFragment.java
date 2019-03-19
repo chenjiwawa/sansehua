@@ -4,11 +4,17 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.qsmaxmin.qsbase.common.log.L;
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.percentlayout.PercentRelativeLayout;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.addadminlist.AddAdminListActivity;
+import com.zl.dappore.addblacklist.AddBlackListActivity;
+import com.zl.dappore.adminlist.AdminListActivity;
+import com.zl.dappore.blacklist.BlackListActivity;
+import com.zl.dappore.voiceroom.model.BaseVoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 
@@ -25,6 +31,7 @@ public class RoomRoleAddFragment extends QsFragment {
 
     String channelId = "";
     int voiceRole = 0;
+    Bundle bundle;
 
     public static RoomRoleAddFragment getInstance(Bundle extras) {
         RoomRoleAddFragment fragment = new RoomRoleAddFragment();
@@ -64,8 +71,16 @@ public class RoomRoleAddFragment extends QsFragment {
             case R.id.rl_music_voice_add:
                 break;
             case R.id.rl_admin_voice_add:
+                bundle = new Bundle();
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_ID, "1");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+                QsHelper.getInstance().intent2Activity(AdminListActivity.class, bundle);
                 break;
             case R.id.rl_forbidden_voice_add:
+                bundle = new Bundle();
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_ID, "1");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+                QsHelper.getInstance().intent2Activity(BlackListActivity.class, bundle);
                 break;
             case R.id.rl_theme_voice_add:
                 break;

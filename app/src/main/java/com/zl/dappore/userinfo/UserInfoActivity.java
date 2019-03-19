@@ -13,8 +13,6 @@ import com.zl.dappore.R;
 import com.zl.dappore.userinfo.fragment.UserInfoFragment;
 import com.zl.dappore.userinfo.presenter.UserInfoPresenter;
 
-import butterknife.OnClick;
-
 
 /**
  * @CreateBy qsmaxmin

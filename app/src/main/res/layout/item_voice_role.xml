@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/color_red">
 
     <RelativeLayout
         android:id="@+id/rl_item_voice_role"
@@ -48,6 +49,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/ll_base_voice_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|left"
@@ -63,6 +65,7 @@
                     android:text="ID:0" />
 
                 <LinearLayout
+                    android:id="@+id/ll_age_horoscope_voice_role"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical|right"
@@ -92,6 +95,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_data_voice_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -117,6 +121,29 @@
                     android:drawableLeft="@mipmap/ic_followings_user"
                     android:text="关注：0" />
             </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_action_voice_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_action_voice_role"
+                style="@style/userlabel"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:text="等级：0" />
+
+            <TextView
+                android:id="@+id/tv_action_voice_role"
+                style="@style/userlabel"
+                android:text="粉丝：0" />
         </LinearLayout>
 
     </RelativeLayout>

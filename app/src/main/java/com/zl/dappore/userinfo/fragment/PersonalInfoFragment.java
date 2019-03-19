@@ -15,6 +15,7 @@ import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
+import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsViewPagerFragment;
 import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.zl.dappore.R;
@@ -30,8 +31,6 @@ import com.zl.dappore.videodetail.model.VideoDetailConstants;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import butterknife.OnClick;
 
 public class PersonalInfoFragment extends QsViewPagerFragment<PersonalInfoPresenter> {
 

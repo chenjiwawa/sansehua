@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
+import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsActivity;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.viewpagerindicator.IconPageIndicator;
@@ -32,8 +33,6 @@ import com.zl.dappore.home.HomeActivity;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.OnClick;
 
 /**
  * @CreateBy qsmaxmin

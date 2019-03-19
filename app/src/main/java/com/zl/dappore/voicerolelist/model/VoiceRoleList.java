@@ -30,5 +30,6 @@ public class VoiceRoleList extends BaseModel {
         public int charm_level;
         public String pic;
         public int age;
+        public boolean isSelect;
     }
 }

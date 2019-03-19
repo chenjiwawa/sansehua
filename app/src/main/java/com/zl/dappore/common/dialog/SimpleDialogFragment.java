@@ -10,10 +10,9 @@ import android.widget.TextView;
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
+import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
-
-import butterknife.OnClick;
 
 public class SimpleDialogFragment extends QsDialogFragment {
     @Bind(R.id.title)

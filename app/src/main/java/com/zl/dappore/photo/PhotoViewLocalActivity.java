@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
+import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.zl.dappore.R;
 import com.zl.dappore.common.event.UserInfoEvent;
@@ -33,8 +34,6 @@ import org.greenrobot.eventbus.Subscribe;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
-
-import butterknife.OnClick;
 
 /**
  * @CreateBy qsmaxmin

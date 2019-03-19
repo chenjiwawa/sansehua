@@ -161,6 +161,42 @@
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
+        <activity
+            android:name="com.zl.dappore.invitelist.InviteListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.onlinelist.OnlineListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.adminlist.AdminListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.blacklist.BlackListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.addadminlist.AddAdminListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="com.zl.dappore.addblacklist.AddBlackListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
         <!--友盟-->
 
         <!--微信-->
