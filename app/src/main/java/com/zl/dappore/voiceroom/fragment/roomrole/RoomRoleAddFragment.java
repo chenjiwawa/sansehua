@@ -52,8 +52,8 @@ public class RoomRoleAddFragment extends QsFragment {
         arguments = new Bundle();
         if (arguments == null) return;
 
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
+        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID);
+        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE);
 
         L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
         showContentView();
@@ -72,14 +72,14 @@ public class RoomRoleAddFragment extends QsFragment {
                 break;
             case R.id.rl_admin_voice_add:
                 bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_ID, "1");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
                 QsHelper.getInstance().intent2Activity(AdminListActivity.class, bundle);
                 break;
             case R.id.rl_forbidden_voice_add:
                 bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_ID, "1");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
+                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
                 QsHelper.getInstance().intent2Activity(BlackListActivity.class, bundle);
                 break;
             case R.id.rl_theme_voice_add:

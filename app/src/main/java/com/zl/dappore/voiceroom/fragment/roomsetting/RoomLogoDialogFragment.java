@@ -81,8 +81,8 @@ public class RoomLogoDialogFragment extends QsDialogFragment {
         confirm.setText(mConfirm);
         cancel.setText(mCancel);
         image.setImageResource(mIconId);
-        if (!TextUtils.isEmpty(room.logo)) {
-            QsHelper.getInstance().getImageHelper().createRequest().load(room.logo).circleCrop().into(logo);
+        if (!TextUtils.isEmpty(room.voiceRoomLogo)) {
+            QsHelper.getInstance().getImageHelper().createRequest().load(room.voiceRoomLogo).circleCrop().into(logo);
         }
     }
 

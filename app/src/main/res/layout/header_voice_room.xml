@@ -138,7 +138,7 @@
         android:text="房主名称" />
 
     <TextView
-        android:id="@+id/tv_greeting_voice_room"
+        android:id="@+id/tv_announce_voice_room"
         style="@style/text_content_three_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

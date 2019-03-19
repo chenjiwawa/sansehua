@@ -12,31 +12,35 @@ public class BaseVoiceRole implements Serializable {
     public static final int VOICE_ADMIN_CLIENT = 3;
     public static final int VOICE_HOLDER = 5;
 
-    @SerializedName("id")
+    //     1普通观众    2房主   3管理员
+    public static final int ROLE_AUDITOR = 1;
+    public static final int ROLE_HOLDER = 2;
+    public static final int ROLE_ADMIN = 3;
+
+    @SerializedName("uid")
     public String id;
-    @SerializedName("name")
+    @SerializedName("nickname")
     public String name;
-    @SerializedName("logo")
+    @SerializedName("pic")
     public String logo;
 
-    @SerializedName("channelName")
-    public String channelName;
-    @SerializedName("uid")
-    public String uid;
+    /*声网语音直播*/
+    public String agoraChannelName;
+    public String agoraUid;
 
-    @SerializedName("chatRoomId")
-    public String chatRoomId;
-    @SerializedName("type")
-    public int type;
+    /*融云IM*/
+    public String rongChatRoomId;
+    public int rongChatRoomType;
 
-    @SerializedName("voiceRole")
-    public int voiceRole;
-    @SerializedName("musicEnable")
-    public boolean musicEnable;
-    @SerializedName("voiceMute")
-    public boolean voiceMute;
-    @SerializedName("voiceEnable")
-    public boolean voiceEnable;
+    /*控制状态*/
+    @SerializedName("role")
+    public int voiceRole;//1普通观众   2房主   3管理员
+    @SerializedName("turn_music")
+    public boolean musicEnable;// 1关闭音乐权限，2为打开
+    @SerializedName("is_voice")
+    public boolean voiceMute;// 1未关闭，2为打开
+    @SerializedName("is_lock")
+    public boolean voiceEnable;// 1没有上锁，2为上锁
 
 
     public boolean isVoiceClient() {

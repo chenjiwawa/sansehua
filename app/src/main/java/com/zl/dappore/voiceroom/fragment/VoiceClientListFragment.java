@@ -29,8 +29,8 @@ public class VoiceClientListFragment extends QsRecyclerFragment<VoiceClientGridP
         Bundle arguments = getArguments();
         if (arguments == null) return;
 
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
+        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID);
+        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE);
         L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
 
         requstData(0);

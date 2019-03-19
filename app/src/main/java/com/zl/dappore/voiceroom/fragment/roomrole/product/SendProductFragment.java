@@ -67,8 +67,8 @@ public class SendProductFragment extends QsFragment<SendProductPresenter> {
         arguments = new Bundle();
         if (arguments == null) return;
 
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
+        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID);
+        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE);
 
         VoiceClientGridFragment voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
         voiceClientGridFragment.setArguments(arguments);

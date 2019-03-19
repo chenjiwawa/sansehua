@@ -15,10 +15,10 @@ public class VoiceRole extends BaseVoiceRole {
                 ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", logo='" + logo + '\'' +
-                ", channelName='" + channelName + '\'' +
-                ", uid='" + uid + '\'' +
-                ", chatRoomId='" + chatRoomId + '\'' +
-                ", type=" + type +
+                ", agoraChannelName='" + agoraChannelName + '\'' +
+                ", agoraUid='" + agoraUid + '\'' +
+                ", rongChatRoomId='" + rongChatRoomId + '\'' +
+                ", rongChatRoomType=" + rongChatRoomType +
                 ", voiceRole=" + voiceRole +
                 ", musicEnable=" + musicEnable +
                 ", voiceMute=" + voiceMute +

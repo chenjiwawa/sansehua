@@ -6,6 +6,14 @@ import com.qsmaxmin.qsbase.mvp.QsActivity;
 import com.zl.dappore.R;
 import com.zl.dappore.voiceroom.fragment.VoiceRoomFragment;
 
+/*
+我的房间 是否需要创建（user信息）
+*/
+
+/*
+别人的房间
+*/
+
 public class VoiceRoomActivity extends QsActivity {
 
     @Override

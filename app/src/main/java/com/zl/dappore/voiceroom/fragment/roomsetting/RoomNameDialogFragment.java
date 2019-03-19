@@ -86,7 +86,7 @@ public class RoomNameDialogFragment extends QsDialogFragment implements TextWatc
         cancel.setText(mCancel);
         image.setImageResource(mIconId);
         edit.addTextChangedListener(this);
-        edit.setText(room.name);
+        edit.setText(room.voiceRoomName);
 
     }
 

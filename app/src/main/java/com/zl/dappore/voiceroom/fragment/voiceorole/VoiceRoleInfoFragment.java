@@ -9,15 +9,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qsmaxmin.qsbase.common.log.L;
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.common.utils.CommonUtils;
+import com.zl.dappore.voicerolelist.model.VoiceRoleList;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+import com.zl.dappore.voiceroom.presenter.VoiceRoleInfoPresenter;
 
 
-public class VoiceRoleInfoFragment extends QsFragment {
+public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
 
     @Bind(R.id.frame)
     LinearLayout frame;
@@ -80,6 +84,21 @@ public class VoiceRoleInfoFragment extends QsFragment {
 
 
     public void requstData(int voiceRole) {
+        getPresenter().requstData("", "");
+    }
+
+    public void setVoiceRoleInfoView(VoiceRoleList.VoiceRole data) {
+        if (data == null)
+            return;
+
+        QsHelper.getInstance().getImageHelper().createRequest().load(data.pic).circleCrop().into(ivImgUser);
+        tvTitleUser.setText(data.nickname);
+        tvIdUser.setText(data.id);
+        tvAgeUser.setText(data.age + "");
+        tvHoroscopeUser.setText(data.constellation);
+        tvRankUser.setText(data.vip + "");
+        tvFollowersUser.setText(data.vip + "");//TODO
+        tvFollowingsUser.setText(data.vip + "");
     }
 
     @OnClick({R.id.iv_img_user, R.id.tv_rank_user, R.id.tv_followers_user, R.id.tv_followings_user, R.id.rl_item_user, R.id.btn_user_homepage, R.id.btn_user_message, R.id.btn_user_gift, R.id.btn_user_following})

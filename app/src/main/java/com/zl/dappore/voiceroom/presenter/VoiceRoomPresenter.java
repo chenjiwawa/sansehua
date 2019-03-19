@@ -4,10 +4,17 @@ package com.zl.dappore.voiceroom.presenter;
 import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.qsmaxmin.qsbase.common.log.L;
+import com.zl.dappore.common.http.VoiceRoomHttp;
+import com.zl.dappore.common.http.VoiceRoomSettingHttp;
+import com.zl.dappore.common.model.BaseModel;
 import com.zl.dappore.common.presenter.DapporePresenter;
 import com.zl.dappore.voiceroom.fragment.VoiceRoomFragment;
+import com.zl.dappore.voiceroom.model.BaseVoiceRoomRequestBody;
+import com.zl.dappore.voiceroom.model.CreateVoiceRoomRequestBody;
 import com.zl.dappore.voiceroom.model.VoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.VoiceRoomNameSettingRequestBody;
+import com.zl.dappore.voiceroom.model.VoiceRoomResponce;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,11 +86,55 @@ public class VoiceRoomPresenter extends DapporePresenter<VoiceRoomFragment> {
             voiceRoles.add(new VoiceRole());
         }
 
-        VoiceRoom data = new VoiceRoom("1", 1, "交友聊天", "我的房间", "", false, "", false, "问候一下", voiceHolder, voiceRoles);
+        VoiceRoom data = new VoiceRoom();
+        data.voiceRoomId = "1";
+        data.voiceRoomName = "我的房间";
+        data.voiceRoomType = 1;
+        data.voiceRoomTypeName = "交友聊天";
+        data.voiceRoomGreeting = "问候一下";
+        data.voiceRoomAnnounce = "公告一下";
 
-        getView().updateVoiceRoomView(data);
-        getView().updateVoiceHolderView(voiceHolder);
-        getView().updateVoiceClientGridView(voiceRoles);
+        VoiceRoomResponce responce=new VoiceRoomResponce();
+        responce.voiceRoom = data;
+        responce.voiceHolder = voiceHolder;
+        responce.voiceClients = voiceRoles;
+
+        setView(responce);
+    }
+
+    private void setView(VoiceRoomResponce responce) {
+        if (responce == null)
+            return;
+
+
+        getView().setCurentVoiceUser(responce.voiceUserRole);
+        getView().updateVoiceRoomView(responce.voiceRoom);
+        getView().updateVoiceHolderView(responce.voiceHolder);
+        getView().updateVoiceClientGridView(responce.voiceClients);
+    }
+
+    @ThreadPoint(ThreadType.HTTP)
+    public void createVoiceRoom(String token, String room_type) {
+        VoiceRoomHttp http = createHttpRequest(VoiceRoomHttp.class);
+        VoiceRoomResponce response = http.createVoiceRoom(new CreateVoiceRoomRequestBody(token, room_type));
+        showFailMsg(response);
+        if (isSuccess(response)) {
+            setView(response);
+        } else {
+            getView().showErrorView();
+        }
+    }
+
+    @ThreadPoint(ThreadType.HTTP)
+    public void joinVoiceRoom(String token, String room_id) {
+        VoiceRoomHttp http = createHttpRequest(VoiceRoomHttp.class);
+        VoiceRoomResponce response = http.joinVoiceRoom(new BaseVoiceRoomRequestBody(token, room_id));
+        showFailMsg(response);
+        if (isSuccess(response)) {
+            setView(response);
+        } else {
+            getView().showErrorView();
+        }
     }
 
 }

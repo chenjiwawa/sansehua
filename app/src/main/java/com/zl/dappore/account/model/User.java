@@ -77,8 +77,8 @@ public class User extends BaseModel {
     public List<?> oauthProviders;
     @SerializedName("oauth_users")
     public List<?> oauthUsers;
-    @SerializedName("auth_token")
-    public String authToken;
+    @SerializedName("token")
+    public String authToken;//TODO
 
     public static class Wallet {
         /**

@@ -9,7 +9,7 @@ public class VoiceRoleList extends BaseModel {
 
     public List<VoiceRole> data;
 
-    public static class VoiceRole {
+    public static class VoiceRole extends BaseModel {
         /**
          * nickname : 左手
          * sex : 1
@@ -26,10 +26,11 @@ public class VoiceRoleList extends BaseModel {
         public int sex;
         public String birthday;
         public int vip;
-        public int wealth_level;
+        public int wealth_level;//TODO
         public int charm_level;
         public String pic;
         public int age;
+        public String constellation;
         public boolean isSelect;
     }
 }

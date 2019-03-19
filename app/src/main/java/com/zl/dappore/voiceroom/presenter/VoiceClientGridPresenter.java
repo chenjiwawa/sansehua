@@ -18,12 +18,7 @@ import java.util.List;
 public class VoiceClientGridPresenter extends DapporePresenter<VoiceClientGridFragment> {
 
     @ThreadPoint(ThreadType.HTTP)
-    public void requstData(int voiceRole) {
-        List<VoiceRole> voiceRoleList = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            voiceRoleList.add(new VoiceRole());
-        }
-        getView().setData(voiceRoleList);
+    public void requstData() {
     }
 
 }

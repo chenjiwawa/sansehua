@@ -22,12 +22,9 @@ import java.util.List;
 
 
 public class VoiceClientGridFragment extends QsRecyclerFragment<VoiceClientGridPresenter, VoiceRole> {
-    String channelId = "";
-    int voiceRole = 0;
 
-    public static VoiceClientGridFragment getInstance(Bundle extras) {
+    public static VoiceClientGridFragment getInstance() {
         VoiceClientGridFragment fragment = new VoiceClientGridFragment();
-        fragment.setArguments(extras);
         return fragment;
     }
 
@@ -38,22 +35,14 @@ public class VoiceClientGridFragment extends QsRecyclerFragment<VoiceClientGridP
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        Bundle arguments = getArguments();
-        if (arguments == null) return;
-
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_CHANNEL_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_FAVORITE_REQUEST_VOICE_ROLE);
-        L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
-
-//        requstData(0);
         getRecyclerView().setLayoutManager(new GridLayoutManager(getContext(), 4));
 
         showContentView();
     }
 
 
-    public void requstData(int voiceRole) {
-        getPresenter().requstData(voiceRole);
+    public void requstData() {
+        getPresenter().requstData();
     }
 
     @ThreadPoint(ThreadType.MAIN)
