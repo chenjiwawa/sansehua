@@ -115,7 +115,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         user.name = "user" + userId;
         user.logo = "http://staging.dappore.com/xNdqnHirMbzFYW9BXkmKPZ3n";
         user.voiceRole = voiceUserRole;
-        
+
     }
 
     private void creatOrJoinVoiceRoom() {
