@@ -8,18 +8,15 @@ import android.view.ViewGroup;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.qsmaxmin.qsbase.mvp.fragment.QsRecyclerFragment;
 import com.zl.dappore.R;
-import com.zl.dappore.appdetail.model.App;
 import com.zl.dappore.common.widget.itemdecoration.DividerGridItemDecoration;
 import com.zl.dappore.home.model.HomeConstants;
 import com.zl.dappore.voiceroom.adapter.TypeGridRecyclerAdapterItem;
-import com.zl.dappore.voiceroom.model.TypeList;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.TypeList;
 import com.zl.dappore.voiceroom.presenter.TypeGridPresenter;
 
 
 public class TypeGridFragment extends QsRecyclerFragment<TypeGridPresenter, TypeList.Type> implements TypeGridRecyclerAdapterItem.ItemListener<TypeList.Type> {
 
-    private String categoryType = HomeConstants.CATEGORY_TYPE_DEFAULT;
-    private String sortType = "";
     private ItemListener itemListener;
 
     public static TypeGridFragment getInstance(Bundle bundle) {
@@ -30,17 +27,16 @@ public class TypeGridFragment extends QsRecyclerFragment<TypeGridPresenter, Type
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        sortType = getString(R.string.sort_type_new);
-        Bundle bundle = getArguments();
-        categoryType = bundle.getString(HomeConstants.BUNDLE_KEY_CATEGORY_REQUEST_ID, HomeConstants.CATEGORY_TYPE_DEFAULT);
-        sortType = bundle.getString(HomeConstants.BUNDLE_KEY_CATEGORY_REQUEST_SORT_TYPE, getString(R.string.sort_type_new));
 
         getRecyclerView().setLayoutManager(new GridLayoutManager(getContext(), 4));
         getRecyclerView().addItemDecoration(new DividerGridItemDecoration(getContext(), R.drawable.divider_grid_5));
-
-        getPresenter().requestData("");
+        showContentView();
     }
 
+
+    public void requestData(String token) {
+        getPresenter().requestData(token);
+    }
 
     @Override
     public QsRecycleAdapterItem getRecycleAdapterItem(LayoutInflater mInflater, ViewGroup parent, int type) {

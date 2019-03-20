@@ -1,62 +1,43 @@
 package com.zl.dappore.voiceroom.fragment.roomrole;
 
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.qsmaxmin.qsbase.common.log.L;
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
+import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
+import com.zl.dappore.voiceroom.fragment.roomrole.add.RoomHolderAddFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.VoiceRoleInfoFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
 
-public class RoomHolderOperationDialogFragment extends QsDialogFragment {
-    @Bind(R.id.content)
-    RelativeLayout content;
+public class RoomHolderOperationDialogFragment extends RoomRoleOperationDialogFragment {
 
-    public static RoomHolderOperationDialogFragment getInstance() {
-        return new RoomHolderOperationDialogFragment();
+    public static RoomHolderOperationDialogFragment getInstance(Bundle extras) {
+        RoomHolderOperationDialogFragment fragment = new RoomHolderOperationDialogFragment();
+        fragment.setArguments(extras);
+        return fragment;
+    }
+
+    protected void setContentFragment() {
     }
 
     @Override
-    protected int getDialogTheme() {
-        return R.style.evaluate_dialog_style;
+    protected void showAddView() {
+        super.showAddView();
+
+        RoomHolderAddFragment contentFragment = RoomHolderAddFragment.getInstance(getArguments());
+
+        removeContentFragment(contentFragment);
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, contentFragment, RoomHolderAddFragment.class.getSimpleName());
     }
-
-    @Override
-    protected View getDialogView(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-        View view = layoutInflater.inflate(R.layout.dialog_room_holder_operation, viewGroup);
-        return view;
-    }
-
-    @Override
-    protected void initData() {
-        super.initData();
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        L.i(initTag(), " onStart ");
-
-        if (getDialog() == null || getDialog().getWindow() == null) {
-            return;
-        }
-        getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    }
-
-    @OnClick({R.id.content})
-    public void onViewClick(View view) {
-        super.onViewClick(view);
-        switch (view.getId()) {
-            case R.id.content:
-                break;
-        }
-        dismissAllowingStateLoss();
-    }
-
 
 }

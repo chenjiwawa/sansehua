@@ -1,7 +1,6 @@
 package com.zl.dappore.voicerolelist.model;
 
-import com.qsmaxmin.qsbase.common.model.QsModel;
-import com.zl.dappore.voiceroom.model.BaseVoiceRoleRequestBody;
+import com.zl.dappore.voiceroom.model.voicerole.BaseVoiceRoleRequestBody;
 
 public class VoiceRoleRequestBody extends BaseVoiceRoleRequestBody {
 

@@ -22,21 +22,30 @@ import com.zl.dappore.common.event.VoiceRoomEvent;
 import com.zl.dappore.common.event.VoiceRoomSettingEvent;
 import com.zl.dappore.common.model.UserConfig;
 import com.zl.dappore.onlinelist.OnlineListActivity;
-import com.zl.dappore.voiceroom.VoiceRoomActivity;
 import com.zl.dappore.voiceroom.fragment.chatroom.ChatRoomFragment;
-import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceAuditorOperationDialogFragment;
-import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceClientOperationDialogFragment;
-import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceHolderOperationDialogFragment;
-import com.zl.dappore.voiceroom.fragment.voiceorole.VoiceRoleOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.VoiceAuditorOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.VoiceClientOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.VoiceHolderOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.VoiceRoleInfoDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.VoiceRoleOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.voiceclient.VoiceAdmin2ClientOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.voiceclient.VoiceHolder2ClientOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.voiceempty.VoiceAdmin2EmptyOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.voiceempty.VoiceHolder2EmptyOperationDialogFragment;
+import com.zl.dappore.voiceroom.fragment.voicerole.voiceuser.VoiceClient2UserOperationDialogFragment;
 import com.zl.dappore.voiceroom.listener.OnVoiceClientListener;
-import com.zl.dappore.voiceroom.model.BaseVoiceRole;
-import com.zl.dappore.voiceroom.model.VoiceRole;
-import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.voicerole.BaseVoiceRole;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoomResponse;
 import com.zl.dappore.voiceroom.presenter.VoiceRoomPresenter;
 
 import org.greenrobot.eventbus.Subscribe;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import io.agora.rtc.IRtcEngineEventHandler;
@@ -71,11 +80,14 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     LinearLayout chatroomlayout;
 
     VoiceRoom voiceRoom;
+    VoiceRole voiceHolder;
+    List<VoiceRole> voiceClients;
     VoiceRole user;
     String voiceRoomId = "";
     String userId = "";
 
     VoiceClientGridFragment voiceClientGridFragment;
+    RoomRoleOperationBarFragment roomRoleOperationBarFragment;
 
     public static VoiceRoomFragment getInstance(Bundle extras) {
         VoiceRoomFragment fragment = new VoiceRoomFragment();
@@ -100,8 +112,10 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 
         AgoraHelper.getInstance().joinChannel("room1", 11);
         voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
+        roomRoleOperationBarFragment = (RoomRoleOperationBarFragment) getChildFragmentManager().findFragmentById(R.id.bar);
 
-        creatOrJoinVoiceRoom();
+        requstData(userId);
+//        creatOrJoinVoiceRoom();
 
 //        initChatRoom();
 
@@ -109,13 +123,38 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         showContentView();
     }
 
-    public void setCurentVoiceUser(int voiceUserRole) {
+    public void setCurrentData(VoiceRoomResponse responce) {
+        if (responce == null)
+            return;
+
+        if (responce.voiceRoom != null) {
+            voiceRoom = new VoiceRoom();
+            voiceRoom = responce.voiceRoom;
+        }
+
+        if (responce.voiceHolder != null) {
+            voiceHolder = new VoiceRole();
+            voiceHolder = responce.voiceHolder;
+        }
+
         user = new VoiceRole();
         user.id = userId;
         user.name = "user" + userId;
         user.logo = "http://staging.dappore.com/xNdqnHirMbzFYW9BXkmKPZ3n";
-        user.voiceRole = voiceUserRole;
+        user.permission = responce.voiceUserPermission;
 
+        if (responce.voiceClients != null && responce.voiceClients.size() > 0) {
+            voiceClients = new ArrayList<>();
+            voiceClients.addAll(responce.voiceClients);
+        }
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM, voiceRoom);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_HOLDER, voiceHolder);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
+//        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_RESPONSE, responce);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENTS, (Serializable) voiceClients);
+        roomRoleOperationBarFragment.setArguments(bundle);
     }
 
     private void creatOrJoinVoiceRoom() {
@@ -137,7 +176,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.chatroomlayout, ChatRoomFragment.getInstance(), ChatRoomFragment.class.getSimpleName());
     }
 
-    public void requstData() {
+    public void requstData(String userId) {
+        getPresenter().requstData(userId);
     }
 
     @ThreadPoint(ThreadType.MAIN)
@@ -201,6 +241,10 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             case R.id.iv_animation_voice_room:
                 break;
             case R.id.rl_holder_voice_room:
+                bundle = new Bundle();
+                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
+                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR, voiceHolder);
+                showVoiceUser2VoiceHolderDialog(user, voiceHolder, bundle);
                 break;
             case R.id.tv_holder_name_voice_room:
                 break;
@@ -243,6 +287,126 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 
     @Override
     public void onItemSelect(VoiceRole data, int position, int totalCount) {
+        L.i(initTag(), " onItemSelect " + data);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR, data);
+        switch (user.permission) {
+            case VoiceRole.PERMISSION_HOLDER:
+                showVoiceHolder2VoiceRoleDialog(user, data, bundle);
+                break;
+            case VoiceRole.PERMISSION_ADMIN:
+                showVoiceAdmin2VoiceRoleDialog(user, data, bundle);
+                break;
+            case VoiceRole.PERMISSION_GUEST:
+                showVoiceGuest2VoiceRoleDialog(user, data, bundle);
+                break;
+        }
+    }
+
+    /*房主*/
+    private void showVoiceUser2VoiceHolderDialog(VoiceRole user, VoiceRole holder, Bundle bundle) {
+        if (user == null || holder == null || bundle == null)
+            return;
+
+        if (holder.isVoiceRoleUsing()) {
+            /*非空麦位*/
+
+            if (holder.isCurrentVoiceUser(user.id)) {
+                //房主主页
+            } else {
+                VoiceRoleInfoDialogFragment voiceRoleInfoDialogFragment = VoiceRoleInfoDialogFragment.getInstance(bundle);
+                voiceRoleInfoDialogFragment.show();
+            }
+        } else {
+            /*空麦位*/
+        }
+    }
+
+    /*房主*/
+    private void showVoiceHolder2VoiceRoleDialog(VoiceRole user, VoiceRole data, Bundle bundle) {
+        if (user == null || data == null || bundle == null)
+            return;
+
+        VoiceRoleOperationDialogFragment fragment;
+        if (data.isVoiceRoleUsing()) {
+            /*非空麦位*/
+
+            if (data.isCurrentVoiceUser(user.id)) {
+                //房主主页
+            } else {
+                fragment = VoiceHolder2ClientOperationDialogFragment.getInstance(bundle);
+                fragment.show();
+            }
+        } else {
+            /*空麦位*/
+
+            //麦上用户
+
+            //麦下用户
+            fragment = VoiceHolder2EmptyOperationDialogFragment.getInstance(bundle);
+            fragment.show();
+        }
+    }
+
+    /*麦上管理员、麦下管理员*/
+    private void showVoiceAdmin2VoiceRoleDialog(VoiceRole user, VoiceRole data, Bundle bundle) {
+        if (user == null || data == null || bundle == null)
+            return;
+
+        VoiceRoleOperationDialogFragment fragment;
+        if (data.isVoiceRoleUsing()) {
+            /*非空麦位*/
+
+            if (data.isCurrentVoiceUser(user.id)) {
+                //本人（麦上管理员）
+                fragment = VoiceClient2UserOperationDialogFragment.getInstance(bundle);
+                fragment.show();
+            } else {
+                //非本人（其他麦位用户）
+                fragment = VoiceAdmin2ClientOperationDialogFragment.getInstance(bundle);
+                fragment.show();
+            }
+        } else {
+            /*空麦位*/
+
+            //麦上用户
+
+            //麦下用户
+            fragment = VoiceAdmin2EmptyOperationDialogFragment.getInstance(bundle);
+            fragment.show();
+        }
+    }
+
+    /*麦上普通用户、麦下普通用户*/
+    private void showVoiceGuest2VoiceRoleDialog(VoiceRole user, VoiceRole data, Bundle bundle) {
+        if (user == null || data == null || bundle == null)
+            return;
+
+        VoiceRoleOperationDialogFragment fragment;
+        if (data.isVoiceRoleUsing()) {
+            /*非空麦位*/
+
+            if (data.isCurrentVoiceUser(user.id)) {
+                //本人（麦上普通用户）
+                fragment = VoiceClient2UserOperationDialogFragment.getInstance(bundle);
+                fragment.show();
+            } else {
+                //非本人（其他麦位用户）
+                VoiceRoleInfoDialogFragment voiceRoleInfoDialogFragment = VoiceRoleInfoDialogFragment.getInstance(bundle);
+                voiceRoleInfoDialogFragment.show();
+            }
+        } else {
+            /*空麦位*/
+
+            //麦上用户 换麦
+
+            //麦下用户 上麦
+
+        }
+    }
+
+    public void onItemSelect2(VoiceRole data, int position, int totalCount) {
         L.i(initTag(), " onItemSelect " + data);
         Bundle bundle = new Bundle();
         bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);

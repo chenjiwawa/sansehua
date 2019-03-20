@@ -11,14 +11,12 @@ import com.zl.dappore.R;
 import com.zl.dappore.common.widget.itemdecoration.DividerGridItemDecoration;
 import com.zl.dappore.home.model.HomeConstants;
 import com.zl.dappore.voiceroom.adapter.LabelGridRecyclerAdapterItem;
-import com.zl.dappore.voiceroom.model.LabelList;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.LabelList;
 import com.zl.dappore.voiceroom.presenter.LabelGridPresenter;
 
 
 public class LabelGridFragment extends QsRecyclerFragment<LabelGridPresenter, LabelList.Label> implements LabelGridRecyclerAdapterItem.ItemListener<LabelList.Label> {
 
-    private String categoryType = HomeConstants.CATEGORY_TYPE_DEFAULT;
-    private String sortType = "";
     private TypeGridFragment.ItemListener itemListener;
 
     public static LabelGridFragment getInstance(Bundle bundle) {
@@ -29,17 +27,16 @@ public class LabelGridFragment extends QsRecyclerFragment<LabelGridPresenter, La
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        sortType = getString(R.string.sort_type_new);
-        Bundle bundle = getArguments();
-        categoryType = bundle.getString(HomeConstants.BUNDLE_KEY_CATEGORY_REQUEST_ID, HomeConstants.CATEGORY_TYPE_DEFAULT);
-        sortType = bundle.getString(HomeConstants.BUNDLE_KEY_CATEGORY_REQUEST_SORT_TYPE, getString(R.string.sort_type_new));
 
         getRecyclerView().setLayoutManager(new GridLayoutManager(getContext(), 4));
         getRecyclerView().addItemDecoration(new DividerGridItemDecoration(getContext(), R.drawable.divider_grid_5));
-
-        getPresenter().requestData("");
+        showContentView();
     }
 
+
+    public void requestData(String token) {
+        getPresenter().requestData(token);
+    }
 
     @Override
     public QsRecycleAdapterItem getRecycleAdapterItem(LayoutInflater mInflater, ViewGroup parent, int type) {

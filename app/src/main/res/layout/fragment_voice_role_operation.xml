@@ -15,7 +15,7 @@
         <Button
             android:id="@+id/role"
             style="@style/voiceclientoperation"
-            android:text="上麦\下麦\抱TA下麦" />
+            android:text="上麦\下麦" />
 
         <Button
             android:id="@+id/music"
@@ -28,9 +28,14 @@
             android:text="解除封麦\封麦" />
 
         <Button
-            android:id="@+id/invite"
+            android:id="@+id/letrole"
             style="@style/voiceclientoperation"
-            android:text="抱TA上麦\踢出房间" />
+            android:text="抱TA上麦\抱TA下麦" />
+
+        <Button
+            android:id="@+id/leave"
+            style="@style/voiceclientoperation"
+            android:text="踢出房间" />
 
         <Button
             android:id="@+id/mute"

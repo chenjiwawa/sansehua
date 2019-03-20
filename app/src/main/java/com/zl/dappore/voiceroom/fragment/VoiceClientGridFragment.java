@@ -11,11 +11,9 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.qsmaxmin.qsbase.mvp.fragment.QsRecyclerFragment;
 import com.zl.dappore.R;
-import com.zl.dappore.common.widget.itemdecoration.DividerGridItemDecoration;
 import com.zl.dappore.voiceroom.adapter.VoiceClientGridRecyclerAdapterItem;
 import com.zl.dappore.voiceroom.listener.OnVoiceClientListener;
-import com.zl.dappore.voiceroom.model.VoiceRole;
-import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
 import com.zl.dappore.voiceroom.presenter.VoiceClientGridPresenter;
 
 import java.util.List;

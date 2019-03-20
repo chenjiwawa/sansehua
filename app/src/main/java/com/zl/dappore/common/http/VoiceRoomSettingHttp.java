@@ -3,15 +3,15 @@ package com.zl.dappore.common.http;
 import com.qsmaxmin.qsbase.common.aspect.Body;
 import com.qsmaxmin.qsbase.common.aspect.POST;
 import com.zl.dappore.common.model.BaseModel;
-import com.zl.dappore.voiceroom.model.BaseVoiceRoomSettingRequestBody;
-import com.zl.dappore.voiceroom.model.LabelList;
-import com.zl.dappore.voiceroom.model.TypeList;
-import com.zl.dappore.voiceroom.model.VoiceRoomGreetingSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomLabelSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomLogoSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomNameSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomPwdSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomTypeSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.BaseVoiceRoomSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.LabelList;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.TypeList;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomGreetingSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomLabelSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomLogoSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomNameSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomPwdSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomTypeSettingRequestBody;
 
 
 public interface VoiceRoomSettingHttp {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
@@ -16,13 +17,17 @@ import com.zl.dappore.R;
 import com.zl.dappore.appdetail.AppDetailActivity;
 import com.zl.dappore.appdetail.model.App;
 import com.zl.dappore.appdetail.model.AppDetailConstants;
+import com.zl.dappore.common.event.VoiceRoomProductEvent;
 import com.zl.dappore.common.utils.CommonUtils;
+import com.zl.dappore.voiceroom.model.voicerole.ProductList;
 
 /**
  * Created by zhang on 2017/3/17.
  */
-public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
+public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<ProductList.Product> {
 
+    @Bind(R.id.rl_item_product_grid)
+    RelativeLayout item;
     @Bind(R.id.iv_img_product_grid)
     ImageView ivImgProductGrid;
     @Bind(R.id.tv_title_product_grid)
@@ -30,12 +35,10 @@ public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
     @Bind(R.id.tv_des_product_grid)
     TextView tvDesProductGrid;
 
-    private App appDetail;
-    private boolean isItemPos = false;
+    private ProductList.Product data;
 
-    public ProductGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, boolean isItemPos) {
+    public ProductGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent) {
         super(inflater, parent);
-        this.isItemPos = isItemPos;
     }
 
     @Override
@@ -44,13 +47,18 @@ public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
     }
 
     @Override
-    protected void onBindItemData(App data, int position, int totalCount) {
-        this.appDetail = data;
+    protected void onBindItemData(ProductList.Product data, int position, int totalCount) {
+        this.data = data;
 
-        QsHelper.getInstance().getImageHelper().createRequest().load(data.logoUrl).roundedCorners(CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9)).into(ivImgProductGrid);
-        tvTitleProductGrid.setText(data.name);
-        tvDesProductGrid.setText(data.description);
-
+        QsHelper.getInstance().getImageHelper().createRequest().load(data.giftPic).roundedCorners(CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9)).into(ivImgProductGrid);
+        tvTitleProductGrid.setText(data.giftName);
+        tvDesProductGrid.setText(data.price);
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QsHelper.getInstance().eventPost(new VoiceRoomProductEvent.OnChoiceEvent(VoiceRoomProductEvent.OnChoiceEvent.State.SELECT, data));
+            }
+        });
     }
 
     @OnClick({R.id.rl_item_product_grid})
@@ -58,9 +66,6 @@ public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<App> {
         super.onViewClick(view);
         switch (view.getId()) {
             case R.id.rl_item_product_grid:
-                Bundle bundle = new Bundle();
-                bundle.putString(AppDetailConstants.BUNDLE_KEY_APPDETAIL_REQUEST_ID, appDetail.id);
-                QsHelper.getInstance().intent2Activity(AppDetailActivity.class, bundle);
                 break;
         }
     }

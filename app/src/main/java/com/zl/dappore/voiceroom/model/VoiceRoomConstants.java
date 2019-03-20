@@ -14,9 +14,15 @@ public class VoiceRoomConstants {
     public static final String BUNDLE_KEY_REQUEST_VOICE_ROLE = "bundle_key_request_voice_role";
     public static final String BUNDLE_KEY_REQUEST_VOICE_ROOM_ID = "bundle_key_request_voice_room_id";
     public static final String BUNDLE_KEY_REQUEST_USER_ID = "bundle_key_request_user_id";//登录注册Id
+    public static final String BUNDLE_KEY_REQUEST_VOICE_HOLDER = "bundle_key_request_voice_holder";
     public static final String BUNDLE_KEY_REQUEST_VOICE_ROLE_USER = "bundle_key_request_voice_role_user";//当前语音房间用户
+    public static final String BUNDLE_KEY_REQUEST_VOICE_CLIENTS = "bundle_key_request_voice_clients";
+    public static final String BUNDLE_KEY_REQUEST_VOICE_ROOM_RESPONSE = "bundle_key_request_voice_room_response";
     public static final String BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR = "bundle_key_request_voice_client_or_auditor";//当前语音房间麦上、麦下用户（非房主）
     public static final String BUNDLE_KEY_REQUEST_ID = "bundle_key_request_id";
+
+    /*产品*/
+    public static final String BUNDLE_KEY_PRODUCTLIST_REQUEST_PAGE_NO = "bundle_key_productlist_request_page_no";
 
     /*声网语音直播*/
     public static final String BUNDLE_KEY_REQUEST_AGORA_CHANNEL_NAME = "bundle_key_request_agora_channel_Name";

@@ -15,9 +15,12 @@ import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.zl.dappore.R;
 import com.zl.dappore.common.agora.AgoraHelper;
 import com.zl.dappore.voiceroom.VoiceRoomSettingActivity;
-import com.zl.dappore.voiceroom.model.VoiceRole;
-import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomOperationDialogFragment extends QsDialogFragment {
 
@@ -34,9 +37,10 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
     @Bind(R.id.cancel)
     Button cancel;
 
-    VoiceRoom room;
+    VoiceRoom voiceRoom;
+    VoiceRole voiceHolder;
+    List<VoiceRole> voiceClients;
     VoiceRole user;
-    Bundle bundle;
 
     public static RoomOperationDialogFragment getInstance(Bundle extras) {
         RoomOperationDialogFragment fragment = new RoomOperationDialogFragment();
@@ -58,13 +62,23 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
     @Override
     protected void initData() {
         super.initData();
+        initArgumentData();
+    }
+
+    private void initArgumentData() {
         Bundle arguments = getArguments();
         if (arguments == null) return;
 
-        room = (VoiceRoom) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        voiceRoom = (VoiceRoom) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        voiceHolder = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_HOLDER);
+        voiceClients = (ArrayList<VoiceRole>) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENTS);
         user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
 
-        L.i(initTag(), " room " + room + " user " + user);
+        L.i(initTag(), " initArgumentData voiceRoom " + voiceRoom);
+        L.i(initTag(), " initArgumentData voiceHolder " + voiceHolder);
+        L.i(initTag(), " initArgumentData voiceClients " + voiceClients);
+        L.i(initTag(), " initArgumentData user " + user);
+
     }
 
     private void setView() {
@@ -104,10 +118,7 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
             case R.id.share:
                 break;
             case R.id.setting:
-                bundle = new Bundle();
-                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
-                bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM, room);
-                QsHelper.getInstance().intent2Activity(VoiceRoomSettingActivity.class, bundle);
+                QsHelper.getInstance().intent2Activity(VoiceRoomSettingActivity.class, getArguments());
                 break;
             case R.id.cancel:
                 break;

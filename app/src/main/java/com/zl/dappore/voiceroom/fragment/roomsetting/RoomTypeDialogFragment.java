@@ -16,10 +16,13 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.model.TypeList;
-import com.zl.dappore.voiceroom.model.VoiceRole;
-import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.TypeList;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomTypeDialogFragment extends QsDialogFragment implements TypeGridFragment.ItemListener<TypeList.Type> {
 
@@ -42,9 +45,10 @@ public class RoomTypeDialogFragment extends QsDialogFragment implements TypeGrid
     private String mCancel = QsHelper.getInstance().getString(R.string.cancel);
     private int mIconId = R.mipmap.icon_my_font;
 
-    VoiceRoom room;
+    VoiceRoom voiceRoom;
+    VoiceRole voiceHolder;
+    List<VoiceRole> voiceClients;
     VoiceRole user;
-    Bundle bundle;
     String data = "";
 
 
@@ -69,16 +73,18 @@ public class RoomTypeDialogFragment extends QsDialogFragment implements TypeGrid
         return view;
     }
 
+
     @Override
     protected void initData() {
         super.initData();
+        initArgumentData();
 
-        Bundle bundle = getArguments();
-        if (bundle == null) return;
-        room = (VoiceRoom) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
-        user = (VoiceRole) bundle.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+        setContentView(voiceRoom);
+    }
 
-        L.i(initTag(), " room " + room + " user " + user);
+    private void setContentView(VoiceRoom voiceRoom) {
+        if (voiceRoom == null)
+            return;
 
         title.setText(mTitle);
         confirm.setText(mConfirm);
@@ -89,6 +95,21 @@ public class RoomTypeDialogFragment extends QsDialogFragment implements TypeGrid
         fragment.setItemListener(this);
     }
 
+    private void initArgumentData() {
+        Bundle arguments = getArguments();
+        if (arguments == null) return;
+
+        voiceRoom = (VoiceRoom) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        voiceHolder = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_HOLDER);
+        voiceClients = (ArrayList<VoiceRole>) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENTS);
+        user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+
+        L.i(initTag(), " initArgumentData voiceRoom " + voiceRoom);
+        L.i(initTag(), " initArgumentData voiceHolder " + voiceHolder);
+        L.i(initTag(), " initArgumentData voiceClients " + voiceClients);
+        L.i(initTag(), " initArgumentData user " + user);
+
+    }
 
     public void setIconId(int iconId) {
         this.mIconId = iconId;

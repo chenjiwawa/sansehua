@@ -20,6 +20,7 @@ import com.zl.dappore.appdetail.model.App;
 import com.zl.dappore.common.utils.CommonUtils;
 import com.zl.dappore.common.widget.shadow.ShadowDrawable;
 import com.zl.dappore.home.model.HomeConstants;
+import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.ProductPagerPresenter;
 
 import java.util.ArrayList;
@@ -37,8 +38,6 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
     @Bind(R.id.ll_tabs_category)
     LinearLayout ll_tabs_category;
 
-    private String sortType = "";
-    private List<App.AppTaxon> appTaxons;
 
     @Override
     public int layoutId() {
@@ -52,7 +51,6 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
     @Override
     public void initData(Bundle savedInstanceState) {
         super.initData(savedInstanceState);
-        sortType = getString(R.string.sort_type_new);
         ShadowDrawable.setShadowDrawable(ll_tabs_category, Color.parseColor("#ffffff"), 0,
                 R.color.color_shadow_gray,
                 CommonUtils.dp2px(5), new int[]{CommonUtils.dp2px(0), CommonUtils.dp2px(0), CommonUtils.dp2px(0), CommonUtils.dp2px(5)}, 0, 0);
@@ -73,13 +71,11 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
         if (appTaxons == null)
             return;
 
-        this.appTaxons = appTaxons;
         List<QsModelPager> modelPagers = new ArrayList<>();
         for (int i = 0; i < appTaxons.size(); i++) {
             QsModelPager model = createModelPager(i, appTaxons.get(i).name);
             Bundle bundle = new Bundle();
-            bundle.putString(HomeConstants.BUNDLE_KEY_CATEGORY_REQUEST_ID, appTaxons.get(i).id);
-            bundle.putString(HomeConstants.BUNDLE_KEY_CATEGORY_REQUEST_SORT_TYPE, sortType);
+            bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_PRODUCTLIST_REQUEST_PAGE_NO, i+1);
             model.fragment = ProductGridFragment.getInstance(bundle);
             modelPagers.add(model);
         }

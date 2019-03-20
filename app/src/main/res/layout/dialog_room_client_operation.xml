@@ -7,11 +7,6 @@
     android:background="@color/color_red"
     android:padding="5dp">
 
-    <fragment
-        android:id="@+id/f_voice_peration"
-        android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </RelativeLayout>
 

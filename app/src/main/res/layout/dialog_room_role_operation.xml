@@ -23,11 +23,15 @@
         android:layout_marginRight="10dp"
         android:background="#B5FFFFFF" />
 
-    <fragment
-        android:id="@+id/operation"
-        android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationFragment"
+    <RelativeLayout
+        android:id="@+id/fragmentlayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/voiceinfolayout"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+    </RelativeLayout>
 
 </LinearLayout>
 

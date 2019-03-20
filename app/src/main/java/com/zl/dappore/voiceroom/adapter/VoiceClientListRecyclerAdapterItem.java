@@ -13,7 +13,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.model.VoiceRole;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
 
 
 /**

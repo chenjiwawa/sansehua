@@ -5,16 +5,14 @@ import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.qsmaxmin.qsbase.common.log.L;
 import com.zl.dappore.common.http.VoiceRoomHttp;
-import com.zl.dappore.common.http.VoiceRoomSettingHttp;
-import com.zl.dappore.common.model.BaseModel;
 import com.zl.dappore.common.presenter.DapporePresenter;
 import com.zl.dappore.voiceroom.fragment.VoiceRoomFragment;
-import com.zl.dappore.voiceroom.model.BaseVoiceRoomRequestBody;
-import com.zl.dappore.voiceroom.model.CreateVoiceRoomRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRole;
-import com.zl.dappore.voiceroom.model.VoiceRoom;
-import com.zl.dappore.voiceroom.model.VoiceRoomNameSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomResponce;
+import com.zl.dappore.voiceroom.model.voicerole.BaseVoiceRole;
+import com.zl.dappore.voiceroom.model.voiceroom.BaseVoiceRoomRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroom.CreateVoiceRoomRequestBody;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoom;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoomResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,20 +92,21 @@ public class VoiceRoomPresenter extends DapporePresenter<VoiceRoomFragment> {
         data.voiceRoomGreeting = "问候一下";
         data.voiceRoomAnnounce = "公告一下";
 
-        VoiceRoomResponce responce=new VoiceRoomResponce();
+        VoiceRoomResponse responce=new VoiceRoomResponse();
         responce.voiceRoom = data;
         responce.voiceHolder = voiceHolder;
         responce.voiceClients = voiceRoles;
+        responce.voiceUserPermission = BaseVoiceRole.PERMISSION_HOLDER;
 
         setView(responce);
     }
 
-    private void setView(VoiceRoomResponce responce) {
+    private void setView(VoiceRoomResponse responce) {
         if (responce == null)
             return;
 
 
-        getView().setCurentVoiceUser(responce.voiceUserRole);
+        getView().setCurrentData(responce);
         getView().updateVoiceRoomView(responce.voiceRoom);
         getView().updateVoiceHolderView(responce.voiceHolder);
         getView().updateVoiceClientGridView(responce.voiceClients);
@@ -116,7 +115,7 @@ public class VoiceRoomPresenter extends DapporePresenter<VoiceRoomFragment> {
     @ThreadPoint(ThreadType.HTTP)
     public void createVoiceRoom(String token, String room_type) {
         VoiceRoomHttp http = createHttpRequest(VoiceRoomHttp.class);
-        VoiceRoomResponce response = http.createVoiceRoom(new CreateVoiceRoomRequestBody(token, room_type));
+        VoiceRoomResponse response = http.createVoiceRoom(new CreateVoiceRoomRequestBody(token, room_type));
         showFailMsg(response);
         if (isSuccess(response)) {
             setView(response);
@@ -128,7 +127,7 @@ public class VoiceRoomPresenter extends DapporePresenter<VoiceRoomFragment> {
     @ThreadPoint(ThreadType.HTTP)
     public void joinVoiceRoom(String token, String room_id) {
         VoiceRoomHttp http = createHttpRequest(VoiceRoomHttp.class);
-        VoiceRoomResponce response = http.joinVoiceRoom(new BaseVoiceRoomRequestBody(token, room_id));
+        VoiceRoomResponse response = http.joinVoiceRoom(new BaseVoiceRoomRequestBody(token, room_id));
         showFailMsg(response);
         if (isSuccess(response)) {
             setView(response);

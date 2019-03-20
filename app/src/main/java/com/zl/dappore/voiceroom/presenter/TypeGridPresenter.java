@@ -5,8 +5,8 @@ import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.zl.dappore.common.http.VoiceRoomSettingHttp;
 import com.zl.dappore.common.presenter.DapporePresenter;
 import com.zl.dappore.voiceroom.fragment.roomsetting.TypeGridFragment;
-import com.zl.dappore.voiceroom.model.BaseVoiceRoomSettingRequestBody;
-import com.zl.dappore.voiceroom.model.TypeList;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.BaseVoiceRoomSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.TypeList;
 
 
 public class TypeGridPresenter extends DapporePresenter<TypeGridFragment> {

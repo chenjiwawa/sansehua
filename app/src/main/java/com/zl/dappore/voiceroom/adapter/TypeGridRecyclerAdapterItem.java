@@ -1,22 +1,17 @@
 package com.zl.dappore.voiceroom.adapter;
 
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.zl.dappore.R;
-import com.zl.dappore.appdetail.AppDetailActivity;
-import com.zl.dappore.appdetail.model.App;
-import com.zl.dappore.appdetail.model.AppDetailConstants;
-import com.zl.dappore.voiceroom.model.TypeList;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.TypeList;
 
 /**
  * Created by zhang on 2017/3/17.

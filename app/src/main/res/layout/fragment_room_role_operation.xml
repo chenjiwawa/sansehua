@@ -14,7 +14,7 @@
 
         <fragment
             android:id="@+id/add"
-            android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleAddFragment"
+            android:name="com.zl.dappore.voiceroom.fragment.roomrole.add.RoomRoleAddFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

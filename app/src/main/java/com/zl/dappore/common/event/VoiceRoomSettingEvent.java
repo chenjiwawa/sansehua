@@ -1,6 +1,6 @@
 package com.zl.dappore.common.event;
 
-import com.zl.dappore.voiceroom.model.VoiceRoom;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoom;
 
 /**
  * @CreateBy qsmaxmin

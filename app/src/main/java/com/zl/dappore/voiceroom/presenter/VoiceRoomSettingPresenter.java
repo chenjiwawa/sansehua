@@ -7,18 +7,12 @@ import com.zl.dappore.common.http.VoiceRoomSettingHttp;
 import com.zl.dappore.common.model.BaseModel;
 import com.zl.dappore.common.presenter.DapporePresenter;
 import com.zl.dappore.voiceroom.VoiceRoomSettingActivity;
-import com.zl.dappore.voiceroom.fragment.roomsetting.RoomGreetingDialogFragment;
-import com.zl.dappore.voiceroom.fragment.roomsetting.RoomLabelDialogFragment;
-import com.zl.dappore.voiceroom.fragment.roomsetting.RoomLockDialogFragment;
-import com.zl.dappore.voiceroom.fragment.roomsetting.RoomLogoDialogFragment;
-import com.zl.dappore.voiceroom.fragment.roomsetting.RoomNameDialogFragment;
-import com.zl.dappore.voiceroom.fragment.roomsetting.RoomTypeDialogFragment;
-import com.zl.dappore.voiceroom.model.VoiceRoomGreetingSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomLabelSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomLogoSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomNameSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomPwdSettingRequestBody;
-import com.zl.dappore.voiceroom.model.VoiceRoomTypeSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomGreetingSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomLabelSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomLogoSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomNameSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomPwdSettingRequestBody;
+import com.zl.dappore.voiceroom.model.voiceroomsetting.VoiceRoomTypeSettingRequestBody;
 
 /**
  * @CreateBy qsmaxmin

@@ -8,14 +8,27 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
+import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.qsmaxmin.qsbase.common.log.L;
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.zl.dappore.R;
-import com.zl.dappore.voiceroom.fragment.VoiceClientGridFragment;
+import com.zl.dappore.common.event.VoiceRoomProductEvent;
+import com.zl.dappore.common.event.VoiceRoomSettingEvent;
+import com.zl.dappore.voiceroom.fragment.VoiceClientListFragment;
+import com.zl.dappore.voiceroom.model.voicerole.SendProductRequestBody;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
+import com.zl.dappore.voiceroom.model.voiceroom.VoiceRoom;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 import com.zl.dappore.voiceroom.presenter.SendProductPresenter;
+
+import org.greenrobot.eventbus.Subscribe;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SendProductFragment extends QsFragment<SendProductPresenter> {
 
@@ -44,8 +57,12 @@ public class SendProductFragment extends QsFragment<SendProductPresenter> {
     @Bind(R.id.btn_send_product)
     Button btnSendProduct;
 
-    String channelId = "";
-    int voiceRole = 0;
+    VoiceRoom voiceRoom;
+    VoiceRole voiceHolder;
+    List<VoiceRole> voiceClients;
+    VoiceRole user;
+    VoiceClientListFragment voiceClientListFragment;
+    SendProductRequestBody requestBody;
 
     public static SendProductFragment getInstance(Bundle extras) {
         SendProductFragment fragment = new SendProductFragment();
@@ -61,23 +78,30 @@ public class SendProductFragment extends QsFragment<SendProductPresenter> {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        Bundle arguments = getArguments();
+        initArgumentData();
 
-        //TODO
-        arguments = new Bundle();
-        if (arguments == null) return;
-
-        channelId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID);
-        voiceRole = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE);
-
-        VoiceClientGridFragment voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
-        voiceClientGridFragment.setArguments(arguments);
-
-        L.i(initTag(), " channelId " + channelId + " voiceRole " + voiceRole);
+        voiceClientListFragment = (VoiceClientListFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_client_list);
         loadingClose();
         showContentView();
     }
 
+    private void initArgumentData() {
+        Bundle arguments = getArguments();
+        if (arguments == null) return;
+
+        voiceRoom = (VoiceRoom) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        voiceHolder = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_HOLDER);
+        voiceClients = (ArrayList<VoiceRole>) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENTS);
+        user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+
+        L.i(initTag(), " initArgumentData voiceRoom " + voiceRoom);
+        L.i(initTag(), " initArgumentData voiceHolder " + voiceHolder);
+        L.i(initTag(), " initArgumentData voiceClients " + voiceClients);
+        L.i(initTag(), " initArgumentData user " + user);
+
+        voiceClientListFragment.setArguments(getArguments());
+        requestBody = new SendProductRequestBody();
+    }
 
     public void requstData(int voiceRole) {
     }
@@ -99,5 +123,26 @@ public class SendProductFragment extends QsFragment<SendProductPresenter> {
             case R.id.btn_send_product:
                 break;
         }
+    }
+
+    @ThreadPoint(ThreadType.MAIN)
+    public void setsendProductSuccessView() {
+    }
+
+    @Subscribe
+    public void onEvent(VoiceRoomProductEvent.OnChoiceEvent event) {
+        if (event == null)
+            return;
+
+        switch (event.state) {
+            case SELECT:
+
+                break;
+        }
+    }
+
+    @Override
+    public boolean isOpenEventBus() {
+        return true;
     }
 }

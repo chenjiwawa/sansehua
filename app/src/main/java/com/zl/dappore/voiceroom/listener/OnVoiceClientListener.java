@@ -1,6 +1,6 @@
 package com.zl.dappore.voiceroom.listener;
 
-import com.zl.dappore.voiceroom.model.VoiceRole;
+import com.zl.dappore.voiceroom.model.voicerole.VoiceRole;
 
 public interface OnVoiceClientListener {
 

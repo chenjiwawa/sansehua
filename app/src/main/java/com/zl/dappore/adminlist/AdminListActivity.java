@@ -10,9 +10,8 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.zl.dappore.R;
 import com.zl.dappore.addadminlist.AddAdminListActivity;
-import com.zl.dappore.addblacklist.AddBlackListActivity;
 import com.zl.dappore.adminlist.fragment.AdminListFragment;
-import com.zl.dappore.voiceroom.model.BaseVoiceRole;
+import com.zl.dappore.voiceroom.model.voicerole.BaseVoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 public class AdminListActivity extends QsABActivity {

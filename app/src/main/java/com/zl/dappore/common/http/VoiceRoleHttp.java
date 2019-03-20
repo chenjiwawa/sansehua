@@ -3,8 +3,7 @@ package com.zl.dappore.common.http;
 import com.qsmaxmin.qsbase.common.aspect.Body;
 import com.qsmaxmin.qsbase.common.aspect.GET;
 import com.zl.dappore.voicerolelist.model.VoiceRoleList;
-import com.zl.dappore.voicerolelist.model.VoiceRoleRequestBody;
-import com.zl.dappore.voiceroom.model.BaseVoiceRoleRequestBody;
+import com.zl.dappore.voiceroom.model.voicerole.BaseVoiceRoleRequestBody;
 
 /**
  * @CreateBy qsmaxmin

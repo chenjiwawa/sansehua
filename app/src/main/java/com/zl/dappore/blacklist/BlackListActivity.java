@@ -11,8 +11,7 @@ import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.zl.dappore.R;
 import com.zl.dappore.addblacklist.AddBlackListActivity;
 import com.zl.dappore.blacklist.fragment.BlackListFragment;
-import com.zl.dappore.voiceroom.VoiceRoomActivity;
-import com.zl.dappore.voiceroom.model.BaseVoiceRole;
+import com.zl.dappore.voiceroom.model.voicerole.BaseVoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 public class BlackListActivity extends QsABActivity {

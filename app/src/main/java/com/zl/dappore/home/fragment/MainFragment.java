@@ -18,7 +18,6 @@ import com.zl.dappore.home.CategoryTypeI;
 import com.zl.dappore.home.model.HomeConstants;
 import com.zl.dappore.home.presenter.MainFragmentPresenter;
 import com.zl.dappore.voiceroom.VoiceRoomActivity;
-import com.zl.dappore.voiceroom.model.BaseVoiceRole;
 import com.zl.dappore.voiceroom.model.VoiceRoomConstants;
 
 /**
