@@ -6,7 +6,7 @@
     android:background="@color/color_bg"
     android:orientation="vertical">
 
-    <com.zl.dappore.common.widget.photoview.PhotoViewPager
+    <com.tricolorflower.heartbeat.common.widget.photoview.PhotoViewPager
         android:id="@+id/pager"
         style="@style/QsLayoutViewpager"
         android:background="@color/transparent"

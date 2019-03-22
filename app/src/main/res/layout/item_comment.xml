@@ -34,7 +34,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <com.zl.dappore.common.widget.BeautyRatingBar
+        <com.tricolorflower.heartbeat.common.widget.BeautyRatingBar
             android:id="@+id/rb_score_comment"
             android:layout_width="wrap_content"
             android:layout_height="11dp"

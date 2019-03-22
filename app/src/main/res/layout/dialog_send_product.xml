@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/f_send_product"
-        android:name="com.zl.dappore.voiceroom.fragment.roomrole.product.SendProductFragment"
+        android:name="com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.SendProductFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

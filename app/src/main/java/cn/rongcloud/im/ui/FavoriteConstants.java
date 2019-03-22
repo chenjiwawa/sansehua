@@ -1,6 +1,6 @@
 package cn.rongcloud.im.ui;
 
-import com.zl.dappore.R;
+import com.tricolorflower.heartbeat.R;
 
 /**
  * @CreateBy qsmaxmin

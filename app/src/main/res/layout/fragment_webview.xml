@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_2"
         android:background="@mipmap/progressbar_web"/>-->
-    <com.zl.dappore.common.widget.progress.ColorProgressBar
+    <com.tricolorflower.heartbeat.common.widget.progress.ColorProgressBar
         android:layout_width="match_parent"
         android:id="@+id/cpb_view"
         android:layout_height="@dimen/dp_2"/>

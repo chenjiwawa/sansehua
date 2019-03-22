@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dappore</string>
+    <string name="app_name">心跳</string>
     <string name="agora_app_id">273bf2ad068b4152921d78761f917ec4</string>
     <string name="http_error_msg">网络异常</string>
     <string name="network_error_msg">网络异常</string>

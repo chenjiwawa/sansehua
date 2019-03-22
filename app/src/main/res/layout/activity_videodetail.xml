@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:visibility="gone">
 
-        <com.zl.dappore.common.widget.verticalviewpager.VerticalViewPager
+        <com.tricolorflower.heartbeat.common.widget.verticalviewpager.VerticalViewPager
             android:id="@+id/vvp_video_details"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

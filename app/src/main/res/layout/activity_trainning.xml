@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.zl.dappore.common.animation.VPColorAnimation
+        <com.tricolorflower.heartbeat.common.animation.VPColorAnimation
             android:id="@+id/vpca_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

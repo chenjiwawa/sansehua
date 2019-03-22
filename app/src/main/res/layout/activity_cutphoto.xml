@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.zl.dappore.common.widget.CutImageView
+    <com.tricolorflower.heartbeat.common.widget.CutImageView
         android:id="@+id/civ_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

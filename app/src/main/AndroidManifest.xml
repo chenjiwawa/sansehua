@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zl.dappore">
+    package="com.tricolorflower.heartbeat">
 
     <!-- SD卡创建和删除文件 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -31,7 +31,7 @@
         android:xlargeScreens="true" />
 
     <application
-        android:name="com.zl.dappore.DapporeApplication"
+        android:name="com.tricolorflower.heartbeat.DapporeApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -42,7 +42,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.zl.dappore.home.HomeActivity"
+            android:name="com.tricolorflower.heartbeat.home.HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden">
@@ -54,145 +54,145 @@
         </activity>
 
         <activity
-            android:name="com.zl.dappore.account.LoginActivity"
+            android:name="com.tricolorflower.heartbeat.account.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.appdetail.AppDetailActivity"
+            android:name="com.tricolorflower.heartbeat.appdetail.AppDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.setting.SettingAboutUsActivity"
+            android:name="com.tricolorflower.heartbeat.setting.SettingAboutUsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.search.SearcherActivity"
+            android:name="com.tricolorflower.heartbeat.search.SearcherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.web.WebViewActivity"
+            android:name="com.tricolorflower.heartbeat.web.WebViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.userinfo2.UserInfoActivity"
+            android:name="com.tricolorflower.heartbeat.userinfo2.UserInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.userinfo.UserInfoActivity"
+            android:name="com.tricolorflower.heartbeat.userinfo.UserInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.recommendlist.RecommendListActivity"
+            android:name="com.tricolorflower.heartbeat.recommendlist.RecommendListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.comment.CommentListActivity"
+            android:name="com.tricolorflower.heartbeat.comment.CommentListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.photo.PhotoCutActivity"
+            android:name="com.tricolorflower.heartbeat.photo.PhotoCutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.photo.PhotoViewActivity"
+            android:name="com.tricolorflower.heartbeat.photo.PhotoViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.photo.PhotoViewLocalActivity"
+            android:name="com.tricolorflower.heartbeat.photo.PhotoViewLocalActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.videodetail.VideoDetailActivity"
+            android:name="com.tricolorflower.heartbeat.videodetail.VideoDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.favorite.FavoriteListActivity"
+            android:name="com.tricolorflower.heartbeat.favorite.FavoriteListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.voiceroom.VoiceRoomActivity"
+            android:name="com.tricolorflower.heartbeat.voiceroom.VoiceRoomActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.voiceroom.VoiceRoomSettingActivity"
+            android:name="com.tricolorflower.heartbeat.voiceroom.VoiceRoomSettingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.voiceroom.ProductCategoryActivity"
+            android:name="com.tricolorflower.heartbeat.voiceroom.ProductCategoryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.voicerolelist.VoiceRoleListActivity"
+            android:name="com.tricolorflower.heartbeat.voicerolelist.VoiceRoleListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.invitelist.InviteListActivity"
+            android:name="com.tricolorflower.heartbeat.invitelist.InviteListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.onlinelist.OnlineListActivity"
+            android:name="com.tricolorflower.heartbeat.onlinelist.OnlineListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.adminlist.AdminListActivity"
+            android:name="com.tricolorflower.heartbeat.adminlist.AdminListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.blacklist.BlackListActivity"
+            android:name="com.tricolorflower.heartbeat.blacklist.BlackListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.addadminlist.AddAdminListActivity"
+            android:name="com.tricolorflower.heartbeat.addadminlist.AddAdminListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name="com.zl.dappore.addblacklist.AddBlackListActivity"
+            android:name="com.tricolorflower.heartbeat.addblacklist.AddBlackListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
@@ -248,7 +248,7 @@
         <!--融云IM-->
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.zl.dappore.FileProvider"
+            android:authorities="com.tricolorflower.heartbeat.FileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

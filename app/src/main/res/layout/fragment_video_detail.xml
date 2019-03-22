@@ -15,7 +15,7 @@
 
         <fragment
             android:id="@+id/f_play_video_detail"
-            android:name="com.zl.dappore.videodetail.fragment.VideoPlayerFragment"
+            android:name="com.tricolorflower.heartbeat.videodetail.fragment.VideoPlayerFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/transparent" />
@@ -39,7 +39,7 @@
             android:textSize="20sp"
             android:visibility="gone" />
 
-        <com.zl.dappore.common.widget.LoveRelativeLayout
+        <com.tricolorflower.heartbeat.common.widget.LoveRelativeLayout
             android:id="@+id/ll_love_video_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

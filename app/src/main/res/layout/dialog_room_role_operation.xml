@@ -12,7 +12,7 @@
 
     <fragment
         android:id="@+id/bar"
-        android:name="com.zl.dappore.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment"
+        android:name="com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

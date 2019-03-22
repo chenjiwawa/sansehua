@@ -16,7 +16,7 @@
 
         <fragment
             android:id="@+id/labels"
-            android:name="com.zl.dappore.voiceroom.fragment.roomsetting.TypeGridFragment"
+            android:name="com.tricolorflower.heartbeat.voiceroom.fragment.roomsetting.TypeGridFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

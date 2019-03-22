@@ -13,7 +13,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.zl.dappore"
+        applicationId "com.tricolorflower.heartbeat"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
@@ -52,7 +52,7 @@ android {
         release {
             storeFile file(STORE_FILE)
             storePassword "Whzheng-chain1314"
-            keyAlias "com.zl.dappore"
+            keyAlias "com.tricolorflower.heartbeat"
             keyPassword "Whzheng-chain1314"
         }
         debug {

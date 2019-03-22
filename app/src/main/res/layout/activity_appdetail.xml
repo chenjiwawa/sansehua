@@ -91,7 +91,7 @@
                 android:orientation="horizontal"
                 android:visibility="visible">
 
-                <com.zl.dappore.common.widget.BeautyRatingBar
+                <com.tricolorflower.heartbeat.common.widget.BeautyRatingBar
                     android:id="@+id/rb_score_input"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"

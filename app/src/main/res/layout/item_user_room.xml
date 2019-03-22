@@ -92,7 +92,7 @@
                 android:gravity="center_vertical|left"
                 android:orientation="horizontal">
 
-                <com.zl.dappore.common.widget.BeautyRatingBar
+                <com.tricolorflower.heartbeat.common.widget.BeautyRatingBar
                     android:id="@+id/rb_score_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

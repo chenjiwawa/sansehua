@@ -29,7 +29,7 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <com.zl.dappore.common.widget.flowlayout.FlowLayout
+    <com.tricolorflower.heartbeat.common.widget.flowlayout.FlowLayout
         android:id="@+id/fl_container"
         style="@style/layout_padding_left_right"
         android:layout_width="match_parent"

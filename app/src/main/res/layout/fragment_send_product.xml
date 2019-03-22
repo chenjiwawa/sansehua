@@ -34,7 +34,7 @@
 
             <fragment
                 android:id="@+id/f_voice_client_list"
-                android:name="com.zl.dappore.voiceroom.fragment.VoiceClientListFragment"
+                android:name="com.tricolorflower.heartbeat.voiceroom.fragment.VoiceClientListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -46,7 +46,7 @@
 
             <fragment
                 android:id="@+id/f_product_category"
-                android:name="com.zl.dappore.voiceroom.fragment.roomrole.product.ProductCategoryFragment"
+                android:name="com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.ProductCategoryFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

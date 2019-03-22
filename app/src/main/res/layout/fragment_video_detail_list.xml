@@ -15,7 +15,7 @@
         android:background="@color/transparent"
         android:visibility="gone">
 
-        <com.zl.dappore.common.widget.verticalviewpager.HVVerticalViewPager
+        <com.tricolorflower.heartbeat.common.widget.verticalviewpager.HVVerticalViewPager
             android:id="@+id/vvp_video_details"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

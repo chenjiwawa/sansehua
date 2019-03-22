@@ -39,7 +39,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.zl.dappore.common.widget.BeautyRatingBar
+            <com.tricolorflower.heartbeat.common.widget.BeautyRatingBar
                 android:id="@+id/rb_score_comment_list"
                 android:layout_width="wrap_content"
                 android:layout_height="11dp"
@@ -82,7 +82,7 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <com.zl.dappore.common.widget.textview.ExpandIconTextView
+            <com.tricolorflower.heartbeat.common.widget.textview.ExpandIconTextView
                 android:id="@+id/tv_despart_comment_list"
                 style="@style/text_content_four_lightblack"
                 android:layout_width="match_parent"
