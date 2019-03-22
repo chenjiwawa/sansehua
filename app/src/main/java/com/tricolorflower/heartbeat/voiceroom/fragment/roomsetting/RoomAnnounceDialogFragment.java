@@ -83,7 +83,9 @@ public class RoomAnnounceDialogFragment extends QsDialogFragment implements Text
 
         title.setText(mTitle);
         message.setVisibility(View.GONE);
+        message.setText(voiceRoom.voiceRoomAnnounce);
         edit.setVisibility(View.VISIBLE);
+        edit.setText(voiceRoom.voiceRoomAnnounce);
         edit.addTextChangedListener(this);
         confirm.setVisibility(View.VISIBLE);
         image.setVisibility(View.VISIBLE);

@@ -41,7 +41,7 @@ public class AddBlackListFragment extends QsPullRecyclerFragment<AddBlackListPre
         app_taxon_id = arguments.getString(AddBlackListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_APP_TAXON_ID);
         L.i(initTag(), " type " + type);
 
-        requestVoiceRoleList(false);
+        requestData(false);
         getRecyclerView().setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -57,12 +57,12 @@ public class AddBlackListFragment extends QsPullRecyclerFragment<AddBlackListPre
 
     @Override
     public void onRefresh() {
-        requestVoiceRoleList(false);
+        requestData(false);
     }
 
     @Override
     public void onLoad() {
-        requestVoiceRoleList(true);
+        requestData(true);
     }
 
     @Override
@@ -70,8 +70,7 @@ public class AddBlackListFragment extends QsPullRecyclerFragment<AddBlackListPre
         return new AddBlackRecyclerAdapterItem(mInflater, parent);
     }
 
-    private void requestVoiceRoleList(boolean isLoadingMore){
-        getPresenter().requestVoiceRoleList(isLoadingMore,"","");
+    private void requestData(boolean isLoadingMore){
     }
 
     @Override

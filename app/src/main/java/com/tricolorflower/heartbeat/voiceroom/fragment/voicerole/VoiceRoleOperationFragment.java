@@ -62,6 +62,9 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
     }
 
     protected void setVoiceRoleView() {
+        L.i(initTag(), " setVoiceRoleView user " + user + " data " + data);
+        L.i(initTag(), " setVoiceRoleView role " + role + " music " + music);
+
         if (data == null || user == null)
             return;
 
