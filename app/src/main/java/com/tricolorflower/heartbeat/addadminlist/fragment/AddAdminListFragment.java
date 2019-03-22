@@ -19,8 +19,8 @@ import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 
 public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPresenter, VoiceRoleList.VoiceRole> {
 
-    String app_taxon_id;
-    int type = 0;
+    String token;
+    String namestr;
 
     public static Fragment getInstance(Bundle extras) {
         AddAdminListFragment fragment = new AddAdminListFragment();
@@ -37,11 +37,8 @@ public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPre
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
         if (arguments == null) return;
-        type = arguments.getInt(AddAdminListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, 0);
-        app_taxon_id = arguments.getString(AddAdminListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_APP_TAXON_ID);
-        L.i(initTag(), " type " + type);
 
-        requestVoiceRoleList(false);
+        requestData(token, namestr);
         getRecyclerView().setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -57,12 +54,12 @@ public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPre
 
     @Override
     public void onRefresh() {
-        requestVoiceRoleList(false);
+        requestData(token, namestr);
     }
 
     @Override
     public void onLoad() {
-        requestVoiceRoleList(true);
+        requestData(token, namestr);
     }
 
     @Override
@@ -70,8 +67,8 @@ public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPre
         return new AddAdminRecyclerAdapterItem(mInflater, parent);
     }
 
-    private void requestVoiceRoleList(boolean isLoadingMore) {
-        getPresenter().requestVoiceRoleList(isLoadingMore, "", "");
+    private void requestData(String token, String namestr) {
+        getPresenter().searchAdmin(token, namestr);
     }
 
     @Override

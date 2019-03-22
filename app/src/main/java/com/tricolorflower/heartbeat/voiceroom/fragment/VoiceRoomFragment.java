@@ -74,6 +74,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     TextView tvHolderNameVoiceRoom;
     @Bind(R.id.tv_announce_voice_room)
     TextView tv_announce_voice_room;
+    @Bind(R.id.iv_edit_announce_voice_room)
+    ImageView iv_edit_announce_voice_room;
     @Bind(R.id.chatroomframe)
     RelativeLayout chatroomframe;
     @Bind(R.id.chatroomlayout)
@@ -209,7 +211,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         tv_announce_voice_room.setText(data.voiceRoomAnnounce);
     }
 
-    @OnClick({R.id.ll_back, R.id.tv_name_voice_room, R.id.tv_id_voice_room, R.id.tv_users_voice_room, R.id.btn_more_voice_room, R.id.iv_decorate_voice_room, R.id.iv_logo_voice_room, R.id.iv_animation_voice_room, R.id.rl_holder_voice_room, R.id.tv_holder_name_voice_room})
+    @OnClick({R.id.ll_back, R.id.tv_name_voice_room, R.id.tv_id_voice_room, R.id.tv_users_voice_room, R.id.btn_more_voice_room, R.id.iv_decorate_voice_room, R.id.iv_logo_voice_room, R.id.iv_animation_voice_room, R.id.rl_holder_voice_room, R.id.tv_holder_name_voice_room, R.id.iv_edit_announce_voice_room})
     public void onViewClick(View view) {
         super.onViewClick(view);
 
@@ -247,6 +249,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
                 showVoiceUser2VoiceHolderDialog(user, voiceHolder, bundle);
                 break;
             case R.id.tv_holder_name_voice_room:
+                break;
+            case R.id.iv_edit_announce_voice_room:
                 break;
         }
     }

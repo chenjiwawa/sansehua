@@ -9,4 +9,6 @@ import com.qsmaxmin.qsbase.common.model.QsModel;
  */
 public class BaseRequestModel extends QsModel {
 
+
+
 }

@@ -11,9 +11,10 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
+import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceRoleOperationPresenter;
 
 
-public class VoiceRoleOperationFragment extends QsFragment {
+public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPresenter> {
 
     @Bind(R.id.role)
     protected Button role;

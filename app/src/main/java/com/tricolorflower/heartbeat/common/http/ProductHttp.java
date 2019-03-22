@@ -2,11 +2,8 @@ package com.tricolorflower.heartbeat.common.http;
 
 import com.qsmaxmin.qsbase.common.aspect.Body;
 import com.qsmaxmin.qsbase.common.aspect.GET;
-import com.umeng.socialize.media.Base;
 import com.tricolorflower.heartbeat.common.model.BaseModel;
-import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseProductListRequestBody;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRoleRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.SendProductRequestBody;
 

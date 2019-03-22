@@ -1,6 +1,6 @@
 package com.tricolorflower.heartbeat.voicerolelist.model;
 
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRoleRequestBody;
+import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 
 public class VoiceRoleRequestBody extends BaseVoiceRoleRequestBody {
 

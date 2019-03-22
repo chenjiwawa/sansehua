@@ -19,8 +19,7 @@ import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 
 public class AdminListFragment extends QsPullRecyclerFragment<AdminListPresenter, VoiceRoleList.VoiceRole> {
 
-    String app_taxon_id;
-    int type = 0;
+    String token;
 
     public static Fragment getInstance(Bundle extras) {
         AdminListFragment fragment = new AdminListFragment();
@@ -37,11 +36,8 @@ public class AdminListFragment extends QsPullRecyclerFragment<AdminListPresenter
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
         if (arguments == null) return;
-        type = arguments.getInt(AdminListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, 0);
-        app_taxon_id = arguments.getString(AdminListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_APP_TAXON_ID);
-        L.i(initTag(), " type " + type);
 
-        requestVoiceRoleList(false);
+        requestData(false);
         getRecyclerView().setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -57,12 +53,12 @@ public class AdminListFragment extends QsPullRecyclerFragment<AdminListPresenter
 
     @Override
     public void onRefresh() {
-        requestVoiceRoleList(false);
+        requestData(false);
     }
 
     @Override
     public void onLoad() {
-        requestVoiceRoleList(true);
+        requestData(true);
     }
 
     @Override
@@ -70,8 +66,8 @@ public class AdminListFragment extends QsPullRecyclerFragment<AdminListPresenter
         return new AdminRecyclerAdapterItem(mInflater, parent);
     }
 
-    private void requestVoiceRoleList(boolean isLoadingMore){
-        getPresenter().requestVoiceRoleList(isLoadingMore,"","");
+    private void requestData(boolean isLoadingMore) {
+        getPresenter().requestAdminList(token);
     }
 
     @Override

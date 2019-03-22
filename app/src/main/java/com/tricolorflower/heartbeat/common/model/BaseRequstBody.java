@@ -7,6 +7,19 @@ package com.tricolorflower.heartbeat.common.model;
  */
 public class BaseRequstBody {
 
+    public String token;
+
     public BaseRequstBody() {
+    }
+
+    public BaseRequstBody(String token) {
+        this.token = token;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseRequstBody{" +
+                "token='" + token + '\'' +
+                '}';
     }
 }

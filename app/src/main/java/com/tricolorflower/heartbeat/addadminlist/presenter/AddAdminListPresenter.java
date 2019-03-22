@@ -3,7 +3,11 @@ package com.tricolorflower.heartbeat.addadminlist.presenter;
 import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.tricolorflower.heartbeat.addadminlist.fragment.AddAdminListFragment;
+import com.tricolorflower.heartbeat.common.http.AdminListHttp;
 import com.tricolorflower.heartbeat.common.http.VoiceRoleListHttp;
+import com.tricolorflower.heartbeat.common.model.BaseModel;
+import com.tricolorflower.heartbeat.common.model.BaseSearchRequestBody;
+import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleRequestBody;
@@ -11,32 +15,27 @@ import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleRequestBody;
 
 public class AddAdminListPresenter extends DapporePresenter<AddAdminListFragment> {
 
-    private int page = 1;
-
     @ThreadPoint(ThreadType.HTTP)
-    public void requestVoiceRoleList(boolean isLoadingMore, String token, String uid) {
-        VoiceRoleListHttp http = createHttpRequest(VoiceRoleListHttp.class);
-        if (isLoadingMore) {
-            if (page < 2) return;
-            VoiceRoleList response = http.requestVoiceRoleList(new VoiceRoleRequestBody(token, uid, page));
-            showFailMsg(response);
-            if (isSuccess(response) && response.data != null) {
-                page++;
-                getView().addData(response.data);
-                paging(response);
-            }
+    public void addAdmin(String token, String uid) {
+        AdminListHttp http = createHttpRequest(AdminListHttp.class);
+        BaseModel response = http.addAdmin(new BaseVoiceRoleRequestBody(token, uid));
+        showFailMsg(response);
+        if (isSuccess(response)) {
+
         } else {
-            page = 1;
-            VoiceRoleList response = http.requestVoiceRoleList(new VoiceRoleRequestBody(token, uid, page));
-            showFailMsg(response);
-            if (isSuccess(response) && response.data != null) {
-                page = 2;
-                getView().setData(response.data);
-                paging(response);
-            } else {
-                getView().showErrorView();
-            }
+
         }
     }
 
+    @ThreadPoint(ThreadType.HTTP)
+    public void searchAdmin(String token, String namestr) {
+        AdminListHttp http = createHttpRequest(AdminListHttp.class);
+        VoiceRoleList response = http.searchAdmin(new BaseSearchRequestBody(token, namestr));
+        showFailMsg(response);
+        if (isSuccess(response) && response.data != null) {
+            getView().setData(response.data);
+        } else {
+            getView().showErrorView();
+        }
+    }
 }

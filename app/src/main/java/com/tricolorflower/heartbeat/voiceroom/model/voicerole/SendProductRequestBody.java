@@ -1,34 +1,33 @@
 package com.tricolorflower.heartbeat.voiceroom.model.voicerole;
 
 import com.qsmaxmin.qsbase.common.model.QsModel;
+import com.tricolorflower.heartbeat.common.model.BaseVoiceRoomRequestBody;
 
-public class SendProductRequestBody extends QsModel {
+public class SendProductRequestBody extends BaseVoiceRoomRequestBody {
 
-    public String token;
     public String gift_id;
     public int number;
-    public String room_id;
     public String muid;
 
     public SendProductRequestBody() {
+        super();
     }
 
-    public SendProductRequestBody(String token, String gift_id, int number, String room_id, String muid) {
-        this.token = token;
+    public SendProductRequestBody(String token, String room_id, String gift_id, int number, String muid) {
+        super(token, room_id);
         this.gift_id = gift_id;
         this.number = number;
-        this.room_id = room_id;
         this.muid = muid;
     }
 
     @Override
     public String toString() {
         return "SendProductRequestBody{" +
-                "token='" + token + '\'' +
-                ", gift_id='" + gift_id + '\'' +
+                "gift_id='" + gift_id + '\'' +
                 ", number=" + number +
-                ", room_id='" + room_id + '\'' +
                 ", muid='" + muid + '\'' +
+                ", room_id='" + room_id + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
 }

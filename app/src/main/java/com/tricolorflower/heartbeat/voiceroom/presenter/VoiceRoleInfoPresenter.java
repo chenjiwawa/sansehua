@@ -7,7 +7,7 @@ import com.tricolorflower.heartbeat.common.http.VoiceRoleHttp;
 import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleInfoFragment;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRoleRequestBody;
+import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 
 /**
  * @CreateBy qsmaxmin

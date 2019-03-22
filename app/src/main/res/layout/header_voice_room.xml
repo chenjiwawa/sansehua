@@ -137,16 +137,34 @@
         android:gravity="center"
         android:text="房主名称" />
 
-    <TextView
-        android:id="@+id/tv_announce_voice_room"
-        style="@style/text_content_three_white"
+    <LinearLayout
+        android:id="@+id/ll_announce_voice_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:ellipsize="end"
-        android:gravity="center"
-        android:maxLength="15"
-        android:singleLine="true"
-        android:text="房间公告" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="19dp"
+        android:paddingBottom="19dp">
+
+        <TextView
+            android:id="@+id/tv_announce_voice_room"
+            style="@style/text_content_three_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLength="15"
+            android:singleLine="true"
+            android:text="房间公告" />
+
+        <ImageView
+            android:id="@+id/iv_edit_announce_voice_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_star_select" />
+
+    </LinearLayout>
 
 </LinearLayout>

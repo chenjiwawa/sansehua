@@ -8,7 +8,7 @@ import com.tricolorflower.heartbeat.common.http.VoiceRoomHttp;
 import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
 import com.tricolorflower.heartbeat.voiceroom.fragment.VoiceRoomFragment;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRole;
-import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.BaseVoiceRoomRequestBody;
+import com.tricolorflower.heartbeat.common.model.BaseVoiceRoomRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.CreateVoiceRoomRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;

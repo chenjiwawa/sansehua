@@ -1,22 +1,22 @@
 package com.tricolorflower.heartbeat.voiceroom.model.voiceroom;
 
 import com.qsmaxmin.qsbase.common.model.QsModel;
+import com.tricolorflower.heartbeat.common.model.BaseRequstBody;
 
-public class CreateVoiceRoomRequestBody extends QsModel {
+public class CreateVoiceRoomRequestBody extends BaseRequstBody {
 
-    public String token;
     public String room_type;
 
     public CreateVoiceRoomRequestBody(String token, String room_type) {
-        this.token = token;
+        super(token);
         this.room_type = room_type;
     }
 
     @Override
     public String toString() {
         return "CreateVoiceRoomRequestBody{" +
-                "token='" + token + '\'' +
-                ", room_type='" + room_type + '\'' +
+                "room_type='" + room_type + '\'' +
+                ", token='" + token + '\'' +
                 '}';
     }
 }

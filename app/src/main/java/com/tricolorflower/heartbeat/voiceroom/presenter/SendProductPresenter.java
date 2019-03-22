@@ -4,13 +4,9 @@ package com.tricolorflower.heartbeat.voiceroom.presenter;
 import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
 import com.tricolorflower.heartbeat.common.http.ProductHttp;
-import com.tricolorflower.heartbeat.common.http.VoiceRoleHttp;
 import com.tricolorflower.heartbeat.common.model.BaseModel;
 import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
-import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.SendProductFragment;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRoleRequestBody;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.SendProductRequestBody;
 
 /**
