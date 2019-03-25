@@ -1,7 +1,11 @@
 package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.qsmaxmin.qsbase.common.log.L;
@@ -14,21 +18,6 @@ import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceRoleOperationPresenter;
 
 public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPresenter> {
-
-    @Bind(R.id.role)
-    protected Button role;
-    @Bind(R.id.music)
-    protected Button music;
-    @Bind(R.id.enable)
-    protected Button enable;
-    @Bind(R.id.letrole)
-    protected Button letrole;
-    @Bind(R.id.leave)
-    protected Button leave;
-    @Bind(R.id.mute)
-    protected Button mute;
-    @Bind(R.id.cancel)
-    protected Button cancel;
 
     protected VoiceRole user;//当前用户
     protected VoiceRole data;
@@ -47,38 +36,63 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
     @Override
     public void initData(Bundle savedInstanceState) {
         Bundle arguments = getArguments();
+        arguments = new Bundle();//TODO
         if (arguments == null) return;
         user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
         data = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR);
 
         L.i(initTag(), " user " + user + " data " + data);
 
-        setVoiceRoleView();
-
-        loadingClose();
         showContentView();
     }
 
     private void requstData(int voiceRole) {
     }
 
-    protected void setVoiceRoleView() {
-        L.i(initTag(), " setVoiceRoleView user " + user + " data " + data);
-        L.i(initTag(), " setVoiceRoleView role " + role + " music " + music);
-
-        role.setText("下麦");
-
-        if (data == null || user == null)
-            return;
-
-        showContentView();
-
-        role.setText(((data.voiceRole == VoiceRole.VOICE_ADMIN_CLIENT || data.voiceRole == VoiceRole.VOICE_CLIENT) ? "下麦" : "上麦"));
-        music.setText((data.musicEnable ? "打开音乐权限" : "关闭音乐权限"));
-        enable.setText((data.voiceEnable ? "解除封麦" : "封麦"));
-        mute.setText((data.voiceMute ? "关闭麦克风" : "打开麦克风"));
-        letrole.setText(((data.voiceRole == VoiceRole.VOICE_ADMIN_CLIENT || data.voiceRole == VoiceRole.VOICE_CLIENT) ? "关闭麦克风" : "打开麦克风"));
+    public String getRoleText(VoiceRole data) {
+        if (data != null) {
+            return ((data.voiceRole == VoiceRole.VOICE_ADMIN_CLIENT || data.voiceRole == VoiceRole.VOICE_CLIENT) ? "下麦" : "上麦");
+        }
+        return "";
     }
+
+    public String getMusicText(VoiceRole data) {
+        if (data != null) {
+            return (data.musicEnable ? "打开音乐权限" : "关闭音乐权限");
+        }
+        return "";
+    }
+
+    public String getEnableText(VoiceRole data) {
+        if (data != null) {
+            return (data.voiceEnable ? "解除封麦" : "封麦");
+        }
+        return "";
+    }
+
+    public String getLetroleText(VoiceRole data) {
+        if (data != null) {
+
+            return ((data.voiceRole == VoiceRole.VOICE_ADMIN_CLIENT || data.voiceRole == VoiceRole.VOICE_CLIENT) ? "关闭麦克风" : "打开麦克风");
+        }
+        return "";
+    }
+
+    public String getLeaveText(VoiceRole data) {
+        if (data != null) {
+            return "";
+        }
+        return "";
+    }
+
+    public String getMuteText(VoiceRole data) {
+        if (data != null) {
+
+            return (data.voiceMute ? "关闭麦克风" : "打开麦克风");
+        }
+        return "";
+    }
+
 
     public void roleClick(View view) {
 
@@ -102,33 +116,6 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
 
     public void muteClick(View view) {
 
-    }
-
-    @OnClick({R.id.role, R.id.music, R.id.enable, R.id.letrole, R.id.mute, R.id.cancel})
-    public void onViewClick(View view) {
-        super.onViewClick(view);
-        switch (view.getId()) {
-            case R.id.role:
-                roleClick(view);
-                break;
-            case R.id.music:
-                musicClick(view);
-                break;
-            case R.id.enable:
-                enableClick(view);
-                break;
-            case R.id.letrole:
-                letroleClick(view);
-                break;
-            case R.id.leave:
-                leaveClick(view);
-                break;
-            case R.id.mute:
-                muteClick(view);
-                break;
-            case R.id.cancel:
-                break;
-        }
     }
 
     @Override

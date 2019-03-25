@@ -27,17 +27,14 @@ public class RoomHolderOperationDialogFragment extends RoomRoleOperationDialogFr
         return fragment;
     }
 
-    protected void setContentFragment() {
-    }
-
     @Override
     protected void showAddView() {
         super.showAddView();
 
         RoomHolderAddFragment contentFragment = RoomHolderAddFragment.getInstance(getArguments());
-
         removeContentFragment(contentFragment);
-        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, contentFragment, RoomHolderAddFragment.class.getSimpleName());
+
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, RoomHolderAddFragment.getInstance(getArguments()), RoomHolderAddFragment.class.getSimpleName());
     }
 
 }

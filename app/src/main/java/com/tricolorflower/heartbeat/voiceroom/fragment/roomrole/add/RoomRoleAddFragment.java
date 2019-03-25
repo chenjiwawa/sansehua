@@ -23,15 +23,6 @@ import java.util.List;
 
 public class RoomRoleAddFragment extends QsFragment {
 
-    @Bind(R.id.rl_music_voice_add)
-    protected PercentRelativeLayout rlMusicVoiceAdd;
-    @Bind(R.id.rl_admin_voice_add)
-    protected PercentRelativeLayout rlAdminVoiceAdd;
-    @Bind(R.id.rl_forbidden_voice_add)
-    protected PercentRelativeLayout rlForbiddenVoiceAdd;
-    @Bind(R.id.rl_theme_voice_add)
-    protected PercentRelativeLayout rlThemeVoiceAdd;
-
     protected VoiceRoom voiceRoom;
     protected VoiceRole voiceHolder;
     protected List<VoiceRole> voiceClients;
@@ -80,27 +71,19 @@ public class RoomRoleAddFragment extends QsFragment {
     public void requstData() {
     }
 
-
-    @OnClick({R.id.rl_music_voice_add, R.id.rl_admin_voice_add, R.id.rl_forbidden_voice_add, R.id.rl_theme_voice_add})
-    public void onViewClick(View view) {
-        super.onViewClick(view);
-        switch (view.getId()) {
-            case R.id.rl_music_voice_add:
-                break;
-            case R.id.rl_admin_voice_add:
-                bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
-                QsHelper.getInstance().intent2Activity(AdminListActivity.class, bundle);
-                break;
-            case R.id.rl_forbidden_voice_add:
-                bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
-                QsHelper.getInstance().intent2Activity(BlackListActivity.class, bundle);
-                break;
-            case R.id.rl_theme_voice_add:
-                break;
-        }
+    public void roomRole2AdminList() {
+        bundle = new Bundle();
+        bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
+        bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+        QsHelper.getInstance().intent2Activity(AdminListActivity.class, bundle);
     }
+
+    public void roomRole2BlackList() {
+        bundle = new Bundle();
+        bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
+        bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+        QsHelper.getInstance().intent2Activity(BlackListActivity.class, bundle);
+    }
+
+
 }

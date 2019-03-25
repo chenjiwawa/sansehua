@@ -18,7 +18,14 @@ import com.tricolorflower.heartbeat.home.CategoryTypeI;
 import com.tricolorflower.heartbeat.home.model.HomeConstants;
 import com.tricolorflower.heartbeat.home.presenter.MainFragmentPresenter;
 import com.tricolorflower.heartbeat.voiceroom.VoiceRoomActivity;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceAdminOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceGuestOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceHolderOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceclient.VoiceAdmin2ClientOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceclient.VoiceHolder2ClientOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceempty.VoiceAdmin2EmptyOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceempty.VoiceHolder2EmptyOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 
 /**
@@ -181,13 +188,21 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
 //                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
 
 
-                VoiceRoleOperationDialogFragment.getInstance(null).show();
+//                VoiceRoleOperationDialogFragment.getInstance(null).show();
+
+//                VoiceHolderOperationDialogFragment.getInstance(null).show();
+
+//                VoiceGuestOperationDialogFragment.getInstance(null).show();
+
+//                VoiceAdmin2ClientOperationDialogFragment.getInstance(null).show();
+
+//                VoiceAdmin2EmptyOperationDialogFragment.getInstance(null).show();
 
 
-//                bundle = new Bundle();
-//                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, "1");
-//                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID, "1");
-//                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
+                bundle = new Bundle();
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, "1");
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID, "1");
+                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
 
 //                Bundle bundle = new Bundle();
 //                QsHelper.getInstance().intent2Activity(ProductCategoryActivity.class, bundle);
@@ -201,6 +216,12 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
             case R.id.btn_search:
                 //TODO
 //                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
+
+//                VoiceAdminOperationDialogFragment.getInstance(null).show();
+
+//                VoiceAdmin2ClientOperationDialogFragment.getInstance(null).show();
+
+//                VoiceHolder2EmptyOperationDialogFragment.getInstance(null).show();
 
                 bundle = new Bundle();
                 bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, "11");

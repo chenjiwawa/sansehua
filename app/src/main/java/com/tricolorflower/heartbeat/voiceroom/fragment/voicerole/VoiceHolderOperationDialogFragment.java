@@ -22,7 +22,7 @@ public class VoiceHolderOperationDialogFragment extends VoiceRoleOperationDialog
         return view;
     }
     protected void setContentFragment(){
-        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.voiceinfolayout, VoiceRoleInfoFragment.getInstance(getArguments()), VoiceRoleInfoFragment.class.getSimpleName());
+//        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.voiceinfolayout, VoiceRoleInfoFragment.getInstance(getArguments()), VoiceRoleInfoFragment.class.getSimpleName());
         QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, VoiceHolderOperationFragment.getInstance(getArguments()), VoiceHolderOperationFragment.class.getSimpleName());
     }
 

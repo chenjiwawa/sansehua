@@ -68,7 +68,11 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        L.i(initTag(), " initData " + savedInstanceState );
+
         Bundle arguments = getArguments();
+
+        arguments=new Bundle();//TODO
         if (arguments == null) return;
 
         user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
@@ -79,10 +83,11 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
             frame.setVisibility(View.GONE);
         }
 
-        loadingClose();
-        showContentView();
-
         requstData(0);
+    }
+
+    public void initData() {
+        initData(getArguments());
     }
 
 
@@ -94,8 +99,9 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
     public void setVoiceRoleInfoView(VoiceRoleList.VoiceRole data) {
         L.i(initTag(), " setVoiceRoleInfoView " + data);
 
-        loadingClose();
         showContentView();
+
+        tvTitleUser.setText("tvTitleUser");
 
         if (data == null)
             return;

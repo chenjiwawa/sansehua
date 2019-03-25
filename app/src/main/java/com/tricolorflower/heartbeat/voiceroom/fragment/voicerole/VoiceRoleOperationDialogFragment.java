@@ -71,8 +71,11 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
         super.onResume();
     }
 
-    protected void setContentFragment(){
-        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.voiceinfolayout, VoiceRoleInfoFragment.getInstance(getArguments()), VoiceRoleInfoFragment.class.getSimpleName());
+    protected void setContentFragment() {
+
+        VoiceRoleInfoFragment voiceRoleInfoFragment = VoiceRoleInfoFragment.getInstance(getArguments());
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.voiceinfolayout, voiceRoleInfoFragment, VoiceRoleInfoFragment.class.getSimpleName());
+
         QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, VoiceRoleOperationFragment.getInstance(getArguments()), VoiceHolderOperationFragment.class.getSimpleName());
     }
 

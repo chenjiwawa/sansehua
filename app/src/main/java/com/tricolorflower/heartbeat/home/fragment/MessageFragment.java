@@ -10,7 +10,8 @@ import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
-
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceHolderOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
 
 
 public class MessageFragment extends QsFragment {
@@ -48,7 +49,7 @@ public class MessageFragment extends QsFragment {
     }
 
     protected void setContentFragment() {
-
+//        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, VoiceRoleOperationFragment.getInstance(getArguments()), VoiceHolderOperationFragment.class.getSimpleName());
     }
 
 }
