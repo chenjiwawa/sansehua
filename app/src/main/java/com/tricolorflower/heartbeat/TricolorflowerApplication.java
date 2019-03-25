@@ -27,8 +27,8 @@ import com.tricolorflower.heartbeat.common.utils.UrlUtils;
 
 import okhttp3.Response;
 
-public class DapporeApplication extends QsApplication {
-    public final static String TAG = DapporeApplication.class.getSimpleName();
+public class TricolorflowerApplication extends QsApplication {
+    public final static String TAG = TricolorflowerApplication.class.getSimpleName();
 
     static {
         //设置全局的Header构建器

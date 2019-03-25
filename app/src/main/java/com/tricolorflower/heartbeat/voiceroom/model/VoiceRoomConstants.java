@@ -24,6 +24,9 @@ public class VoiceRoomConstants {
     /*产品*/
     public static final String BUNDLE_KEY_PRODUCTLIST_REQUEST_PAGE_NO = "bundle_key_productlist_request_page_no";
 
+    /*产品*/
+    public static final String BUNDLE_KEY_EMOJILIST_REQUEST_PAGE_NO = "bundle_key_emojilist_request_page_no";
+
     /*声网语音直播*/
     public static final String BUNDLE_KEY_REQUEST_AGORA_CHANNEL_NAME = "bundle_key_request_agora_channel_Name";
     public static final String BUNDLE_KEY_REQUEST_AGORA_UID = "bundle_key_request_agora_uid";

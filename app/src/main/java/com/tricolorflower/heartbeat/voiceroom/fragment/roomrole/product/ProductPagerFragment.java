@@ -17,10 +17,13 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsViewPagerFragment;
 import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.appdetail.model.App;
+import com.tricolorflower.heartbeat.common.model.BaseRequstBody;
+import com.tricolorflower.heartbeat.common.model.UserConfig;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.common.widget.shadow.ShadowDrawable;
 import com.tricolorflower.heartbeat.home.model.HomeConstants;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductPageList;
 import com.tricolorflower.heartbeat.voiceroom.presenter.ProductPagerPresenter;
 
 import java.util.ArrayList;
@@ -38,7 +41,6 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
     @Bind(R.id.ll_tabs_category)
     LinearLayout ll_tabs_category;
 
-
     @Override
     public int layoutId() {
         return R.layout.fragment_product_pager;
@@ -51,12 +53,15 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
     @Override
     public void initData(Bundle savedInstanceState) {
         super.initData(savedInstanceState);
-        ShadowDrawable.setShadowDrawable(ll_tabs_category, Color.parseColor("#ffffff"), 0,
-                R.color.color_shadow_gray,
-                CommonUtils.dp2px(5), new int[]{CommonUtils.dp2px(0), CommonUtils.dp2px(0), CommonUtils.dp2px(0), CommonUtils.dp2px(5)}, 0, 0);
-        showContentView();
-        getPresenter().requestAppTaxons();
 
+        showContentView();
+        requestData();
+
+    }
+
+    private void requestData() {
+        String token = UserConfig.getInstance().getAuthToken();
+        getPresenter().requstData(new BaseRequstBody(token));
     }
 
     private QsModelPager createModelPager(int index, String tabName) {
@@ -67,15 +72,15 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
     }
 
     @ThreadPoint(ThreadType.MAIN)
-    public void updateViewPager(List<App.AppTaxon> appTaxons) {
-        if (appTaxons == null)
+    public void updateViewPager(List<ProductPageList.ProductPage> productPages) {
+        if (productPages == null)
             return;
 
         List<QsModelPager> modelPagers = new ArrayList<>();
-        for (int i = 0; i < appTaxons.size(); i++) {
-            QsModelPager model = createModelPager(i, appTaxons.get(i).name);
+        for (int i = 0; i < productPages.size(); i++) {
+            QsModelPager model = createModelPager(i, productPages.get(i).pageId + "");
             Bundle bundle = new Bundle();
-            bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_PRODUCTLIST_REQUEST_PAGE_NO, i+1);
+            bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_PRODUCTLIST_REQUEST_PAGE_NO, i + 1);
             model.fragment = ProductGridFragment.getInstance(bundle);
             modelPagers.add(model);
         }

@@ -31,7 +31,7 @@
         android:xlargeScreens="true" />
 
     <application
-        android:name="com.tricolorflower.heartbeat.DapporeApplication"
+        android:name="com.tricolorflower.heartbeat.TricolorflowerApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
