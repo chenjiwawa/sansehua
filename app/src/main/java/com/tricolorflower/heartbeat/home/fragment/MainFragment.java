@@ -18,6 +18,7 @@ import com.tricolorflower.heartbeat.home.CategoryTypeI;
 import com.tricolorflower.heartbeat.home.model.HomeConstants;
 import com.tricolorflower.heartbeat.home.presenter.MainFragmentPresenter;
 import com.tricolorflower.heartbeat.voiceroom.VoiceRoomActivity;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 
 /**
@@ -36,6 +37,7 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
     @Bind(R.id.rl_tab_category)
     RelativeLayout rl_tab_category;
 
+    Bundle bundle;
 
     @Override
     public int layoutId() {
@@ -178,10 +180,14 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
                 //TODO
 //                QsHelper.getInstance().intent2Activity(SearcherActivity.class);
 
-                Bundle bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, "1");
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID, "1");
-                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
+
+                VoiceRoleOperationDialogFragment.getInstance(null).show();
+
+
+//                bundle = new Bundle();
+//                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, "1");
+//                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID, "1");
+//                QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
 
 //                Bundle bundle = new Bundle();
 //                QsHelper.getInstance().intent2Activity(ProductCategoryActivity.class, bundle);

@@ -13,7 +13,6 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceRoleOperationPresenter;
 
-
 public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPresenter> {
 
     @Bind(R.id.role)
@@ -55,6 +54,8 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
         L.i(initTag(), " user " + user + " data " + data);
 
         setVoiceRoleView();
+
+        loadingClose();
         showContentView();
     }
 
@@ -65,8 +66,12 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
         L.i(initTag(), " setVoiceRoleView user " + user + " data " + data);
         L.i(initTag(), " setVoiceRoleView role " + role + " music " + music);
 
+        role.setText("下麦");
+
         if (data == null || user == null)
             return;
+
+        showContentView();
 
         role.setText(((data.voiceRole == VoiceRole.VOICE_ADMIN_CLIENT || data.voiceRole == VoiceRole.VOICE_CLIENT) ? "下麦" : "上麦"));
         music.setText((data.musicEnable ? "打开音乐权限" : "关闭音乐权限"));
@@ -124,5 +129,10 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
             case R.id.cancel:
                 break;
         }
+    }
+
+    @Override
+    public boolean isOpenViewState() {
+        return false;
     }
 }

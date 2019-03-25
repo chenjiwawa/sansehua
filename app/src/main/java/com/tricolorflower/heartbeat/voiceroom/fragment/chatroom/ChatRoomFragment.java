@@ -13,9 +13,6 @@ import com.tricolorflower.heartbeat.R;
 
 import java.util.Locale;
 
-import io.rong.imkit.fragment.ConversationFragment;
-import io.rong.imlib.model.Conversation;
-
 
 public class ChatRoomFragment extends QsFragment {
 
@@ -46,19 +43,6 @@ public class ChatRoomFragment extends QsFragment {
     }
 
     protected void setContentFragment() {
-        getActivity().getIntent().putExtra("createIfNotExist", true);
-        String targetId = "1";
-
-        ConversationFragment fragment = new ConversationFragment();
-        Uri uri = Uri.parse("rong://" + getContext().getApplicationInfo().packageName).buildUpon()
-                .appendPath("conversation")
-                .appendPath(Conversation.ConversationType.CHATROOM.getName().toLowerCase(Locale.US))
-                .appendQueryParameter("targetId", targetId)
-                .appendQueryParameter("title", "聊天室 I")
-                .build();
-        fragment.setUri(uri);
-
-        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, fragment, ConversationFragment.class.getSimpleName());
     }
 
 }

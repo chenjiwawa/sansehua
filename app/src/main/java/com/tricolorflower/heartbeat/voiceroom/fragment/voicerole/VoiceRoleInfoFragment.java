@@ -78,15 +78,25 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
         if (data != null && data.isVoiceAuditor()) {
             frame.setVisibility(View.GONE);
         }
+
+        loadingClose();
         showContentView();
+
+        requstData(0);
     }
 
 
     public void requstData(int voiceRole) {
+        L.i(initTag(), " requstData ");
         getPresenter().requstData("", "");
     }
 
     public void setVoiceRoleInfoView(VoiceRoleList.VoiceRole data) {
+        L.i(initTag(), " setVoiceRoleInfoView " + data);
+
+        loadingClose();
+        showContentView();
+
         if (data == null)
             return;
 
@@ -123,5 +133,10 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
             case R.id.btn_user_following:
                 break;
         }
+    }
+
+    @Override
+    public boolean isOpenViewState() {
+        return true;
     }
 }

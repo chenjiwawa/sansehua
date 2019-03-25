@@ -2,6 +2,7 @@ package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceuser;
 
 import android.os.Bundle;
 
+import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleInfoFragment;

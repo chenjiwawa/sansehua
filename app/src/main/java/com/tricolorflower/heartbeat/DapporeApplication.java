@@ -25,7 +25,6 @@ import com.tricolorflower.heartbeat.common.dialog.CommonLoadingDialog;
 import com.tricolorflower.heartbeat.common.model.UserConfig;
 import com.tricolorflower.heartbeat.common.utils.UrlUtils;
 
-import io.rong.imkit.RongIM;
 import okhttp3.Response;
 
 public class DapporeApplication extends QsApplication {
@@ -71,7 +70,6 @@ public class DapporeApplication extends QsApplication {
     public void onCreate() {
         super.onCreate();
 
-        RongIM.init(this);
         AgoraHelper.getInstance().init(this);
         UMShareAPI.get(this);
         initDownloader();

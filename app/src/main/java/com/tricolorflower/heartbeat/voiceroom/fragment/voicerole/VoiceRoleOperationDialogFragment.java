@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.qsmaxmin.qsbase.common.log.L;
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.tricolorflower.heartbeat.R;
 
 public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
+
     @Bind(R.id.content)
     protected RelativeLayout content;
     @Bind(R.id.voiceinfolayout)
@@ -70,6 +72,8 @@ public class VoiceRoleOperationDialogFragment extends QsDialogFragment {
     }
 
     protected void setContentFragment(){
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.voiceinfolayout, VoiceRoleInfoFragment.getInstance(getArguments()), VoiceRoleInfoFragment.class.getSimpleName());
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, VoiceRoleOperationFragment.getInstance(getArguments()), VoiceHolderOperationFragment.class.getSimpleName());
     }
 
     @OnClick({R.id.content})

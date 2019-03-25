@@ -1,5 +1,6 @@
 package com.tricolorflower.heartbeat.voiceroom.fragment.chatroom;
 
+import android.os.Message;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +17,6 @@ import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 
-import io.rong.imkit.RongIM;
-import io.rong.imlib.IRongCallback;
-import io.rong.imlib.RongIMClient;
-import io.rong.imlib.model.Conversation;
-import io.rong.imlib.model.Message;
-import io.rong.message.TextMessage;
 
 public class InputMessageDialogFragment extends QsDialogFragment {
 
@@ -77,31 +72,31 @@ public class InputMessageDialogFragment extends QsDialogFragment {
                     return;
                 }
 
-                TextMessage myTextMessage = TextMessage.obtain(inputmessage.getText().toString());
-                Message myMessage = Message.obtain(VoiceRoomConstants.chatroonId, Conversation.ConversationType.CHATROOM, myTextMessage);
-
-                RongIM.getInstance().sendMessage(myMessage, null, null, new IRongCallback.ISendMessageCallback() {
-                    @Override
-                    public void onAttached(Message message) {
-                        //消息本地数据库存储成功的回调
-
-                        L.i(initTag(), " onAttached " + message);
-                    }
-
-                    @Override
-                    public void onSuccess(Message message) {
-                        //消息通过网络发送成功的回调
-
-                        L.i(initTag(), " onSuccess " + message);
-                    }
-
-                    @Override
-                    public void onError(Message message, RongIMClient.ErrorCode errorCode) {
-                        //消息发送失败的回调
-
-                        L.i(initTag(), " onError " + message + " " + errorCode);
-                    }
-                });
+//                TextMessage myTextMessage = TextMessage.obtain(inputmessage.getText().toString());
+//                Message myMessage = Message.obtain(VoiceRoomConstants.chatroonId, Conversation.ConversationType.CHATROOM, myTextMessage);
+//
+//                RongIM.getInstance().sendMessage(myMessage, null, null, new IRongCallback.ISendMessageCallback() {
+//                    @Override
+//                    public void onAttached(Message message) {
+//                        //消息本地数据库存储成功的回调
+//
+//                        L.i(initTag(), " onAttached " + message);
+//                    }
+//
+//                    @Override
+//                    public void onSuccess(Message message) {
+//                        //消息通过网络发送成功的回调
+//
+//                        L.i(initTag(), " onSuccess " + message);
+//                    }
+//
+//                    @Override
+//                    public void onError(Message message, RongIMClient.ErrorCode errorCode) {
+//                        //消息发送失败的回调
+//
+//                        L.i(initTag(), " onError " + message + " " + errorCode);
+//                    }
+//                });
 
                 break;
         }

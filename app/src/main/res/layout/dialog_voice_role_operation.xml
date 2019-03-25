@@ -11,7 +11,9 @@
         android:id="@+id/voiceinfolayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
         android:orientation="vertical"
+        android:padding="5dp"
         android:visibility="visible">
 
     </RelativeLayout>
@@ -21,7 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/voiceinfolayout"
+        android:background="@android:color/holo_green_light"
         android:orientation="vertical"
+        android:padding="5dp"
         android:visibility="visible">
 
     </RelativeLayout>

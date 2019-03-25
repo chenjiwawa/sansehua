@@ -17,9 +17,6 @@ import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoomResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.rong.imkit.RongIM;
-import io.rong.imlib.RongIMClient;
-
 /**
  * @CreateBy qsmaxmin
  * @Date 16/8/5
@@ -40,23 +37,23 @@ public class VoiceRoomPresenter extends DapporePresenter<VoiceRoomFragment> {
             token = token11;
         }
 
-        RongIM.connect(token, new RongIMClient.ConnectCallback() {
-            @Override
-            public void onTokenIncorrect() {
-                L.e(initTag(), "onTokenIncorrect");
-            }
-
-            @Override
-            public void onSuccess(String s) {
-                L.e(initTag(), "onSuccess userid:" + s);
-                getView().initChatRoom();
-            }
-
-            @Override
-            public void onError(RongIMClient.ErrorCode errorCode) {
-                L.e(initTag(), "onError errorcode:" + errorCode.getValue());
-            }
-        });
+//        RongIM.connect(token, new RongIMClient.ConnectCallback() {
+//            @Override
+//            public void onTokenIncorrect() {
+//                L.e(initTag(), "onTokenIncorrect");
+//            }
+//
+//            @Override
+//            public void onSuccess(String s) {
+//                L.e(initTag(), "onSuccess userid:" + s);
+//                getView().initChatRoom();
+//            }
+//
+//            @Override
+//            public void onError(RongIMClient.ErrorCode errorCode) {
+//                L.e(initTag(), "onError errorcode:" + errorCode.getValue());
+//            }
+//        });
 
 
         VoiceRole voiceHolder = new VoiceRole();
