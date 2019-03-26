@@ -10,22 +10,7 @@ import java.util.List;
 public class VoiceRoomResponse extends BaseModel implements Serializable {
 
     /*房间*/
-    @SerializedName("room_info")
-    public VoiceRoom voiceRoom;
-
-    /*房主*/
-    @SerializedName("anchor")
-    public VoiceRole voiceHolder;
-
-    @SerializedName("current_role")
-    public int voiceUserPermission;
-
-    /*麦位*/
-    @SerializedName("seat_config")
-    public List<VoiceRole> voiceClients;
-
-    /*声网语音直播*/
-
-    /*融云IM*/
+    @SerializedName("data")
+    public VoiceRoom data;
 
 }

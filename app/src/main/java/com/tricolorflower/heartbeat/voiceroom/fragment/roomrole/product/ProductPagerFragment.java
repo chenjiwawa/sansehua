@@ -41,13 +41,15 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
     @Bind(R.id.ll_tabs_category)
     LinearLayout ll_tabs_category;
 
+    public static ProductPagerFragment getInstance(Bundle bundle) {
+        ProductPagerFragment fragment = new ProductPagerFragment();
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Override
     public int layoutId() {
         return R.layout.fragment_product_pager;
-    }
-
-    public static ProductPagerFragment getInstance() {
-        return new ProductPagerFragment();
     }
 
     @Override

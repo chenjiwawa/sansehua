@@ -16,7 +16,7 @@ public class VoiceRoleListPresenter extends DapporePresenter<VoiceRoleListFragme
     private int page = 1;
 
     @ThreadPoint(ThreadType.HTTP)
-    public void requestVoiceRoleList(boolean isLoadingMore, String token, String uid) {
+    public void requestVoiceRoleList(boolean isLoadingMore, String token, int uid) {
         VoiceRoleListHttp http = createHttpRequest(VoiceRoleListHttp.class);
         if (isLoadingMore) {
             if (page < 2) return;

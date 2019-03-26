@@ -1,5 +1,6 @@
 package com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,10 @@ public class SendProductDialogFragment extends QsDialogFragment {
     @Bind(R.id.content)
     RelativeLayout content;
 
-    public static SendProductDialogFragment getInstance() {
-        return new SendProductDialogFragment();
+    public static SendProductDialogFragment getInstance(Bundle bundle) {
+        SendProductDialogFragment fragment = new SendProductDialogFragment();
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     @Override

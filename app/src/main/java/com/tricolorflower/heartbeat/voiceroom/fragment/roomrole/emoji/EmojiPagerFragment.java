@@ -19,6 +19,7 @@ import com.tricolorflower.heartbeat.common.model.BaseRequstBody;
 import com.tricolorflower.heartbeat.common.model.UserConfig;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.home.model.HomeConstants;
+import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.add.RoomHolderAddFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.ProductGridFragment;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.EmojiPageList;
@@ -46,8 +47,10 @@ public class EmojiPagerFragment extends QsViewPagerFragment<EmojiPagerPresenter>
         return R.layout.fragment_emoji_pager;
     }
 
-    public static EmojiPagerFragment getInstance() {
-        return new EmojiPagerFragment();
+    public static EmojiPagerFragment getInstance(Bundle extras) {
+        EmojiPagerFragment fragment = new EmojiPagerFragment();
+        fragment.setArguments(extras);
+        return fragment;
     }
 
     @Override

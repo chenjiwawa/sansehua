@@ -2,6 +2,7 @@ package com.tricolorflower.heartbeat.voiceroom;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
+import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.event.VoiceRoomSettingEvent;
@@ -21,9 +23,9 @@ import com.tricolorflower.heartbeat.voiceroom.fragment.roomsetting.RoomLockDialo
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomsetting.RoomLogoDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomsetting.RoomNameDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomsetting.RoomTypeDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
-import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceRoomSettingPresenter;
 
 import java.util.ArrayList;
@@ -33,18 +35,38 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
 
     @Bind(R.id.tv_title)
     TextView tv_title;
+    @Bind(R.id.tv_name_voiceroom_setting)
+    TextView tvNameVoiceroomSetting;
     @Bind(R.id.rl_name_voiceroom_setting)
     RelativeLayout rlNameVoiceroomSetting;
+    @Bind(R.id.tv_type_voiceroom_setting)
+    TextView tvTypeVoiceroomSetting;
     @Bind(R.id.rl_type_voiceroom_setting)
     RelativeLayout rlTypeVoiceroomSetting;
+    @Bind(R.id.tv_lock_voiceroom_setting)
+    TextView tvLockVoiceroomSetting;
+    @Bind(R.id.iv_lock_voiceroom_setting)
+    ImageView ivLockVoiceroomSetting;
     @Bind(R.id.rl_lock_voiceroom_setting)
     RelativeLayout rlLockVoiceroomSetting;
+    @Bind(R.id.tv_message_voiceroom_setting)
+    TextView tvMessageVoiceroomSetting;
+    @Bind(R.id.iv_message_voiceroom_setting)
+    ImageView ivMessageVoiceroomSetting;
     @Bind(R.id.rl_message_voiceroom_setting)
     RelativeLayout rlMessageVoiceroomSetting;
+    @Bind(R.id.tv_label_voiceroom_setting)
+    TextView tvLabelVoiceroomSetting;
     @Bind(R.id.rl_label_voiceroom_setting)
     RelativeLayout rlLabelVoiceroomSetting;
+    @Bind(R.id.tv_logo_voiceroom_setting)
+    TextView tvLogoVoiceroomSetting;
+    @Bind(R.id.iv_logo_voiceroom_setting)
+    ImageView ivLogoVoiceroomSetting;
     @Bind(R.id.rl_logo_voiceroom_setting)
     RelativeLayout rlLogoVoiceroomSetting;
+    @Bind(R.id.tv_intro_voiceroom_setting)
+    TextView tvIntroVoiceroomSetting;
     @Bind(R.id.rl_intro_voiceroom_setting)
     RelativeLayout rlIntroVoiceroomSetting;
 
@@ -72,6 +94,7 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
         initExtrasData();
 
         tv_title.setText("房间信息设置");
+        requstData();
         showContentView();
     }
 
@@ -94,11 +117,23 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
             voiceRoomId = voiceRoom.voiceRoomId;
         }
         token = UserConfig.getInstance().getAuthToken();
-        
-        L.i(initTag(), " initExtrasData voiceRoomId " + voiceRoomId+" token " + token);
+
+        L.i(initTag(), " initExtrasData voiceRoomId " + voiceRoomId + " token " + token);
     }
 
-    @OnClick({R.id.ll_back, R.id.rl_name_voiceroom_setting, R.id.rl_type_voiceroom_setting, R.id.rl_lock_voiceroom_setting, R.id.rl_message_voiceroom_setting, R.id.rl_label_voiceroom_setting, R.id.rl_logo_voiceroom_setting, R.id.rl_intro_voiceroom_setting})
+    public void requstData() {
+        getPresenter().requstData(token, voiceRoomId);
+    }
+
+    @ThreadPoint(ThreadType.MAIN)
+    public void setVoiceRoomView(VoiceRoom data) {
+        if (data == null)
+            return;
+
+
+    }
+
+    @OnClick({R.id.ll_back, R.id.rl_name_voiceroom_setting, R.id.rl_type_voiceroom_setting, R.id.rl_lock_voiceroom_setting, R.id.rl_message_voiceroom_setting, R.id.rl_label_voiceroom_setting, R.id.rl_logo_voiceroom_setting, R.id.rl_intro_voiceroom_setting,R.id.tv_lock_voiceroom_setting, R.id.iv_lock_voiceroom_setting, R.id.tv_message_voiceroom_setting, R.id.iv_message_voiceroom_setting, R.id.tv_logo_voiceroom_setting, R.id.iv_logo_voiceroom_setting})
     public void onViewClick(View view) {
         super.onViewClick(view);
 
@@ -138,6 +173,18 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
                 roomGreetingDialogFragment.setOnDialogListener(this);
                 roomGreetingDialogFragment.show();
                 break;
+            case R.id.tv_lock_voiceroom_setting:
+                break;
+            case R.id.iv_lock_voiceroom_setting:
+                break;
+            case R.id.tv_message_voiceroom_setting:
+                break;
+            case R.id.iv_message_voiceroom_setting:
+                break;
+            case R.id.tv_logo_voiceroom_setting:
+                break;
+            case R.id.iv_logo_voiceroom_setting:
+                break;
         }
     }
 
@@ -173,7 +220,15 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
 
     @ThreadPoint(ThreadType.MAIN)
     public void setSuccesView() {
-
+        requstData();
         QsHelper.getInstance().eventPost(new VoiceRoomSettingEvent(VoiceRoomSettingEvent.State.STATE_FRESH_AFTER_SETTING));
     }
+
+    @ThreadPoint(ThreadType.MAIN)
+    public void setFailView() {
+
+        QsToast.show("请求失败 请重试！");
+    }
+
+
 }

@@ -3,10 +3,14 @@ package com.tricolorflower.heartbeat.voiceroom.presenter;
 
 import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
+import com.tricolorflower.heartbeat.common.http.VoiceRoomHttp;
 import com.tricolorflower.heartbeat.common.http.VoiceRoomSettingHttp;
 import com.tricolorflower.heartbeat.common.model.BaseModel;
+import com.tricolorflower.heartbeat.common.model.BaseVoiceRoomRequestBody;
 import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
 import com.tricolorflower.heartbeat.voiceroom.VoiceRoomSettingActivity;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.EnterVoiceRoomResponse;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoomResponse;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.VoiceRoomGreetingSettingRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.VoiceRoomLabelSettingRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.VoiceRoomLogoSettingRequestBody;
@@ -29,6 +33,7 @@ public class VoiceRoomSettingPresenter extends DapporePresenter<VoiceRoomSetting
         if (isSuccess(response)) {
             getView().setSuccesView();
         } else {
+            getView().setFailView();
         }
     }
 
@@ -40,6 +45,7 @@ public class VoiceRoomSettingPresenter extends DapporePresenter<VoiceRoomSetting
         if (isSuccess(response)) {
             getView().setSuccesView();
         } else {
+            getView().setFailView();
         }
     }
 
@@ -52,6 +58,7 @@ public class VoiceRoomSettingPresenter extends DapporePresenter<VoiceRoomSetting
         if (isSuccess(response)) {
             getView().setSuccesView();
         } else {
+            getView().setFailView();
         }
     }
 
@@ -63,6 +70,7 @@ public class VoiceRoomSettingPresenter extends DapporePresenter<VoiceRoomSetting
         if (isSuccess(response)) {
             getView().setSuccesView();
         } else {
+            getView().setFailView();
         }
     }
 
@@ -74,6 +82,7 @@ public class VoiceRoomSettingPresenter extends DapporePresenter<VoiceRoomSetting
         if (isSuccess(response)) {
             getView().setSuccesView();
         } else {
+            getView().setFailView();
         }
     }
 
@@ -85,11 +94,24 @@ public class VoiceRoomSettingPresenter extends DapporePresenter<VoiceRoomSetting
         if (isSuccess(response)) {
             getView().setSuccesView();
         } else {
+            getView().setFailView();
         }
     }
 
 
     @ThreadPoint(ThreadType.HTTP)
+    public void requstData(String token, String room_id) {
+        VoiceRoomHttp http = createHttpRequest(VoiceRoomHttp.class);
+        VoiceRoomResponse response = http.getVoiceRoomInfo(new BaseVoiceRoomRequestBody(token, room_id));
+        showFailMsg(response);
+        if (isSuccess(response) && response.data != null) {
+        } else {
+            getView().showErrorView();
+        }
+    }
+
+    @ThreadPoint(ThreadType.HTTP)
     public void requstData(int voiceRole) {
+
     }
 }

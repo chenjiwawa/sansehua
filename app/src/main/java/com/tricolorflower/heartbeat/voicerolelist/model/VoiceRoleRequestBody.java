@@ -6,7 +6,7 @@ public class VoiceRoleRequestBody extends BaseVoiceRoleRequestBody {
 
     public int page;
 
-    public VoiceRoleRequestBody(String token, String uid, int page) {
+    public VoiceRoleRequestBody(String token, int uid, int page) {
         super(token, uid);
         this.page = page;
     }

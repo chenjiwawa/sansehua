@@ -71,7 +71,7 @@ public class InviteListFragment extends QsPullRecyclerFragment<InviteListPresent
     }
 
     private void requestVoiceRoleList(boolean isLoadingMore){
-        getPresenter().requestVoiceRoleList(isLoadingMore,"","");
+        getPresenter().requestVoiceRoleList(isLoadingMore,"",0);
     }
 
 }

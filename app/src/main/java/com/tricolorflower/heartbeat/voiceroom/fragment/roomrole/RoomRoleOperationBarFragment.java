@@ -9,9 +9,9 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
-import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.common.agora.AgoraHelper;
 import com.tricolorflower.heartbeat.common.event.RoomRoleOperationEvent;
 import com.tricolorflower.heartbeat.voiceroom.fragment.chatroom.InputMessageDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.SendProductDialogFragment;
@@ -19,7 +19,7 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
-import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceOperationPresenter;
+import com.tricolorflower.heartbeat.voiceroom.presenter.RoomRoleOperationBarPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ import static com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.RoomRoleO
 import static com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.RoomRoleOperationDialogFragment.ROOM_ROLE_OPERATION_SHOW_EMOJI;
 
 
-public class RoomRoleOperationBarFragment extends QsFragment<VoiceOperationPresenter> {
+public class RoomRoleOperationBarFragment extends QsFragment<RoomRoleOperationBarPresenter> {
 
     @Bind(R.id.ib_local_room_role_operation)
     ImageButton ibLocalRoomRoleOperation;
@@ -127,9 +127,6 @@ public class RoomRoleOperationBarFragment extends QsFragment<VoiceOperationPrese
     }
 
     private void setParentDialogDismiss() {
-//        if (roomRoleOperationDialogFragment != null && roomRoleOperationDialogFragment.getDialog() != null && roomRoleOperationDialogFragment.getDialog().isShowing()) {
-//            roomRoleOperationDialogFragment.dismiss();
-//        }
         QsHelper.getInstance().eventPost(new RoomRoleOperationEvent.OnDialogFragment(RoomRoleOperationEvent.OnDialogFragment.State.DIDMISS));
     }
 
@@ -140,6 +137,9 @@ public class RoomRoleOperationBarFragment extends QsFragment<VoiceOperationPrese
             case R.id.ib_local_room_role_operation:
                 break;
             case R.id.ib_remote_room_role_operation:
+                if (voiceHolder != null) {
+                    AgoraHelper.getInstance().muteRemoteAudioStream(voiceHolder.id, true);
+                }
                 break;
             case R.id.ib_add_room_role_operation:
                 L.i(initTag(), " onViewClick ib_add_room_role_operation ");

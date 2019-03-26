@@ -13,23 +13,41 @@ public class VoiceRoom extends BaseModel implements Serializable {
     public String voiceRoomId;
     @SerializedName("room_name")
     public String voiceRoomName;
-    @SerializedName("logo")
+    @SerializedName("room_pic")
     public String voiceRoomLogo;
-    @SerializedName("type")
-    public int voiceRoomType;
-    @SerializedName("typeName")
-    public String voiceRoomTypeName;
+    @SerializedName("room_type")
+    public RoomType voiceRoomType;
     @SerializedName("room_member")
     public String voiceRoomOnlines;
     @SerializedName("room_announce")
     public String voiceRoomAnnounce;
-    @SerializedName("greeting")
+    @SerializedName("room_notice")
     public String voiceRoomGreeting;
     @SerializedName("isLock")
     public boolean isLock;
-    @SerializedName("password")
+    @SerializedName("room_password")
     public String voiceRoomPwd;
-    @SerializedName("isLock")
+    @SerializedName("is_screen")
     public boolean isOpenChatRoom;
+    @SerializedName("room_tag")
+    public List<RoomTag> roomTagList;
+
+    public static class RoomType {
+
+        @SerializedName("id")
+        public int id;
+        @SerializedName("name")
+        public String name;
+
+    }
+
+    public static class RoomTag {
+
+        @SerializedName("id")
+        public int id;
+        @SerializedName("tag_name")
+        public String name;
+
+    }
 
 }

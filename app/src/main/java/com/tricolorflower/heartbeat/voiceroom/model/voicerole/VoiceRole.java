@@ -9,7 +9,6 @@ public class VoiceRole extends BaseVoiceRole implements Serializable {
     @SerializedName("position")
     public int position;
 
-
     @Override
     public String toString() {
         return "VoiceRole{" +

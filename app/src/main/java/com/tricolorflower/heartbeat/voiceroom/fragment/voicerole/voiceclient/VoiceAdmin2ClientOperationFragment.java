@@ -10,6 +10,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 
 
 public class VoiceAdmin2ClientOperationFragment extends VoiceRoleOperationFragment {
@@ -97,4 +98,21 @@ public class VoiceAdmin2ClientOperationFragment extends VoiceRoleOperationFragme
                 break;
         }
     }
+
+    @Override
+    public void roleClick(View view) {
+        super.roleClick(view);
+    }
+
+    //抱TA下麦
+    @Override
+    public void letroleClick(View view) {
+        super.letroleClick(view);
+        if (voiceRoom == null || user == null || data == null)
+            return;
+
+        VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, data.id);
+        getPresenter().logoutVoicePosition(body);
+    }
+
 }

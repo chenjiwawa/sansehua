@@ -7,7 +7,6 @@ import com.tricolorflower.heartbeat.common.http.ProductHttp;
 import com.tricolorflower.heartbeat.common.model.BaseRequstBody;
 import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.emoji.EmojiPagerFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.ProductPagerFragment;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.EmojiPageList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductPageList;
 

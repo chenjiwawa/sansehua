@@ -6,10 +6,10 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
-import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceOperationPresenter;
+import com.tricolorflower.heartbeat.voiceroom.presenter.RoomRoleOperationPresenter;
 
 
-public class RoomRoleOperationFragment extends QsFragment<VoiceOperationPresenter> {
+public class RoomRoleOperationFragment extends QsFragment<RoomRoleOperationPresenter> {
 
     String channelId = "";
     int voiceRole = 0;

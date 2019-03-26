@@ -16,7 +16,7 @@ import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleRequestBody;
 public class AddAdminListPresenter extends DapporePresenter<AddAdminListFragment> {
 
     @ThreadPoint(ThreadType.HTTP)
-    public void addAdmin(String token, String uid) {
+    public void addAdmin(String token, int uid) {
         AdminListHttp http = createHttpRequest(AdminListHttp.class);
         BaseModel response = http.addAdmin(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);

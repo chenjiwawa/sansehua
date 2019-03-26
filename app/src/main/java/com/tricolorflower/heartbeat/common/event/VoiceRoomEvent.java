@@ -1,6 +1,7 @@
 package com.tricolorflower.heartbeat.common.event;
 
-import com.tricolorflower.heartbeat.videodetail.model.Author;
+
+import com.tricolorflower.heartbeat.voiceroom.model.message.BaseMessageExtra;
 
 /**
  * @CreateBy qsmaxmin
@@ -10,54 +11,38 @@ import com.tricolorflower.heartbeat.videodetail.model.Author;
 
 public class VoiceRoomEvent {
 
-    /**
-     * 个人中心，修改头像成功,修改昵称成功
-     */
-    public static class OnUserInfoDataChanged {
+    public State state;
+
+    public VoiceRoomEvent(State state) {
+        this.state = state;
     }
 
-    /**
-     * 个人中心，图片裁切完成事件回调
-     */
-    public static class OnPhotoCutEvent {
-        public final byte[] photoBytes;
+    public enum State {
+        FRESH
+    }
 
-        public OnPhotoCutEvent(byte[] bytes) {
-            this.photoBytes = bytes;
+    public static class OnEntry {
+        public BaseMessageExtra data;
+
+        public OnEntry(BaseMessageExtra data) {
+            this.data = data;
         }
     }
 
-    /**
-     * 当相册的摄像头被点击了
-     */
-    public static class OnAlbumCameraClick {
-    }
+    public static class OnLeave {
+        public BaseMessageExtra data;
 
-
-    public static class OnPersonalInfoEvent {
-        public static final int STATE_REFRESH = 1 << 1;
-        public int state;
-        public int pos;
-        public Author author;
-
-        public OnPersonalInfoEvent(int state, Author author) {
-            this.state = state;
-            this.author = author;
-        }
-
-        public OnPersonalInfoEvent(int state, int pos, Author author) {
-            this.state = state;
-            this.pos = pos;
-            this.author = author;
-        }
-
-        @Override
-        public String toString() {
-            return "OnPersonalInfoEvent{" +
-                    "state=" + state +
-                    ", pos=" + pos +
-                    ", author=" + author +
-                    '}';
+        public OnLeave(BaseMessageExtra data) {
+            this.data = data;
         }
     }
+
+    public static class OnProductReceived {
+        public BaseMessageExtra data;
+
+        public OnProductReceived(BaseMessageExtra data) {
+            this.data = data;
+        }
+    }
+
 }

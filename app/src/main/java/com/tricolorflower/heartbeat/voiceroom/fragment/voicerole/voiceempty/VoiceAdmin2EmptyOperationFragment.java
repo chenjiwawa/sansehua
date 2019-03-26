@@ -9,9 +9,8 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceAdminOperationFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceHolderOperationFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 
 
 public class VoiceAdmin2EmptyOperationFragment extends VoiceRoleOperationFragment {
@@ -99,4 +98,25 @@ public class VoiceAdmin2EmptyOperationFragment extends VoiceRoleOperationFragmen
                 break;
         }
     }
+
+    //自己上麦
+    @Override
+    public void roleClick(View view) {
+        super.roleClick(view);
+        if (voiceRoom == null || user == null || data == null)
+            return;
+
+        VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, user.id);
+        getPresenter().loginVoicePosition(body);
+    }
+
+    //抱TA上麦
+    @Override
+    public void letroleClick(View view) {
+        super.letroleClick(view);
+        if (voiceRoom == null || user == null || data == null)
+            return;
+
+    }
+
 }

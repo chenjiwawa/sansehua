@@ -1,4 +1,4 @@
-package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole;
+package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.positioncategory;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,18 +7,21 @@ import android.view.ViewGroup;
 
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleInfoFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
 
-public class VoiceGuestOperationDialogFragment extends VoiceRoleOperationDialogFragment {
+public class VoiceClientOperationDialogFragment extends VoiceRoleOperationDialogFragment {
 
-    public static VoiceGuestOperationDialogFragment getInstance(Bundle extras) {
-        VoiceGuestOperationDialogFragment fragment = new VoiceGuestOperationDialogFragment();
+    public static VoiceClientOperationDialogFragment getInstance(Bundle extras) {
+        VoiceClientOperationDialogFragment fragment = new VoiceClientOperationDialogFragment();
         fragment.setArguments(extras);
         return fragment;
     }
-
+    
     @Override
     protected View getDialogView(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-        View view = layoutInflater.inflate(R.layout.dialog_voice_guest_operation, viewGroup);
+        View view = layoutInflater.inflate(R.layout.dialog_voice_client_operation, viewGroup);
         return view;
     }
 

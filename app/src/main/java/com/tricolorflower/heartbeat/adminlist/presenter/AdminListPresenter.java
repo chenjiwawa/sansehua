@@ -30,7 +30,7 @@ public class AdminListPresenter extends DapporePresenter<AdminListFragment> {
     }
 
     @ThreadPoint(ThreadType.HTTP)
-    public void deleteAdmin(String token, String uid) {
+    public void deleteAdmin(String token, int uid) {
         AdminListHttp http = createHttpRequest(AdminListHttp.class);
         BaseModel response = http.deleteAdmin(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);

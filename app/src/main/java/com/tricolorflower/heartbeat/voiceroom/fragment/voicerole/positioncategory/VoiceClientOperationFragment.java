@@ -1,4 +1,4 @@
-package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole;
+package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.positioncategory;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +9,11 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory.VoiceHolderOperationFragment;
 
 
-public class VoiceAuditorOperationFragment extends VoiceRoleOperationFragment {
+public class VoiceClientOperationFragment extends VoiceRoleOperationFragment {
 
     @Bind(R.id.role)
     protected Button role;
@@ -58,11 +59,11 @@ public class VoiceAuditorOperationFragment extends VoiceRoleOperationFragment {
         mute.setText(getMuteText(data));
         letrole.setText(getLeaveText(data));
 
-        role.setVisibility(View.GONE);
-        music.setVisibility(View.VISIBLE);
-        enable.setVisibility(View.VISIBLE);
-        letrole.setVisibility(View.VISIBLE);
-        mute.setVisibility(View.VISIBLE);
+        role.setVisibility(View.VISIBLE);
+        music.setVisibility(View.GONE);
+        enable.setVisibility(View.GONE);
+        letrole.setVisibility(View.GONE);
+        mute.setVisibility(View.GONE);
         leave.setVisibility(View.GONE);
     }
 

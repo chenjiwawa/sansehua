@@ -70,7 +70,7 @@ public class OnlineListFragment extends QsPullRecyclerFragment<OnlineListPresent
     }
 
     private void requestVoiceRoleList(boolean isLoadingMore){
-        getPresenter().requestVoiceRoleList(isLoadingMore,"","");
+        getPresenter().requestVoiceRoleList(isLoadingMore,"",0);
     }
 
 }

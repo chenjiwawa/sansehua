@@ -4,9 +4,9 @@ import com.qsmaxmin.qsbase.common.model.QsModel;
 
 public class BaseVoiceRoleRequestBody extends BaseRequstBody {
 
-    public String uid;
+    public int uid;
 
-    public BaseVoiceRoleRequestBody(String token, String uid) {
+    public BaseVoiceRoleRequestBody(String token, int uid) {
         super(token);
         this.uid = uid;
     }

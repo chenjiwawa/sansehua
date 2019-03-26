@@ -27,7 +27,7 @@ public class BaseVoiceRole implements Serializable {
     public static final int PERMISSION_ADMIN = 3;
 
     @SerializedName("uid")
-    public String id;
+    public int id;
     @SerializedName("nickname")
     public String name;
     @SerializedName("pic")
@@ -46,11 +46,11 @@ public class BaseVoiceRole implements Serializable {
     @SerializedName("role")
     public int permission;//1普通观众   2房主   3管理员
     @SerializedName("turn_music")
-    public boolean musicEnable;// 1关闭音乐权限，2为打开
+    public int musicEnable;// 1关闭音乐权限，2为打开
     @SerializedName("is_voice")
-    public boolean voiceMute;// 1关闭麦位声音，2打开麦位声音
+    public int voiceMute;// 1关闭麦位声音，2打开麦位声音
     @SerializedName("is_lock")
-    public boolean voiceEnable;// 1接触锁麦，2锁麦
+    public int voiceEnable;// 1解除锁麦，2锁麦
 
 
     public boolean isVoiceClient() {
@@ -77,15 +77,15 @@ public class BaseVoiceRole implements Serializable {
         return (permission == PERMISSION_ADMIN ? true : false);
     }
 
-    public boolean isCurrentVoiceUser(String voiceUserId) {
-        if (!TextUtils.isEmpty(voiceUserId)) {
-            return (voiceUserId.equals(id) ? true : false);
+    public boolean isCurrentVoiceUser(int voiceUserId) {
+        if (voiceUserId != 0) {
+            return (voiceUserId == id ? true : false);
         }
         return false;
     }
 
     public boolean isVoiceRoleUsing() {
-        return (TextUtils.isEmpty(id)? true : false);
+        return (id != 0 ? true : false);
     }
 
 }

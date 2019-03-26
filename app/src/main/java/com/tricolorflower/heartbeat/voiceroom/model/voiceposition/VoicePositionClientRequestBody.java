@@ -4,9 +4,9 @@ import com.tricolorflower.heartbeat.common.model.BaseVoicePositionRequestBody;
 
 public class VoicePositionClientRequestBody extends BaseVoicePositionRequestBody {
 
-    public String uid;
+    public int uid;
 
-    public VoicePositionClientRequestBody(String token, String room_id, int seat_position, String uid) {
+    public VoicePositionClientRequestBody(String token, String room_id, int seat_position, int uid) {
         super(token, room_id, seat_position);
         this.uid = uid;
     }

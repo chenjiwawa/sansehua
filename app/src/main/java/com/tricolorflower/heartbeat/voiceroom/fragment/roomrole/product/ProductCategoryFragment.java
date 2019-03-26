@@ -13,6 +13,7 @@ import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.home.model.HomeConstants;
+import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.emoji.EmojiGridFragment;
 import com.tricolorflower.heartbeat.voiceroom.presenter.ProductCategoryPresenter;
 
 /**
@@ -31,14 +32,17 @@ public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategory
     @Bind(R.id.rl_tab_category)
     RelativeLayout rl_tab_category;
 
+    public static ProductCategoryFragment getInstance(Bundle bundle) {
+        ProductCategoryFragment fragment = new ProductCategoryFragment();
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Override
     public int layoutId() {
         return R.layout.fragment_product_category;
     }
 
-    public static ProductCategoryFragment getInstance() {
-        return new ProductCategoryFragment();
-    }
 
     @Override
     public void initData(Bundle savedInstanceState) {
@@ -51,13 +55,13 @@ public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategory
 
     public QsModelPager[] getModelPagers() {
         QsModelPager modelRecommend = createModelPager(HomeConstants.INDEX_RECOMMEND);
-        modelRecommend.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance();
+        modelRecommend.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
 
         QsModelPager modelRank = createModelPager(HomeConstants.INDEX_RANK);
-        modelRank.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance();
+        modelRank.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
 
         QsModelPager modelCategory = createModelPager(HomeConstants.INDEX_CATEGORY);
-        modelCategory.fragment =(ProductPagerFragment) ProductPagerFragment.getInstance();
+        modelCategory.fragment =(ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
 
         return new QsModelPager[]{modelRecommend, modelRank, modelCategory};
     }

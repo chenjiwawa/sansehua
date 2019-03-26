@@ -13,11 +13,6 @@
         android:visibility="visible">
 
         <Button
-            android:id="@+id/test123"
-            style="@style/voiceclientoperation"
-            android:text="上麦\下麦" />
-
-        <Button
             android:id="@+id/role"
             style="@style/voiceclientoperation"
             android:text="上麦\下麦" />

@@ -121,6 +121,7 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
                 QsHelper.getInstance().intent2Activity(VoiceRoomSettingActivity.class, getArguments());
                 break;
             case R.id.cancel:
+                dismiss();
                 break;
             case R.id.content:
                 break;

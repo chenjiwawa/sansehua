@@ -9,7 +9,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceHolderOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory.VoiceHolderOperationFragment;
 
 
 public class VoiceHolder2EmptyOperationFragment extends VoiceHolderOperationFragment {
@@ -92,7 +92,22 @@ public class VoiceHolder2EmptyOperationFragment extends VoiceHolderOperationFrag
                 muteClick(view);
                 break;
             case R.id.cancel:
+                cancelClick(view);
                 break;
         }
+    }
+
+    @Override
+    public void roleClick(View view) {
+        super.roleClick(view);
+    }
+
+    //抱TA上麦
+    @Override
+    public void letroleClick(View view) {
+        super.letroleClick(view);
+        if (voiceRoom == null || user == null || data == null)
+            return;
+
     }
 }

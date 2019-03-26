@@ -15,7 +15,7 @@ import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleRequestBody;
 public class AddBlackListPresenter extends DapporePresenter<AddBlackListFragment> {
 
     @ThreadPoint(ThreadType.HTTP)
-    public void addBlack(String token, String uid) {
+    public void addBlack(String token, int uid) {
         BlackListHttp http = createHttpRequest(BlackListHttp.class);
         BaseModel response = http.addBlack(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);

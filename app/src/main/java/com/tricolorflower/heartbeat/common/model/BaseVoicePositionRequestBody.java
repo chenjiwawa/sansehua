@@ -4,6 +4,8 @@ public class BaseVoicePositionRequestBody extends BaseVoiceRoomRequestBody {
 
     public int seat_position;
 
+
+
     public BaseVoicePositionRequestBody(String token, String room_id, int seat_position) {
         super(token, room_id);
         this.seat_position = seat_position;

@@ -70,7 +70,6 @@ public class SendProductFragment extends QsFragment<SendProductPresenter> {
         return fragment;
     }
 
-
     @Override
     public int layoutId() {
         return R.layout.fragment_send_product;

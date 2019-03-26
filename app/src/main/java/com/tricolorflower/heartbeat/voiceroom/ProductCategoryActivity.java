@@ -29,7 +29,7 @@ public class ProductCategoryActivity extends QsABActivity {
 //        tv_title.setText("最新推荐");
         tv_title.setText("");
 
-        commitFragment(ProductCategoryFragment.getInstance());
+        commitFragment(ProductCategoryFragment.getInstance(bundle));
 
         showContentView();
     }

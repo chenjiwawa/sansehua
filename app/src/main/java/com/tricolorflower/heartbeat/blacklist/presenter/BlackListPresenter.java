@@ -31,7 +31,7 @@ public class BlackListPresenter extends DapporePresenter<BlackListFragment> {
     }
 
     @ThreadPoint(ThreadType.HTTP)
-    public void deleteBlack(String token, String uid) {
+    public void deleteBlack(String token, int uid) {
         BlackListHttp http = createHttpRequest(BlackListHttp.class);
         BaseModel response = http.deleteBlack(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);

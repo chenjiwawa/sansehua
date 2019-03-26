@@ -17,7 +17,7 @@ import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 public class VoiceRoleInfoPresenter extends DapporePresenter<VoiceRoleInfoFragment> {
 
     @ThreadPoint(ThreadType.HTTP)
-    public void requstData2(String token, String uid) {
+    public void requstData(String token, int uid) {
         VoiceRoleHttp http = createHttpRequest(VoiceRoleHttp.class);
         VoiceRoleList.VoiceRole response = http.requestVoiceRoleInfo(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);
@@ -28,7 +28,7 @@ public class VoiceRoleInfoPresenter extends DapporePresenter<VoiceRoleInfoFragme
     }
 
     @ThreadPoint(ThreadType.HTTP)
-    public void requstData(String token, String uid) {
+    public void requstData2(String token, int uid) {
 
         try {
             Thread.sleep(1000);

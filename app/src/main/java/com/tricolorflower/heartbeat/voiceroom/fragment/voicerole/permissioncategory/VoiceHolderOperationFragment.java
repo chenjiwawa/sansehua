@@ -1,18 +1,17 @@
-package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole;
+package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 
 
 public class VoiceHolderOperationFragment extends VoiceRoleOperationFragment {
@@ -95,6 +94,25 @@ public class VoiceHolderOperationFragment extends VoiceRoleOperationFragment {
                 break;
             case R.id.cancel:
                 break;
+        }
+    }
+
+    @Override
+    public void roleClick(View view) {
+        super.roleClick(view);
+    }
+
+    @Override
+    public void letroleClick(View view) {
+        super.letroleClick(view);
+        if (voiceRoom == null || user == null || data == null)
+            return;
+
+        if (data.id == 0) {
+
+        } else {
+            VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, data.id);
+            getPresenter().loginVoicePosition(body);
         }
     }
 }

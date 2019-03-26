@@ -14,7 +14,6 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
 
 public class EmojiGridPresenter extends DapporePresenter<EmojiGridFragment> {
 
-
     private int pageSize = 8;
 
     @ThreadPoint(ThreadType.HTTP)

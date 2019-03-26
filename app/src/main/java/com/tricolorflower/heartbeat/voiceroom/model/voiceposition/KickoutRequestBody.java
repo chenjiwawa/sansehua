@@ -5,9 +5,9 @@ import com.tricolorflower.heartbeat.common.model.BaseVoiceRoomRequestBody;
 
 public class KickoutRequestBody extends BaseVoiceRoomRequestBody {
 
-    public String uid;
+    public int uid;
 
-    public KickoutRequestBody(String token, String room_id, String uid) {
+    public KickoutRequestBody(String token, String room_id, int uid) {
         super(token, room_id);
         this.uid = uid;
     }

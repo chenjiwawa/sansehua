@@ -24,14 +24,16 @@ import com.tricolorflower.heartbeat.common.model.UserConfig;
 import com.tricolorflower.heartbeat.onlinelist.OnlineListActivity;
 import com.tricolorflower.heartbeat.voiceroom.fragment.chatroom.ChatRoomFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceAuditorOperationDialogFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceClientOperationDialogFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceHolderOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.positioncategory.VoiceAuditorOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.positioncategory.VoiceClientOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory.VoiceHolderOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleInfoDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceclient.VoiceAdmin2ClientOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceclient.VoiceGuest2ClientOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceclient.VoiceHolder2ClientOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceempty.VoiceAdmin2EmptyOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceempty.VoiceGuest2EmptyOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceempty.VoiceHolder2EmptyOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceuser.VoiceClient2UserOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.listener.OnVoiceClientListener;
@@ -39,7 +41,7 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
-import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoomResponse;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.EnterVoiceRoomResponse;
 import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceRoomPresenter;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -86,7 +88,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     List<VoiceRole> voiceClients;
     VoiceRole user;
     String voiceRoomId = "";
-    String userId = "";
+    int userId = 0;
 
     VoiceClientGridFragment voiceClientGridFragment;
     RoomRoleOperationBarFragment roomRoleOperationBarFragment;
@@ -108,7 +110,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         if (arguments == null) return;
 
         voiceRoomId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID);
-        userId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID);
+        userId = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID);
 
         L.i(initTag(), " voiceRoomId " + voiceRoomId + " userId " + userId);
 
@@ -116,7 +118,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
         roomRoleOperationBarFragment = (RoomRoleOperationBarFragment) getChildFragmentManager().findFragmentById(R.id.bar);
 
-        requstData(userId);
+        requstData();
 //        creatOrJoinVoiceRoom();
 
 //        initChatRoom();
@@ -125,7 +127,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         showContentView();
     }
 
-    public void setCurrentData(VoiceRoomResponse responce) {
+    public void setCurrentData(EnterVoiceRoomResponse responce) {
         if (responce == null)
             return;
 
@@ -178,7 +180,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.chatroomlayout, ChatRoomFragment.getInstance(), ChatRoomFragment.class.getSimpleName());
     }
 
-    public void requstData(String userId) {
+    public void requstData() {
         getPresenter().requstData(userId);
     }
 
@@ -256,24 +258,6 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     }
 
     @Subscribe
-    public void onEvent(VoiceRoomEvent event) {
-        if (event == null)
-            return;
-
-//        switch (event.state) {
-//            case COMMENT:
-//                requestVideoDetail();
-//                handler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        setCommentReward(event.reward);
-//                    }
-//                }, 20);
-//                break;
-//        }
-    }
-
-    @Subscribe
     public void onEvent(VoiceRoomSettingEvent event) {
         if (event == null)
             return;
@@ -308,7 +292,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         }
     }
 
-    /*房主*/
+    /*   2 房主*/
     private void showVoiceUser2VoiceHolderDialog(VoiceRole user, VoiceRole holder, Bundle bundle) {
         if (user == null || holder == null || bundle == null)
             return;
@@ -324,6 +308,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             }
         } else {
             /*空麦位*/
+            //房主自动上麦
         }
     }
 
@@ -397,8 +382,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
                 fragment.show();
             } else {
                 //非本人（其他麦位用户）
-                VoiceRoleInfoDialogFragment voiceRoleInfoDialogFragment = VoiceRoleInfoDialogFragment.getInstance(bundle);
-                voiceRoleInfoDialogFragment.show();
+                VoiceGuest2ClientOperationDialogFragment voiceGuest2ClientOperationDialogFragment = VoiceGuest2ClientOperationDialogFragment.getInstance(bundle);
+                voiceGuest2ClientOperationDialogFragment.show();
             }
         } else {
             /*空麦位*/
@@ -406,13 +391,15 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             //麦上用户 换麦
 
             //麦下用户 上麦
-
+            VoiceGuest2EmptyOperationDialogFragment voiceGuest2EmptyOperationDialogFragment = VoiceGuest2EmptyOperationDialogFragment.getInstance(bundle);
+            voiceGuest2EmptyOperationDialogFragment.show();
         }
     }
 
     public void onItemSelect2(VoiceRole data, int position, int totalCount) {
         L.i(initTag(), " onItemSelect " + data);
         Bundle bundle = new Bundle();
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM, voiceRoom);
         bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
         bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR, data);
         VoiceRoleOperationDialogFragment fragment;
@@ -467,6 +454,58 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     @Override
     public void onUserMuteAudio(int uid, boolean muted) {
 
+    }
+
+    /*进入房间*/
+    @Subscribe
+    public void onEvent(VoiceRoomEvent.OnEntry event) {
+        if (event == null)
+            return;
+
+        //展示座驾
+    }
+
+    /*踢出房间*/
+    @Subscribe
+    public void onEvent(VoiceRoomEvent.OnLeave event) {
+        if (event == null)
+            return;
+
+        AgoraHelper.getInstance().leaveChannel();
+        activityFinish();
+    }
+
+    /*发送礼物*/
+    @Subscribe
+    public void onEvent(VoiceRoomEvent.OnProductReceived event) {
+        if (event == null)
+            return;
+
+        //展示礼物
+
+    }
+
+
+    /********************刷新当前用户********************/
+    /*添加管理员\移除管理员*/
+
+
+    /********************刷新麦位********************/
+    /*上麦\下麦*/
+    /*解除封麦\封麦*/
+    /*抱TA上麦\抱TA下麦*/
+    /*关闭麦克风\打开麦克风*/
+    /*打开\关闭公屏*/
+    @Subscribe
+    public void onEvent(VoiceRoomEvent event) {
+        if (event == null)
+            return;
+
+        switch (event.state) {
+            case FRESH:
+                requstData();
+                break;
+        }
     }
 
 }

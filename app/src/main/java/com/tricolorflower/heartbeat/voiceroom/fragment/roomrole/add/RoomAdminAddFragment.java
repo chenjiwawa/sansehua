@@ -41,8 +41,10 @@ public class RoomAdminAddFragment extends RoomRoleAddFragment {
             case R.id.rl_music_voice_add:
                 break;
             case R.id.rl_admin_voice_add:
+                roomRole2AdminList();
                 break;
             case R.id.rl_forbidden_voice_add:
+                roomRole2BlackList();
                 break;
             case R.id.rl_theme_voice_add:
                 break;

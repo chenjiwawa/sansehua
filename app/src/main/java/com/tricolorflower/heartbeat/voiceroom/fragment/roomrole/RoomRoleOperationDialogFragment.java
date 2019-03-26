@@ -21,6 +21,8 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.event.RoomRoleOperationEvent;
 import com.tricolorflower.heartbeat.common.event.VoiceRoomSettingEvent;
+import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.add.RoomHolderAddFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.emoji.EmojiPagerFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -110,6 +112,10 @@ public class RoomRoleOperationDialogFragment extends QsDialogFragment {
     }
 
     protected void showEmojiView() {
+        EmojiPagerFragment contentFragment = EmojiPagerFragment.getInstance(getArguments());
+        removeContentFragment(contentFragment);
+
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, EmojiPagerFragment.getInstance(getArguments()), RoomHolderAddFragment.class.getSimpleName());
     }
 
     protected void showAddView() {

@@ -14,9 +14,11 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.common.model.UserConfig;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceRoleInfoPresenter;
 
 
@@ -51,8 +53,10 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
     @Bind(R.id.btn_user_following)
     Button btnUserFollowing;
 
+    protected VoiceRoom voiceRoom;
     protected VoiceRole user;//当前用户
     protected VoiceRole data;
+    protected String token;
 
     public static VoiceRoleInfoFragment getInstance(Bundle extras) {
         VoiceRoleInfoFragment fragment = new VoiceRoleInfoFragment();
@@ -68,41 +72,40 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        L.i(initTag(), " initData " + savedInstanceState );
+        initArgumentData();
+        showContentView();
+    }
 
+    private void initArgumentData() {
         Bundle arguments = getArguments();
-
-        arguments=new Bundle();//TODO
         if (arguments == null) return;
 
+        voiceRoom = (VoiceRoom) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
         user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
         data = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR);
-        L.i(initTag(), " user " + user + " data " + data);
+        token = UserConfig.getInstance().getAuthToken();
 
-        if (data != null && data.isVoiceAuditor()) {
-            frame.setVisibility(View.GONE);
-        }
+        L.i(initTag(), " initArgumentData voiceRoom " + voiceRoom);
+        L.i(initTag(), " initArgumentData user " + user);
+        L.i(initTag(), " initArgumentData data " + data);
+        L.i(initTag(), " initArgumentData token " + token);
 
-        requstData(0);
     }
 
     public void initData() {
         initData(getArguments());
     }
 
-
-    public void requstData(int voiceRole) {
+    public void requstData() {
         L.i(initTag(), " requstData ");
-        getPresenter().requstData("", "");
+        if (voiceRoom == null || user == null || data == null)
+            return;
+
+        getPresenter().requstData(token, data.id);
     }
 
     public void setVoiceRoleInfoView(VoiceRoleList.VoiceRole data) {
         L.i(initTag(), " setVoiceRoleInfoView " + data);
-
-        showContentView();
-
-        tvTitleUser.setText("tvTitleUser");
-
         if (data == null)
             return;
 

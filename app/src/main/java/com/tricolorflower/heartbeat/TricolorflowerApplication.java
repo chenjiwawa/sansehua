@@ -103,7 +103,6 @@ public class TricolorflowerApplication extends QsApplication {
         L.i(TAG, " onCommonHttpResponse UserConfig +1" + UserConfig.getInstance().isLogin() + " " + UserConfig.getInstance().getAuthToken());
         L.i(TAG, " onCommonHttpResponse UserConfig +2" + UserConfig.getInstance().isLogin() + " " + response.headers().get("Auth-Token"));
 
-
         if (response.headers() != null && !TextUtils.isEmpty(response.headers().get("Auth-Token"))) {
             UserConfig.getInstance().setAuthToken(response.headers().get("Auth-Token"));
             L.i(TAG, " onCommonHttpResponse UserConfig +3" + UserConfig.getInstance().isLogin() + " " + UserConfig.getInstance().getAuthToken());

@@ -61,4 +61,7 @@ public class VoiceClientGridFragment extends QsRecyclerFragment<VoiceClientGridP
         }
         return new VoiceClientGridRecyclerAdapterItem(mInflater, parent, onVoiceClientListener);
     }
+
+    /*发表情*/
+
 }

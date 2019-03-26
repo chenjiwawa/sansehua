@@ -13,6 +13,7 @@ import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.tricolorflower.heartbeat.R;
 
 public class VoiceRoleInfoDialogFragment extends QsDialogFragment {
+
     @Bind(R.id.content)
     RelativeLayout content;
 
