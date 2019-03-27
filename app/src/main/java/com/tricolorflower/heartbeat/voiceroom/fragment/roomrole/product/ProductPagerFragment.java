@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 字工场原创字体
  *
  * @CreateBy qsmaxmin
  * @Date 16/8/2

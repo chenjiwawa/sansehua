@@ -12,12 +12,14 @@ import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.qsmaxmin.qsbase.mvp.fragment.QsPullRecyclerFragment;
 import com.tricolorflower.heartbeat.appdetail.model.App;
 import com.tricolorflower.heartbeat.voicerolelist.adapter.OnlineUserRecyclerAdapterItem;
+import com.tricolorflower.heartbeat.voicerolelist.adapter.VoiceRoleRecyclerAdapterItem;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleListConstants;
 import com.tricolorflower.heartbeat.voicerolelist.presenter.VoiceRoleListPresenter;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 
 
-public class VoiceRoleListFragment extends QsPullRecyclerFragment<VoiceRoleListPresenter, VoiceRoleList.VoiceRole> {
+public class VoiceRoleListFragment extends QsPullRecyclerFragment<VoiceRoleListPresenter, VoiceRole> {
 
     String app_taxon_id;
     int type = 0;
@@ -67,7 +69,7 @@ public class VoiceRoleListFragment extends QsPullRecyclerFragment<VoiceRoleListP
 
     @Override
     public QsRecycleAdapterItem getRecycleAdapterItem(LayoutInflater mInflater, ViewGroup parent, int type) {
-        return new OnlineUserRecyclerAdapterItem(mInflater, parent, false);
+        return new VoiceRoleRecyclerAdapterItem(mInflater, parent);
     }
 
     private void requestVoiceRoleList(boolean isLoadingMore){

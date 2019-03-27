@@ -109,5 +109,6 @@ public class VoiceHolder2EmptyOperationFragment extends VoiceHolderOperationFrag
         if (voiceRoom == null || user == null || data == null)
             return;
 
+        leroleLogin();
     }
 }

@@ -2,21 +2,29 @@ package com.tricolorflower.heartbeat.addadminlist;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.addadminlist.fragment.AddAdminListFragment;
+import com.tricolorflower.heartbeat.adminlist.fragment.AdminListFragment;
 
 public class AddAdminListActivity extends QsABActivity {
-    @Bind(R.id.tv_title)
-    TextView tv_title;
+
+    @Bind(R.id.title)
+    TextView title;
+    @Bind(R.id.btn_commit_add_admin_list)
+    Button commit;
+
+    AddAdminListFragment fragment;
 
     @Override
     public int actionbarLayoutId() {
-        return R.layout.actionbar_title_back;
+        return R.layout.actionbar_cancel_title;
     }
 
     @Override
@@ -26,19 +34,26 @@ public class AddAdminListActivity extends QsABActivity {
 
     @Override
     public void initData(Bundle bundle) {
-//        tv_title.setText("最新推荐");
+        title.setText("用户列表");
 
         Bundle extras = getIntent().getExtras();
-        tv_title.setText("用户列表");
-
-        commitFragment(AddAdminListFragment.getInstance(extras == null ? new Bundle() : extras));
+        fragment = AddAdminListFragment.getInstance(extras == null ? new Bundle() : extras);
+        commitFragment(fragment);
     }
 
-    @OnClick({R.id.ll_back})
+    @OnClick({R.id.cancel, R.id.confirm, R.id.btn_confrim_admin_list})
     public void onViewClick(View view) {
         switch (view.getId()) {
-            case R.id.ll_back:
+            case R.id.cancel:
                 activityFinish();
+                break;
+            case R.id.confirm:
+                QsHelper.getInstance().intent2Activity(AddAdminListActivity.class, getIntent().getExtras());
+                break;
+            case R.id.btn_confrim_admin_list:
+                if (fragment != null) {
+                    fragment.commit();
+                }
                 break;
         }
     }

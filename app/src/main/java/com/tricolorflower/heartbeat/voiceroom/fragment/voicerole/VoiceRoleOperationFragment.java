@@ -18,6 +18,9 @@ import com.tricolorflower.heartbeat.common.event.VoiceRoleOperationEvent;
 import com.tricolorflower.heartbeat.common.event.VoiceRoomEvent;
 import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 import com.tricolorflower.heartbeat.common.model.UserConfig;
+import com.tricolorflower.heartbeat.invitelist.InviteListActivity;
+import com.tricolorflower.heartbeat.onlinelist.OnlineListActivity;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionMicrophoneRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionMusicPermissionRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionRequestBody;
@@ -25,6 +28,9 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 import com.tricolorflower.heartbeat.voiceroom.presenter.VoiceRoleOperationPresenter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -142,6 +148,14 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
     public void letroleClick(View view) {
     }
 
+    protected void leroleLogin() {
+        QsHelper.getInstance().intent2Activity(InviteListActivity.class, getArguments());
+    }
+
+    public void leroleLogout() {
+
+    }
+
     public void leaveClick(View view) {
         if (voiceRoom == null || user == null || data == null)
             return;
@@ -170,8 +184,23 @@ public class VoiceRoleOperationFragment extends QsFragment<VoiceRoleOperationPre
         loadingClose();
     }
 
+    @Subscribe
+    public void onEvent(VoiceRoleOperationEvent.OnLetRoleLoginEvent event) {
+        if (event == null || event.data == null)
+            return;
+
+        VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, event.data.id);
+        getPresenter().loginVoicePosition(body);
+
+    }
+
     @Override
     public boolean isOpenViewState() {
         return false;
+    }
+
+    @Override
+    public boolean isOpenEventBus() {
+        return true;
     }
 }

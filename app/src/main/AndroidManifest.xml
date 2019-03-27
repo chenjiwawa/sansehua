@@ -197,6 +197,12 @@
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
+        <activity
+            android:name="com.tricolorflower.heartbeat.AnimationFromAssetsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TypefaceTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
         <!--友盟-->
 
         <!--微信-->

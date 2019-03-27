@@ -7,23 +7,22 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.addadminlist.AddAdminListActivity;
 import com.tricolorflower.heartbeat.addblacklist.fragment.AddBlackListFragment;
 
 public class AddBlackListActivity extends QsABActivity {
 
     @Bind(R.id.title)
     TextView title;
-    @Bind(R.id.confirm)
-    TextView confirm;
-    @Bind(R.id.search)
-    Button search;
-    @Bind(R.id.input)
-    EditText input;
+    @Bind(R.id.btn_commit_add_black_list)
+    Button commit;
 
+    AddBlackListFragment fragment;
 
     @Override
     public int actionbarLayoutId() {
@@ -40,16 +39,20 @@ public class AddBlackListActivity extends QsABActivity {
         Bundle extras = getIntent().getExtras();
         title.setText("添加黑名单");
 
-        commitFragment(AddBlackListFragment.getInstance(extras == null ? new Bundle() : extras));
+        fragment=AddBlackListFragment.getInstance(extras == null ? new Bundle() : extras);
+        commitFragment(fragment);
     }
 
-    @OnClick({R.id.cancel, R.id.confirm})
+    @OnClick({R.id.cancel, R.id.btn_confrim_admin_list})
     public void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.cancel:
                 activityFinish();
                 break;
-            case R.id.confirm:
+            case R.id.btn_confrim_admin_list:
+                if (fragment != null) {
+                    fragment.commit();
+                }
                 break;
         }
     }

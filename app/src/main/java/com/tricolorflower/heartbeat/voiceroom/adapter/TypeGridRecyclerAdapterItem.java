@@ -11,6 +11,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.common.listener.ItemSingleSelectListener;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.TypeList;
 
 /**
@@ -24,11 +25,12 @@ public class TypeGridRecyclerAdapterItem extends QsRecycleAdapterItem<TypeList.T
     TextView tvTitleGrid;
 
     private TypeList.Type data;
-    private ItemListener itemListener;
+    private ItemSingleSelectListener itemListener;
     private int preposition = 0;
 
-    public TypeGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent) {
+    public TypeGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, ItemSingleSelectListener itemListener) {
         super(inflater, parent);
+        this.itemListener = itemListener;
     }
 
     @Override
@@ -46,7 +48,7 @@ public class TypeGridRecyclerAdapterItem extends QsRecycleAdapterItem<TypeList.T
             @Override
             public void onClick(View v) {
                 if (itemListener != null) {
-                    itemListener.onItemClick(data, position, preposition, totalCount);
+                    itemListener.onItemClick(data, preposition, position, totalCount);
                 }
                 preposition = position;
             }
@@ -62,7 +64,4 @@ public class TypeGridRecyclerAdapterItem extends QsRecycleAdapterItem<TypeList.T
         }
     }
 
-    public  interface ItemListener<T> {
-        void onItemClick(T data, int position, int preposition, int totalCount);
-    }
 }

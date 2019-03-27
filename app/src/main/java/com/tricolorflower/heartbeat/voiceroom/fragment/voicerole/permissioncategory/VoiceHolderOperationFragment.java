@@ -115,4 +115,5 @@ public class VoiceHolderOperationFragment extends VoiceRoleOperationFragment {
             getPresenter().loginVoicePosition(body);
         }
     }
+
 }

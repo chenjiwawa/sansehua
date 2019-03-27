@@ -164,7 +164,7 @@ public class RoomRoleOperationBarFragment extends QsFragment<RoomRoleOperationBa
                 break;
             case R.id.ib_product_room_role_operation:
                 setParentDialogDismiss();
-                SendProductDialogFragment.getInstance().show();
+                SendProductDialogFragment.getInstance(getArguments()).show();
                 break;
             case R.id.rl_frame_room_role_operation:
                 break;

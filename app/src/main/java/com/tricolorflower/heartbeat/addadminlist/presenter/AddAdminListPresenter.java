@@ -21,7 +21,7 @@ public class AddAdminListPresenter extends DapporePresenter<AddAdminListFragment
         BaseModel response = http.addAdmin(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);
         if (isSuccess(response)) {
-
+            getView().setCommitSuccessView();
         } else {
 
         }

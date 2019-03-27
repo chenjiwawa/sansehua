@@ -1,5 +1,7 @@
 package com.tricolorflower.heartbeat.common.event;
 
+import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.EmojiList;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 
 /**
@@ -32,5 +34,13 @@ public class RoomRoleOperationEvent {
         }
     }
 
+    public static class OnEmojiEvent {
+        public EmojiList.Emoji data;
+
+        public OnEmojiEvent(EmojiList.Emoji data) {
+            this.data = data;
+        }
+
+    }
 
 }

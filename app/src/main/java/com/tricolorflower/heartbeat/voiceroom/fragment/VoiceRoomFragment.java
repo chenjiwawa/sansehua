@@ -18,6 +18,7 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.agora.AgoraHelper;
 import com.tricolorflower.heartbeat.common.agora.IRtcEngineEventListener;
+import com.tricolorflower.heartbeat.common.event.RoomRoleOperationEvent;
 import com.tricolorflower.heartbeat.common.event.VoiceRoomEvent;
 import com.tricolorflower.heartbeat.common.event.VoiceRoomSettingEvent;
 import com.tricolorflower.heartbeat.common.model.UserConfig;
@@ -116,6 +117,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 
         AgoraHelper.getInstance().joinChannel("room1", 11);
         voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
+        voiceClientGridFragment.setArguments(getArguments());
         roomRoleOperationBarFragment = (RoomRoleOperationBarFragment) getChildFragmentManager().findFragmentById(R.id.bar);
 
         requstData();
@@ -125,6 +127,17 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 
         loadingClose();
         showContentView();
+    }
+
+    private Bundle initArguments() {
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM, voiceRoom);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_HOLDER, voiceHolder);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER, user);
+        bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENTS, (Serializable) voiceClients);
+
+        return bundle;
     }
 
     public void setCurrentData(EnterVoiceRoomResponse responce) {
@@ -227,9 +240,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             case R.id.tv_id_voice_room:
                 break;
             case R.id.tv_users_voice_room:
-                bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+                bundle = initArguments();
                 QsHelper.getInstance().intent2Activity(OnlineListActivity.class, bundle);
                 break;
             case R.id.btn_more_voice_room:
@@ -297,7 +308,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         if (user == null || holder == null || bundle == null)
             return;
 
-        if (holder.isVoiceRoleUsing()) {
+        if (holder.isVoiceRoleUsingPosition()) {
             /*非空麦位*/
 
             if (holder.isCurrentVoiceUser(user.id)) {
@@ -318,7 +329,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             return;
 
         VoiceRoleOperationDialogFragment fragment;
-        if (data.isVoiceRoleUsing()) {
+        if (data.isVoiceRoleUsingPosition()) {
             /*非空麦位*/
 
             if (data.isCurrentVoiceUser(user.id)) {
@@ -344,7 +355,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             return;
 
         VoiceRoleOperationDialogFragment fragment;
-        if (data.isVoiceRoleUsing()) {
+        if (data.isVoiceRoleUsingPosition()) {
             /*非空麦位*/
 
             if (data.isCurrentVoiceUser(user.id)) {
@@ -373,7 +384,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             return;
 
         VoiceRoleOperationDialogFragment fragment;
-        if (data.isVoiceRoleUsing()) {
+        if (data.isVoiceRoleUsingPosition()) {
             /*非空麦位*/
 
             if (data.isCurrentVoiceUser(user.id)) {
@@ -505,6 +516,17 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             case FRESH:
                 requstData();
                 break;
+        }
+    }
+
+    /*房主表情展示*/
+    @Subscribe
+    public void onEvent(RoomRoleOperationEvent.OnEmojiEvent event) {
+        if (event == null || event.data != null)
+            return;
+
+        if (user.isVoiceHolder()) {
+            //TODO
         }
     }
 

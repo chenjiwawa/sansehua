@@ -1,5 +1,6 @@
 package com.tricolorflower.heartbeat.home.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.fragment.QsViewPagerFragment;
 import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
+import com.tricolorflower.heartbeat.AnimationFromAssetsActivity;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.home.CategoryTypeI;
@@ -214,6 +216,8 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
 //                VoiceAdmin2ClientOperationDialogFragment.getInstance(null).show();
 
 //                VoiceHolder2EmptyOperationDialogFragment.getInstance(null).show();
+
+//                startActivity(new Intent(getContext(), AnimationFromAssetsActivity.class));
 
                 bundle = new Bundle();
                 bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, 11);

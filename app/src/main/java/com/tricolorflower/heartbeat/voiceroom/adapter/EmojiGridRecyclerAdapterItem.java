@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
@@ -16,6 +17,7 @@ import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.appdetail.AppDetailActivity;
 import com.tricolorflower.heartbeat.appdetail.model.App;
 import com.tricolorflower.heartbeat.appdetail.model.AppDetailConstants;
+import com.tricolorflower.heartbeat.common.event.RoomRoleOperationEvent;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.EmojiList;
 
@@ -24,6 +26,8 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.EmojiList;
  */
 public class EmojiGridRecyclerAdapterItem extends QsRecycleAdapterItem<EmojiList.Emoji> {
 
+    @Bind(R.id.rl_item_emoji_grid)
+    RelativeLayout item;
     @Bind(R.id.iv_img_emoji_grid)
     ImageView ivImgEmojiGrid;
     @Bind(R.id.tv_title_emoji_grid)
@@ -46,7 +50,12 @@ public class EmojiGridRecyclerAdapterItem extends QsRecycleAdapterItem<EmojiList
 
         QsHelper.getInstance().getImageHelper().createRequest().load(data.emojiPic).roundedCorners(CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9)).into(ivImgEmojiGrid);
         tvTitleEmojiGrid.setText(data.emojiName);
-
+        item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QsHelper.getInstance().eventPost(new RoomRoleOperationEvent.OnEmojiEvent(data));
+            }
+        });
     }
 
     @OnClick({R.id.rl_item_emoji_grid})

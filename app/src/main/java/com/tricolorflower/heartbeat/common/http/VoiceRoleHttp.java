@@ -4,6 +4,8 @@ import com.qsmaxmin.qsbase.common.aspect.Body;
 import com.qsmaxmin.qsbase.common.aspect.GET;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRoleResponse;
 
 /**
  * @CreateBy qsmaxmin
@@ -14,6 +16,6 @@ import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 public interface VoiceRoleHttp {
 
     @GET("/api/Room/get_user_info")
-    VoiceRoleList.VoiceRole requestVoiceRoleInfo(@Body BaseVoiceRoleRequestBody body);
+    VoiceRoleResponse requestVoiceRoleInfo(@Body BaseVoiceRoleRequestBody body);
 
 }

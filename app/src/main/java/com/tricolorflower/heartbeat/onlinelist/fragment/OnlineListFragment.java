@@ -14,12 +14,20 @@ import com.tricolorflower.heartbeat.onlinelist.adapter.OnlineRecyclerAdapterItem
 import com.tricolorflower.heartbeat.onlinelist.model.OnlineListConstants;
 import com.tricolorflower.heartbeat.onlinelist.presenter.OnlineListPresenter;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
+import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class OnlineListFragment extends QsPullRecyclerFragment<OnlineListPresenter, VoiceRoleList.VoiceRole> {
+public class OnlineListFragment extends QsPullRecyclerFragment<OnlineListPresenter, VoiceRole> {
 
-    String app_taxon_id;
-    int type = 0;
+    VoiceRoom voiceRoom;
+    VoiceRole voiceHolder;
+    List<VoiceRole> voiceClients;
+    VoiceRole user;
 
     public static Fragment getInstance(Bundle extras) {
         OnlineListFragment fragment = new OnlineListFragment();
@@ -34,11 +42,7 @@ public class OnlineListFragment extends QsPullRecyclerFragment<OnlineListPresent
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        Bundle arguments = getArguments();
-        if (arguments == null) return;
-        type = arguments.getInt(OnlineListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_TYPE, 0);
-        app_taxon_id = arguments.getString(OnlineListConstants.BUNDLE_KEY_RECOMMENDLIST_REQUEST_APP_TAXON_ID);
-        L.i(initTag(), " type " + type);
+        initArgumentData();
 
         requestVoiceRoleList(false);
         getRecyclerView().setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -52,6 +56,22 @@ public class OnlineListFragment extends QsPullRecyclerFragment<OnlineListPresent
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
+    }
+
+    private void initArgumentData() {
+        Bundle arguments = getArguments();
+        if (arguments == null) return;
+
+        voiceRoom = (VoiceRoom) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
+        voiceHolder = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_HOLDER);
+        voiceClients = (ArrayList<VoiceRole>) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENTS);
+        user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
+
+        L.i(initTag(), " initArgumentData voiceRoom " + voiceRoom);
+        L.i(initTag(), " initArgumentData voiceHolder " + voiceHolder);
+        L.i(initTag(), " initArgumentData voiceClients " + voiceClients);
+        L.i(initTag(), " initArgumentData user " + user);
+
     }
 
     @Override

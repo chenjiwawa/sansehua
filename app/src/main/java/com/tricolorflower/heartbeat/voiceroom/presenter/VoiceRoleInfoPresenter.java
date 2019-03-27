@@ -8,6 +8,8 @@ import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleInfoFragment;
 import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRoleResponse;
 
 /**
  * @CreateBy qsmaxmin
@@ -19,10 +21,10 @@ public class VoiceRoleInfoPresenter extends DapporePresenter<VoiceRoleInfoFragme
     @ThreadPoint(ThreadType.HTTP)
     public void requstData(String token, int uid) {
         VoiceRoleHttp http = createHttpRequest(VoiceRoleHttp.class);
-        VoiceRoleList.VoiceRole response = http.requestVoiceRoleInfo(new BaseVoiceRoleRequestBody(token, uid));
+        VoiceRoleResponse response = http.requestVoiceRoleInfo(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);
-        if (isSuccess(response)) {
-            getView().setVoiceRoleInfoView(response);
+        if (isSuccess(response) && response.data != null) {
+            getView().setVoiceRoleInfoView(response.data);
         } else {
         }
     }

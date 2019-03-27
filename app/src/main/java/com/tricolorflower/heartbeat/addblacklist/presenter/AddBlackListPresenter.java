@@ -20,7 +20,7 @@ public class AddBlackListPresenter extends DapporePresenter<AddBlackListFragment
         BaseModel response = http.addBlack(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);
         if (isSuccess(response)) {
-
+            getView().setCommitSuccessView();
         } else {
 
         }

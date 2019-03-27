@@ -11,6 +11,8 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.common.listener.ItemListener;
+import com.tricolorflower.heartbeat.common.listener.ItemSingleSelectListener;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.LabelList;
 
 /**
@@ -24,11 +26,12 @@ public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<LabelList
     TextView tvTitleLabelGrid;
 
     private LabelList.Label data;
-    private ItemListener itemListener;
+    private ItemSingleSelectListener itemListener;
     private int preposition = 0;
 
-    public LabelGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent) {
+    public LabelGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, ItemSingleSelectListener itemListener) {
         super(inflater, parent);
+        this.itemListener = itemListener;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<LabelList
             @Override
             public void onClick(View v) {
                 if (itemListener != null) {
-                    itemListener.onItemClick(data, position, preposition, totalCount);
+                    itemListener.onItemClick(data, preposition, position, totalCount);
                 }
                 preposition = position;
             }
@@ -60,9 +63,5 @@ public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<LabelList
             case R.id.tv_title_label_grid:
                 break;
         }
-    }
-
-    public  interface ItemListener<T> {
-        void onItemClick(T data, int position, int preposition, int totalCount);
     }
 }

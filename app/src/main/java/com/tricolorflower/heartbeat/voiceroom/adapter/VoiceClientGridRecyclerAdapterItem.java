@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.opensource.svgaplayer.SVGAImageView;
 import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
@@ -29,7 +30,7 @@ public class VoiceClientGridRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
     @Bind(R.id.iv_logo_voice_client)
     ImageView ivLogoVoiceClient;
     @Bind(R.id.iv_animation_voice_client)
-    ImageView ivAnimationVoiceClient;
+    SVGAImageView ivAnimationVoiceClient;
     @Bind(R.id.rl_item_voice_client)
     RelativeLayout rlItemVoiceClient;
     @Bind(R.id.tv_name_voice_client)

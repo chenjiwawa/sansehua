@@ -32,6 +32,8 @@ public class BaseVoiceRole implements Serializable {
     public String name;
     @SerializedName("pic")
     public String logo;
+    @SerializedName("position")
+    public int position;
 
     /*声网语音直播*/
     public String agoraChannelName;
@@ -42,7 +44,7 @@ public class BaseVoiceRole implements Serializable {
     public int rongChatRoomType;
 
     /*控制状态*/
-    public int voiceRole;//1普通观众   2房主   3管理员
+    public int voiceRole;//1普通观众   2房主   3管理员 TODO 未用到
     @SerializedName("role")
     public int permission;//1普通观众   2房主   3管理员
     @SerializedName("turn_music")
@@ -54,15 +56,21 @@ public class BaseVoiceRole implements Serializable {
 
 
     public boolean isVoiceClient() {
-        return (voiceRole == VOICE_CLIENT ? true : false);
+        if ((permission == PERMISSION_ADMIN || permission == PERMISSION_GUEST) && position > 0) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isVoiceAuditor() {
-        return (voiceRole == VOICE_AUDITOR ? true : false);
+        if ((permission == PERMISSION_ADMIN || permission == PERMISSION_GUEST) && position == 0) {
+            return true;
+        }
+        return false;
     }
 
     public boolean isVoiceHolder() {
-        return (voiceRole == VOICE_HOLDER ? true : false);
+        return (permission == PERMISSION_HOLDER ? true : false);
     }
 
     public boolean isPermissionGuest() {
@@ -84,7 +92,7 @@ public class BaseVoiceRole implements Serializable {
         return false;
     }
 
-    public boolean isVoiceRoleUsing() {
+    public boolean isVoiceRoleUsingPosition() {
         return (id != 0 ? true : false);
     }
 

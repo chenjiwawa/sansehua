@@ -24,7 +24,7 @@ android {
             exclude 'META-INF/proguard/androidx-annotations.pro'
         }
         multiDexEnabled true
-        buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis()+"L"
+        buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis() + "L"
         ndk {
             abiFilters 'armeabi-v7a'
         }
@@ -149,4 +149,7 @@ dependencies {
     //音乐播放器
 
     //融云IM
+
+    //动画播放器
+    compile 'com.github.yyued:SVGAPlayer-Android:2.4.2'
 }

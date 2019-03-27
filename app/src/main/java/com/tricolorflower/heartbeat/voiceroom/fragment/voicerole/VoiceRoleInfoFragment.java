@@ -104,13 +104,13 @@ public class VoiceRoleInfoFragment extends QsFragment<VoiceRoleInfoPresenter> {
         getPresenter().requstData(token, data.id);
     }
 
-    public void setVoiceRoleInfoView(VoiceRoleList.VoiceRole data) {
+    public void setVoiceRoleInfoView(VoiceRole data) {
         L.i(initTag(), " setVoiceRoleInfoView " + data);
         if (data == null)
             return;
 
-        QsHelper.getInstance().getImageHelper().createRequest().load(data.pic).circleCrop().into(ivImgUser);
-        tvTitleUser.setText(data.nickname);
+        QsHelper.getInstance().getImageHelper().createRequest().load(data.logo).circleCrop().into(ivImgUser);
+        tvTitleUser.setText(data.name);
         tvIdUser.setText(data.id);
         tvAgeUser.setText(data.age + "");
         tvHoroscopeUser.setText(data.constellation);

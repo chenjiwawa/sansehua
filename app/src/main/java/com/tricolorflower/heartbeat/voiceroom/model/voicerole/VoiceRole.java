@@ -6,8 +6,14 @@ import java.io.Serializable;
 
 public class VoiceRole extends BaseVoiceRole implements Serializable {
 
-    @SerializedName("position")
-    public int position;
+    public int sex;
+    public String birthday;
+    public int vip;
+    public int wealth_level;//TODO
+    public int charm_level;
+    public int age;
+    public String constellation;
+    public boolean isSelect;
 
     @Override
     public String toString() {

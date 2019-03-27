@@ -117,6 +117,7 @@ public class VoiceAdmin2EmptyOperationFragment extends VoiceRoleOperationFragmen
         if (voiceRoom == null || user == null || data == null)
             return;
 
+        leroleLogin();
     }
 
 }

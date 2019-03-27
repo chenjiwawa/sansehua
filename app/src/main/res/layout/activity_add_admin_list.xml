@@ -1,54 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_bg"
-    android:orientation="vertical"
     android:paddingTop="16dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_white"
-        android:padding="5dp">
-
-        <Button
-            android:id="@+id/search"
-            style="@style/text_content_three_white"
-            android:layout_width="90dp"
-            android:layout_height="36dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/selector_bg_input_message"
-            android:gravity="center"
-            android:text="搜索" />
-
-        <EditText
-            android:id="@+id/input"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:layout_marginRight="10dp"
-            android:layout_toLeftOf="@+id/search"
-            android:background="@drawable/shape_rect_lightgray_2dp_stroke"
-            android:text=" " />
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="授予权限包括：禁麦、封麦、踢人、抱人、拉黑，请谨慎处理" />
-
-    <RelativeLayout
-        android:id="@android:id/custom"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/color_bg"
+        android:orientation="vertical"
         android:paddingTop="16dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/search"
+                style="@style/text_content_three_white"
+                android:layout_width="90dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/selector_bg_input_message"
+                android:gravity="center"
+                android:text="搜索" />
+
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/search"
+                android:background="@drawable/shape_rect_lightgray_2dp_stroke"
+                android:text=" " />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="授予权限包括：禁麦、封麦、踢人、抱人、拉黑，请谨慎处理" />
+
+        <RelativeLayout
+            android:id="@android:id/custom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp">
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_bg"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_commit_add_admin_list"
+            style="@style/userlabel"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:text="添加为管理员" />
 
     </RelativeLayout>
 
-</LinearLayout>
+
+</RelativeLayout>

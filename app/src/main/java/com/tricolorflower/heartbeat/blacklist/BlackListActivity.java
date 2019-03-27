@@ -47,10 +47,7 @@ public class BlackListActivity extends QsABActivity {
                 activityFinish();
                 break;
             case R.id.confirm:
-                Bundle bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
-                QsHelper.getInstance().intent2Activity(AddBlackListActivity.class, bundle);
+                QsHelper.getInstance().intent2Activity(AddBlackListActivity.class, getIntent().getExtras());
                 break;
         }
     }

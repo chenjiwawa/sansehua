@@ -2,6 +2,7 @@ package com.tricolorflower.heartbeat.adminlist.presenter;
 
 import com.qsmaxmin.qsbase.common.aspect.ThreadPoint;
 import com.qsmaxmin.qsbase.common.aspect.ThreadType;
+import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.tricolorflower.heartbeat.adminlist.fragment.AdminListFragment;
 import com.tricolorflower.heartbeat.common.http.AdminListHttp;
 import com.tricolorflower.heartbeat.common.http.VoiceRoleListHttp;
@@ -35,7 +36,7 @@ public class AdminListPresenter extends DapporePresenter<AdminListFragment> {
         BaseModel response = http.deleteAdmin(new BaseVoiceRoleRequestBody(token, uid));
         showFailMsg(response);
         if (isSuccess(response)) {
-
+            requestAdminList(token);
         } else {
 
         }

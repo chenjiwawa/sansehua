@@ -2,6 +2,7 @@ package com.tricolorflower.heartbeat.adminlist;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
@@ -11,8 +12,12 @@ import com.qsmaxmin.qsbase.mvp.QsABActivity;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.addadminlist.AddAdminListActivity;
 import com.tricolorflower.heartbeat.adminlist.fragment.AdminListFragment;
+import com.tricolorflower.heartbeat.common.event.VoiceRoleOperationEvent;
+import com.tricolorflower.heartbeat.common.event.VoiceRoomEvent;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
+
+import org.greenrobot.eventbus.Subscribe;
 
 public class AdminListActivity extends QsABActivity {
 
@@ -47,10 +52,7 @@ public class AdminListActivity extends QsABActivity {
                 activityFinish();
                 break;
             case R.id.confirm:
-                Bundle bundle = new Bundle();
-                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
-                bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
-                QsHelper.getInstance().intent2Activity(AddAdminListActivity.class, bundle);
+                QsHelper.getInstance().intent2Activity(AddAdminListActivity.class, getIntent().getExtras());
                 break;
         }
     }

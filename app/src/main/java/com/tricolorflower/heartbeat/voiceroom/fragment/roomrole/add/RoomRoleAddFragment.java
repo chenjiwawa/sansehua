@@ -72,17 +72,19 @@ public class RoomRoleAddFragment extends QsFragment {
     }
 
     public void roomRole2AdminList() {
-        bundle = new Bundle();
-        bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
-        bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
-        QsHelper.getInstance().intent2Activity(AdminListActivity.class, bundle);
+//        bundle = new Bundle();
+//        bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
+//        bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+
+        QsHelper.getInstance().intent2Activity(AdminListActivity.class, getArguments());
     }
 
     public void roomRole2BlackList() {
-        bundle = new Bundle();
-        bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
-        bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
-        QsHelper.getInstance().intent2Activity(BlackListActivity.class, bundle);
+//        bundle = new Bundle();
+//        bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_ID, "1");
+//        bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE, BaseVoiceRole.VOICE_HOLDER);
+
+        QsHelper.getInstance().intent2Activity(BlackListActivity.class, getArguments());
     }
 
 
