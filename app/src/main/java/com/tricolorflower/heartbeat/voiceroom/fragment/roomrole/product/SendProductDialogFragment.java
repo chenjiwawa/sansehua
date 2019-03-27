@@ -1,6 +1,7 @@
 package com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,10 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.common.event.RoomRoleOperationEvent;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class SendProductDialogFragment extends QsDialogFragment {
     @Bind(R.id.content)
@@ -20,6 +25,15 @@ public class SendProductDialogFragment extends QsDialogFragment {
         SendProductDialogFragment fragment = new SendProductDialogFragment();
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
@@ -61,5 +75,24 @@ public class SendProductDialogFragment extends QsDialogFragment {
         dismissAllowingStateLoss();
     }
 
+    @Subscribe
+    public void onEvent(RoomRoleOperationEvent.OnDialogFragment event) {
+        if (event == null)
+            return;
+
+        switch (event.state) {
+            case DIDMISS:
+                dismiss();
+                break;
+        }
+    }
+
+
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
 
 }

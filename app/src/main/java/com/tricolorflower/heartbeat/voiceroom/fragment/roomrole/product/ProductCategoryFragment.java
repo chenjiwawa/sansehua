@@ -14,6 +14,7 @@ import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.home.model.HomeConstants;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.emoji.EmojiGridFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
 import com.tricolorflower.heartbeat.voiceroom.presenter.ProductCategoryPresenter;
 
 /**
@@ -23,7 +24,7 @@ import com.tricolorflower.heartbeat.voiceroom.presenter.ProductCategoryPresenter
  * @Date 16/8/2
  * @Description
  */
-public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategoryPresenter>{
+public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategoryPresenter> {
 
     @Bind(R.id.rl_tab_recommend)
     RelativeLayout rl_tab_recommend;
@@ -31,6 +32,8 @@ public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategory
     RelativeLayout rl_tab_rank;
     @Bind(R.id.rl_tab_category)
     RelativeLayout rl_tab_category;
+
+    ProductPagerFragment giftProductPagerFragment;
 
     public static ProductCategoryFragment getInstance(Bundle bundle) {
         ProductCategoryFragment fragment = new ProductCategoryFragment();
@@ -55,13 +58,14 @@ public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategory
 
     public QsModelPager[] getModelPagers() {
         QsModelPager modelRecommend = createModelPager(HomeConstants.INDEX_RECOMMEND);
-        modelRecommend.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
+        giftProductPagerFragment = (ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
+        modelRecommend.fragment = giftProductPagerFragment;
 
         QsModelPager modelRank = createModelPager(HomeConstants.INDEX_RANK);
         modelRank.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
 
         QsModelPager modelCategory = createModelPager(HomeConstants.INDEX_CATEGORY);
-        modelCategory.fragment =(ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
+        modelCategory.fragment = (ProductPagerFragment) ProductPagerFragment.getInstance(getArguments());
 
         return new QsModelPager[]{modelRecommend, modelRank, modelCategory};
     }
@@ -171,6 +175,14 @@ public class ProductCategoryFragment extends QsViewPagerFragment<ProductCategory
                 pager.setCurrentItem(2);
                 break;
         }
+    }
+
+    public ProductList.Product getSelectGiftProduct() {
+        if (giftProductPagerFragment != null) {
+            return giftProductPagerFragment.getSelectProduct();
+        }
+
+        return null;
     }
 
 

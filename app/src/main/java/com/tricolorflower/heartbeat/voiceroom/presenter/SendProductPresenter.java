@@ -26,7 +26,7 @@ public class SendProductPresenter extends DapporePresenter<SendProductFragment> 
         BaseModel response = http.sendProduct(requestBody);
         showFailMsg(response);
         if (isSuccess(response)) {
-            getView().setsendProductSuccessView();
+            getView().setSendProductSuccessView();
         } else {
         }
     }

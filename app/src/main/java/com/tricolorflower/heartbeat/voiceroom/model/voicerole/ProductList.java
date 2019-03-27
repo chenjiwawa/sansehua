@@ -37,5 +37,6 @@ public class ProductList extends BaseModel {
         public String price;
         @SerializedName("gift_svga")
         public String giftSvga;
+        public boolean isSelect;
     }
 }

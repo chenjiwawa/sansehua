@@ -43,4 +43,19 @@ public class RoomRoleOperationEvent {
 
     }
 
+    public static class OnProductGridEvent {
+        public State state;
+        public int pageNo;
+
+        public OnProductGridEvent(State state, int pageNo) {
+            this.state = state;
+            this.pageNo = pageNo;
+        }
+
+        public enum State {
+            FRESH
+        }
+
+    }
+
 }

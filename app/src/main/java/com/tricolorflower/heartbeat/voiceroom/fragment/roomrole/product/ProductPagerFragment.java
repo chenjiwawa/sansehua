@@ -17,12 +17,15 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsViewPagerFragment;
 import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.appdetail.model.App;
+import com.tricolorflower.heartbeat.common.listener.ItemSelectListener;
+import com.tricolorflower.heartbeat.common.listener.ItemSingleSelectListener;
 import com.tricolorflower.heartbeat.common.model.BaseRequstBody;
 import com.tricolorflower.heartbeat.common.model.UserConfig;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.common.widget.shadow.ShadowDrawable;
 import com.tricolorflower.heartbeat.home.model.HomeConstants;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
+import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductPageList;
 import com.tricolorflower.heartbeat.voiceroom.presenter.ProductPagerPresenter;
 
@@ -30,15 +33,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @CreateBy qsmaxmin
  * @Date 16/8/2
  * @Description
  */
-public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresenter> {
+public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresenter> implements ItemSelectListener<ProductList.Product> {
 
     @Bind(R.id.ll_tabs_category)
     LinearLayout ll_tabs_category;
+
+    ProductList.Product data;
 
     public static ProductPagerFragment getInstance(Bundle bundle) {
         ProductPagerFragment fragment = new ProductPagerFragment();
@@ -82,7 +86,9 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
             QsModelPager model = createModelPager(i, productPages.get(i).pageId + "");
             Bundle bundle = new Bundle();
             bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_PRODUCTLIST_REQUEST_PAGE_NO, i + 1);
-            model.fragment = ProductGridFragment.getInstance(bundle);
+            ProductGridFragment fragment = ProductGridFragment.getInstance(bundle);
+            fragment.setItemListener(this);
+            model.fragment = fragment;
             modelPagers.add(model);
         }
 
@@ -176,4 +182,12 @@ public class ProductPagerFragment extends QsViewPagerFragment<ProductPagerPresen
         return R.layout.item_product_pager_tab;
     }
 
+    @Override
+    public void onItemSelect(ProductList.Product data) {
+        this.data = data;
+    }
+
+    public ProductList.Product getSelectProduct() {
+        return data;
+    }
 }

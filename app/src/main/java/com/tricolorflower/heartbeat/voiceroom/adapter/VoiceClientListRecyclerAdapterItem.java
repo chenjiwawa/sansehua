@@ -13,6 +13,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.mvp.adapter.QsRecycleAdapterItem;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.common.listener.ItemListener;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 
 
@@ -20,7 +21,6 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
  * Created by zhang on 2017/3/17.
  */
 public class VoiceClientListRecyclerAdapterItem extends QsRecycleAdapterItem<VoiceRole> {
-
 
     @Bind(R.id.iv_decorate_voice_client_list)
     ImageView ivDecorateVoiceClient;
@@ -32,10 +32,13 @@ public class VoiceClientListRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
     RelativeLayout rlItemVoiceClient;
     @Bind(R.id.tv_name_voice_client_list)
     TextView tvNameVoiceClient;
-    private VoiceRole data;
 
-    public VoiceClientListRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent) {
+    private VoiceRole data;
+    ItemListener itemListener;
+
+    public VoiceClientListRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, ItemListener itemListener) {
         super(inflater, parent);
+        this.itemListener = itemListener;
     }
 
     @Override
@@ -48,6 +51,15 @@ public class VoiceClientListRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
         this.data = data;
         QsHelper.getInstance().getImageHelper().createRequest().load(R.mipmap.ic_launcher).circleCrop().into(ivLogoVoiceClient);
         tvNameVoiceClient.setText(position + "分");
+
+        rlItemVoiceClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itemListener != null) {
+                    itemListener.onItemClick(data, position, totalCount);
+                }
+            }
+        });
 
     }
 

@@ -18,8 +18,10 @@ import com.tricolorflower.heartbeat.appdetail.AppDetailActivity;
 import com.tricolorflower.heartbeat.appdetail.model.App;
 import com.tricolorflower.heartbeat.appdetail.model.AppDetailConstants;
 import com.tricolorflower.heartbeat.common.event.VoiceRoomProductEvent;
+import com.tricolorflower.heartbeat.common.listener.ItemSingleSelectListener;
 import com.tricolorflower.heartbeat.common.utils.CommonUtils;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.LabelList;
 
 /**
  * Created by zhang on 2017/3/17.
@@ -36,9 +38,12 @@ public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<Product
     TextView tvDesProductGrid;
 
     private ProductList.Product data;
+    private ItemSingleSelectListener itemListener;
+    private int preposition = 0;
 
-    public ProductGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent) {
+    public ProductGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, ItemSingleSelectListener itemListener) {
         super(inflater, parent);
+        this.itemListener = itemListener;
     }
 
     @Override
@@ -53,10 +58,14 @@ public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<Product
         QsHelper.getInstance().getImageHelper().createRequest().load(data.giftPic).roundedCorners(CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9), CommonUtils.dp2px(9)).into(ivImgProductGrid);
         tvTitleProductGrid.setText(data.giftName);
         tvDesProductGrid.setText(data.price);
+
         item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                QsHelper.getInstance().eventPost(new VoiceRoomProductEvent.OnChoiceEvent(VoiceRoomProductEvent.OnChoiceEvent.State.SELECT, data));
+                if (itemListener != null) {
+                    itemListener.onItemClick(data, preposition, position, totalCount);
+                }
+                preposition = position;
             }
         });
     }
