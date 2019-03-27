@@ -1,4 +1,4 @@
-package com.tricolorflower.heartbeat.voiceroom.model.message;
+package com.tricolorflower.heartbeat.voiceroom.model.message.content;
 
 import com.google.gson.annotations.SerializedName;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.EmojiList;
@@ -6,7 +6,7 @@ import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 
-public class VoiceRoomMessageExtraContent {
+public class copy {
 
     public static final String enter_room = "enter_room";//2 用户进入房间
     public static final String send_gift = "send_gift";//3 发送礼物

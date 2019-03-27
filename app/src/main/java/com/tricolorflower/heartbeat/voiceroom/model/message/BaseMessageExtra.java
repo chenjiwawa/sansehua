@@ -10,10 +10,16 @@ import java.io.Serializable;
 
 public class BaseMessageExtra implements Serializable {
 
-    @SerializedName("messageExtraInfo")
-    public BaseMessageExtraInfo messageExtraInfo;
+    @SerializedName("type")
+    public String messageExtraType;
 
-    @SerializedName("messageExtraContent")
+    @SerializedName("is_display")
+    public String isDisplay;
+
+    @SerializedName("content")
     public BaseMessageExtraContent messageExtraContent;
+
+    @SerializedName("extra")
+    public String messageExtraExtra;
 
 }

@@ -8,6 +8,13 @@ import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 
 public class BaseMessageExtraContent {
 
+    public static final String microseat_message = "microseat_message";//麦位各种消息
+    public static final String room_message = "room_message";//房间各种消息
+    public static final String admin_message = "admin_message";//管理员黑名单消息
+    public static final String chat_message = "chat_message";//管理员黑名单消息
+    public static final String gift_message = "gift_message";//聊天室发送礼物消息
+    public static final String emoji_message = "emoji_message";//聊天室发送表情消息
+
     public static final String enter_room = "enter_room";//2 用户进入房间
     public static final String send_gift = "send_gift";//3 发送礼物
     public static final String send_message = "send_message";//4 发送聊天
