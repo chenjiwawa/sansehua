@@ -19,4 +19,5 @@ public class VoiceRoomMessageExtraContent {
 //    @SerializedName("'driver_info")
 //    public ProductList.Product voiceRoom;
 
+
 }
