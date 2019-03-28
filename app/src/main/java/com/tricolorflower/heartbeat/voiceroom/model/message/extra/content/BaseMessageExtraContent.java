@@ -1,19 +1,15 @@
-package com.tricolorflower.heartbeat.voiceroom.model.message.content;
+package com.tricolorflower.heartbeat.voiceroom.model.message.extra.content;
 
 import com.google.gson.annotations.SerializedName;
+import com.tricolorflower.heartbeat.voiceroom.model.message.extra.VoiceRoomWithFromToMessageExtra;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.EmojiList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.ProductList;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 
-public class BaseMessageExtraContent {
+import java.io.Serializable;
 
-    public static final String microseat_message = "microseat_message";//麦位各种消息
-    public static final String room_message = "room_message";//房间各种消息
-    public static final String admin_message = "admin_message";//管理员黑名单消息
-    public static final String chat_message = "chat_message";//管理员黑名单消息
-    public static final String gift_message = "gift_message";//聊天室发送礼物消息
-    public static final String emoji_message = "emoji_message";//聊天室发送表情消息
+public class BaseMessageExtraContent implements Serializable {
 
     public static final String enter_room = "enter_room";//2 用户进入房间
     public static final String send_gift = "send_gift";//3 发送礼物
@@ -35,27 +31,36 @@ public class BaseMessageExtraContent {
     public static final String send_emoji = "send_emoji";//19 发表情
     public static final String add_admin = "add_admin";//20 添加管理员
     public static final String delete_admin = "delete_admin";//21 移除管理员
+    public static final String add_black = "add_black";//添加黑名单
 
     @SerializedName("name")
     public String type;
-    @SerializedName("voiceRoom")
-    public VoiceRoom voiceRoom;
-    @SerializedName("user")
-    public VoiceRole user;
-    @SerializedName("target")
-    public VoiceRole target;
-    @SerializedName("product")
-    public ProductList.Product product;
-    @SerializedName("emoji")
-    public EmojiList.Emoji emoji;
 
-    public void handleMessageType(String type) {
-        switch (type) {
+//    @SerializedName("from_user")
+//    public VoiceRole from;
+//
+//    @SerializedName("to_user")
+//    public VoiceRole to;
+//
+//    @SerializedName("room_info")
+//    public VoiceRoom voiceRoom;
+//
+//    @SerializedName("'gift_info")
+//    public ProductList.Product gift;
+//
+//    @SerializedName("'driver_info")
+//    public ProductList.Product vehicle;
+
+    public void handleMessageExtraContentType(String messageExtraContentType) {
+        switch (messageExtraContentType) {
             case enter_room:
+                //VoiceRoomVehicleMessageExtra
                 break;
             case send_gift:
+                //VoiceRoomGiftMessageExtraContent
                 break;
             case send_message:
+                //
                 break;
             case out_seat:
             case upper_seat:
@@ -80,34 +85,14 @@ public class BaseMessageExtraContent {
             case member_online:
                 break;
             case send_emoji:
+                //VoiceRoomEmojiMessageExtraContent
                 break;
             case add_admin:
             case delete_admin:
+            case add_black:
+                // VoiceRoomWithFromToMessageExtraContent
                 break;
         }
     }
-
-    public String getContentFromExtra(String type) {
-        switch (type) {
-            case enter_room:
-                if (user != null) {
-                    return user.name + "来了";
-                }
-                break;
-            case send_gift:
-                if (user != null && target != null) {
-                    return user.name + "给" + target.name + "送了" + "" + "个" + product.giftName;
-                }
-                break;
-            case "guanzhu":
-                if (user != null) {
-                    return user.name + "关注了房主，不错过下次群聊";
-                }
-                break;
-        }
-
-        return "";
-    }
-
 
 }

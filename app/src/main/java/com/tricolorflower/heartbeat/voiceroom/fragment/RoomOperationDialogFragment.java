@@ -41,7 +41,6 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-
     @Override
     protected int getDialogTheme() {
         return R.style.evaluate_dialog_style;
@@ -98,7 +97,6 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
                 break;
         }
     }
-
 
     public void onDestroyView() {
         super.onDestroyView();

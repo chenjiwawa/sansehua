@@ -1,7 +1,7 @@
 package com.tricolorflower.heartbeat.common.event;
 
 
-import com.tricolorflower.heartbeat.voiceroom.model.message.BaseMessageExtra;
+import com.tricolorflower.heartbeat.voiceroom.model.message.extra.BaseMessageExtra;
 
 /**
  * @CreateBy qsmaxmin
