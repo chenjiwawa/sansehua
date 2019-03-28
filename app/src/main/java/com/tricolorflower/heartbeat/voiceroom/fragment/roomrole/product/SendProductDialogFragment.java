@@ -18,6 +18,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 public class SendProductDialogFragment extends QsDialogFragment {
+
     @Bind(R.id.content)
     RelativeLayout content;
 
@@ -52,7 +53,6 @@ public class SendProductDialogFragment extends QsDialogFragment {
         super.initData();
     }
 
-
     @Override
     public void onStart() {
         super.onStart();
@@ -77,7 +77,7 @@ public class SendProductDialogFragment extends QsDialogFragment {
 
     @Subscribe
     public void onEvent(RoomRoleOperationEvent.OnDialogFragment event) {
-        if (event == null)
+        if (event == null || event.state == null)
             return;
 
         switch (event.state) {
@@ -86,7 +86,6 @@ public class SendProductDialogFragment extends QsDialogFragment {
                 break;
         }
     }
-
 
     public void onDestroyView() {
         super.onDestroyView();

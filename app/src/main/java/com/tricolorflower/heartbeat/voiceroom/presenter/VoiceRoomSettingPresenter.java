@@ -51,7 +51,7 @@ public class VoiceRoomSettingPresenter extends DapporePresenter<VoiceRoomSetting
 
 
     @ThreadPoint(ThreadType.HTTP)
-    public void setVoiceRoomType(String token, String roomId, String type) {
+    public void setVoiceRoomType(String token, String roomId, int type) {
         VoiceRoomSettingHttp http = createHttpRequest(VoiceRoomSettingHttp.class);
         BaseModel response = http.setVoiceRoomType(new VoiceRoomTypeSettingRequestBody(token, roomId, type));
         showFailMsg(response);

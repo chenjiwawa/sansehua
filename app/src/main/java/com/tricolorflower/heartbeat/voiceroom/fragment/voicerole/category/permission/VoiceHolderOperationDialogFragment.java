@@ -1,4 +1,4 @@
-package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory;
+package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.permission;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

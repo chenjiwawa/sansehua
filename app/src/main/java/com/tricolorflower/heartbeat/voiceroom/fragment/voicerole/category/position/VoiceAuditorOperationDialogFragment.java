@@ -1,4 +1,4 @@
-package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory;
+package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.position;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,24 +9,25 @@ import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleInfoFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
 
-public class VoiceAdminOperationDialogFragment extends VoiceRoleOperationDialogFragment {
+public class VoiceAuditorOperationDialogFragment extends VoiceRoleOperationDialogFragment {
 
-    public static VoiceAdminOperationDialogFragment getInstance(Bundle extras) {
-        VoiceAdminOperationDialogFragment fragment = new VoiceAdminOperationDialogFragment();
+    public static VoiceAuditorOperationDialogFragment getInstance(Bundle extras) {
+        VoiceAuditorOperationDialogFragment fragment = new VoiceAuditorOperationDialogFragment();
         fragment.setArguments(extras);
         return fragment;
     }
 
     @Override
     protected View getDialogView(LayoutInflater layoutInflater, ViewGroup viewGroup) {
-        View view = layoutInflater.inflate(R.layout.dialog_voice_admin_operation, viewGroup);
+        View view = layoutInflater.inflate(R.layout.dialog_voice_auditor_operation, viewGroup);
         return view;
     }
 
     protected void setContentFragment(){
         QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.voiceinfolayout, VoiceRoleInfoFragment.getInstance(getArguments()), VoiceRoleInfoFragment.class.getSimpleName());
-        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, VoiceAdminOperationFragment.getInstance(getArguments()), VoiceAdminOperationFragment.class.getSimpleName());
+        QsHelper.getInstance().commitFragment(getChildFragmentManager(), R.id.fragmentlayout, VoiceRoleOperationFragment.getInstance(getArguments()), VoiceRoleOperationFragment.class.getSimpleName());
     }
 
 }

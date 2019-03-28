@@ -27,11 +27,12 @@ public class LabelGridRecyclerAdapterItem extends QsRecycleAdapterItem<LabelList
 
     private LabelList.Label data;
     private ItemSingleSelectListener itemListener;
-    private int preposition = 0;
+    private static int preposition = 0;
 
     public LabelGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, ItemSingleSelectListener itemListener) {
         super(inflater, parent);
         this.itemListener = itemListener;
+        preposition = 0;
     }
 
     @Override

@@ -5,9 +5,9 @@ import com.tricolorflower.heartbeat.common.model.BaseRequstBody;
 
 public class CreateVoiceRoomRequestBody extends BaseRequstBody {
 
-    public String room_type;
+    public int room_type;
 
-    public CreateVoiceRoomRequestBody(String token, String room_type) {
+    public CreateVoiceRoomRequestBody(String token, int room_type) {
         super(token);
         this.room_type = room_type;
     }

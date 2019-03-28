@@ -9,7 +9,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory.VoiceHolderOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.permission.VoiceHolderOperationFragment;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 
 

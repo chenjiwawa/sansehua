@@ -214,7 +214,7 @@ public class VoiceRoomSettingActivity extends QsABActivity<VoiceRoomSettingPrese
     }
 
     @Override
-    public void onTypeSetting(String data) {
+    public void onTypeSetting(int data) {
         getPresenter().setVoiceRoomType(token, voiceRoomId, data);
     }
 

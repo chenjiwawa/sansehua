@@ -20,6 +20,7 @@ public class VoiceRoomConstants {
     public static final String BUNDLE_KEY_REQUEST_VOICE_ROOM_RESPONSE = "bundle_key_request_voice_room_response";
     public static final String BUNDLE_KEY_REQUEST_VOICE_CLIENT_OR_AUDITOR = "bundle_key_request_voice_client_or_auditor";//当前语音房间麦上、麦下用户（非房主）
     public static final String BUNDLE_KEY_REQUEST_ID = "bundle_key_request_id";
+    public static final String BUNDLE_KEY_REQUEST_VOICEHOLDER_CREATE_OR_VOICEAUDITOR_JOIN = "bundle_key_request_voiceholder_create_or_voiceauditor_join";
 
     /*产品*/
     public static final String BUNDLE_KEY_PRODUCTLIST_REQUEST_PAGE_NO = "bundle_key_productlist_request_page_no";

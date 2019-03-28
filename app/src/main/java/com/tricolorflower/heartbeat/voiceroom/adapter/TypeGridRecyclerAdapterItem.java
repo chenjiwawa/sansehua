@@ -26,11 +26,12 @@ public class TypeGridRecyclerAdapterItem extends QsRecycleAdapterItem<TypeList.T
 
     private TypeList.Type data;
     private ItemSingleSelectListener itemListener;
-    private int preposition = 0;
+    private static int preposition = 0;
 
     public TypeGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, ItemSingleSelectListener itemListener) {
         super(inflater, parent);
         this.itemListener = itemListener;
+        preposition = 0;
     }
 
     @Override

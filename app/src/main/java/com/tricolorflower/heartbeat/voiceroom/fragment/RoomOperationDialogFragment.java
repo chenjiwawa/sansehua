@@ -1,52 +1,46 @@
 package com.tricolorflower.heartbeat.voiceroom.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.qsmaxmin.qsbase.common.log.L;
-import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.tricolorflower.heartbeat.R;
-import com.tricolorflower.heartbeat.common.agora.AgoraHelper;
-import com.tricolorflower.heartbeat.voiceroom.VoiceRoomSettingActivity;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
-import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
-import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
+import com.tricolorflower.heartbeat.common.event.VoiceRoomOperationEvent;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 public class RoomOperationDialogFragment extends QsDialogFragment {
 
     @Bind(R.id.content)
     RelativeLayout content;
-    @Bind(R.id.leave)
-    Button leave;
-    @Bind(R.id.report)
-    Button report;
-    @Bind(R.id.share)
-    Button share;
-    @Bind(R.id.setting)
-    Button setting;
-    @Bind(R.id.cancel)
-    Button cancel;
+    @Bind(R.id.fragmentlayout)
+    RelativeLayout fragmentlayout;
 
-    VoiceRoom voiceRoom;
-    VoiceRole voiceHolder;
-    List<VoiceRole> voiceClients;
-    VoiceRole user;
+    RoomOperationFragment fragment;
 
     public static RoomOperationDialogFragment getInstance(Bundle extras) {
         RoomOperationDialogFragment fragment = new RoomOperationDialogFragment();
         fragment.setArguments(extras);
         return fragment;
     }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
+
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
 
     @Override
     protected int getDialogTheme() {
@@ -62,36 +56,13 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
     @Override
     protected void initData() {
         super.initData();
-        initArgumentData();
+
+        setContentView();
     }
 
-    private void initArgumentData() {
-        Bundle arguments = getArguments();
-        if (arguments == null) return;
-
-        voiceRoom = (VoiceRoom) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM);
-        voiceHolder = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_HOLDER);
-        voiceClients = (ArrayList<VoiceRole>) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_CLIENTS);
-        user = (VoiceRole) arguments.getSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROLE_USER);
-
-        L.i(initTag(), " initArgumentData voiceRoom " + voiceRoom);
-        L.i(initTag(), " initArgumentData voiceHolder " + voiceHolder);
-        L.i(initTag(), " initArgumentData voiceClients " + voiceClients);
-        L.i(initTag(), " initArgumentData user " + user);
-
-    }
-
-    private void setView() {
-        if (user == null)
-            return;
-
-        if (user.isVoiceHolder()) {
-            report.setVisibility(View.GONE);
-            setting.setVisibility(View.VISIBLE);
-        } else {
-            report.setVisibility(View.VISIBLE);
-            setting.setVisibility(View.GONE);
-        }
+    private void setContentView() {
+        fragment = (RoomOperationFragment) getChildFragmentManager().findFragmentById(R.id.roomoperation);
+        fragment.setArguments(getArguments());
     }
 
     @Override
@@ -106,26 +77,34 @@ public class RoomOperationDialogFragment extends QsDialogFragment {
         getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
-    @OnClick({R.id.leave, R.id.report, R.id.share, R.id.setting, R.id.cancel, R.id.content})
+    @OnClick({R.id.content})
     public void onViewClick(View view) {
         super.onViewClick(view);
         switch (view.getId()) {
-            case R.id.leave:
-                AgoraHelper.getInstance().leaveChannel();
-                break;
-            case R.id.report:
-                break;
-            case R.id.share:
-                break;
-            case R.id.setting:
-                QsHelper.getInstance().intent2Activity(VoiceRoomSettingActivity.class, getArguments());
-                break;
-            case R.id.cancel:
-                dismiss();
-                break;
             case R.id.content:
                 break;
         }
         dismissAllowingStateLoss();
     }
+
+    @Subscribe
+    public void onEvent(VoiceRoomOperationEvent.OnDialogFragment event) {
+        if (event == null || event.state == null)
+            return;
+
+        switch (event.state) {
+            case DIDMISS:
+                dismiss();
+                break;
+        }
+    }
+
+
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
 }

@@ -26,8 +26,15 @@ public class BaseVoiceRole implements Serializable {
     public static final int PERMISSION_HOLDER = 2;
     public static final int PERMISSION_ADMIN = 3;
 
+    public static final int ID_EMPTY = 0;
     @SerializedName("uid")
     public int id;
+
+    //没有人用麦
+    public boolean isIdEmpty() {
+        return id == ID_EMPTY ? true : false;
+    }
+
     @SerializedName("nickname")
     public String name;
     @SerializedName("pic")
@@ -47,13 +54,30 @@ public class BaseVoiceRole implements Serializable {
     public int voiceRole;//1普通观众   2房主   3管理员 TODO 未用到
     @SerializedName("role")
     public int permission;//1普通观众   2房主   3管理员
+
     @SerializedName("turn_music")
     public int musicEnable;// 1关闭音乐权限，2为打开
+
+    //音乐权限打开
+    public boolean isMusicEnable() {
+        return musicEnable == 2 ? true : false;
+    }
+
     @SerializedName("is_voice")
     public int voiceMute;// 1关闭麦位声音，2打开麦位声音
+
+    //麦位声音关闭
+    public boolean isVoiceMute() {
+        return voiceMute == 1 ? true : false;
+    }
+
     @SerializedName("is_lock")
     public int voiceEnable;// 1解除锁麦，2锁麦
 
+    //封麦解除（可用）
+    public boolean isVoiceEnable() {
+        return voiceEnable == 1 ? true : false;
+    }
 
     public boolean isVoiceClient() {
         if ((permission == PERMISSION_ADMIN || permission == PERMISSION_GUEST) && position > 0) {

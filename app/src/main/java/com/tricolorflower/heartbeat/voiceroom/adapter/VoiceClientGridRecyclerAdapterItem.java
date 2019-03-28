@@ -19,6 +19,8 @@ import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.listener.OnVoiceClientListener;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 
+import static com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRole.ID_EMPTY;
+
 
 /**
  * Created by zhang on 2017/3/17.
@@ -31,10 +33,13 @@ public class VoiceClientGridRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
     ImageView ivLogoVoiceClient;
     @Bind(R.id.iv_animation_voice_client)
     SVGAImageView ivAnimationVoiceClient;
+    @Bind(R.id.iv_mute_voice_client)
+    ImageView ivMuteVoiceClient;
     @Bind(R.id.rl_item_voice_client)
     RelativeLayout rlItemVoiceClient;
     @Bind(R.id.tv_name_voice_client)
     TextView tvNameVoiceClient;
+
     private VoiceRole data;
     OnVoiceClientListener onVoiceClientListener;
 
@@ -53,10 +58,29 @@ public class VoiceClientGridRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
         this.data = data;
         L.i(initTag(), " onBindItemData " + data);
 
-        if (!TextUtils.isEmpty(data.logo)) {
-            QsHelper.getInstance().getImageHelper().createRequest().load(data.logo).circleCrop().into(ivLogoVoiceClient);
+        if (data.isIdEmpty()) {
+            //空麦位
+            if (data.isVoiceEnable()) {
+                ivLogoVoiceClient.setBackgroundResource(R.mipmap.ic_add_voice_client);
+            } else {
+                ivLogoVoiceClient.setBackgroundResource(R.mipmap.ic_close_voice_client);
+            }
+            tvNameVoiceClient.setVisibility(View.INVISIBLE);
+            ivMuteVoiceClient.setVisibility(View.GONE);
+        } else {
+            //有人麦位
+            if (!TextUtils.isEmpty(data.logo)) {
+                QsHelper.getInstance().getImageHelper().createRequest().load(data.logo).circleCrop().into(ivLogoVoiceClient);
+            }
+            tvNameVoiceClient.setVisibility(View.VISIBLE);
+            tvNameVoiceClient.setText(data.name + "");
+            if (data.isVoiceMute()) {
+                ivMuteVoiceClient.setVisibility(View.VISIBLE);
+            } else {
+                ivMuteVoiceClient.setVisibility(View.GONE);
+            }
         }
-        tvNameVoiceClient.setText(data.name + "");
+
 
         rlItemVoiceClient.setOnClickListener(new View.OnClickListener() {
             @Override

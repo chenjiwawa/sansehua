@@ -18,6 +18,9 @@ public interface VoiceRoomHttp {
     @POST("/api/Room/add_chatroom")
     EnterVoiceRoomResponse joinVoiceRoom(@Body BaseVoiceRoomRequestBody body);
 
+    @POST("/api/room/quit_chatroom")
+    BaseModel leaveVoiceRoom(@Body BaseVoiceRoomRequestBody body);
+
     @POST("/api/Room/get_chatroom_info")
     VoiceRoomResponse getVoiceRoomInfo(@Body BaseVoiceRoomRequestBody body);
 

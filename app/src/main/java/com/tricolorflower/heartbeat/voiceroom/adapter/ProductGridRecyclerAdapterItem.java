@@ -39,11 +39,12 @@ public class ProductGridRecyclerAdapterItem extends QsRecycleAdapterItem<Product
 
     private ProductList.Product data;
     private ItemSingleSelectListener itemListener;
-    private int preposition = 0;
+    private static int preposition = 0;
 
     public ProductGridRecyclerAdapterItem(LayoutInflater inflater, ViewGroup parent, ItemSingleSelectListener itemListener) {
         super(inflater, parent);
         this.itemListener = itemListener;
+        preposition = 0;
     }
 
     @Override

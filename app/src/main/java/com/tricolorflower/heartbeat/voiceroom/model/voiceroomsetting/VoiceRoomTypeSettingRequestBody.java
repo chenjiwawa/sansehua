@@ -4,9 +4,9 @@ import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.VoiceRoomSe
 
 public class VoiceRoomTypeSettingRequestBody extends VoiceRoomSettingRequestBody {
 
-    public String room_type;
+    public int room_type;
 
-    public VoiceRoomTypeSettingRequestBody(String token, String room_id, String room_type) {
+    public VoiceRoomTypeSettingRequestBody(String token, String room_id, int room_type) {
         super(token, room_id);
         this.room_type = room_type;
     }

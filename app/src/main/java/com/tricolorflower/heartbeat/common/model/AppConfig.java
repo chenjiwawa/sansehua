@@ -51,7 +51,7 @@ public class AppConfig extends QsProperties {
 
     /*序列化数据*/
     @Property
-    public String userId;                  // 用户名Id
+    public int userId;                  // 用户名Id
     @Property
     public boolean isFavoriteListClick;   // 我的页面，我的收藏列表是否点击过
     @Property
@@ -85,7 +85,7 @@ public class AppConfig extends QsProperties {
     /**
      * 登录成功保存用户id，成功后根据用户idUserConfig
      */
-    public void updateCurrentUserId(String userId, PropertyCallback callback) {
+    public void updateCurrentUserId(int userId, PropertyCallback callback) {
         this.userId = userId;
         L.e(initTag(), "updateCurrentUserId=" + userId);
         if (callback != null) {

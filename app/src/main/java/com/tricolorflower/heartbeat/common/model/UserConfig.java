@@ -17,6 +17,8 @@ import com.qsmaxmin.qsbase.common.utils.QsHelper;
  */
 public class UserConfig extends QsProperties {
 
+    public static final int USERID_EMPTY = 0;
+
     /**
      * 单例模式
      */
@@ -51,7 +53,7 @@ public class UserConfig extends QsProperties {
     }
 
     @Property
-    private String id;                // 用户Id
+    private int id;                // 用户Id
     @Property
     private String avatarUrl;              // 用户头像
     @Property
@@ -68,7 +70,7 @@ public class UserConfig extends QsProperties {
      */
     public void updateUserInfo(User info) {
         if (info == null) return;
-        if (!TextUtils.isEmpty(info.id)) this.id = info.id;
+        if (info.id != USERID_EMPTY) this.id = info.id;
         if (!TextUtils.isEmpty(info.name)) this.name = info.name;
         if (!TextUtils.isEmpty(info.avatarUrl)) this.avatarUrl = info.avatarUrl;
         if (!TextUtils.isEmpty(info.mobile)) this.mobile = info.mobile;
@@ -79,8 +81,8 @@ public class UserConfig extends QsProperties {
     }
 
 
-    public void setId(String id) {
-        if (!TextUtils.isEmpty(id)) {
+    public void setId(int id) {
+        if (id != USERID_EMPTY) {
             this.id = id;
             super.commit();
             QsHelper.getInstance().eventPost(new UserInfoEvent.OnUserInfoDataChanged());
@@ -155,13 +157,13 @@ public class UserConfig extends QsProperties {
         return mobile;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
     public void logout(final PropertyCallback callback) {
         setAuthTokenEmpty("");
-        id = null;
+        id = USERID_EMPTY;
         USER_CONFIG = null;//切记置空
         commit(new PropertyCallback() {
             @Override
@@ -172,6 +174,6 @@ public class UserConfig extends QsProperties {
     }
 
     public boolean isLogin() {
-        return (!TextUtils.isEmpty(id));
+        return this.id != USERID_EMPTY;
     }
 }

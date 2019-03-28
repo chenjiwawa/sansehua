@@ -1,6 +1,7 @@
 package com.tricolorflower.heartbeat.voiceroom.fragment;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import com.qsmaxmin.qsbase.common.log.L;
 import com.qsmaxmin.qsbase.common.utils.QsHelper;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
+import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.agora.AgoraHelper;
@@ -25,9 +27,9 @@ import com.tricolorflower.heartbeat.common.model.UserConfig;
 import com.tricolorflower.heartbeat.onlinelist.OnlineListActivity;
 import com.tricolorflower.heartbeat.voiceroom.fragment.chatroom.ChatRoomFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.RoomRoleOperationBarFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.positioncategory.VoiceAuditorOperationDialogFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.positioncategory.VoiceClientOperationDialogFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory.VoiceHolderOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.position.VoiceAuditorOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.position.VoiceClientOperationDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.permission.VoiceHolderOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleInfoDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceclient.VoiceAdmin2ClientOperationDialogFragment;
@@ -38,7 +40,6 @@ import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceempty.Voic
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceempty.VoiceHolder2EmptyOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.voiceuser.VoiceClient2UserOperationDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.listener.OnVoiceClientListener;
-import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroom.VoiceRoom;
 import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
@@ -71,6 +72,8 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     ImageView ivLogoVoiceRoom;
     @Bind(R.id.iv_animation_voice_room)
     ImageView ivAnimationVoiceRoom;
+    @Bind(R.id.iv_mute_voice_room)
+    ImageView ivMuteVoiceRoom;
     @Bind(R.id.rl_holder_voice_room)
     RelativeLayout rlHolderVoiceRoom;
     @Bind(R.id.tv_holder_name_voice_room)
@@ -84,12 +87,18 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
     @Bind(R.id.chatroomlayout)
     LinearLayout chatroomlayout;
 
+    //server数据
     VoiceRoom voiceRoom;
     VoiceRole voiceHolder;
     List<VoiceRole> voiceClients;
     VoiceRole user;
+
+    //传入Arguments
     String voiceRoomId = "";
     int userId = 0;
+    boolean isCreatOrJoin = false;
+    String token;
+    int roomType = VoiceRoom.RoomType.CHAT_MAKE_FRIENDS;
 
     VoiceClientGridFragment voiceClientGridFragment;
     RoomRoleOperationBarFragment roomRoleOperationBarFragment;
@@ -107,13 +116,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        Bundle arguments = getArguments();
-        if (arguments == null) return;
-
-        voiceRoomId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID);
-        userId = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID);
-
-        L.i(initTag(), " voiceRoomId " + voiceRoomId + " userId " + userId);
+        initArgumentData();
 
         AgoraHelper.getInstance().joinChannel("room1", 11);
         voiceClientGridFragment = (VoiceClientGridFragment) getChildFragmentManager().findFragmentById(R.id.f_voice_room);
@@ -129,7 +132,23 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         showContentView();
     }
 
-    private Bundle initArguments() {
+    private void initArgumentData() {
+        Bundle arguments = getArguments();
+        if (arguments == null) return;
+
+        voiceRoomId = arguments.getString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID);
+        userId = arguments.getInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID);
+        isCreatOrJoin = arguments.getBoolean(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICEHOLDER_CREATE_OR_VOICEAUDITOR_JOIN);
+        token = UserConfig.getInstance().getAuthToken();
+
+        L.i(initTag(), " initArgumentData voiceRoomId " + voiceRoomId);
+        L.i(initTag(), " initArgumentData userId " + userId);
+        L.i(initTag(), " initArgumentData isCreatOrJoin " + isCreatOrJoin);
+        L.i(initTag(), " initArgumentData token " + token);
+
+    }
+
+    private Bundle setArguments() {
 
         Bundle bundle = new Bundle();
         bundle.putSerializable(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM, voiceRoom);
@@ -178,12 +197,14 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         if (voiceRoom == null)
             return;
 
-        String token = UserConfig.getInstance().getAuthToken();
         //用户信息
-        if (true) {
-            getPresenter().createVoiceRoom(token, "1");//TODO 已创建房间 自己进自己
+        if (isCreatOrJoin) {
+            int userId = UserConfig.getInstance().getId();
+            getPresenter().createVoiceRoom(token, roomType);//TODO 已创建房间 自己进自己
+            QsToast.show("我是房间房主");
         } else {
             getPresenter().joinVoiceRoom(token, voiceRoom.voiceRoomId);//
+            QsToast.show("我是房间听众");
         }
 
     }
@@ -211,6 +232,25 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             return;
         QsHelper.getInstance().getImageHelper().createRequest().load(data.logo).circleCrop().into(ivLogoVoiceRoom);
         tvHolderNameVoiceRoom.setText(data.name);
+
+        if (data.isIdEmpty()) {
+            //空麦位
+            ivLogoVoiceRoom.setBackgroundResource(R.mipmap.ic_add_voice_client);
+            tvHolderNameVoiceRoom.setVisibility(View.INVISIBLE);
+            ivMuteVoiceRoom.setVisibility(View.GONE);
+        } else {
+            //有人麦位
+            if (!TextUtils.isEmpty(data.logo)) {
+                QsHelper.getInstance().getImageHelper().createRequest().load(data.logo).circleCrop().into(ivLogoVoiceRoom);
+            }
+            tvHolderNameVoiceRoom.setVisibility(View.VISIBLE);
+            tvHolderNameVoiceRoom.setText(data.name + "");
+            if (data.isVoiceMute()) {
+                ivMuteVoiceRoom.setVisibility(View.VISIBLE);
+            } else {
+                ivMuteVoiceRoom.setVisibility(View.GONE);
+            }
+        }
     }
 
     @ThreadPoint(ThreadType.MAIN)
@@ -240,7 +280,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
             case R.id.tv_id_voice_room:
                 break;
             case R.id.tv_users_voice_room:
-                bundle = initArguments();
+                bundle = setArguments();
                 QsHelper.getInstance().intent2Activity(OnlineListActivity.class, bundle);
                 break;
             case R.id.btn_more_voice_room:

@@ -107,7 +107,7 @@ public class VoiceRoomPresenter extends DapporePresenter<VoiceRoomFragment> {
     }
 
     @ThreadPoint(ThreadType.HTTP)
-    public void createVoiceRoom(String token, String room_type) {
+    public void createVoiceRoom(String token, int room_type) {
         VoiceRoomHttp http = createHttpRequest(VoiceRoomHttp.class);
         EnterVoiceRoomResponse response = http.createVoiceRoom(new CreateVoiceRoomRequestBody(token, room_type));
         showFailMsg(response);

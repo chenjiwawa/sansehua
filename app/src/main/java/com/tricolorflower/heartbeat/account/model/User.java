@@ -38,7 +38,7 @@ public class User extends BaseModel {
      */
 
     @SerializedName("id")
-    public String id;
+    public int id;
     @SerializedName("name")
     public String name;
     @SerializedName("email")

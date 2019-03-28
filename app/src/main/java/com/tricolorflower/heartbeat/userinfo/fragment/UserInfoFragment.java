@@ -111,7 +111,7 @@ public class UserInfoFragment extends QsFragment<UserInfoFragmentPresenter> {
     private void requestLogout() {
         try {
             loading(true);
-            AppConfig.getInstance().updateCurrentUserId("", new PropertyCallback() {
+            AppConfig.getInstance().updateCurrentUserId(0, new PropertyCallback() {
                 @Override
                 public void onSuccess() {
                     UserConfig.getInstance().logout(new PropertyCallback() {

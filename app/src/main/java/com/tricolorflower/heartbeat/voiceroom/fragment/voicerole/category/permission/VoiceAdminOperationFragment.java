@@ -1,4 +1,4 @@
-package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.positioncategory;
+package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.permission;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,10 +10,10 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory.VoiceHolderOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 
 
-public class VoiceClientOperationFragment extends VoiceRoleOperationFragment {
+public class VoiceAdminOperationFragment extends VoiceRoleOperationFragment {
 
     @Bind(R.id.role)
     protected Button role;
@@ -61,10 +61,10 @@ public class VoiceClientOperationFragment extends VoiceRoleOperationFragment {
 
         role.setVisibility(View.VISIBLE);
         music.setVisibility(View.GONE);
-        enable.setVisibility(View.GONE);
-        letrole.setVisibility(View.GONE);
-        mute.setVisibility(View.GONE);
-        leave.setVisibility(View.GONE);
+        enable.setVisibility(View.VISIBLE);
+        letrole.setVisibility(View.VISIBLE);
+        mute.setVisibility(View.VISIBLE);
+        leave.setVisibility(View.VISIBLE);
     }
 
     @OnClick({R.id.role, R.id.music, R.id.enable, R.id.letrole, R.id.mute, R.id.cancel})
@@ -95,4 +95,24 @@ public class VoiceClientOperationFragment extends VoiceRoleOperationFragment {
                 break;
         }
     }
+
+    @Override
+    public void roleClick(View view) {
+        super.roleClick(view);
+    }
+
+    @Override
+    public void letroleClick(View view) {
+        super.letroleClick(view);
+        if (voiceRoom == null || user == null || data == null)
+            return;
+
+        if (data.id == 0) {
+
+        } else {
+            VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, data.id);
+            getPresenter().loginVoicePosition(body);
+        }
+    }
+
 }

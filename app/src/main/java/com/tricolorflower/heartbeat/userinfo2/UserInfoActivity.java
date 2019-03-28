@@ -59,7 +59,7 @@ public class UserInfoActivity extends QsActivity<LoginPresenter> {
         switch (view.getId()) {
             case R.id.btn_logout_userinfo:
 
-                AppConfig.getInstance().updateCurrentUserId("", new PropertyCallback() {
+                AppConfig.getInstance().updateCurrentUserId(0, new PropertyCallback() {
                     @Override public void onSuccess() {
                         UserConfig.getInstance().logout(new PropertyCallback() {
                             @Override public void onSuccess() {

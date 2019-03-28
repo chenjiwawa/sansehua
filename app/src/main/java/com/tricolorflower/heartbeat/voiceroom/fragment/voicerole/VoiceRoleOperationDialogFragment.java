@@ -14,9 +14,8 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.tricolorflower.heartbeat.R;
-import com.tricolorflower.heartbeat.common.event.RoomRoleOperationEvent;
 import com.tricolorflower.heartbeat.common.event.VoiceRoleOperationEvent;
-import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory.VoiceHolderOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.permission.VoiceHolderOperationFragment;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

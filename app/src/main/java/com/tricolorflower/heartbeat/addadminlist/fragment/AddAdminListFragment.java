@@ -55,7 +55,6 @@ public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPre
     public void initData(Bundle savedInstanceState) {
         initArgumentData();
 
-        requestData(token, namestr);
         getRecyclerView().setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -67,6 +66,8 @@ public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPre
                 super.onScrolled(recyclerView, dx, dy);
             }
         });
+
+        showContentView();
     }
 
     private void initArgumentData() {
@@ -88,12 +89,12 @@ public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPre
 
     @Override
     public void onRefresh() {
-        requestData(token, namestr);
+        requestData(namestr);
     }
 
     @Override
     public void onLoad() {
-        requestData(token, namestr);
+        requestData(namestr);
     }
 
     @Override
@@ -101,7 +102,8 @@ public class AddAdminListFragment extends QsPullRecyclerFragment<AddAdminListPre
         return new AddAdminRecyclerAdapterItem(mInflater, parent, this);
     }
 
-    private void requestData(String token, String namestr) {
+    public void requestData(String namestr) {
+        this.namestr = namestr;
         getPresenter().searchAdmin(token, namestr);
     }
 

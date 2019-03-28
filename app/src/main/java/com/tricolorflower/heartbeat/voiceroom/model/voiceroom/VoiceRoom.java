@@ -8,6 +8,8 @@ import java.util.List;
 
 public class VoiceRoom extends BaseModel implements Serializable {
 
+    public static final int CODE_SUCESS = 200;
+
     /*房间*/
     @SerializedName("room_id")
     public String voiceRoomId;
@@ -33,6 +35,10 @@ public class VoiceRoom extends BaseModel implements Serializable {
     public List<RoomTag> roomTagList;
 
     public static class RoomType {
+        // 房间类型    1,聊天交友   2,相亲速配   3,游戏开黑
+        public static final int CHAT_MAKE_FRIENDS= 1;
+        public static final int DATE_MATCH_MAKING = 2;
+        public static final int GAME_MATCH_COMMUNICATE = 3;
 
         @SerializedName("id")
         public int id;

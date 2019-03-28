@@ -1,4 +1,4 @@
-package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.permissioncategory;
+package com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.position;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,9 +10,10 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.permission.VoiceHolderOperationFragment;
 
 
-public class VoiceGuestOperationFragment extends VoiceRoleOperationFragment {
+public class VoiceAuditorOperationFragment extends VoiceRoleOperationFragment {
 
     @Bind(R.id.role)
     protected Button role;

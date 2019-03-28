@@ -196,6 +196,8 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
                 bundle = new Bundle();
                 bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, 1);
                 bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID, "1");
+                bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID, "1");
+                bundle.putBoolean(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICEHOLDER_CREATE_OR_VOICEAUDITOR_JOIN, true);
                 QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
 
 //                Bundle bundle = new Bundle();
@@ -222,6 +224,7 @@ public class MainFragment extends QsViewPagerFragment<MainFragmentPresenter> imp
                 bundle = new Bundle();
                 bundle.putInt(VoiceRoomConstants.BUNDLE_KEY_REQUEST_USER_ID, 11);
                 bundle.putString(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICE_ROOM_ID, "1");
+                bundle.putBoolean(VoiceRoomConstants.BUNDLE_KEY_REQUEST_VOICEHOLDER_CREATE_OR_VOICEAUDITOR_JOIN, false);
                 QsHelper.getInstance().intent2Activity(VoiceRoomActivity.class, bundle);
 
 //                Bundle bundle = new Bundle();

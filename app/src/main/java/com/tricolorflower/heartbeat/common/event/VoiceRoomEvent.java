@@ -35,6 +35,10 @@ public class VoiceRoomEvent {
         public OnLeave(BaseMessageExtra data) {
             this.data = data;
         }
+
+        public OnLeave() {
+        }
+
     }
 
     public static class OnProductReceived {

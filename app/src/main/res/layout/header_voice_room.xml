@@ -86,56 +86,108 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_holder_voice_room"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="12dp"
+        android:paddingTop="8dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="8dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_holder_voice_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_decorate_voice_room"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_centerInParent="true"
+                android:background="@color/color_red" />
+
+            <ImageView
+                android:id="@+id/iv_logo_voice_room"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/bg_logo_voice_client"
+                android:scaleType="center"
+                android:src="@mipmap/ic_add_voice_client" />
+
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@color/color_black"
+                android:padding="5dp"
+                android:visibility="gone">
+
+                <com.opensource.svgaplayer.SVGAImageView
+                    android:id="@+id/iv_animation_voice_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:visibility="visible"
+                    app:antiAlias="true"
+                    app:autoPlay="true"
+                    app:clearsAfterStop="true"
+                    app:loopCount="10"
+                    app:source="angel.svga" />
+
+            </RelativeLayout>
+
+            <com.opensource.svgaplayer.SVGAImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                app:antiAlias="true"
+                app:source="angel.svga" />
+
+            <Button
+                android:id="@+id/btn_holder_voice_room"
+                android:layout_width="45dp"
+                android:layout_height="15dp"
+                android:layout_below="@id/iv_logo_voice_room"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/shape_rect_orange_r6"
+                android:text="房主"
+                android:textColor="#ffffffff"
+                android:textSize="9dp" />
+
+        </RelativeLayout>
 
         <ImageView
-            android:id="@+id/iv_decorate_voice_room"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:layout_centerInParent="true"
-            android:background="@mipmap/ic_decorate_voice_room" />
-
-        <ImageView
-            android:id="@+id/iv_logo_voice_room"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_centerInParent="true"
-            android:background="@mipmap/bg_logo_voice_client"
-            android:scaleType="center"
-            android:src="@mipmap/ic_add_voice_client" />
-
-        <ImageView
-            android:id="@+id/iv_animation_voice_room"
+            android:id="@+id/iv_mute_voice_room"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/ic_play_audio_list" />
+            android:layout_alignRight="@+id/rl_holder_voice_room"
+            android:layout_alignBottom="@+id/rl_holder_voice_room"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@mipmap/ic_mute_voice_client"
+            android:visibility="visible" />
 
-        <Button
-            android:id="@+id/btn_holder_voice_room"
-            android:layout_width="45dp"
-            android:layout_height="15dp"
-            android:layout_below="@id/iv_logo_voice_room"
+        <TextView
+            android:id="@+id/tv_holder_name_voice_room"
+            style="@style/text_content_four_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_holder_voice_room"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/shape_rect_orange_r6"
-            android:text="房主"
-            android:textColor="#ffffffff"
-            android:textSize="9dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="dapp榜" />
 
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/tv_holder_name_voice_room"
-        style="@style/text_content_two_white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="房主名称" />
 
     <LinearLayout
         android:id="@+id/ll_announce_voice_room"

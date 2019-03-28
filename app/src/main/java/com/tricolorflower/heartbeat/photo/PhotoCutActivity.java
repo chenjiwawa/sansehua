@@ -85,7 +85,7 @@ public class PhotoCutActivity extends QsABActivity<PhotoCutPresenter> {
                 L.i(initTag(),"cut bitmap success width:" + bitmap.getWidth() + "  charHeight:" + bitmap.getHeight() + "  byte:" + bitmap.getByteCount());
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
-                getPresenter().requestChangeHead(UserConfig.getInstance().getId(),baos.toByteArray());
+                getPresenter().requestChangeHead(UserConfig.getInstance().getId()+"",baos.toByteArray());
                 bitmap.recycle();
                 break;
             default:

@@ -16,6 +16,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.qsmaxmin.qsbase.common.widget.dialog.QsDialogFragment;
 import com.qsmaxmin.qsbase.common.widget.toast.QsToast;
 import com.tricolorflower.heartbeat.R;
+import com.tricolorflower.heartbeat.account.model.User;
 import com.tricolorflower.heartbeat.common.listener.ItemSelectListener;
 import com.tricolorflower.heartbeat.common.listener.ItemSingleSelectListener;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.TypeList;
@@ -25,6 +26,8 @@ import com.tricolorflower.heartbeat.voiceroom.model.VoiceRoomConstants;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.tricolorflower.heartbeat.voiceroom.model.voiceroomsetting.TypeList.Type.ID_EMPTY;
 
 public class RoomTypeDialogFragment extends QsDialogFragment implements ItemSelectListener<TypeList.Type> {
 
@@ -51,7 +54,7 @@ public class RoomTypeDialogFragment extends QsDialogFragment implements ItemSele
     VoiceRole voiceHolder;
     List<VoiceRole> voiceClients;
     VoiceRole user;
-    String data;
+    int data;
 
 
     public static RoomTypeDialogFragment getInstance(Bundle extras) {
@@ -152,7 +155,7 @@ public class RoomTypeDialogFragment extends QsDialogFragment implements ItemSele
             case R.id.cancel:
                 break;
             case R.id.confirm:
-                if (TextUtils.isEmpty(data)) {
+                if (data==ID_EMPTY) {
                     QsToast.show("请选择类型！");
                     return;
                 }
@@ -174,7 +177,7 @@ public class RoomTypeDialogFragment extends QsDialogFragment implements ItemSele
     }
 
     public interface OnDialogListener {
-        void onTypeSetting(String data);
+        void onTypeSetting(int data);
     }
 
     public void setOnDialogListener(OnDialogListener listener) {
