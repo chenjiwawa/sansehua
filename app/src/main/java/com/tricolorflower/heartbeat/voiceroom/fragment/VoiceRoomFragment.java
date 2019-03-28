@@ -235,7 +235,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
 
         if (data.isIdEmpty()) {
             //空麦位
-            ivLogoVoiceRoom.setBackgroundResource(R.mipmap.ic_add_voice_client);
+            ivLogoVoiceRoom.setImageResource(R.mipmap.ic_add_voice_client);
             tvHolderNameVoiceRoom.setVisibility(View.INVISIBLE);
             ivMuteVoiceRoom.setVisibility(View.GONE);
         } else {

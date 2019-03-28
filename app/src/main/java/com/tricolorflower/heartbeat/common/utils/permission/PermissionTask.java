@@ -130,7 +130,7 @@ public class PermissionTask {
             return;
         }
         L.i(TAG,"************勾选了不在提醒并弹出对话框 " + showDialogPermission.toString());
-//        RoomOperationDialogFragment.createBuilder()//
+//        ChatRoomInputMessageDialogFragment.createBuilder()//
 //                .setTitle(QsHelper.getInstance().getString(R.string.notice))//
 //                .setMessage(getPermissionDialogMessage(showDialogPermission))//
 //                .setNegativeButtonText(QsHelper.getInstance().getString(R.string.cancel))//

@@ -98,10 +98,10 @@
 //            case R.id.text_login_out:
 //                requestLogout();
 //
-////                RoomOperationDialogFragment dialogFragment = RoomOperationDialogFragment.getInstance();
+////                ChatRoomInputMessageDialogFragment dialogFragment = ChatRoomInputMessageDialogFragment.getInstance();
 ////                dialogFragment.setTitle(QsHelper.getInstance().getString(R.string.tip_title));
 ////                dialogFragment.setMessage(QsHelper.getInstance().getString(R.string.make_sure_exit));
-////                dialogFragment.setOnDialogListener(new RoomOperationDialogFragment.OnDialogListener() {
+////                dialogFragment.setOnDialogListener(new ChatRoomInputMessageDialogFragment.OnDialogListener() {
 ////                    @Override
 ////                    public void onConfirm() {
 ////                        requestLogout();

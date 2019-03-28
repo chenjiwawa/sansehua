@@ -13,7 +13,7 @@ import com.qsmaxmin.qsbase.mvp.fragment.QsFragment;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.agora.AgoraHelper;
 import com.tricolorflower.heartbeat.common.event.RoomRoleOperationEvent;
-import com.tricolorflower.heartbeat.voiceroom.fragment.chatroom.InputMessageDialogFragment;
+import com.tricolorflower.heartbeat.voiceroom.fragment.chatroom.ChatRoomInputMessageDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.SendProductDialogFragment;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.BaseVoiceRole;
 import com.tricolorflower.heartbeat.voiceroom.model.voicerole.VoiceRole;
@@ -152,7 +152,8 @@ public class RoomRoleOperationBarFragment extends QsFragment<RoomRoleOperationBa
                 break;
             case R.id.ib_message_room_role_operation:
                 setParentDialogDismiss();
-                InputMessageDialogFragment.getInstance().show();
+                initArgumentData();
+                ChatRoomInputMessageDialogFragment.getInstance(getArguments()).show();
                 break;
             case R.id.ib_logo_anim_room_role_operation:
                 initArgumentData();

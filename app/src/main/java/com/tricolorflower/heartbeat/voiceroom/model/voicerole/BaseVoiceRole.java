@@ -8,6 +8,15 @@ import java.io.Serializable;
 
 public class BaseVoiceRole implements Serializable {
 
+     /*
+     空麦位判断
+
+     isVoiceRoleUsingPosition //房主麦位 8个麦位 是否有人
+
+     isVoicePositionEmpty//当前用户 对应的麦位 没有对应麦位（-1）
+
+     */
+
     /*
      按麦分类
      观众    房主    麦上用户
@@ -39,8 +48,26 @@ public class BaseVoiceRole implements Serializable {
     public String name;
     @SerializedName("pic")
     public String logo;
+
+    public static final int POSITION_EMPTY = -1;
+    //房主 0 麦上用户1-8
     @SerializedName("position")
     public int position;
+
+    //空麦位
+    public boolean isVoicePositionEmpty() {
+        return position == POSITION_EMPTY ? true : false;
+    }
+
+    //房主麦位
+    public boolean isVoiceHolderPosition() {
+        return position == 0 ? true : false;
+    }
+
+    //麦上用户麦位
+    public boolean isVoiceClientPosition() {
+        return (1 <= position && position <= 8) ? true : false;
+    }
 
     /*声网语音直播*/
     public String agoraChannelName;
@@ -80,14 +107,14 @@ public class BaseVoiceRole implements Serializable {
     }
 
     public boolean isVoiceClient() {
-        if ((permission == PERMISSION_ADMIN || permission == PERMISSION_GUEST) && position > 0) {
+        if ((permission == PERMISSION_ADMIN || permission == PERMISSION_GUEST) && isVoiceClientPosition()) {
             return true;
         }
         return false;
     }
 
     public boolean isVoiceAuditor() {
-        if ((permission == PERMISSION_ADMIN || permission == PERMISSION_GUEST) && position == 0) {
+        if ((permission == PERMISSION_ADMIN || permission == PERMISSION_GUEST) && isVoicePositionEmpty()) {
             return true;
         }
         return false;
@@ -116,6 +143,7 @@ public class BaseVoiceRole implements Serializable {
         return false;
     }
 
+    //是否麦位
     public boolean isVoiceRoleUsingPosition() {
         return (id != 0 ? true : false);
     }

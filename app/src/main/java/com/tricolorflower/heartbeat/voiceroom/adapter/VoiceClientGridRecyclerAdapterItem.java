@@ -61,9 +61,9 @@ public class VoiceClientGridRecyclerAdapterItem extends QsRecycleAdapterItem<Voi
         if (data.isIdEmpty()) {
             //空麦位
             if (data.isVoiceEnable()) {
-                ivLogoVoiceClient.setBackgroundResource(R.mipmap.ic_add_voice_client);
+                ivLogoVoiceClient.setImageResource(R.mipmap.ic_add_voice_client);
             } else {
-                ivLogoVoiceClient.setBackgroundResource(R.mipmap.ic_close_voice_client);
+                ivLogoVoiceClient.setImageResource(R.mipmap.ic_close_voice_client);
             }
             tvNameVoiceClient.setVisibility(View.INVISIBLE);
             ivMuteVoiceClient.setVisibility(View.GONE);

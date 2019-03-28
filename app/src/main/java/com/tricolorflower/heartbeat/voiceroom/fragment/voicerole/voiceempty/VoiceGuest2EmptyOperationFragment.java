@@ -11,6 +11,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.category.permission.VoiceHolderOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.ChangeVoicePositionClientRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 
 
@@ -106,13 +107,13 @@ public class VoiceGuest2EmptyOperationFragment extends VoiceHolderOperationFragm
         if (voiceRoom == null || user == null || data == null)
             return;
 
-        if (TextUtils.isEmpty(user.position + "") || user.position == 0) {
+        if (user.isVoicePositionEmpty()) {
             //上麦
             VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, user.id);
             getPresenter().loginVoicePosition(body);
         } else {
             //换麦
-            VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, user.id);
+            ChangeVoicePositionClientRequestBody body = new ChangeVoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, user.position, data.position);
             getPresenter().changeVoicePosition(body);
         }
     }

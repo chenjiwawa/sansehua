@@ -10,6 +10,7 @@ import com.qsmaxmin.qsbase.common.viewbind.annotation.Bind;
 import com.qsmaxmin.qsbase.common.viewbind.annotation.OnClick;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.ChangeVoicePositionClientRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 
 
@@ -99,15 +100,22 @@ public class VoiceAdmin2EmptyOperationFragment extends VoiceRoleOperationFragmen
         }
     }
 
-    //自己上麦
+    //上麦 换麦
     @Override
     public void roleClick(View view) {
         super.roleClick(view);
         if (voiceRoom == null || user == null || data == null)
             return;
 
-        VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, user.id);
-        getPresenter().loginVoicePosition(body);
+        if (user.isVoicePositionEmpty()) {
+            //上麦
+            VoicePositionClientRequestBody body = new VoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, data.position, user.id);
+            getPresenter().loginVoicePosition(body);
+        } else {
+            //换麦
+            ChangeVoicePositionClientRequestBody body = new ChangeVoicePositionClientRequestBody(token, voiceRoom.voiceRoomId, user.position, data.position);
+            getPresenter().changeVoicePosition(body);
+        }
     }
 
     //抱TA上麦

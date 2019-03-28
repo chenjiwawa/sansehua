@@ -13,6 +13,7 @@ import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 import com.tricolorflower.heartbeat.common.presenter.DapporePresenter;
 import com.tricolorflower.heartbeat.voiceroom.fragment.roomrole.product.SendProductFragment;
 import com.tricolorflower.heartbeat.voiceroom.fragment.voicerole.VoiceRoleOperationFragment;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.ChangeVoicePositionClientRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionMicrophoneRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionMusicPermissionRequestBody;
@@ -89,17 +90,12 @@ public class VoiceRoleOperationPresenter extends DapporePresenter<VoiceRoleOpera
 
 
     @ThreadPoint(ThreadType.HTTP)
-    public void changeVoicePosition(VoicePositionClientRequestBody requestBody) {
+    public void changeVoicePosition(ChangeVoicePositionClientRequestBody requestBody) {
         VoicePositionHttp http = createHttpRequest(VoicePositionHttp.class);
-        BaseModel response = http.logoutVoicePosition(requestBody);
+        BaseModel response = http.changeVoicePosition(requestBody);
         showFailMsg(response);
         if (isSuccess(response)) {
-            response = http.loginVoicePosition(requestBody);
-            showFailMsg(response);
-            if (isSuccess(response)) {
-                eventPostSuccess();
-            } else {
-            }
+            eventPostSuccess();
         } else {
         }
     }

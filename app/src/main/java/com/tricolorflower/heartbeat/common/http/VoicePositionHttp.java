@@ -5,6 +5,7 @@ import com.qsmaxmin.qsbase.common.aspect.GET;
 import com.tricolorflower.heartbeat.common.model.BaseModel;
 import com.tricolorflower.heartbeat.common.model.BaseVoiceRoleRequestBody;
 import com.tricolorflower.heartbeat.voicerolelist.model.VoiceRoleList;
+import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.ChangeVoicePositionClientRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionClientRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionMicrophoneRequestBody;
 import com.tricolorflower.heartbeat.voiceroom.model.voiceposition.VoicePositionMusicPermissionRequestBody;
@@ -32,6 +33,9 @@ public interface VoicePositionHttp {
 
     @GET("/api/room/out_seat")
     BaseModel logoutVoicePosition(@Body VoicePositionClientRequestBody body);
+
+    @GET("/api/room/change_seat")
+    BaseModel changeVoicePosition(@Body ChangeVoicePositionClientRequestBody body);
 
     @GET("/api/room/shot_chatroom")
     BaseModel kickOutVoicePosition(@Body BaseVoiceRoleRequestBody body);
