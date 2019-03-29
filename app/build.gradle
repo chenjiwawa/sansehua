@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-aspectjx'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 repositories {
     flatDir {
@@ -26,7 +27,7 @@ android {
         multiDexEnabled true
         buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis() + "L"
         ndk {
-            abiFilters 'armeabi-v7a'
+            abiFilters "armeabi-v7a", "x86"
         }
     }
 
@@ -42,10 +43,6 @@ android {
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
-    }
-
-    packagingOptions {
-        exclude 'META-INF/LICENSE.txt'
     }
 
     signingConfigs {
@@ -65,24 +62,30 @@ android {
 
     buildTypes {
         release {
-            //混淆及瘦身
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
-
         debug {
             minifyEnabled false
-            signingConfig signingConfigs.debug
-            proguardFiles 'proguard-rules.pro'
         }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 
     sourceSets {
         main {
             jniLibs.srcDirs = ['src/main/jniLibs']
+//            jni.srcDirs = []
+//            jniLibs.srcDirs = ['libs']//两个jni路径 TODO
         }
+    }
+
+    //多个
+    packagingOptions {
+        exclude 'AndroidManifest.xml'
+        exclude 'META-INF/LICENSE.txt'
     }
 
 }
@@ -151,5 +154,17 @@ dependencies {
     //融云IM
 
     //动画播放器
-    compile 'com.github.yyued:SVGAPlayer-Android:2.4.2'
+    api 'com.github.yyued:SVGAPlayer-Android:2.4.2'
+
+    //融云IM
+    api project(':recognizer')
+    api project(':contactcard')
+    api project(':RedPacket')
+    api project(':CallKit')
+    api project(':IMKit')
+    api project(':RCSticker')
+    api project(':Sight')
+    api 'com.facebook.stetho:stetho:1.4.1'
+    api 'com.huawei.android.hms:push:2.6.1.301'
+    api 'com.meizu.flyme.internet:push-internal:3.6.+@aar'
 }

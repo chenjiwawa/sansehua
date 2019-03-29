@@ -1,2 +1,6 @@
 include ':app', ':VerticalViewPager', ':MultiThreadDownload'
 include ':ViewPagerIndicator'
+include ':recognizer', ':contactcard',":IMKit",":IMLib",":CallLib",":CallKit",":RedPacket"
+include ':RCSticker'
+include ':Sight'
+

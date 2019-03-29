@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/other"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:background="@android:color/holo_red_dark"
+            android:onClick="other"
+            android:text="other(glxgK6CVP)!" />
+
+        <TextView
+            android:id="@+id/me"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_dark"
+            android:onClick="me"
+            android:text="me(1ZezSpDKJ)!" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ConversationList"
+        android:text="ConversationList!" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="Conversation"
+        android:text="Conversation!" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ConversationList2"
+        android:text="ConversationList2!" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="Conversation2"
+        android:text="Conversation2!" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ChatList"
+        android:text="ChatList!" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="Chat"
+        android:text="Chat!" />
+
+    <TextView
+        android:id="@+id/chatroom11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ChatRoom11"
+        android:text="ChatRoom11!" />
+
+    <TextView
+        android:id="@+id/chatroom12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ChatRoom12"
+        android:text="ChatRoom12!" />
+
+    <TextView
+        android:id="@+id/ChatRoom13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ChatRoom13"
+        android:text="ChatRoom13!" />
+
+    <TextView
+        android:id="@+id/chatroom21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ChatRoom21"
+        android:text="ChatRoom21!" />
+
+    <TextView
+        android:id="@+id/chatroom22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ChatRoom22"
+        android:text="ChatRoom22!" />
+
+    <TextView
+        android:id="@+id/defaultchatroom1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="defaultchatroom1"
+        android:text="defaultchatroom1!" />
+
+</LinearLayout>
