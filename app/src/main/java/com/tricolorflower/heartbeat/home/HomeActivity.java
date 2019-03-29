@@ -12,6 +12,7 @@ import com.qsmaxmin.qsbase.mvp.model.QsModelPager;
 import com.tricolorflower.heartbeat.R;
 import com.tricolorflower.heartbeat.common.event.HomeEvent;
 import com.tricolorflower.heartbeat.common.utils.KeyboardHelper;
+import com.tricolorflower.heartbeat.home.fragment.EmptyFragment;
 import com.tricolorflower.heartbeat.home.fragment.MessageFragment;
 import com.tricolorflower.heartbeat.home.fragment.MainFragment;
 import com.tricolorflower.heartbeat.home.fragment.VideoFragment;
@@ -34,10 +35,10 @@ public class HomeActivity extends QsViewPagerActivity<HomePresenter> implements 
         mainPager.fragment = MainFragment.getInstance();
 
         QsModelPager findPager = createViewPagerModel(HomeConstants.INDEX_FIND);
-        findPager.fragment = MessageFragment.getInstance();
+        findPager.fragment = EmptyFragment.getInstance();
 
         QsModelPager mediaPager = createViewPagerModel(HomeConstants.INDEX_MEDIA);
-        mediaPager.fragment = VideoFragment.getInstance();
+        mediaPager.fragment = MessageFragment.getInstance();
 
         QsModelPager minePager = createViewPagerModel(HomeConstants.INDEX_MINE);
         minePager.fragment = MineFragment.getInstance();

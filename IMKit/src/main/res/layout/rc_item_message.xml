@@ -215,11 +215,35 @@
         android:paddingBottom="6dp">
 
         <TextView
+            android:id="@+id/tv_info1_item_chatroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/shape_rect_item_chatroom"
+            android:drawableLeft="@drawable/rc_cs_star_hover"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_info2_item_chatroom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@+id/tv_info1_item_chatroom"
+            android:background="@drawable/shape_rect_item_chatroom"
+            android:drawableLeft="@drawable/rc_cs_star_hover"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+
+        <TextView
             android:id="@+id/tv_content_item_chatroom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@+id/tv_info2_item_chatroom"
             android:background="@android:color/holo_blue_light"
             android:textColor="@android:color/black"
             android:textSize="12sp" />

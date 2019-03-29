@@ -102,11 +102,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/TypefaceTheme"
             android:windowSoftInputMode="adjustResize|stateHidden">
-        <!--    <intent-filter>
+           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
         <activity
@@ -311,11 +311,11 @@
 
         <activity android:name="com.tricolorflower.heartbeat.seal.SealMainActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-            <intent-filter>
+     <!--       <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity android:name="com.tricolorflower.heartbeat.seal.extension.ChatListActivity"
@@ -377,6 +377,16 @@
 
         <receiver
             android:name="com.tricolorflower.heartbeat.seal.SealNotificationReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.THIRD_PARTY_PUSH_STATE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.tricolorflower.heartbeat.rong.RongNotificationReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />

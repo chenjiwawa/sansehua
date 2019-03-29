@@ -17,11 +17,6 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
-        <Button
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:background="@drawable/bg_shadow_notop" />
-
         <LinearLayout
             android:id="@+id/chatroomlayout"
             android:layout_width="match_parent"

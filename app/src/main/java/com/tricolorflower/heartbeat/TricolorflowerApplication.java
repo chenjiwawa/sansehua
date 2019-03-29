@@ -102,28 +102,16 @@ public class TricolorflowerApplication extends QsApplication {
     public void initHttpAdapter(HttpBuilder httpBuilder) {
         if (httpBuilder == null)
             return;
-        L.i(TAG, " onCommonHttpResponse UserConfig -1" + UserConfig.getInstance().isLogin() + " " + UserConfig.getInstance().getAuthToken());
 
         httpBuilder.setTerminal(UrlUtils.getCurrentUrl());
         httpBuilder.addHeader("Content-Type", "application/json");
         httpBuilder.addHeader("Accept", "application/json");
-        if (!TextUtils.isEmpty(UserConfig.getInstance().getAuthToken())) {
-            httpBuilder.addHeader("Auth-Token", UserConfig.getInstance().getAuthToken());
-        }
     }
 
     @Override
     public void onCommonHttpResponse(Response response) {
         if (response == null)
             return;
-//        AgoraLog.i(TAG, " onCommonHttpResponse response " + response + " " + response.headers());
-        L.i(TAG, " onCommonHttpResponse UserConfig +1" + UserConfig.getInstance().isLogin() + " " + UserConfig.getInstance().getAuthToken());
-        L.i(TAG, " onCommonHttpResponse UserConfig +2" + UserConfig.getInstance().isLogin() + " " + response.headers().get("Auth-Token"));
-
-        if (response.headers() != null && !TextUtils.isEmpty(response.headers().get("Auth-Token"))) {
-            UserConfig.getInstance().setAuthToken(response.headers().get("Auth-Token"));
-            L.i(TAG, " onCommonHttpResponse UserConfig +3" + UserConfig.getInstance().isLogin() + " " + UserConfig.getInstance().getAuthToken());
-        }
     }
 
 

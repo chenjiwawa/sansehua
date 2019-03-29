@@ -13,15 +13,22 @@ public class BaseMessageExtra implements Serializable {
     public String messageExtraType;
 
     @SerializedName("is_display")
-    public String isDisplay;
+    public int isDisplay;
 
-//    @SerializedName("content")
-//    public BaseMessageExtraContent messageExtraContent;
+    public boolean isDisplayInClient() {
+        return isDisplay == 1 ? true : false;
+    }
+
+    @SerializedName("content")
+    public BaseMessageExtraContent messageExtraContent;
+
+    @SerializedName("content")
+    public String messageExtraContentStr;
 
     @SerializedName("extra")
     public String messageExtraExtra;
 
-    protected BaseMessageExtra parse(String messageExtra) {
+    public BaseMessageExtra parse(String messageExtra) {
         Gson gson = new Gson();
         return gson.fromJson(messageExtra, BaseMessageExtra.class);
     }

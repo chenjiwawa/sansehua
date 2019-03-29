@@ -126,7 +126,7 @@ public class VoiceRoomFragment extends QsFragment<VoiceRoomPresenter> implements
         requstData();
 //        creatOrJoinVoiceRoom();
 
-//        initChatRoom();
+        initChatRoom();
 
         loadingClose();
         showContentView();
